@@ -1,0 +1,330 @@
+/* css file for blogging */
+
+body,html 
+{
+	font-family:georgia,serif;
+	font-size:medium;
+}
+
+/* layout for blogging */
+
+/* 2008-12-10 */
+.weblog .wb-header h3.dc-title
+{
+	margin:0;
+	padding 0;
+	display:block;
+}
+.logdate
+{
+	margin:0;
+	padding: 0 0 0 1em;
+}
+/* 2008-12-10 */
+
+body,html 
+{
+	margin:0;
+	padding:0;
+}
+
+dt
+{
+	margin-left: .7em;
+	font-weight:bold;
+}
+dd
+{
+	font-style:italic;
+}
+body 
+{
+	min-width:790px;
+}
+img
+{
+	margin:.3em;
+	border:0;
+}
+#wrap 
+{
+	margin:0 auto;
+	width:790px;
+	border:solid 1px black;
+}
+#header 
+{
+}
+#header h1 
+{
+  	padding:5px;
+    margin:0;
+}
+#header a
+{
+	text-decoration:none;
+}
+#header .title-desc
+{
+	text-align:right;
+	font-style:italic;
+	margin:0 .5em;
+}
+#nav 
+{
+	padding:5px;
+	border-bottom:solid 1px #000;
+}
+#nav ul
+{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#nav li
+{
+	display:inline;
+	margin:0;
+	padding:0;
+	padding-right:.3em;
+}
+#main 
+{
+	float:left;
+	width:600px;
+	border-right:solid 1px black;
+}
+#main h2, 
+#main h3,
+#main h4,
+#main h5, 
+#main p 
+{
+	padding:0 10px;
+}
+#main .category
+{
+	text-align:right;
+}
+#sidebar 
+{
+	float:right;
+	width:190px;
+}
+#sidebar ul 
+{
+	margin-top:0;
+	margin-bottom:0;
+}
+#sidebar h3,
+#sidebar h4
+{
+  padding:0 10px 0 0;
+  margin-top:.5em;
+  margin-bottom:0px;
+}
+#sidebar p 
+{
+	padding:0 10px 0 0;
+}
+#sidebar p.all
+{
+	text-align:right;
+	font-size:xx-small;
+	font-weight:bold;
+	text-transform:uppercase;
+	margin:0px;
+	padding:0 .3em;
+}																																						
+#footer 
+{
+	border-top:solid 1px black;
+	clear:both;
+}
+#footer p 
+{
+	padding:5px;
+	margin:0;
+}
+.weblog
+{
+	margin-bottom:1em;
+}
+.weblog .wb-header
+{
+}
+.weblog .wb-header h3,
+.weblog .wb-header h4,
+.weblog .wb-header h5
+{
+	display:inline;
+}
+
+.weblog .wb-header span
+{
+	font-style:italic;
+	font-weight:bold;
+	font-size:smaller;
+}
+.weblog .wb-header .comment-header
+{
+	font-style:normal;
+	font-weight:normal;
+	font-size:small;
+}
+.weblog .wb-header .comment-header a
+{	
+	text-decoration:none;
+}
+.weblog hr
+{
+	border:0;
+	width:95%;
+	height:1px;
+	color:#000;
+	background-color:#000;
+	text-align:center;
+}
+.weblog h4,
+.weblog h5
+{
+	margin-bottom:0px;
+}
+.weblog p
+{
+	margin-top:0px;
+}
+
+.permalink a
+{
+	padding: .3em;
+	text-decoration:none;
+}
+
+.website-full h3,
+.category-full h3
+{
+	display:inline;
+	margin-bottom:0;
+}
+.website-full .weblink,
+.category-full .weblink
+{
+	font-size:smaller;
+	font-style:italic;
+	margin-right:.3em;
+}
+.website-full p,
+.category-full p
+{
+	margin-top:0;
+}
+.code
+{
+	font-size: smaller;
+	margin-left: 1em;
+	margin-bottom: 1em;
+	padding: .2em 1em 1em 1em;
+	background-color:White;
+	border: solid 1px #999;
+	font-family:Monospace;
+	white-space:pre;
+	width:550px;
+	max-height:400px;
+	overflow:scroll;
+}
+blockquote
+{
+	font-style:italic;
+	font-size:smaller;
+	padding:.2em;
+}
+
+.js-kit-comments
+{
+	margin-left:1em; 
+}
+/* blue-white pallette for blogging */
+
+body,html
+{
+	background:#fff;
+	color:#000;
+}
+#wrap
+{
+	background:#eee;
+}
+#header
+{
+	background:#73da75;
+	color:#144106;
+}
+#header a
+{
+	color:#144106;
+}
+#nav
+{
+	background:#87ee89;
+	color:#144106;
+}
+#nav a
+{
+	color:#144106;
+}
+#nav a:hover
+{
+	background-color:#73da75;
+}
+#main
+{
+	background:#eee;
+	color:#000;
+	border:0;
+}
+#sidebar
+{
+	text-align:right;
+	background:#eee;
+	color:#000;
+}
+#sidebar ul
+{
+	list-style-type:none;
+	margin-right:.5em;
+}
+#sidebar a
+{
+	color:#000;
+}
+#sidebar a:hover
+{
+	background-color:#ccc;
+}
+#footer
+{
+	background:#87ee89;
+	color:#144106;
+}
+.weblog hr
+{
+	color:#999;	
+}
+.weblog a
+{
+	color:#000;
+}
+.weblog a:hover
+{
+	background-color:#ccc;
+}
+blockquote
+{
+	background-color:#ddd;
+	border:solid 1px #999;
+}
+.code
+{
+  background-color: #FED;
+}

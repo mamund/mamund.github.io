@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[entities and actions]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">entities and actions</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2012-02-20 @ 10:24</span><span class="permalink"><a href="1120.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+<a href="http://www.flickr.com/photos/crartist/3073860476/" title="24/365 Face Off">
+<img src="http://farm4.staticflickr.com/3141/3073860476_8e69fc1091_t.jpg" align="right" class="inline" />
+</a>
+those who read my blog know that i favor a hypermedia style when implementing
+dist-net apps. i don't <em>always</em> use that style (it's not always the
+proper style for the problem at hand), but when i have the chance to <em>choose</em>
+which style i implement, hypermedia is often my selection.
+</p>
+<p>
+so that leads to an obvious question: "why?"
+</p>
+<p>
+while there are many reasons (too many to cover here), there is one aspect of 
+the hypermedia style that i enjoy very much: it's "action" orientation. 
+not 
+"<a href="http://en.wikipedia.org/wiki/Event-driven_architecture">event-driven</a>" 
+or  
+"<a href="http://en.wikipedia.org/wiki/Behavior_based_AI">behavior-based</a>" 
+but "action" orientation.
+</p>
+<h4>problem domains</h4>
+<p>
+when working with clients, there is a point (usually early on) where the talk
+focuses on the "problem domain"; the stuff that must get done. often this information
+is "bottled up" within the heads of selected members in the client company; sometimes
+it's well documented in policies &amp; and procedures documents. it can also 
+appear as "source code" from some previous attempt at mapping the problem domain
+to computer code. this last method of expressing a problem domain is, IME, the
+least reliable as there have likely been several compromises (to fit the
+constraints of the coding environment) and often inaccurate translations (due to
+lack of understanding between the SME [subject matter expert] and the development
+team/person).
+</p>
+<p>
+anyway, through some means, the domain is exposed sufficiently to allow the work
+of mapping that domain onto the selected technology stack. in my case, this is
+almost always some form of mapping the domain to services running over HTTP. 
+that's what i do most often and, at this point, i rarely get "called" unless the
+client has "pre-selected" for an HTTP implementation anyway[grin].
+</p>
+<p>
+so, the next step is how to <em>go about</em> mapping the domain to HTTP. this
+is not the same as writing code; this is <em>before</em> code. this is the
+<em>design</em> or <em>architecture</em> part of the experience. and, since it
+is a design process, there are lots of possibilities, lots of tools, lots of 
+methodologies, etc. and few can be accurately labeled as clearly "right" or 
+"wrong." at this point, this is mostly about the preferences, and proclivities
+of the architect/designer. 
+</p>
+<p>
+in my recent experience, there are two very common ways to approach this 
+"mapping" task. one that focuses on the <em>entities</em> identified in the 
+problem domain. another that focuses on the <em>actions</em> identified in the 
+problem domain. there are other ways to view the domain (i.e. actors, components, etc.)
+but i'll focus on these two here: entites and actions.
+</p>
+<h4>action orientation</h4>
+<p>
+hypermedia designs focus on the actions taking place in the problem domain.
+things like "get a list of customers sorted by date" and "allow users to filter 
+the order list by sales region" and "allow selected users to add new
+customers", etc. are all <em>actions</em>. when implementing a system using
+these actions as the centerpiece, hypermedia designs select the appropriate 
+affordances (within the selected media type) and map those affordances to the 
+identified actions. 
+</p>
+<p>for example:</p>
+<dl>
+<dt>"get a list of customers by date"</dt>
+<dd>
+<code>
+<small>
+&lt;a href="..." rel="customers-by-date"&gt;Customers By Date&lt;/a&gt;
+</small>
+</code>
+</dd>
+<dt>"allow users to filter the orders list by sales region"</dt>
+<dd>
+<code>
+<small>
+&lt;form action="..." method="get" class="filter-orders"&gt;<br />
+&lt;input name="region" value=""/&gt;<br />
+&lt;/form&gt;
+</small>
+</code>
+</dd>
+<dt>"allow selected users to add new customers"</dt>
+<dd>
+<code>
+<small>
+&lt;form action="..." method="post" class="add-customer"&gt;...&lt;/form&gt;
+</small>
+</code>
+</dd>
+</dl>
+<p>
+in the above examples, the HTML.A and HTML.FORM affordances are used to provide
+the actions that map to the problem domain. note that hypermedia style implementations
+express the problem domain <em>within messages themselves</em>. this is an important
+point since it makes it possible to share this message in various ways and still
+retain the problem domain details (i.e. even 
+<a href="http://www.amundsen.com/blog/archives/1041">if the message was sent via 
+FTP</a>, the affordances could still work and still retain their usefulness).
+</p>
+<blockquote>
+the use of in-message affordances to carry the semantic details of the problem
+domain (instead of mapping the domain directly to the network protocol) is 
+sometimes cited as a drawback of the hypermedia style. 
+</blockquote>
+<p>
+you'll notice that the actual URIs for each affordance are of little
+interest here. in the hypermedia style, URIs are treated as nothing more than
+transient identifiers that enable the actions. hypermedia style implementations
+are prepared for (and fully expect) the moment when the URI for an affordance
+changes (for any number of reasons). that is one of the reasons the hypermedia 
+style expresses problem domain details via messages instead of URIs.
+</p>
+<h4>entity orientation</h4>
+<p>
+entity designs focus on the entities or objects within the problem domain. for
+example "customers", "orders", etc. are <em>entities</em>. when implementing 
+systems focused on entities, the most common methodology is to create network
+identities (URIs) that <em>contain</em> the entity names (i.e. 
+http://example.org/<em>customers</em>/, etc.). implementors then use the high-level
+transfer protocol's network methods as "operators" for each entity.
+</p>
+<p>for example:</p>
+<dl>
+<dt>"get a list of customers by date"</dt>
+<dd>
+<code>
+<small>
+GET http://example.org/customers?order=date
+</small>
+</code>
+</dd>
+<dt>"allow users to filter the orders list by sales region"</dt>
+<dd>
+<code>
+<small>
+GET http://example.org/orders?region=...
+</small>
+</code>
+</dd>
+<dt>"allow selected users to add new customers"</dt>
+<dd>
+<code>
+<small>
+POST http://example.org/customers/
+</small>
+</code>
+</dd>
+</dl>
+<p>
+in the above examples, instead of using a message format to carry the domain
+semantics, entity oriented designs map the domain directly onto the available
+protocol and attempt to make URIs themselves carry meaning. 
+</p>
+
+<blockquote>
+entity orientation is similar to 
+<a href="http://www.w3.org/RDF/">RDF</a> styles where the URI is treated as
+carrying intrinsic meaning and <em>is</em> the  permanent identifier.
+</blockquote>
+
+<p>
+the appeal of this direct mapping of a problem domain to a network protocol is
+fairly obvious. it removes a layer of abstraction which exists for message-based
+hypermedia style. humans usually have little trouble mapping the limited set of 
+HTTP protocol methods to simple operations on an "entity" (the classic 
+<a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">Create, 
+Read, Update, Delete</a> === 
+<a href="http://www.xml.com/pub/a/2004/12/01/restful-web.html">POST, 
+GET, PUT, DELETE</a> meme). finally,
+this entity view is easy to support via "tooling" since it essentially reduces
+distributed network interactions to passing internal objects around using only
+four possible operations.
+</p>
+<p>
+but there are limits to this approach. first, entity orientation - while handy -
+is not how most humans think of life's interactions. usually they think first
+of the 
+<a href="http://en.wikipedia.org/wiki/Seven_stages_of_action">goal they want to 
+achieve</a> and then set up tasks in order to achieve it. second, it turns out
+to be quite difficult to get everyone to agree on the 
+<a href="http://martinfowler.com/bliki/TwoHardThings.html">rules for forming 
+identifiers</a>. the HTTP world has experienced 
+<a href="http://www.w3.org/2001/tag/issues.html#httpRange-14">a decade-long 
+dispute</a> over how to handle permantent network identifiers and it still is 
+<a href="http://www.w3.org/wiki/HttpRange14Options">not sufficently settled</a>.
+</p>
+<p>
+finally, it happens that many real world cases do not map well to the limited 
+set of HTTP methods. usually there are some suggested compromises on how to 
+handle certain operations within the problem domain (using HTTP.POST to send
+large search criteria, etc.). <a href="http://en.wikipedia.org/wiki/WebDAV">WebDAV</a> 
+solved this problem by adding 
+<a href="http://www.webdav.org/specs/rfc4918.html#http.methods.for.distributed.authoring">
+seven additional HTTP methods</a> that fit the targeted problem domain.
+</p>
+<h4>a matter of choice</h4>
+<p>
+in the end, it all boils down to choices. currently, implementing disitrubted
+network applications involves mapping the details of a problem domain to existing
+network standards. there is no getting around that; no choice there! but where
+we <em>do</em> have a choice is in how we go about accomplishing our task; the
+styles we use to map the domain to the standards. there are multiple ways to do 
+this. i usually choose the hypermedia style since it tracks well with how i 
+think about distributed networks, matches well with the existing strandards and
+technologies we use today (
+<a href="http://tools.ietf.org/html/rfc3986">URIs</a>,  
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP</a>, 
+<a href="http://www.iana.org/assignments/media-types/index.html">IANA</a>) and 
+presents very few restrictions when implementing clients and servers.
+</p>
+<p>
+what implementation style do you use? and why do you prefer it?
+</p></div>
+          <p class="category"><a href="index.html%3Fcategory=20.html" title="more from Hypermedia...">Hypermedia</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

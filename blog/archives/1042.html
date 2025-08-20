@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[Modified RPC over HTTP: old wine in a new bottle]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">Modified RPC over HTTP: old wine in a new bottle</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2010-04-12 @ 17:31</span><span class="permalink"><a href="1042.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+<a href="http://www.flickr.com/photos/clydeye/322371546/" title="Vini e Oli">
+<img src="http://farm1.static.flickr.com/137/322371546_582817cbc7_t.jpg" align="right" class="inline" />
+</a>
+this post is a follow-up -- a <a href="http://en.wikipedia.org/wiki/Prequel" title="Prequel">prequel</a>, 
+actually -- to my earlier post entitled 
+<a href="1041.html" title="A RESTful Hypermedia API in Three Easy Steps">A RESTful Hypermedia API in Three Easy Steps</a>.
+this time, i'll start from the same basic premise (a simple list manager service) and create, not a RESTful interface, but
+a more typical HTTP interface that is too often <i>labled</i> RESTful when it is really a modified RPC interface over HTTP.
+the aim here is to help reader distinguish between RESTful and RPC implementation for the same service.
+</p>
+<blockquote>
+  you can learn more about my RPC, Modified RPC, and Hypermedia labels for APIs in another of my blog posts
+  (<a href="1040.html" title="Not Web all APIs are the same">Not all Web APIs are the same</a>).
+</blockquote>
+<h4>The List Service</h4>
+<p>
+  i talked about this in the last post, so here's a real quick review.
+  this API will define a simple list management service. you can use it to add, edit, and delete items from a list like a "to-do" list, 
+  a shopping list, etc. you can also execute a few simple queries against the list including all the open items, all the items due 
+  today, or items due within a date range.
+</p>
+<p>
+if i was coding a local application, i might use a set of function signatures that look like this:
+</p>
+<pre class="code">
+GetList()
+GetItem(id)
+AddItem(name, description, date-due, completed)
+UpdateItem(id, name, description, date-due, completed)
+DeleteItem(id)
+GetOpenItems()
+GetTodaysItems()
+GetItemsByDate(date-start,date-stop)
+</pre>
+<p>
+  for this example, you can assume the above set of methods are implemented on the server in some way. for instance,
+  these might be implemented as a single class with a collection of methods. or the above calls might be implemented
+  as a set of sprocs in T-SQL. the details of the server-side implementation is not really important, all we really need 
+  is an interface exposed to HTTP. that's next.
+</p>
+<h4>Modified RPC over HTTP</h4>
+<p>
+  usually, i see folks taking the above set of method calls and converting them into a set of HTTP URIs along with 
+  a message body in one or more serialization formats. here's a typical example:
+</p>
+<pre class="code">
+GET /list/
+GET /list/{id}
+POST /list/ 
+  name={text}&amp;description={text}&amp;date-due={date}&amp;completed={int}
+PUT /list/{id} 
+  name={text}&amp;description={text}&amp;date-due={date}&amp;completed={int}
+DELETE /list/{id}
+GET /list/?today
+GET /list/?open
+GET /list/?date-start={date}&amp;date-stop={date}
+</pre>
+<p>
+  as you can see, this URI-centric interface is just another RPC approach that matches the URI and the HTTP 
+  protocol method (GET, PUT, POST, DELETE) to the existing class methods. it's not RESTful at all.
+  <a href="http://www.youtube.com/watch?v=FtvFbXG-7Mw" title="The Best Of Kramer - The Outing ">
+    <i>not that there's anything wrong with that.</i>
+  </a>.
+</p>
+<h4>The Downside of RPC over HTTP</h4>
+<p>
+  often the modified RPC approach leverages well-known data formats such as XML and JSON.
+  these types are devoid of built-in semantic link information (or hypermedia). more recently the 
+  <a href="http://www.ietf.org/rfc/rfc4287.txt" title="The Atom Syndication Format">Atom</a>
+  media-type (an XML format with CRUD-style semantic links) has been used as a payload for
+  modified RPC designs. the Atom Publishing Protocol 
+  (<a href="http://www.ietf.org/rfc/rfc5023.txt" title="Atom Publishing Protocol">RFC5023</a>) 
+  provides basic navigational
+  and update link semantics for the Atom media-type by defining two URI types (Collection URI
+  and Member URI) which can be used by clients to handle standard read and write operations.
+  this is an improvement over JSON and plain old XML (POX) designs.
+</p>
+
+<p>
+  however, even when HTTP APIs use the Atom hypermedia format, most API designers fall into the
+  pattern of documenting a wide range of URI conventions for a single protocol (HTTP) that
+  include detailed rules for making queries against the data store. clients must be provided with
+  custom coding in order to support these query rules; rules which are rarely transferable
+  between implementations or applications. also, most Atom-formatted content carries the interesting 
+  data as a serialized custom XML sub-document within Atom's <code>&lt;content
+  /&gt;</code> element. This approach treats the Atom format itself as an envelope for custom
+  XML much the way <a href="http://www.w3.org/TR/soap/" title="SOAP Version 1.2">SOAP</a> is 
+  designed to be an envelope for RPC operations. What follows is
+  a typical example of a popular Atom representation that uses the <code>&lt;content
+  /&gt;</code> element to carry a custom XML serialization (the <code>&lt;m:properties
+  /&gt;</code> element in the example below).
+</p>
+<pre class="code">
+&lt;entry&gt;
+  ...
+  &lt;content type="application/xml"&gt;
+    &lt;m:properties&gt;
+      &lt;d:CustomerID&gt;ALFKI&lt;/d:CustomerID&gt; 
+      &lt;d:CompanyName&gt;Alfreds Futterkiste&lt;/d:CompanyName&gt; 
+      &lt;d:ContactName&gt;Maria Anders&lt;/d:ContactName&gt; 
+      &lt;d:ContactTitle&gt;Sales Representative&lt;/d:ContactTitle&gt; 
+      &lt;d:Address&gt;Obere Str. 57&lt;/d:Address&gt; 
+      &lt;d:City&gt;Berlin&lt;/d:City&gt; 
+      &lt;d:Region m:null="true" /&gt; 
+      &lt;d:PostalCode&gt;12209&lt;/d:PostalCode&gt; 
+      &lt;d:Country&gt;Germany&lt;/d:Country&gt; 
+      &lt;d:Phone&gt;030-0074321&lt;/d:Phone&gt; 
+      &lt;d:Fax&gt;030-0076545&lt;/d:Fax&gt; 
+    &lt;/m:properties&gt;
+  &lt;/content&gt;
+&lt;/entry&gt;
+  </pre>
+
+<h4>The Bottom Line</h4>
+<p>
+  in general, URI-centric designs like the modified RPC example discussed here tend to
+  ignore the value of semantic links and subsequently require clients to know the exact URIs
+  and/or detailed URI construction rules before they are able to interact with the server. this
+  can lead to tight coupling between the server's documented URI scheme and any deployed
+  clients. changes in the URI scheme run the risk of breaking existing clients or at least
+  rendering some features unavailable to them until the clients are rebuilt with the new URI
+  construction rules.
+</p>
+<blockquote>
+  <h4>NOTE</h4>
+  <p>
+  this limitation on client-coding doesn't come up when the server developer is also the one
+  charged w/ coding the client. however, once third-party developers start building their own
+  clients against this RPC API, things can go badly. More than one social service API that relies heavily
+  on third-party clients has, after making seemingly minor changes in their RPC-based URI conventions, 
+  incurred the wrath of jilted developers.
+  </p>
+</blockquote>
+<p>
+  finally, when surfacing the function signatures of classic RPC designs to the protocol
+  level via HTTP methods and URIs, the design becomes protocol-specific. in other words,
+  any change in procotol (e.g. FTP or SMTP, etc.) will resullt in additional URI construction
+  rules. this further limits a server's ability to modify the interface in the future.
+</p>
+<h4>So...</h4>
+<p>
+  in the long run, it's better to implement RESTful interfaces using hypermedia links in a shared,
+  well-documented media-type as in the example given in the post metioned at the beginning of this 
+  entry. i favor minting new media types that support one or more application implementations. however, 
+  it's also possible to use existing media types as long as you provide additional documentation that
+  developers can use when coding clients and servers to use your hypermedia interface.
+</p>
+<p>
+  maybe i'll implement a hypermedia inteface using a standard media-type soon and post it here, too.
+</p></div>
+          <p class="category"><a href="index.html%3Fcategory=22.html" title="more from REST...">REST</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

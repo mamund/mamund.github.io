@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[More REST, Less ROT]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">More REST, Less ROT</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2011-06-07 @ 14:04</span><span class="permalink"><a href="1100.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+<a href="http://www.flickr.com/photos/nellibab/388999802/" title="More/Less">
+<img src="http://farm1.static.flickr.com/185/388999802_c9b03014f5_t.jpg" align="right" class="inline" />
+</a>
+<a href="http://www.flickr.com/photos/nellibab/388999009/" title="More/Less">
+<img src="http://farm1.static.flickr.com/176/388999009_2c3e2bbca8_t.jpg" align="right" class="inline" />
+</a>
+I'm encouraged that my recent presentation at Codestock has sparked
+<a href="http://tech.groups.yahoo.com/group/rest-discuss/message/17564">some</a>  
+<a href="http://twitter.com/#!/search/%23codestock%20mamund%20rest">interest</a>.  
+Here are some comments on the "What we need is more REST and less ROT" 
+<a href="../../talks/index.html#more-rest">slide deck</a> and my thinking behind the material...
+</p>
+<ol>
+<li>The point of the talk was to "jolt" attendees into thinking differently about common Web implementation details (e.g. type marshaling/object serialization)</li>
+<li>The slides themselves are "prompts" for the presentation and are missing quite a few nuances/details (sorry, no recording is available).</li>
+<li>Due to time constraints I left out example designs based on HTML (only used XML and JSON examples in the slides)</li>
+<li>The bottom-line message of the talk was to create messages that include not just "what" (data), but also "how" (hypermedia).</li>
+</ol>
+<h4>Some additional things to consider</h4>
+<ul>
+<li>Much of the work I am doing in "designing hypermedia" is driven by Fielding's 
+"<a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">
+REST APIs must be hypertext-driven</a>" blog post from Oct 2008. This is not to say what I 
+am doing is necessarily what Roy had in mind, just that it his work outlining items to 
+consider when crafting APIs provided important inputs to my work in this area.
+</li>
+<li>The <a href="../../media-types/phactor/format/index.html">PHACTOR</a> example is just that; an example. Rather academic, too[g]. It has been used to illustrate the hypermedia factors model. I have demo apps using it, but it is not very interesting for anything else; just a teaching/conversation piece.</li>
+<li>The <a href="../../media-types/maze/index.html">Maze+XML</a> example was built to show that you 
+can create a "domain-specific" hypermedia format (similar to 
+<a href="http://www.w3.org/TR/voicexml20/">VoiceXML</a> and write clients against it. in this case there are 
+<a href="../../examples/misc/maze-client.html">multiple implementations</a> of "bots" 
+that run the maze successfully. 
+</li>
+<li>The <a href="../../media-types/collection/index.html">Collection.JSON</a> example was built to show 
+you can create a "generic" hypermedia format (ala <a href="http://tools.ietf.org/html/rfc5023">AtomPub</a>) 
+and write clients that can automatically understand not only CRUD operations, but also templated 
+search options (e.g. HTML.FORMS). 
+</li>
+<li>I am working on an HTML-based hypermedia design that relies on (@id, @name, @rel, and @class) 
+to carry all the domain-specific information. I have an open project dubbed 
+"<a href="../../hypermedia/profiles/index.html">ALPS</a>" that illustrates these ideas. 
+This will be featured at the <a href="http://www.restfest.org/schedule">RESTFest HackDay</a> 
+this year and I am most interested in hearing from folks on this project (would be really cool 
+if you could come to the HackDay w/ your example/experiences).
+</li>
+<li>I'll be presenting a modified version (shortened) of this talk at 
+<a href="http://www.oscon.com/oscon2011/public/schedule/detail/19163">OSCON</a> this year. 
+I look forward seeing folks there and getting feedback on this talk and the ideas of 
+hypermedia design in general.</li>
+<li>I am currently working on a book for O'Reilly called 
+"<a href="http://oreilly.com/catalog/0636920020530/">Designing Hypermedia APIs w/ HTML5 and Node"</a> 
+that explores this topic as well as works through a handful of designs and implementations 
+(server and client). It should be available later this year.</li>
+</ul>
+
+<h4>let's talk!</h4>
+<p>
+I'd be happy to discuss this material online. Some of that discussion will likely happen on 
+<a href="http://tech.groups.yahoo.com/group/rest-discuss/">rest-discuss</a>, 
+but this topic may stray from the charter of the rest-discuss list (Hypermedia is my focus and that reaches 
+across arch styles, protocols, etc.). If you wish, you can start a convo on a list I created recently: 
+<a href="https://groups.google.com/forum/#!forum/hypermedia-web">hypermedia-web</a>. 
+You can also write me directly, if you wish (mamund -AT- yahoo -DOT- com).
+</p></div>
+          <p class="category"><a href="index.html%3Fcategory=20.html" title="more from Hypermedia...">Hypermedia</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

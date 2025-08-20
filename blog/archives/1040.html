@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[not all Web APIs are the same]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">not all Web APIs are the same</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2010-03-25 @ 14:09</span><span class="permalink"><a href="1040.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+<a href="http://www.flickr.com/photos/auro/465891994/" title="salire (le scale) non è come scenderle">
+<img src="http://farm1.static.flickr.com/223/465891994_3e47a45b5e_t.jpg" align="right" class="inline" />
+</a>
+recently i've been seeing quite a bit of talk about "RESTful APIs" and getting annoyed (again).
+annoyed because these APIs are not at all adhering to the REST constraints but, instead, are
+merely RPC over HTTP using pre-published URI conventions. 
+<a href="http://www.youtube.com/watch?v=2GMZjkNW5b8" title="Seinfeld- Jerry and George">
+  <i>Not that there's anything wrong with that</i>.
+</a>
+it's gotten so bad that i finally had to 
+<a href="http://twitter.com/mamund/status/10672950825" title="#REST != #HTTP dammit!">run out onto the porch</a>
+brandishing my shotgun and kick all the kids off my lawn.
+</p>
+<p>luckily, some friends have talked me down off the porch, but i'm still pretty annoyed. so here's my point:</p>
+<h4>not all Web APIs are the same</h4>
+<p>
+  there are lots of ways to expose services on the Web. Jan Algermissen
+  (<a href="http://twitter.com/algermissen" title="Jan Algermissen">@algermissen</a>)
+  has done some great work in exploring and categorizing Web services in his 
+  <a href="http://nordsc.com/ext/classification_of_http_based_apis.html" title="Classification of HTTP-based APIs">
+    Classification of HTTP-based APIs
+  </a> posting.
+</p>
+<p>
+  much of this API categorization can be traced to the work of 
+  <a href="http://www.crummy.com/self/" title="Hi, I'm Leonard Richardson.">Leonard Richardson</a> and his  
+  <a href="http://www.crummy.com/writing/speaking/2008-QCon/act3.html" title="Act Three: The Maturity Heuristic">
+    Maturity Heuristic (2008)
+  </a>. more recently, <a href="http://twitter.com/martinfowler" title="Martin Fowler">@MartinFowler</a> posted his 
+  <a href="http://martinfowler.com/articles/richardsonMaturityModel.html" title="Richardson Maturity Model: steps toward the glory of REST">
+    Richardson Maturity Model
+  </a> article and this has gotten quite a few more folks interested
+  in the idea of differentiating Web API models. all good stuff.
+</p>
+<p>my ideas on these differences is a bit simpler.</p>
+<h4>the Web API scale</h4>
+<p>
+  to my way of thinking there are essentially three basic API models for exposing services on the web:
+</p>
+<dl>
+  <dt>Classic RPC Tunneling over HTTP</dt>
+  <dd>
+    <p>
+      Classic RPC Tunneling is best illustated using XML-RPC or SOAP. 
+      the functions are published via single "gateway" URI and usually accessed
+      via HTTP POST with a body describing the details of the call. clients and
+      servers share the interface definition (usually via WSDL, etc.) and any
+      changes to that interface usually must be replicated to all parties.
+    </p>
+    <p>
+      the key advantage is that Classic RPC limits the number of URIs required to
+      publish a service. the key disadvantage of this approach is that it relies on tight
+      coupling between client and server.  both parties must share full knowledge of the function 
+      details and any data structures involved and any change to this information can render the service 
+      unusable for both parties. Also, Classic RPC over HTTP takes very 
+      little advantage of the HTTP protocol or infrastructure since it was not designed to do so.
+    </p>
+  </dd>
+  <dt>Modifed RPC over HTTP</dt>
+  <dd>
+    <p>
+      Modified RPC elevates the server operations to a set of URIs tied to HTTP
+      protocol methods in a CRUD-based pattern. This is very similar to Classic RPC,
+      but attempts a more direct mapping of the server-side functions to public URIs.
+      clients need to know the URI conventions (and the valid protocol methods for each) in order
+      to access the service and any changes to the URI convention must be replicated to
+      all parties.
+    </p>
+    <p>
+      the key advantage of this approach is that it makes much better use of the HTTP
+      protocol itself and, in doing so, improves scalability and reliability of the service.
+      the key disadvantage is that Modified RPC suffers the same tight coupling between 
+      client and server since the URI convention is a fixed set of knowledge that both parties
+      must share and any changes to this convention (including moving all or part of the service 
+      to different server namespaces) can render the service unusable for some or all parties.
+    </p>
+  </dd>
+  <dt>Hypermedia Interfaces</dt>
+  <dd>
+    <p>
+      Hypermedia Interfaces, like the Classic RPC model, usually publish a single "entry" URI. however, unlike 
+      RPC models, this URI is not a gateway for all operations. instead it is a starting point for 
+      getting information on how to use the service. in Hypermedia Interfaces, the actual URI collection is unimportant.
+      instead information about the service is shared through an agreed media-type and a defined set of
+      link semantics. the URIs can change (even the starting URI, in some cases) as long as the media-type 
+      definition and the link semantics do not. 
+    </p>
+    <p>
+      documenting the service is handled via the media-type definition itself and does not rely on pre-defined URIs 
+      or function names. usually media-type definitions do net even rely on protocol details (the same media-type could 
+      be used over HTTP, FTP, etc.). this approach is very similar to the one outlined in Chapter 5 of  
+      <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm" title="Architectural Styles and the Design of Network-based Software Architectures">
+        Fielding's dissertation
+      </a> and commonly referred to as REST.
+    </p>
+    <p>
+      the key advantage of the Hypermedia Interface approach is that there is no coupling of URIs, methods, or 
+      function calls between the client and server. this allows the server to modify these details at any time without
+      running the risk of breaking existing clients. the key disadvantage of this approach is that clients and servers 
+      must have a full understanding of the link semantics in the shared media-type used to define the service. the work 
+      of programming servers as stateless engines based on a media-type is well-established and a common practice. however, 
+      programming clients as media-type state engines is not as common and can be deemed too much effort for a certain 
+      class of services.
+    </p>
+  </dd>
+</dl>
+<h4>it ain't REST, my friend</h4>
+<p>
+  boiling it all down, the key point here is that there are very few APIs that are really RESTful. most are really Modified 
+  RPC over HTTP. and that's fine. that works for many cases. these APIs do not need to change how they work. but they do need 
+  to change how they are named. 
+</p>
+<p>and please, rename them. if you don't i might have to grab my shotgun and camp out on the porch for a while.</p>
+<blockquote>
+  <b>Note:</b><br />
+  for those who want to view a guide on how to see if your API is truely RESTful, check out this 
+  <a href="http://code.google.com/p/implementing-rest/wiki/RESTAPIRules" title="REST API Rules">detailed list of REST API Rules</a>
+  posted by <a href="http://twitter.com/fielding" title="Roy T. Fielding">@fielding</a> in late 2008. and if you think you've got a RESTful API, let me know.
+</blockquote>
+</div>
+          <p class="category"><a href="index.html%3Fcategory=22.html" title="more from REST...">REST</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

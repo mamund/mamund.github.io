@@ -1,0 +1,20 @@
+# /robots.txt file for http://www.amundsen.com
+
+User-Agent: stress-agent
+Disallow: /
+
+User-agent: *
+Disallow: /jobs/
+Disallow: /server/
+Disallow: /stats/
+Disallow: /documents/
+Disallow: /templates/
+Disallow: /scripts/
+Disallow: /cache/
+Disallow: /config/
+Disallow: /secure/
+Disallow: /storage/
+Disallow: /mstdg/files/
+Disallow: /ineta/files/
+
+

@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>
+          Hypermedia Types
+        </title>
+    <link type="text/css" rel="stylesheet" href="hypermedia/files/hypermedia-types.css">
+  </head>
+  <body>
+    <div id="ads" style="text-align:center;"><script type="text/javascript">
+            
+            google_ad_client = "pub-2944238157647009";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            google_ad_format = "728x90_as";
+            google_ad_type = "text_image";
+            google_ad_channel = "4794860677";
+            google_color_border = "000000";
+            google_color_bg = "F0F0F0";
+            google_color_link = "000000";
+            google_color_text = "000000";
+            google_color_url = "000000";
+            
+        </script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+    <h1>Hypermedia Types</h1>
+    <div id="page">
+      <div id="factors" style="width:150px;float:right;clear:both;">
+        <table class="hfactors">
+          <thead>
+            <tr>
+              <th colspan="5"><a href="hypermedia/hfactor.html" title="Hypermedia Factors" class="hfactor-link">Hypermedia Factors</a></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td class="border cd"><a href="hypermedia/hfactor.html#cl" title="Control Data for Links">CL</a></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="border cd"><a href="hypermedia/hfactor.html#cr" title="Control Data for Reads">CR</a></td>
+              <td class="border cd"><a href="hypermedia/hfactor.html#cu" title="Control Data for Updates">CU</a></td>
+              <td class="border cd"><a href="hypermedia/hfactor.html#cm" title="Control Data for Interface Methods">CM</a></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="border ld"><a href="hypermedia/hfactor.html#le" title="Embedded Links">LE</a></td>
+              <td class="border ld"><a href="hypermedia/hfactor.html#lo" title="Outbound Links">LO</a></td>
+              <td class="border ld"><a href="hypermedia/hfactor.html#lt" title="Templated Links">LT</a></td>
+              <td class="border ld"><a href="hypermedia/hfactor.html#ln" title="Non-Idempotent Update Links">LN</a></td>
+              <td class="border ld"><a href="hypermedia/hfactor.html#li" title="Idempotent Update Links">LI</a></td>
+            </tr>
+          </tbody>
+          <tfoot></tfoot>
+        </table>
+      </div>
+      <div id="content">
+        <body>
+          <div id="hypermedia-apis">
+            <p class="bha-image"><a href="https://github.com/mamund/Building-Hypermedia-APIs" title="Building Hypermedia APIs"><img src="images/hypermedia/building-hypermedia-apis.jpg" height="150"></a></p>
+            <p class="bha-content"><a href="https://github.com/mamund/Building-Hypermedia-APIs" title="Building Hypermedia APIs">
+            Building Hypermedia APIs with HTML5 and Node
+          </a></p>
+          </div>
+          <blockquote style="width:700px;margin:auto;;margin-bottom:1em;">
+            <p class="quote-block">
+      		"The WWW is fundamentally a <i>distributed hypermedia</i> application."
+      		<span class="attrib"><a href="http://www.softwarearchitecturebook.com/about-the-book/" title="Software Architecture: Foundations, Theory, and Practice">
+      				Taylor, Medividovic, Dashofy (2010)
+      			</a></span></p>
+            <p class="quote-block">
+      		"Hypermedia is defined by the presence of application control information embedded within, 
+      		or as a layer above, the presentation of information. Distributed hypermedia allows the 
+      		presentation and control information to be stored at remote locations."
+      	<span class="attrib"><a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/web_arch_domain.htm#sec_4_1_3" title="Architectural Styles and the Design of Network-based Software Architectures">Roy T. Fielding (2000)</a></span></p>
+            <p class="quote-block">
+      	 "<i>Hypermedia Types</i> are MIME media types that contain native hyper-linking semantics 
+      	 that induce application flow. For example, HTML is a hypermedia type; XML is not."
+        <span class="attrib">
+        	Mike Amundsen (2010)
+        </span></p>
+          </blockquote>
+          <p style="float:none;clear:both;"> </p>
+          <div id="introduction">
+            <p>
+          These pages contain the results of my efforts to identify and summarize widely-used [hyper]media-types. 
+          If you know of a hypermedia type that is not listed here, please send the details to me via
+          <a href="http://twitter.com/mamund" title="My twitter page">twitter</a> or
+          <a href="mailto:mamund@yahoo.com" title="my public email address">email</a>.
+        </p>
+            <p>
+          I keep a running list of <a href="hypermedia/scraps/index.html" title="Scraps">scraps</a>
+          to track my random observations, assumptions, and judgements. They might someday be
+          incorporated into the primary content here.
+        </p>
+          </div>
+          <h3>Suggested Hypermedia Types</h3>
+          <ul>
+            <li class="docs"><a href="hypermedia/html/index.html" title="XHTML 1.0 The Extensible HyperText Markup Language (Second Edition)">X/HTML</a></li>
+            <li class="docs"><a href="hypermedia/atom/index.html" title="The Atom Syndication Format">Atom</a></li>
+            <li><a href="http://www.w3.org/TR/voicexml20/" title="Voice Extensible Markup Language (VoiceXML) Version 2.0">VoiceXML</a></li>
+            <li><a href="http://www.w3.org/TR/ccxml/" title="Voice Browser Call Control: CCXML Version 1.0">CCXML</a></li>
+            <li class="docs"><a href="hypermedia/smil/index.html" title="Synchronized Multimedia Integration Language (SMIL 3.0)">SMIL</a></li>
+            <li class="docs"><a href="hypermedia/svg/index.html" title="Scalable Vector Graphics (SVG) 1.1 Specification">SVG</a></li>
+            <li><a href="http://www.w3.org/TeamSubmission/turtle/" title="Turtle - Terse RDF Triple Language">Turtle</a></li>
+            <li><a href="http://www.w3.org/DesignIssues/Notation3" title="Notation 3">Notation 3</a></li>
+            <li><a href="http://swdev.nokia.com/trix/trix.html" title="RDF Triples in XML">TriX</a></li>
+            <li><a href="http://www4.wiwiss.fu-berlin.de/bizer/TriG/" title="The TriG Syntax">TriG</a></li>
+            <li><a href="http://www.w3.org/TR/REC-rdf-syntax/" title="RDF/XML Syntax Specification (Revised)">RDF/XML</a></li>
+            <li><a href="http://vast.uah.edu/index.php?option=com_content&amp;view=article&amp;id=14&amp;Itemid=52/" title="SensorML V1.0 specification 07-000">SensorML</a></li>
+            <li class="docs"><a href="hypermedia/css/index.html" title="Cascading Style Sheets">CSS</a></li>
+            <li class="docs"><a href="hypermedia/urilist/index.html" title="text/uri-list">text/uri-list</a></li>
+            <li class="docs"><a href="hypermedia/sitemap/index.html" title="Sitemap XML">Sitemap XML</a></li>
+          </ul>
+          <h3>Methodology</h3>
+          <ol>
+            <li>Identify media-types of interest (via <a href="http://www.iana.org/assignments/media-types/" title="MIME Media Types">IANA Registered MIME Media Types</a>).</li>
+            <li>Select the media types that include link semantics (hypermedia-types)</li>
+            <li>For each  selected media-type, identify all elements within each media type that are link elements</li>
+            <li>For each identified link element, note any arguments, attributes, etc. and their use.</li>
+            <li>For each identified link element, note relationships (where appropriate) to uniform interface and control data elements of the supported application protocol(s) [usually HTTP]</li>
+            <li>Summarize, categorize, and rank the '<a href="hypermedia/hfactor.html" title="Hypermedia Factor">H Factor</a>' of each hypermedia type.</li>
+          </ol>
+          <h3>Other Considerations</h3>
+          <ol>
+            <li>Does the media-type work for more than one application protocol (HTTP, FTP, etc.)?</li>
+            <li>Are there internal or <a href="http://www.iana.org/assignments/link-relations/link-relations.xhtml" title="Atom Link Relations">externally registered</a> link relation values of interest for the media-type?</li>
+            <li>To what degree does the media-type support machine-to-machine interactions?</li>
+            <li>Are there hypermedia aspects of the media type that are only found in the documentation? (e.g. Atom <code>rel="edit"</code> means idempotent update [HTTP PUT, DELETE])</li>
+            <li>How does a hypermedia type's <a href="hypermedia/hfactor.html" title="H Factor">H Factor</a> affect client/server implementation?</li>
+          </ol>
+          <h3>Terminology</h3>
+          <dl>
+            <dt>Link semantics</dt>
+            <dd>
+          Elements of the media type that allow user-agents (or their human operators) to affect the state of the application, usually by navigating from one state to the next. 
+          For example, the <code>A</code> and <code>FORM</code> elements of X/HTML exhibit link semantics. By comparison, the <code>IMG</code> and 
+          <code>OBJECT</code> elements do not. <span class="ed-note">[MCA: this needs to be refined and clarified.]</span>.
+        </dd>
+          </dl>
+        </body>
+        <h3>Related Links</h3>
+        <ul>
+          <li><a href="http://restpatterns.org/Articles/The_Hypermedia_Scale" title="The Hypermedia Scale">
+    			The Hypermedia Scale
+    		</a></li>
+          <li><a href="http://ouseful.wordpress.com/2010/03/03/so-what-is-it-about-linked-data-that-makes-it-linked-data%E2%84%A2/" title="So What Is It About Linked Data that Makes it Linked Data?">
+          So What Is It About Linked Data that Makes it Linked Data?
+        </a></li>
+          <li><a href="http://www.openlinksw.com/blog/kidehen@openlinksw.com/blog/?id=1611" title="Revisiting HTTP based Linked Data">
+          Revisiting HTTP based Linked Data
+        </a></li>
+          <li><a href="http://www.w3.org/TR/xforms/" title="XForms 1.1">XForms 1.1</a></li>
+          <li><a href="http://www.w3.org/TR/xlink/" title="XML Linking Language (XLink) Version 1.0">XML Linking Language (XLink) Version 1.0</a></li>
+          <li><a href="http://www.w3.org/TR/xinclude/" title="XML Inclusions (XInclude) Version 1.0 (Second Edition)">XML Inclusions (XInclude) Version 1.0 (Second Edition)</a></li>
+        </ul>
+        <h3>Update History</h3>
+        <dl class="update-history">
+          <dt>2010-07-30</dt>
+          <dd><notes>sitemap and text/uri-list added (suggested by via email by <a href="http://twitter.com/hamnis" title="@hamnis">Erlend Hamnaberg</a>)</notes></dd>
+          <dt>2010-06-15</dt>
+          <dd><notes>Added reference to "The Hypermedia Scale"</notes></dd>
+          <dt>2010-06-06</dt>
+          <dd><notes>Added CSS to the list of media-types and added the Scraps section.</notes></dd>
+          <dt>2010-05-31</dt>
+          <dd><notes>Reworked underlying data storage and added Hypermedia Factors box</notes></dd>
+          <dt>2010-03-10</dt>
+          <dd><notes>Updated Related Links section with XForms, XLink, and XInclude</notes></dd>
+          <dt>2010-03-09</dt>
+          <dd><notes>Added SensorML and H Factor</notes></dd>
+          <dt>2010-03-04</dt>
+          <dd><notes>Added Turtle, N3, TriX, TriG, and RDF/XML (suggested by <a href="http://twitter.com/kidehen" title="Kingsley Idehen">Kingsley Idehen</a>'s 
+          <a href="http://www.openlinksw.com/blog/kidehen@openlinksw.com/blog/?id=1611" title="Revisiting HTTP based Linked Data">blog post</a>) </notes></dd>
+          <dt>2010-03-03</dt>
+          <dd><notes>Added Related Links section</notes></dd>
+          <dt>2010-02-15</dt>
+          <dd><notes>Added SMIL and SVG (suggested by <a href="http://twitter.com/mhausenblas" title="Michael Hausenblas">Michael Hausenblas</a>)</notes></dd>
+          <dt>2010-02-08</dt>
+          <dd><notes>Added VoiceMXL and CCXML (suggested by <a href="http://twitter.com/andrewwahbe" title="Andrew Wahbe">Andrew Wahbe</a>)</notes></dd>
+          <dt>2010-02-05</dt>
+          <dd><notes>Initial post</notes></dd>
+        </dl>
+      </div>
+    </div>
+    <div id="footer">
+      <address>updated: 2010-05-31 (mca)</address>
+    </div><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+        _uacct = "UA-2399548-1";
+        urchinTracker();
+        </script></body>
+</html>

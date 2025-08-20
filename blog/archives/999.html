@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[does HATEOAS need better rel values?]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">does HATEOAS need better rel values?</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2009-06-06 @ 12:48</span><span class="permalink"><a href="999.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+<a href="http://www.flickr.com/photos/americanartmuseum/3314804096/" title="Austin Mecklem: Engine House and Bunkers, 1934">
+<img src="http://farm4.static.flickr.com/3475/3314804096_71d35d2b38_t.jpg" align="right" class="inline" />
+</a>
+i've been following a <a href="http://tech.groups.yahoo.com/group/rest-discuss/message/12730" title="YAATRTA HATEOAS">thread on the REST Discuss list</a> this week about the meaning/value of the "Hypermedia constraint" outlined in <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm" title="Architectural Styles and the Design of Network-based Software Architectures">Roy Fielding's 2001 dissertation</a>. from my POV, it's good to see folks wrestling with this aspect of the REST style. it leads me to believe that, even eight years after it's publication, Fielding's work is continues to connect with folks interested in applying the concepts in real-world situations.
+</p>
+<p>this thread is a bit 'rangy' and covers a number of things. one of them is the notion that the "<code>rel</code>" link attribute might contain additional useful information to help clients navigate state transitions. this idea has also been the subject of discussions by <a href="http://savas.me/blog/932" title="A Hypermedia Framework?">Savas Parastatidis</a> and <a href="http://jim.webber.name/2009/05/26/85eb97fc-c601-4103-a6bc-e0f9a0adc10c.aspx" title="HATEOAS - The Confusing Bit from REST">Jim Webber</a> recently.
+</p>
+<p>i, too, have been working on this notion of 'decorating' links w/ rel values in order to add more content for state engines to use. along the way, i've come to some fundamental issues on the matter. i post them here in hopes of inviting response to clarify, refute, dispel them as is appropriate.
+</p>
+<ul>
+<li>if rel values on links are to be useful for state engines, then the semantic meaning of the values need to be understood by clients and servers. this leads me to think that a standard is needed. like <code>rel="stylesheet"</code>, but on a grander scale</li>
+<li>if rel values are to be useful for machine-to-machine interactions, a wide number of clients need ways to translate the rel into predictable actions.</li>
+<li>if rel value are to be useful for human to machine interactions, they need to be rendered for humans to see. this should probably occur in a standard way was well. titles, roll-overs, colors, locations on the screen (i.e. navigation, etc.) are all possiblities</li>
+<li>many examples of these types of rel values involve not just navigating to the URI in order to make the state transition, but also require supplying additional information (in the form of a state representation) to the server. for example, <code>rel="payment"</code> probably requires additional data such as a credit card number, etc. is this just an HTML <code>form</code> element? or is there something else needed here?</li>
+<li>thinking again about machine-to-machine interactions, does the server need to send more than one hyper-link to the agent at any point? in other words, does the client really 'choose' from more than one link? or does the client start somewhere (the public URI) and, through passing state representations, navigate a single path provided by the server that is the result of the state representations passed by the client?</li>
+</ul>
+<p>there has certainly been some effort to standardize <code>rel</code> values:</p>
+<ul>
+<li>the <a href="http://www.w3.org/TR/REC-html40/types.html#type-links" title="6.12 Link types">HTML 4.0 docs</a> define the <code>rel</code> value as a simple text annotation (with the exception of <code>stylesheet</code>).</li>
+<li>the <a href="http://www.w3.org/TR/rdfa-syntax/#relValues" title="9.3. @rel/@rev attribute values">RDFa spec</a> adds a few more string values for <code>rel</code>.</li>
+<li>the <a href="http://www.iana.org/assignments/link-relations/link-relations.xhtml" title="Atom Link Relations">Atom spec</a> has defined <code>rel</code> values, too.</li>
+<li>Mark Nottingham's <a href="http://www.mnot.net/drafts/draft-nottingham-http-link-header-05.txt" title="draft-nottingham-http-link-header-05
+">Web Linking Internet Draft</a> contains details on how new <code>rel</code> values would be registered w/ the IANA</li>
+</ul>
+<p>
+so, does it make sense to work toward standardizing <code>rel</code> in a way that would aid in building hypermedia state engines? i mean to say, it is reasonable to think that a well-defined set of <code>rel</code> values can make it easier to build state engines that can perform machine-to-machine interactions with greater reliability? can these standardized <code>rel</code> values improve the human-to-machine interaction as well?
+</p>
+</div>
+          <p class="category"><a href="index.html%3Fcategory=5.html" title="more from code...">code</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

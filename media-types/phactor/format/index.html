@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>PHACTOR - Document Format : 
+          Media Types
+        </title>
+    <link type="text/css" rel="stylesheet" href="../../files/media-types.css">
+  </head>
+  <body>
+    <div id="ads" style="text-align:center;"><script type="text/javascript">
+            
+            google_ad_client = "pub-2944238157647009";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            google_ad_format = "728x90_as";
+            google_ad_type = "text_image";
+            google_ad_channel = "4794860677";
+            google_color_border = "000000";
+            google_color_bg = "F0F0F0";
+            google_color_link = "000000";
+            google_color_text = "000000";
+            google_color_url = "000000";
+            
+        </script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+    <h1>Media Types</h1>
+    <div id="page">
+      <div id="content">
+        <ul class="trail">
+          <li><a href="../../index.html" title="Media Types">Home</a></li>
+          <li>» <a href="../index.html" title="PHACTOR">PHACTOR</a></li>
+          <li>» <a href="index.html" title="PHACTOR">Format</a></li>
+        </ul>
+        <h2>PHACTOR - Document Format</h2>
+        <h3>Description</h3><description><ol>
+            <li><a href="index.html#general">General Concepts</a></li>
+            <li><a href="index.html#elements">Elements</a></li>
+            <li><a href="index.html#attributes">Attributes</a></li>
+            <li><a href="index.html#link-relations">Link Relations</a></li>
+            <li><a href="index.html#data-types">Data Types</a></li>
+            <li><a href="index.html#extensibility">Extensibility</a></li>
+          </ol>
+          <blockquote><b>NOTE:</b><br>
+      The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+      NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
+      "OPTIONAL" in this document are to be interpreted as described in
+      <a href="http://tools.ietf.org/html/rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC 2119</a>.
+      </blockquote></description><h4 style="display:inline">1. </h4><a id="general"></a><h3 style="display:inline;clear:right">General Concepts</h3>
+        <div class="sbody"><sbody><p>
+            This section contains general concepts that apply to all <a href="../index.html" class="ext-link">PHACTOR</a>
+            documents.
+          </p></sbody></div>
+        <h4 style="display:inline">1.1. </h4><a id="link-templates"></a><h4 style="display:inline;clear:right">Link Templates</h4>
+        <div class="sbody"><sbody><p>
+                All <a href="../index.html" class="ext-link">PHACTOR</a> documents transfer state
+                from clients to servers using <a href="index.html#link-templates" class="ext-link">link templates</a>. All 
+                <a href="index.html#link-templates" class="ext-link">link templates</a> have an <a href="index.html#href-attribute">href</a> attribute. This is the
+
+                target of the state transfer. Some <a href="index.html#link-templates" class="ext-link">link templates</a> MAY have one or more 
+                <a href="index.html#data-element">&lt;data&gt;</a> child elements. These child elements represent the names and values
+                that will be sent to the server for processing. 
+              </p>
+            <ul class="clist">
+                There are three <a href="index.html#link-templates" class="ext-link">link templates</a> in <a href="../index.html">PHACTOR</a>
+                documents. They are:
+                <li><a href="index.html#LI-element">&lt;LI&gt;</a></li>
+              <li><a href="index.html#LN-element">&lt;LN&gt;</a></li>
+              <li> and <a href="index.html#LT-element">&lt;LT&gt;</a>.</li>
+            </ul>
+            <pre>&lt;LT href="http://example.org/customers/search" label="Search Customers"&gt;
+&lt;data name="search-value" /&gt;
+&lt;data name="country" /&gt; 
+&lt;/LT&gt;</pre>
+            <p>All <a href="index.html#link-templates" class="ext-link">link templates</a> use the 
+                <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1" class="ext-link">application/x-www-form-urlencoded</a> content-type
+                when transfering state to servers. In the above example, if a user enters "Smith" as the value for <code>search-value</code>
+                and "Canada" as the value for <code>country</code>, the client will transfer the name-value pairs as 
+                <code>search-value=smith&amp;country=Canada</code>.
+              </p></sbody></div>
+        <h4 style="display:inline">1.2. </h4><a id="container-elements"></a><h4 style="display:inline;clear:right">Container Elements</h4>
+        <div class="sbody"><sbody><p>
+                Some elements in <a href="../index.html" class="ext-link">PHACTOR</a> documents can only contain
+                child elements; no text nodes. These are referred to in this documentation as 
+                <a href="index.html#container-elements" class="ext-link">container elements</a>.
+              </p>
+            <ul class="clist">
+                The following are <a href="index.html#container-elements" class="ext-link">container elements</a>:
+                <li><a href="index.html#document-element">&lt;document&gt;</a></li>
+              <li><a href="index.html#meta-element">&lt;meta&gt;</a></li>
+              <li><a href="index.html#content-element">&lt;content&gt;</a></li>
+              <li><a href="index.html#section-element">&lt;section&gt;</a></li>
+              <li><a href="index.html#para-element">&lt;para&gt;</a></li>
+              <li><a href="index.html#LI-element">&lt;LI&gt;</a></li>
+              <li><a href="index.html#LN-element">&lt;LN&gt;</a></li>
+              <li><a href="index.html#LT-element">&lt;LT&gt;</a></li>
+            </ul>
+            <p></p></sbody></div>
+        <h4 style="display:inline">1.3. </h4><a id="text-elements"></a><h4 style="display:inline;clear:right">Text Elements</h4>
+        <div class="sbody"><sbody><p>
+                Some elements in <a href="../index.html" class="ext-link">PHACTOR</a> 
+                documents can only contain text; no child elements. These are referred to in this 
+                documentation as <a href="index.html#text-elements" class="ext-link">text elements</a>.
+              </p>
+            <ul class="clist">
+                The following are <a href="index.html#text-elements" class="ext-link">text elements</a>:
+                <li><a href="index.html#title-element">&lt;title&gt;</a></li>
+              <li><a href="index.html#author-element">&lt;author&gt;</a></li>
+              <li><a href="index.html#update-element">&lt;update&gt;</a></li>
+              <li><a href="index.html#text-element">&lt;text&gt;</a></li>
+              <li><a href="index.html#data-element">&lt;data&gt;</a></li>
+            </ul>
+            <p></p></sbody></div>
+        <h4 style="display:inline">1.4. </h4><a id="empty-elements"></a><h4 style="display:inline;clear:right">Empty Elements</h4>
+        <div class="sbody"><sbody><p>
+                Some elements in <a href="../index.html" class="ext-link">PHACTOR</a> 
+                documents have no child elements and no text nodes. These are referred to in this 
+                documentation as <a href="index.html#empty-elements" class="ext-link">empty elements</a>.
+              </p>
+            <ul class="clist">
+                The following are <a href="index.html#empty-elements" class="ext-link">empty elements</a>:
+                <li><a href="index.html#eol-element">&lt;eol /&gt;</a></li>
+              <li><a href="index.html#LE-element">&lt;LE /&gt;</a></li>
+              <li><a href="index.html#LO-element">&lt;LO /&gt;</a></li>
+            </ul>
+            <p></p></sbody></div>
+        <h4 style="display:inline">1.5. </h4><a id="block-inline"></a><h4 style="display:inline;clear:right">Block and Inline Elements</h4>
+        <div class="sbody"><sbody><p>
+                Some elements in <a href="../index.html" class="ext-link">PHACTOR</a> 
+                documents are "block" elements and others are "inline" elements.
+                By default, block elements are formatted differently than inline elements. 
+                Generally, block elements begin on new lines, inline elements do not.
+                
+              </p>
+            <ul class="clist">
+                The following are <a href="index.html#block-inline" class="ext-link">block elements</a>:
+                <li><a href="index.html#section-element">&lt;section&gt;</a></li>
+              <li><a href="index.html#para-element">&lt;para&gt;</a></li>
+              <li><a href="index.html#title-element">&lt;title&gt;</a></li>
+              <li><a href="index.html#author-element">&lt;author&gt;</a></li>
+              <li><a href="index.html#update-element">&lt;update&gt;</a></li>
+              <li><a href="index.html#LI-element">&lt;LI&gt;</a></li>
+              <li><a href="index.html#LN-element">&lt;LN&gt;</a></li>
+              <li><a href="index.html#LO-element">&lt;LO&gt;</a></li>
+            </ul>
+            <p></p>
+            <ul class="clist">
+                The following are <a href="index.html#block-inline" class="ext-link">inline elements</a>:
+                <li><a href="index.html#text-element">&lt;text&gt;</a></li>
+              <li><a href="index.html#eol-element">&lt;eol /&gt;</a></li>
+              <li><a href="index.html#data-element">&lt;data /&gt;</a></li>
+              <li><a href="index.html#LE-element">&lt;LE /&gt;</a></li>
+              <li><a href="index.html#LO-element">&lt;LO /&gt;</a></li>
+            </ul>
+            <p></p></sbody></div>
+        <h4 style="display:inline">2. </h4><a id="elements"></a><h3 style="display:inline;clear:right">Elements</h3>
+        <div class="sbody"><sbody><p></p></sbody></div>
+        <h4 style="display:inline">2.1. </h4><a id="author-element"></a><h4 style="display:inline;clear:right">&lt;author&gt;</h4>
+        <div class="sbody"><sbody><p>
+                The value of the element represents the author of the document. It's data type is <a href="index.html#cdata-type">CDATA</a>.
+              </p>
+            <p>
+                This element is an OPTIONAL child element of the <a href="index.html#meta-element">&lt;meta&gt;</a> element.
+              </p>
+            <pre>&lt;meta&gt;
+<span class="highlight">&lt;author&gt;J. Doe - jdoe@example.org - http://example.org/jdoe/index&lt;/author&gt;</span>
+...
+&lt;/meta&gt;</pre></sbody></div>
+        <h4 style="display:inline">2.2. </h4><a id="content-element"></a><h4 style="display:inline;clear:right">&lt;content&gt;</h4>
+        <div class="sbody"><sbody><p>
+                This element represents the main body of a 
+                <a href="../index.html">PHACTOR</a> document.
+                It is a <a href="index.html#container-element" class="ext-link">container element</a>.
+              </p>
+            <p>The <a href="index.html#content-element">&lt;content&gt;</a> element is a
+              REQUIRED child element of the <a href="index.html#document-element">&lt;document&gt;</a>
+              element.
+              </p>
+            <ul class="clist">
+                This element MAY have the following child elements:
+                <li><a href="index.html#section-element">&lt;section&gt;</a></li>
+              <li><a href="index.html#LE-element">&lt;LE /&gt;</a></li>
+              <li><a href="index.html#LI-element">&lt;LI&gt;</a></li>
+              <li><a href="index.html#LN-element">&lt;LN&gt;</a></li>
+              <li><a href="index.html#LO-element">&lt;LO /&gt;</a></li>
+              <li><a href="index.html#LT-element">&lt;LT&gt;</a></li>
+            </ul>
+            <pre>&lt;document&gt;
+<span class="highlight">&lt;content&gt;
+...
+&lt;/content&gt;</span>
+&lt;/document&gt;</pre></sbody></div>
+        <h4 style="display:inline">2.3. </h4><a id="data-element"></a><h4 style="display:inline;clear:right">&lt;data&gt;</h4>
+        <div class="sbody"><sbody><p>
+                This element is a container for data that will be sent to the server when a 
+                <a href="index.html#link-templates" class="ext-link">link template</a> is submitted. 
+                It MUST have a <a href="index.html#name-attribute">name</a> attribute. 
+                It MAY have a <a href="index.html#label-attribute">label</a> attribute.
+              </p>
+            <ul class="clist">
+                This element is a child element of the the following elements:
+                <li><a href="index.html#LI-element">&lt;LI&gt;</a></li>
+              <li><a href="index.html#LN-element">&lt;LN&gt;</a></li>
+              <li><a href="index.html#LT-element">&lt;LT&gt;</a></li>
+            </ul>
+            <pre>&lt;LN href="http://example.com/comments/"&gt;
+<span class="highlight">&lt;data name="email" label="Your Email:" /&gt;
+&lt;data name="full-name" label="Your Name:" /&gt;
+&lt;data name="comments" label="Your Comments:" /&gt;</span>
+&lt;/LN&gt;
+              </pre></sbody></div>
+        <h4 style="display:inline">2.4. </h4><a id="document-element"></a><h4 style="display:inline;clear:right">&lt;document&gt;</h4>
+        <div class="sbody"><sbody><p>
+                This element represents the root of all <a href="../index.html">PHACTOR</a> documents.
+                It MUST be the first element in all <a href="../index.html">PHACTOR</a> documents.
+              </p>
+            <ul class="clist">
+                This element MAY have the following child elements:
+                <li><a href="index.html#meta-element">&lt;meta&gt;</a></li>
+              <li><a href="index.html#content-element">&lt;content&gt;</a></li>
+            </ul>
+            <pre><span class="highlight">&lt;document&gt;</span>
+&lt;meta&gt;
+...
+&lt;/meta&gt;
+&lt;content&gt;
+...
+&lt;/content&gt;
+<span class="highlight">&lt;/document&gt;</span></pre></sbody></div>
+        <h4 style="display:inline">2.5. </h4><a id="eol-element"></a><h4 style="display:inline;clear:right">&lt;eol /&gt;</h4>
+        <div class="sbody"><sbody><p>
+                This element represents the "end-of-line" for a block of text. It should be interpreted as a "line-feed" character. 
+                This is an empty element. It has no valid child elements, and no valid attributes.
+              </p>
+            <p>
+                This element is an OPTIONAL child element of the <a href="http://amundsen.com/media-types/phactor/format/para-element">&lt;para]&gt;</a> element.
+              </p>
+            <pre>&lt;para&gt;
+&lt;text&gt;This is line one of some text.&lt;/text&gt;
+&lt;text&gt;This text will also appear on line one.&lt;/text&gt;
+<span class="highlight">&lt;eol /&gt;</span>
+&lt;text&gt;This text will appear on line two.&lt;/text&gt;
+&lt;/para&gt;</pre></sbody></div>
+        <h4 style="display:inline">2.6. </h4><a id="LE-element"></a><h4 style="display:inline;clear:right">&lt;LE /&gt;</h4>
+        <div class="sbody"><sbody><p></p></sbody></div>
+        <h4 style="display:inline">2.7. </h4><a id="LI-element"></a><h4 style="display:inline;clear:right">&lt;LI&gt;</h4>
+        <div class="sbody"><sbody><p></p></sbody></div>
+        <h4 style="display:inline">2.8. </h4><a id="LO-element"></a><h4 style="display:inline;clear:right">&lt;LO /&gt;</h4>
+        <div class="sbody"><sbody><p></p></sbody></div>
+        <h4 style="display:inline">2.9. </h4><a id="LN-element"></a><h4 style="display:inline;clear:right">&lt;LN&gt;</h4>
+        <div class="sbody"><sbody><p></p></sbody></div>
+        <h4 style="display:inline">2.10. </h4><a id="LT-element"></a><h4 style="display:inline;clear:right">&lt;LT&gt;</h4>
+        <div class="sbody"><sbody><p></p></sbody></div>
+        <h4 style="display:inline">2.11. </h4><a id="meta-element"></a><h4 style="display:inline;clear:right">&lt;meta&gt;</h4>
+        <div class="sbody"><sbody><p>
+                This element contains child elements that represent the meta-data for the current representation. 
+              </p>
+            <p>
+                This element is an OPTIONAL child element of the <a href="index.html#document-element">&lt;document&gt;</a> element.
+              </p>
+            <ul class="clist">
+              This element MAY have the following child elements:
+              <li><a href="index.html#title-element">&lt;title&gt;</a></li>
+              <li><a href="index.html#author-element">&lt;author&gt;</a></li>
+              <li><a href="index.html#updated-element">&lt;updated&gt;</a></li>
+            </ul>
+            <pre>&lt;document&gt;
+<span class="highlight">&lt;meta&gt;
+...
+&lt;/meta&gt;</span>
+...
+&lt;/document&gt;</pre></sbody></div>
+        <h4 style="display:inline">2.12. </h4><a id="para-element"></a><h4 style="display:inline;clear:right">&lt;para&gt;</h4>
+        <div class="sbody"><sbody><p>
+                The element represents a block of text in the docment. 
+                It is a <a href="index.html#container-element" class="ext-link">container element</a>.
+              </p>
+            <p>
+                This element is an OPTIONAL child element of the 
+                <a href="index.html#section-element">&lt;section&gt;</a> element.
+              </p>
+            <ul class="clist">
+                This element MAY have the following child elements:
+                <li><a href="index.html#eol-element">&lt;eol /&gt;</a></li>
+              <li><a href="index.html#LE-element">&lt;LE /&gt;</a></li>
+              <li><a href="index.html#LI-element">&lt;LI&gt;</a></li>
+              <li><a href="index.html#LN-element">&lt;LN&gt;</a></li>
+              <li><a href="index.html#LO-element">&lt;LO /&gt;</a></li>
+              <li><a href="index.html#LT-element">&lt;LT&gt;</a></li>
+            </ul>
+            <pre>&lt;section&gt;
+<span class="highlight">&lt;para&gt;
+...
+&lt;/para&gt;
+&lt;para&gt;
+...
+&lt;/para&gt;</span>
+&lt;/section&gt;</pre></sbody></div>
+        <h4 style="display:inline">2.13. </h4><a id="section-element"></a><h4 style="display:inline;clear:right">&lt;section&gt;</h4>
+        <div class="sbody"><sbody><p>
+                This element represents a section of the document. 
+                It is a <a href="index.html#container-element" class="ext-link">container element</a>.
+              </p>
+            <p>
+                This element is an OPTIONAL child element of the
+                <a href="index.html#content-element">&lt;content&gt;</a> element.
+              </p>
+            <ul class="clist">
+                The <a href="index.html#section-element">&lt;section&gt;</a> element MAY
+                have the following child elements:
+                <li><a href="index.html#para-element">&lt;para&gt;</a></li>
+              <li><a href="index.html#LE-element">&lt;LE /&gt;</a></li>
+              <li><a href="index.html#LI-element">&lt;LI&gt;</a></li>
+              <li><a href="index.html#LN-element">&lt;LN&gt;</a></li>
+              <li><a href="index.html#LO-element">&lt;LO /&gt;</a></li>
+              <li><a href="index.html#LT-element">&lt;LT&gt;</a></li>
+            </ul>
+            <pre>&lt;content&gt;
+<span class="highlight">&lt;section&gt;
+...
+&lt;/section&gt;</span>
+...
+&lt;/content&gt;</pre></sbody></div>
+        <h4 style="display:inline">2.14. </h4><a id="text-element"></a><h4 style="display:inline;clear:right">&lt;text&gt;</h4>
+        <div class="sbody"><sbody><p>
+                This element contains text; it is a 
+                <a href="index.html#text-element" class="ext-link">text element</a>. 
+                It's value data type is <a href="index.html#cdata-type">CDATA</a>.
+              </p>
+            <p>
+                This element is an OPTIONAL child element of <a href="index.html#para-element">&lt;para&gt;</a>
+                element.
+              </p>
+            <ul class="clist">
+                This element MAY have the following child elements:
+                <li><a href="index.html#eol-element">&lt;EOL /&gt;</a></li>
+              <li><a href="index.html#LE-element">&lt;LE /&gt;</a></li>
+              <li><a href="index.html#LI-element">&lt;LI&gt;</a></li>
+              <li><a href="index.html#LN-element">&lt;LN&gt;</a></li>
+              <li><a href="index.html#LO-element">&lt;LO&gt;</a></li>
+              <li><a href="index.html#LT-element">&lt;LT&gt;</a></li>
+            </ul>
+            <pre><span class="highlight">&lt;text&gt;</span>This is some text.<span class="highlight">&lt;/text&gt;</span></pre></sbody></div>
+        <h4 style="display:inline">2.15. </h4><a id="title-element"></a><h4 style="display:inline;clear:right">&lt;title&gt;</h4>
+        <div class="sbody"><sbody><p>
+                The value of this element represents the title of the document or section of the document. The value of this element
+                SHOULD be the data-type <a href="index.html#cdata-type">CDATA</a>.
+              </p>
+            <ul class="clist">
+                This element is an OPTIONAL child of the following elements:
+                <li><a href="index.html#meta-element">&lt;meta&gt;</a></li>
+              <li><a href="index.html#section-element">&lt;section&gt;</a></li>
+            </ul>
+            <p></p>
+            <p>
+                When this element is a child element of the <a href="index.html#meta-element">&lt;meta&gt;</a> element, the value of this 
+                element represents the title of the document.
+              </p>
+            <pre>&lt;meta&gt;
+<span class="highlight">&lt;title&gt;Customer List&lt;/title&gt;</span>
+...
+&lt;/meta&gt;</pre>
+            <p>
+                When this element is a child of the <a href="index.html#section-element">&lt;section&gt;</a> element, the value of this 
+                element represents the title of the current section.
+              </p>
+            <pre>&lt;section&gt;
+<span class="highlight">&lt;title&gt;Introduction&lt;/title&gt;</span>
+...
+&lt;/section&gt;
+&lt;section&gt;
+<span class="highlight">&lt;title&gt;Chapter 1&lt;/title&gt;</span>
+...
+
+&lt;/section&gt;</pre></sbody></div>
+        <h4 style="display:inline">2.16. </h4><a id="updated-element"></a><h4 style="display:inline;clear:right">&lt;updated&gt;</h4>
+        <div class="sbody"><sbody><p>
+                The value of this element represents the date the document was last updated. It SHOULD be of the data type <a href="index.html#date-type">DATE</a>.
+              </p>
+            <p>
+                This is an OPTIONAL child element of the <a href="index.html#meta-element">&lt;meta&gt;</a> element.
+              </p>
+            <pre>&lt;meta&gt;
+<span class="highlight">&lt;updated&gt;2012-01-31&lt;/updated&gt;</span>
+...
+&lt;/meta&gt;</pre></sbody></div>
+        <h4 style="display:inline">3. </h4><a id="attributes"></a><h3 style="display:inline;clear:right">Attributes</h3>
+        <div class="sbody"><sbody><p></p></sbody></div>
+        <h4 style="display:inline">3.1. </h4><a id="CL-attribute"></a><h4 style="display:inline;clear:right">CL</h4>
+        <div class="sbody"><sbody><p>
+              This attribute describes the relationship from the current document to the anchor specified by the 
+              <a href="index.html#href-attribute">href</a> attribute. The value of this attribute MUST be a space-separated list of
+              one or more <a href="index.html#id-type">ID</a> data-types.
+              </p>
+            <ul class="clist">
+                This is a REQUIRED attribute for the following elements:
+                <li><a href="index.html#LE-element">&lt;LE /&gt;</a></li>
+              <li><a href="index.html#LI-element">&lt;LI&gt;</a></li>
+              <li><a href="index.html#LN-element">&lt;LN&gt;</a></li>
+              <li><a href="index.html#LO-element">&lt;LO /&gt;</a></li>
+              <li><a href="index.html#LT-element">&lt;LT&gt;</a></li>
+            </ul>
+            <pre>&lt;LO href="http://example.org/customers/" <span class="highlight">CL="customer-list"</span> /&gt;</pre></sbody></div>
+        <h4 style="display:inline">3.2. </h4><a id="CM-attribute"></a><h4 style="display:inline;clear:right">CM</h4>
+        <div class="sbody"><sbody><p>
+              This attribute specifies which transfer method will be used to submit the link tempate data set.
+              </p>
+            <p>
+              This is an OPTIONAL attribute for the <a href="index.html#LI-element">&lt;LI&gt;</a> element. 
+              Possible (case-insensitive) values for the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html" class="ext-link">HTTP</a>
+              protocol are "put" (the default) and "delete." Possible (case-insensitive) values for the 
+              <a href="http://tools.ietf.org/html/rfc959" class="ext-link">FTP</a> protocol are "stor" (the default) and "dele."
+              </p>
+            <pre>&lt;LI href="http://example.org/customers/cust-001" <span class="highlight">CM="delete"</span> /&gt;</pre></sbody></div>
+        <h4 style="display:inline">3.3. </h4><a id="CR-attribute"></a><h4 style="display:inline;clear:right">CR</h4>
+        <div class="sbody"><sbody><p></p></sbody></div>
+        <h4 style="display:inline">3.4. </h4><a id="CU-attribute"></a><h4 style="display:inline;clear:right">CU</h4>
+        <div class="sbody"><sbody><p></p></sbody></div>
+        <h4 style="display:inline">3.5. </h4><a id="href-attribute"></a><h4 style="display:inline;clear:right">href</h4>
+        <div class="sbody"><sbody><p>
+                This attribute specifies the location of a resource, thus defining a link between the current resource and 
+                the destination resource defined by this attribute.
+              </p>
+            <p>
+                The value of the attribute MUST be a valid <a href="index.html#uri-type">URI</a>.
+              </p>
+            <ul class="clist">
+                This is a REQUIRED attribute for the following elements:
+                <li><a href="index.html#LE-element">&lt;LE /&gt;</a></li>
+              <li><a href="index.html#LI-element">&lt;LI&gt;</a></li>
+              <li><a href="index.html#LN-element">&lt;LN&gt;</a></li>
+              <li><a href="index.html#LO-element">&lt;LO /&gt;</a></li>
+              <li><a href="index.html#LT-element">&lt;LT&gt;</a></li>
+            </ul>
+            <pre>&lt;LE <span class="highlight">href="http://example.org/images/logo"</span> /&gt;</pre></sbody></div>
+        <h4 style="display:inline">3.6. </h4><a id="label-attribute"></a><h4 style="display:inline;clear:right">label</h4>
+        <div class="sbody"><sbody><p>
+              This attribute represents text associated with the element. 
+              The value of this attribute MUST be of the data-type <a href="index.html#text-type">TEXT</a>.
+              </p>
+            <ul class="clist">
+               This is an OPTIONAL attribute for the following elements:
+                <li><a href="index.html#data-element">&lt;data&gt;</a></li>
+              <li><a href="index.html#LE-element">&lt;LE /&gt;</a></li>
+              <li><a href="index.html#LI-element">&lt;LI&gt;</a></li>
+              <li><a href="index.html#LN-element">&lt;LN&gt;</a></li>
+              <li><a href="index.html#LO-element">&lt;LO /&gt;</a></li>
+              <li><a href="index.html#LT-element">&lt;LT&gt;</a></li>
+            </ul>
+            <p></p>
+            <p>
+               When applied to <a href="index.html#LE-element">&lt;LE /&gt;</a> elements, this attribute specifies alternate text
+               For user agents that cannot display the resource representation indicated by the associated 
+               <a href="index.html#href-attribute">href</a> attribute. 
+              </p>
+            <pre>&lt;LE href="http://example.org/images/logo" <span class="highlight">label="logo"</span> /&gt;</pre>
+            <p>
+               When applied to <a href="index.html#LO-element">&lt;LO /&gt;</a> elements, this attribute specifies the link text
+               that describes the resource representation indicated by the associated <a href="index.html#href-attribute">href</a> attribute.
+              </p>
+            <pre>&lt;LO href="http://example.org/customers/" <span class="highlight">label="View Customers"</span> /&gt;</pre>
+            <p>
+               When applied to <a href="index.html#LI-element">&lt;LI&gt;</a>, <a href="index.html#LN-element">&lt;LI&gt;</a>, or
+               <a href="index.html#LT-element">&lt;LT&gt;</a> elements, this attribute specifies the text of the activating control
+               (i.e. button or link) for the template. 
+              </p>
+            <pre>&lt;LT href="http://example.org/customers/search" <span class="highlight">label="Search Customers"</span>&gt;
+&lt;data name="search-value" /&gt;
+&lt;/LT&gt;</pre>
+            <p>
+               When applied to <a href="index.html#data-element">&lt;data&gt;</a> elements, this attribute specifies that element's prompt text.
+              </p>
+            <pre>&lt;LN href="http://example.org/customers/" &gt;
+&lt;data name="customer-name" <span class="highlight">label="Name:"</span>/&gt;
+&lt;data name="shipping-address" <span class="highlight">label="Address:"</span>/&gt;
+&lt;data name="country" <span class="highlight">label="Country:"</span>/&gt;
+&lt;/LN&gt;</pre></sbody></div>
+        <h4 style="display:inline">3.7. </h4><a id="name-attribute"></a><h4 style="display:inline;clear:right">name</h4>
+        <div class="sbody"><sbody><p>
+              This attribute assigns the "control name" for the associated <a href="index.html#data-element">&lt;data&gt;</a> element. 
+              When a <a href="index.html#Link-templates" class="ext-link">link template</a> is submitted for processing, 
+              <a href="index.html#data-element">&lt;data&gt;</a>&gt; elements have their 
+              name paired with their current value and these pairs are submitted with the template.
+              </p>
+            <p>
+              The value of this attribute MUST be of the data-type <a href="index.html#id-type">ID</a>.
+              </p>
+            <p>
+                This is a REQUIRED attribute for <a href="index.html#data-element">&lt;data&gt;</a> elements.
+              </p>
+            <ul class="clist">
+                This is an OPTIONAL attribute for the following elements:
+                <li><a href="index.html#LI-element">&lt;LI&gt;</a></li>
+              <li><a href="index.html#LN-element">&lt;LN&gt;</a></li>
+              <li><a href="index.html#LT-element">&lt;LT&gt;</a></li>
+            </ul>
+            <pre>&lt;LT href="http://example.org/customers/search" label="Search" &gt;
+&lt;data <span class="highlight">name="search-value"</span>/&gt;
+&lt;/LT&gt;</pre></sbody></div>
+        <h4 style="display:inline">4. </h4><a id="link-relations"></a><h3 style="display:inline;clear:right">Link Relations</h3>
+        <div class="sbody"><sbody><p>
+            The <a href="../index.html" class="ext-link">PHACTOR</a> media type does
+            not have any pre-defined link relation values. Authors are free to use any of the 
+            <a href="http://www.iana.org/assignments/link-relations/link-relations.xml" class="ext-link">
+              IANA registered link relation values</a> when crafting resource representations. Authors may
+              also wish to create their own unique link relation values using the standards outlined in
+              <a href="http://tools.ietf.org/html/rfc5988" class="ext-link" title="Web Linking">RFC5988</a>.
+          </p></sbody></div>
+        <h4 style="display:inline">5. </h4><a id="data-types"></a><h3 style="display:inline;clear:right">Data Types</h3>
+        <div class="sbody"><sbody><p>
+            Below are the data types used in Maze+XML documents. The reference for most of the data type definitions below is
+            the <a href="http://www.w3.org/TR/REC-html40/types.html#h-6.2" title="SGML basic types" class="ext-link">SGML basic types</a> 
+            section of the <a href="http://www.w3.org/TR/html401/" title="HTML 4.01 Specification" class="ext-link">HTML 4.01 Specification</a>.
+          </p></sbody></div>
+        <h4 style="display:inline">5.1. </h4><a id="cdata-type"></a><h4 style="display:inline;clear:right">CDATA</h4>
+        <div class="sbody"><sbody><p>
+                CDATA is a sequence of characters from the document character set and may include character entities.
+              </p></sbody></div>
+        <h4 style="display:inline">5.2. </h4><a id="date-type"></a><h4 style="display:inline;clear:right">DATE</h4>
+        <div class="sbody"><sbody><p>
+                DATE values must be valid per <a href="http://tools.ietf.org/html/rfc3339" title="Date and Time on the Internet: Timestamps" class="ext-link">RFC3339</a>.
+              </p></sbody></div>
+        <h4 style="display:inline">5.3. </h4><a id="id-type"></a><h4 style="display:inline;clear:right">ID</h4>
+        <div class="sbody"><sbody><p>
+                ID tokens must begin with a letter ([A-Za-z]) and may be followed by any number of letters, digits ([0-9]), 
+                hyphens ("-"), underscores ("_"), colons (":"), and periods (".").
+              </p></sbody></div>
+        <h4 style="display:inline">5.4. </h4><a id="number-type"></a><h4 style="display:inline;clear:right">NUMBER</h4>
+        <div class="sbody"><sbody><p>
+                Numbers MUST contain at least one digit ([0-9]). The characters ".", "-", and "+" MAY also appear.
+              </p></sbody></div>
+        <h4 style="display:inline">5.5. </h4><a id="text-type"></a><h4 style="display:inline;clear:right">TEXT</h4>
+        <div class="sbody"><sbody><p>
+                Text is meant to be "human readable".
+              </p></sbody></div>
+        <h4 style="display:inline">5.6. </h4><a id="uri-type"></a><h4 style="display:inline;clear:right">URI</h4>
+        <div class="sbody"><sbody><p>
+              URI is defined by 
+              <a href="http://tools.ietf.org/html/rfc3986" title="Uniform Resource Identifier (URI): Generic Syntax" class="ext-link">RFC 3986</a></p></sbody></div>
+        <h4 style="display:inline">6. </h4><a id="extensibility"></a><h3 style="display:inline;clear:right">Extensibility</h3>
+        <div class="sbody"><sbody><p>
+            This document describes the 
+            <a href="../index.html" class="ext-link">PHACTOR</a> markup vocabulary.  
+            Markup from other vocabularies ("foreign markup") can be used in a 
+            <a href="../index.html" class="ext-link">PHACTOR</a>
+            document. Any extensions to the <a href="../index.html" class="ext-link">PHACTOR</a>
+            vocabulary MUST not redefine any 
+            <a href="index.html#elements" class="ext-link">elements</a>, 
+            <a href="index.html#attributes" class="ext-link">attributes</a>,
+            <a href="index.html#link-relations" class="ext-link">link relations</a>, or
+            <a href="index.html#data-types" class="ext-link">data types</a> defined in this document.
+            Clients that do not recognize extensions to the
+            <a href="../index.html" class="ext-link">PHACTOR</a> vocabulary
+            SHOULD ignore them.
+          </p>
+            <p>
+            The details of designing and implementing 
+            <a href="../index.html" class="ext-link">PHACTOR</a>
+            extensions is beyond the scope of this document.
+          </p>
+            <p><b>NOTE:</b> It is possible that future forward-compatible modifications to this specification
+            will include new elements, attributes, link-relations, and data types. Extension
+            designers should take care to prevent future modifications from breaking or
+            redefining those extensions. The safest way to do this is to use a unique
+            <a href="http://www.w3.org/TR/REC-xml-names/" title="XML Namespaces" class="ext-link">XML Namespace</a>
+            for each extension.
+          </p></sbody></div>
+        <h3 id="history">Update History</h3>
+        <dl class="update-history">
+          <dt>2011-02-20</dt>
+          <dd><notes>Major updates to fill out document</notes></dd>
+          <dt>2011-02-19</dt>
+          <dd><notes>Initial post</notes></dd>
+        </dl>
+      </div>
+    </div>
+    <div id="footer">
+      <address>updated: 2011-02-19</address>
+    </div><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+        _uacct = "UA-2399548-1";
+        urchinTracker();
+        </script></body>
+</html>

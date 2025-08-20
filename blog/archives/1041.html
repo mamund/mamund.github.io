@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[A RESTful Hypermedia API in Three Easy Steps]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">A RESTful Hypermedia API in Three Easy Steps</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2010-04-06 @ 02:40</span><span class="permalink"><a href="1041.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><blockquote>
+<p>
+<b>2010-04-07</b><br />
+added <code>rel="{link-relation}"</code> to the second example. when the link element name (<code>query</code>) is ambiguous, link relations can be used to add semantic meaning to the hypermedia link.
+</p>
+<p>thanks to a number of people who pointed out this omission in my original post (mca)</p>
+</blockquote>
+<p>
+<a href="http://www.flickr.com/photos/atomicshed/140381086/" title="1 2 3">
+<img src="http://farm1.static.flickr.com/52/140381086_f558ee2481_t.jpg" align="right" class="inline" />
+</a>
+over the last few weeks i've been ranting about (un)RESTful APIs.
+most of my complaints focus on the URI-centric nature of the latest round of Web APIs.
+instead of digging up the same <a href="http://dictionary.reference.com/browse/bushwa" title="bushwa">bushwa</a>
+all over again, i decided to do something else. 
+</p>
+<p>
+i'll design a RESTful hypermedia API in three easy steps.
+and i'll do my best to follow all 
+<a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" title="REST APIs must be hypertext-driven">the rules</a>.
+let's see how i do, eh?
+</p>
+<h4>A List Management Service</h4>
+<p>
+i'll keep it simple. this API will define a simple list management service. 
+you can use it to add, edit, and delete items from a list like a "to-do" list, a shopping list, etc. 
+you can also execute a few simple queries against the list including all the open items,
+all the items due today, or items due within a date range.
+</p>
+<p>if i was coding a local application, i might use a set of function signatures that look like this:</p>
+<pre class="code">
+GetList()
+GetItem(id)
+AddItem(name, description, date-due, completed)
+UpdateItem(id, name, description, date-due, completed)
+DeleteItem(id)
+GetOpenItems()
+GetTodaysItems()
+GetItemsByDate(date-start,date-stop)
+</pre>
+<p>ok, that's enough preamble. let's design a RESTful Hypermedia API!</p>
+<h4>Step One - Data Structure</h4>
+<p>
+	i need to design a data structure that allows me to express the contents of the list.
+	i don't want to just send data, i want to also include descriptive information - the 
+	"what" of the data; the <i>structure</i>.	i'll use XML as my data format today. 
+	it's a bit verbose, but it will do and i'm in a hurry.
+</p>
+<p>
+	due to my service's simplicity, i only need three XML elements: 
+	<code>list</code> (the root element), <code>item</code> (a single	to-do item), 
+	and <code>data</code> (a data element of an item).
+	oh, let's also add one more element: <code>query</code> (i'll use that to define query templates). 
+</p>
+<p>
+	here's a simple table detailing all four elements, whether they are required, 
+	their attributes, and any possible child elements.
+</p>
+<table>
+  <title>List Manager Media Type Elements</title>
+  <thead>
+    <tr>
+      <th align="center">Name</th>
+      <th align="center">Appearance</th>
+      <th align="center">Attributes</th>
+      <th align="center">Children</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">list</td>
+      <td align="center">MUST</td>
+      <td>href="{collection-uri}"</td>
+      <td>item (0..+)</td>
+    </tr>
+    <tr>
+      <td align="left">item</td>
+      <td align="center">MAY</td>
+      <td>href="{item-uri}"</td>
+      <td>data (1..+)</td>
+    </tr>
+    <tr>
+      <td align="left">data</td>
+      <td align="center">MAY</td>
+      <td>name="{data-name}"</td>
+      <td>none</td>
+    </tr>
+    <tr>
+      <td align="left">query</td>
+      <td align="center">MAY</td>
+      <td>href="{query-uri}"</td>
+      <td>data (0..+)</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+	that's all there is to it for the data structure. here's a sample implementation of the data format. 
+	i left out the <code>query</code> elements an all the href attributes for now.
+</p>
+<pre class="code">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;list&gt;
+  &lt;item&gt;
+    &lt;data name="title"&gt;First Task&lt;/data&gt;
+    &lt;data name="description"&gt;Produce first draft of Task media-type&lt;/data&gt;
+    &lt;data name="date-due"&gt;2010-03-21&lt;/data&gt;
+    &lt;data name="completed"&gt;false&lt;/data&gt;
+  &lt;/item&gt;
+  &lt;item&gt;
+    &lt;data name="title"&gt;Second Task&lt;/data&gt;
+    &lt;data name="description"&gt;Implement REST version of Task Service over HTTP&lt;/data&gt;
+    &lt;data name="date-due"&gt;2010-03-22&lt;/data&gt;
+    &lt;data name="completed"&gt;false&lt;/data&gt;
+  &lt;/item&gt;
+  &lt;item&gt;
+    &lt;data name="title"&gt;Next&lt;/data&gt;
+    &lt;data name="description"&gt;Go fishing&lt;/data&gt;
+    &lt;data name="date-due"&gt;2010-03-23&lt;/data&gt;
+    &lt;data name="completed"&gt;false&lt;/data&gt;
+  &lt;/item&gt;
+&lt;/list&gt;</pre>	
+<h4>Step Two - Hypermedia Semantics</h4>
+<p>
+	alas, for a useful API, i need more than just a data structure; i also need a way to express the 
+	various operations that can be performed on the data. if structure is the way to say what the data 
+	means, then	semantics is the way to say <i>what can be done</i> with that data. and a RESTful API 
+	uses hypermedia links	to do that.
+</p>
+<p>
+	again, since this is such a simple service, i only need to define three hypermedia links and
+	their associated semantics: <code>collection-uri</code>, <code>item-uri</code>, and <code>query-uri</code>.
+</p>
+<p>here are the semantic details for each of these links:</p>
+<dl>
+    <dt>The &lt;list /&gt; Element and Collection URI</dt>
+
+    <dd>
+      Used to retrieve a valid representation with
+      the full collection of list items. It is also the target URI when adding a new
+      <code>&lt;item /&gt;</code> to the collection. In the case of add operations, a valid
+      &lt;<code>item /&gt;</code> element must be sent as the message body of the
+      request.
+    </dd>
+    
+    <dt>The &lt;item /&gt; Element and Item URI</dt>
+    <dd>
+      Used to retrieve a valid representation
+      populated with a single list item. It is also the target URI when updating an existing
+      <code>&lt;item /&gt;</code> or when removing an item from the collection. In the case of
+      update operations, a valid <code>&lt;item /&gt;</code> element must be sent as the
+      message body of the request.
+    </dd>
+    
+    <dt>The &lt;query /&gt; Element and Query URI</dt>
+    <dd>
+      Used to retrieve valid representation containing a filtered list
+      of list items. If the <code>&lt;query /&gt;</code> element contains one or more
+      <code>&lt;data /&gt;</code> child elements, those child elements (their name and
+      associated values) should be added to the URI as query arguments.
+    </dd>
+</dl>
+<p>
+	by the way, when i combine a data structure definition with associated link semantics,
+	i get a media type. a Hypermedia type, actually. for protocols that like that sort of thing,
+	i'll give my new data+semantics it's own media-type identifier:
+</p>
+<p>
+	<b>
+		<code>application/list.man+xml</code>
+</b>
+</p>
+<p>
+	i should also register this fancy new media type with the 
+	<a href="http://www.iana.org/assignments/media-types/application/" title="Application Media Types">IANA</a>, 
+	but i'm kinda busy right now...
+</p>
+<p>
+	ok here's the same data shown earlier, but with the semantic links added. i included some 
+	sample <code>query</code> elements, too. this version uses placeholders for the links. i'll clear that up in the next step.
+</p>
+<pre class="code">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;list href="{collection-uri}"&gt;
+  &lt;item href="{item-uri}"&gt;
+    &lt;data name="title"&gt;First Task&lt;/data&gt;
+    &lt;data name="description"&gt;Produce first draft of Task media-type&lt;/data&gt;
+    &lt;data name="date-due"&gt;2010-03-21&lt;/data&gt;
+    &lt;data name="completed"&gt;false&lt;/data&gt;
+  &lt;/item&gt;
+  &lt;item href="{item-uri}"&gt;
+    &lt;data name="title"&gt;Second Task&lt;/data&gt;
+    &lt;data name="description"&gt;Implement REST version of Task Service over HTTP&lt;/data&gt;
+    &lt;data name="date-due"&gt;2010-03-22&lt;/data&gt;
+    &lt;data name="completed"&gt;false&lt;/data&gt;
+  &lt;/item&gt;
+  &lt;item href="{item-uri}"&gt;
+    &lt;data name="title"&gt;Next&lt;/data&gt;
+    &lt;data name="description"&gt;Go fishing&lt;/data&gt;
+    &lt;data name="date-due"&gt;2010-03-23&lt;/data&gt;
+    &lt;data name="completed"&gt;false&lt;/data&gt;
+  &lt;/item&gt;
+  &lt;query href="{query-uri}" rel="today" /&gt;
+  &lt;query href="{query-uri}" rel="open" /&gt;
+  &lt;query href="{query-uri}" rel="date-range" &gt;
+    &lt;data name="date-start"&gt;&lt;/data&gt;
+    &lt;data name="date-stop"&gt;&lt;/data&gt;
+  &lt;/query&gt;
+&lt;/list&gt;
+</pre>
+<h4> Step Three - Protocol Implementation</h4>
+<p>
+	you might have noticed that my media-type definition includes no pre-defined URIs. that's 'cuz the
+	URI <i>values</i> are not important to the definition, just their <i>meaning</i>. the actual values only
+	come into play when i need to come up w/ a protocol-specific implementation of my media type.
+</p>
+<p>
+	of course, the most common application protocol for distributed network apps is 
+	<a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html" title="Hypertext Transfer Protocol -- HTTP/1.1 ">HTTP</a>.
+	but it's not the only one. i could also implement this
+	service using <a href="http://www.w3.org/Protocols/rfc959/" title="FILE TRANSFER PROTOCOL (FTP)">FTP</a>. 
+	but i'm getting a bit ahead of myself.
+</p>
+<p>
+	implementing the service means i need to match the link semantics with the target application
+	protocol. lucky for me, this service matches up with the HTTP protocol very well:
+</p>
+<dl>
+  <dt>Collection URI</dt>
+  <dd>
+    <ul>
+      <li>
+        Example: <code> http://www.example.org/list/</code>
+      </li>
+      <li>
+        <code>HTTP GET {collection-uri}</code> returns a valid list manager document
+        with multiple existing items.
+      </li>
+      <li>
+        <code>HTTP POST {collection-uri}</code> along with a valid list document
+        containing a single valid <code>&lt;item /&gt;</code> element adds a new item to
+        the list
+      </li>
+    </ul>
+  </dd>
+
+  <dt>Item URI</dt>
+  <dd>
+    <ul>
+      <li>
+        Example: <code> http://www.example.org/list/1</code>
+      </li>
+     	<li>
+        <code>HTTP GET {item-uri}</code> returns a list manager document containing
+        the associated single valid <code>&lt;item /&gt;</code> element
+      </li>
+      <li>
+        <code>HTTP PUT (item-uri}</code> along with a valid task list document
+        containing a single valid <code>&lt;item /&gt;</code> element updates the
+        associated existing item
+      </li>
+      <li>
+        <code>HTTP DELETE {item-uri}</code> removes the associated item from the
+        list
+      </li>
+    </ul>
+  </dd>
+
+  <dt>Query URI</dt>
+  <dd>
+    <ul>
+      <li>
+        Example: <code> http://www.example.org/list/?today</code>
+      </li>
+      <li>
+        Example: <code> http://www.example.org/list/?open</code>
+      </li>
+      <li>
+        Example: <code>
+        http://www.example.org/list/?date-start=2010-03-01&amp;date-stop=2010-03-31</code>
+      </li>
+      <li>
+        <code>HTTP GET {query-uri}</code> returns a list manager document containing
+        zero or more <code>&lt;item /&gt;</code> elements that match the query
+        criteria.
+      </li>
+      <li>
+        If the &lt;query /&gt; element in the list manager document has child
+        <code>&lt;data /&gt;</code> elements, the name and value attributes of those
+        elements should be added to the URI to form a valid query.
+      </li>
+    </ul>
+  </dd>
+</dl>
+<p>
+	yeah, that's pretty easy. it works for FTP, too:
+</p>
+<dl>
+  <dt>Collection URI</dt>
+  <dd>
+    <ul>
+      <li>
+        Example: <code> ftp://www.example.org/list/</code>
+      </li>
+      <li>
+        <code>FTP RETR {collection-uri}</code> returns a list manager document with
+        multiple existing items.
+      </li>
+      <li>
+        <code>FTP STOU {collection-uri}</code> along with a valid list manager
+        document containing a single valid <code>&lt;item /&gt;</code> element adds a new
+        item to the list
+      </li>
+    </ul>
+  </dd>
+
+ <dt>Item URI</dt>
+  <dd>
+    <ul>
+      <li>
+        Example: <code> ftp://www.example.org/list/1</code>
+      </li>
+      <li>
+        <code>FTP RETR {item-uri}</code> returns a list document containing the
+        associated single valid <code>&lt;item /&gt;</code> element
+      </li>
+      <li>
+        <code>FTP STOR (item-uri}</code> along with a valid list document containing
+        a single valid <code>&lt;item /&gt;</code> element updates the associated existing
+        item
+      </li>
+      <li>
+        <code>FTP DELE {item-uri}</code> removes the associated item from the
+        list
+      </li>
+    </ul>
+  </dd>
+
+  <dt>Query URI</dt>
+  <dd>
+    <ul>
+      <li>
+        Example: <code> ftp://www.example.org/list/today</code>
+      </li>
+      <li>
+        Example: <code> ftp://www.example.org/list/open</code>
+      </li>
+      <li>
+        Example: <code>
+        ftp://www.example.org/list/date-start/2010-03-01/date-stop/2010-03-31</code>
+      </li>
+      <li>
+        <code>FTP RETR {query-uri}</code> returns a list document containing zero or
+        more <code>&lt;item /&gt;</code> elements that match the query criteria.
+      </li>
+      <li>
+        If the <code>&lt;query /&gt;</code> element in the list document has child
+        <code>&lt;data /&gt;</code> elements, the name and value attributes of those
+        elements should be added to the URI to form a valid query.
+      </li>
+    </ul>
+  </dd>
+</dl>
+<p>
+	yes, <code>STOU</code> is an optional FTP command and my implementation of the query
+	semantics for FTP is a bit of a stretch, but it's all possible, eh? besides, since the
+	media-type is protocol-agnostic, servers and clients are free to mix and match protocols;
+	even in the same representation. for example, some operations might be done using the 
+	HTTP protocol and others could be done using FTP. and any new protocol that comes along
+        that is a good fit will work, too.
+</p>
+<h4>The Bottom Line</h4>
+<p>
+	so, there you have it. a RESTful Hypermedia API. and it was done without resorting to
+	documenting URI conventions or tying the service to a single application protocol. 
+	instead, it was designed using a media type that includes both structure and semantics; 
+	data and links.	it's easy for a state machine client to implement and it's easy for servers to
+	implement; for a wide range of list-based services (not just to-do lists).
+</p>
+<p>
+	sure, it can be improved quite a bit; <b>by enhancing the media-type definition</b>.
+	for example, large lists would benefit from a 
+	<a href="http://tools.ietf.org/rfc/rfc5005.txt" title="Feed Paging and Archiving">
+		hypermedia link definition that supports paging
+	</a>. if the media-type needs to support user display and interaction, richer
+	<a href="http://www.w3.org/TR/xforms11/" title="XForms 1.1">form-based hypermedia elements</a>
+	 could be used. maybe the <code>query</code> elements should be more 
+	 <a href="http://www.w3.org/TR/xpath20/" title="XML Path Language (XPath) 2.0">XML-like</a>
+	 or possibly be expressed as 
+	 <a href="http://tools.ietf.org/id/draft-gregorio-uritemplate-04.txt" title="URI Template">URI templates</a>.
+</p>
+<p>
+	the good news is that improving the media-type by adding new elements and semantics 
+	<a href="http://www.w3.org/2001/tag/doc/versioning.html" title="[Editorial Draft] Extending and Versioning Languages Part 1">
+		can be done	safely</a>; without breaking existing clients. without worrying about new URIs or new conventions.
+</p>
+<p>
+	and, you know. it's not all that hard to do. it just takes some thought and planning.
+	so, let's see more RESTful Hypermedia APIs out there, OK?
+</p></div>
+          <p class="category"><a href="index.html%3Fcategory=22.html" title="more from REST...">REST</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

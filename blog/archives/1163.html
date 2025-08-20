@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[three keys to design-time governance: protocol, format, and vocabulary]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">three keys to design-time governance: protocol, format, and vocabulary</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2015-11-07 @ 17:11</span><span class="permalink"><a href="1163.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+  <a href="http://mamund.site44.com/images/2015-11-07-keys.jpg" title="Three Keys">
+    <img src="http://mamund.site44.com/images/2015-11-07-keys.jpg" width="150" align="right" class="inline" />
+  </a>
+  this is my ring of keys -- just three of them: work, home, car. i've been focusing over the last couple years on <i>reducing</i>. cutting back. lightening my load, etc. and the keys are one of my more obvious examples of success. 
+</p>
+<p>
+i've also been trying to lighten my load <i>cognitively</i> -- to reduce the amount of things i carry in my head and pare things down to essentials. i think it helps me focus on the things that matter when i carry less things around in my head. that's me.
+</p>
+<p>
+staring at my keys today lead me to something that's been on my mind lately. something i am seeing quite often when i visit customers. the approach these companies use for governing their IT development lack the clarity and focus of my "three keys." in fact, most of the time as i am reading these companies' governance documents, they make me <i>wince</i>. why? because they're bloated, over-bearing, and -- almost all of them -- making things worse, not better.
+</p>
+<h4>over-constraining makes everyone non-compliant</h4>
+<p>
+i am frequently asked to provide advice on design and implementation of API-related development programs -- most often APIs that run over HTTP. and, in that process, i am usually handed some from of "<a href="http://my.safaribooksonline.com/book/software-engineering-and-development/soa/9780132478373/soa-governance-technology/ch14lev1sec1">Design-Time Governance</a>" (DTG) document that has been written in-house. sometimes it is just a rough draft. sometims it is a detailed document running over 100 pages. but, while the details vary, there are general themes i see all too often.
+</p>
+<dl>
+<dt>Constraining HTTP</dt>
+<dd>
+almost every DTG approach i see lists things like HTTP methods (and how to use them), HTTP response codes (and what they mean), and HTTP Headers (including which new REQUIRED headers were invented for this organization). all carefully written. <b>and all terribly wrong</b>. putting limits on the use of standard protocols within your organization means every existing framework, library, and tool is essentially <i>non-compliant</i> for your shop. that's crazy. stop that! if your shop uses HTTP to get things done, just say so. don't try to re-invent, "improve", or otherwise muddle with the standard -- just use it. 
+</dd>
+<dt>Designing URLs</dt>
+<dd>
+another thing i see in DTG documents is a section outlining the much-belabored and elaborate URLs design rules for the organization. Yikes! this is almost always an unnecessary level of "<a href="https://en.wikipedia.org/wiki/Parkinson%27s_law_of_triviality">bike-shedding</a>" that can only hold you back. designing URLs for your org (esp. large orgs) is a <a href="https://en.wikipedia.org/wiki/Snipe_hunt">fool's errand</a> -- you'll never get it right and you'll never be done with it. just stop. there are more than enough <a href="https://tools.ietf.org/html/rfc3986">agreed standards</a> on what makes up a valid URL and that's all you need to worry about. you should <a href="https://tools.ietf.org/html/rfc7320">resist the urge</a> to tell people how many slashes or dashes or dots MUST appear in a URL. it doesn't improve anything.
+
+<blockquote>
+look, i know that some orgs want to use URL design as a way to manage routing rules -- that's understandable. but, again, resist the urge to tell everyone in your org which URLs they can use for now and all eternity. some teams may not rely on the same route tooling and will use different methods. some may not use routing tools at all. and, if you change tooling after five years, your whole URL design scheme may become worthless. stop using URLs as your primary routing source.
+</blockquote>
+</dd>
+<dt>Canonical Models</dt>
+<dd>
+i really get depressed when i see all the work people put into negotiating and defining "<a href="https://en.wikipedia.org/wiki/Canonical_model">canonical models</a>" for the organization. like URL designs, <a href="https://www.innoq.com/en/blog/thoughts-on-a-canonical-data-model/">this always goes badly</a> sooner or later. stop trying to get everyone/every-team to use the same models! instead, use the same message formats. i know this is hard for people to grasp (i've seen your faces, srsly) but i can't emphasize this enough. there are several message formats <i>specifically designed</i> for data transfer between parties. use them! the only shared agreement that you need is the message format (along with the data elements carried <i>in</i> the message).
+</dd>
+<dt>Versioning Schemes</dt>
+<dd>
+here's one that just never seems to go away -- rules and processes for creating "new versions" of APIs. these things are a waste of time. <b>the phrase "new version" is a euphemism for "breaking changes" and this should never happen</b>. when you build sub-systems that are used by other teams/customers you are making a promise to them that you won't break things or invalidate their work (at least you SHOULD be making that promise!). it is not rocket-science to make backward-compatible changes -- just do it. once you finally accept your responsibility for not breaking anyone using your API, you can stop trying to come up w/ schemes to tell people you broke your promise to them and just get on with the work of building great software that works for a long time.
+</dd>
+</dl>
+<p>
+so, stop constraining HTTP, stop designing URLs, stop trying to dictate shared models, and forget about creating an endless series of breaking changes. "What then," you might ask, "IS the proper focus of design-time governance?" "How can I actually <i>govern</i> IT systems unless I control all these things?"
+</p>
+<h4>three keys form the base of design-time governance</h4>
+<p>
+ok, let me introduce you to my "three keys of DTG". these are not the ONLY things that need the focus on IT governance, but they are the <i>bare minimum</i> -- the essential building blocks. the starting point from which all other DTG springs. 
+</p>
+<dl>
+<dt>Protocol Governance</dt>
+<dd>
+<p>
+first, all IT shops MUST provide protocol-level governance. you need to provide clear guidance and control over which application-level protocols are to be used when interacting with other parts of the org, other sub-systems, etc. and it is as simple as saying which protocols are REQUIRED, RECOMMENDED, and OPTIONAL. for example...
+</p>
+<p>
+"Here are BigCo, Inc. all installed components that provide an API MUST support <a href="https://tools.ietf.org/html/rfc7230">HTTP</a>. These components SHOULD also support <a href="https://tools.ietf.org/html/rfc6120">XMPP</a> and MAY also support <a href="https://tools.ietf.org/html/rfc7252">CoAP</a>. Any components that fail to pass this audit will be deemed non-compliant and will not be promoted to production."
+</p>
+<blockquote>
+you'll notice the CAPITALIZED words here. these are all special words taken from the IETF's <a href="https://tools.ietf.org/html/rfc2119">RFC2119</a>. they carry particular meaning here and your DTGs SHOULD use them.
+</blockquote>
+</dd>
+<dt>Format Governance</dt>
+<dd>
+<p>
+another <i>essential</i> governance element is the message formats used when passing data between sub-systems. again, nothing short of clear guidance will do here. and there is no reason to invent your own message-passing formats when there are so many good ones available. for example...
+</p>
+<p>
+"All API data responses passed between sub-systems MUST support <a href="http://www.w3.org/TR/2014/REC-html5-20141028/">HTML</a>. They SHOULD also support one of the following: <a href="../../media-types/collection/index.html">Collection+JSON</a>, <a href="http://stateless.co/hal_specification.html">HAL</a>, <a href="https://github.com/kevinswiber/siren">Siren</a>, or <a href="http://uberhypermedia.com">UBER</a>. sub-systems MAY also support responses in <a href="https://tools.ietf.org/html/rfc4287">Atom</a>, <a href="https://tools.ietf.org/html/rfc4180">CSV</a>, or <a href="http://yaml.org/spec/history/2001-05-26.html">YAML</a> where appropriate. When accepting data bodies on requests, all components MUST support <a href="https://tools.ietf.org/html/rfc1866#section-8.2.1">FORM-URLENCODED</a> and SHOULD support request bodies appropriate for related response formats (e.g. Collection+JSON, Siren, etc.).  Any components that fail to pass this audit will be deemed non-compliant and will not be promoted to production."
+</p>
+<blockquote>
+you'll notice that my sample statement does not include TXT, JSON or XML as compliant API formats. why? because all of them suffer the same problem -- they are insufficiently structured formats. 
+</blockquote>
+</dd>
+<dt>Vocabulary Governance</dt>
+<dd>
+<p>
+the first two keys are easy. have a meeting, argue with each other about which existing standards are acceptable and report the reusults. done. but, this last key (<a href="http://ceur-ws.org/Vol-866/keynote3.pdf">Vocabulary Governance</a>) is the hard one -- the kind of work for which enterprise-level governance exists. the one that will likely result in lots of angry meetings and may hurt some feelings.
+</p>
+<p>
+there MUST be an org-level committee that governs all the data names and action names for IT data transfers. this means there needs to be a shared dictionary (or set of them) that are the <i>final arbiter</i> of what a data field is <i>named</i> when it passes from one sub-system to the other. <a href="https://en.wikipedia.org/wiki/Domain-driven_design">managing the company domain vocabulary</a> is <b>the most important job of enterprise-level governance</b>.
+</p>
+<blockquote>
+the careful reader will see that i am not talking about governing <i>storage models</i> or <i>object models</i> here -- just the names of data fields passed within messages between sub-systems. understanding this is most <i>critical</i> to the success of your IT operations. models are the responsibility of local sub-systems. passing data <i>between</i> those sub-systems is the responsibility IT governance.
+</blockquote>
+</dd>
+</dl>
+<h4>what about all those "ilities"?</h4>
+<p>
+as i mentioned at the opening, these three keys form the <i>base</i> of a solid DTG. there are still many other <a href="https://en.wikipedia.org/wiki/Non-functional_requirement">desirable properties</a> of a safe and healthy IT program including availability, reliability, security, and many more. this is not about an "either/or" decision ("Well, I guess we have to choose between Mike's three keys and everything else, right?" -- ROFL!). we can discuss the many possible/desirable properties of your IT systems at some point in the near future -- <i>after</i> you implement your baseline.
+</p>
+<p>
+so, there you have it. protocol, format, vocabulary. get those three right and you will be laying the important foundation for an IT shop that can retain stability without rigidity; that can adapt over time by adding new protocols, formats, and vocabularies without breaking existing sub-systems or ending up in a deep hole of <a href="https://en.wikipedia.org/wiki/Technical_debt">technical-debt</a>. 
+</p>
+<h4>those are the keys to a successful design-time governance plan.</h4></div>
+          <p class="category"><a href="index.html%3Fcategory=33.html" title="more from Systems...">Systems</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

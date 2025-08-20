@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Link Relations : 
+          Media Types
+        </title>
+    <link type="text/css" rel="stylesheet" href="../files/media-types.css">
+  </head>
+  <body>
+    <div id="ads" style="text-align:center;"><script type="text/javascript">
+            
+            google_ad_client = "pub-2944238157647009";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            google_ad_format = "728x90_as";
+            google_ad_type = "text_image";
+            google_ad_channel = "4794860677";
+            google_color_border = "000000";
+            google_color_bg = "F0F0F0";
+            google_color_link = "000000";
+            google_color_text = "000000";
+            google_color_url = "000000";
+            
+        </script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+    <h1>Media Types</h1>
+    <div id="page">
+      <div id="content">
+        <ul class="trail">
+          <li><a href="../index.html" title="Media Types">Home</a></li>
+          <li>» <a href="index.html" title="Link Relations">Link Relations</a></li>
+        </ul>
+        <h2>Link Relations</h2>
+        <h3>Description</h3><description><p>
+        Ongoing notes on designing, documenting, and registering link relations.
+      </p>
+          <ol>
+            <li><a href="index.html#notes">General Notes</a></li>
+            <li><a href="index.html#registries">Registries</a></li>
+            <li><a href="registrations/index.html">List of Link Relation Types</a></li>
+          </ol></description><h4 style="display:inline">1. </h4>
+        <h4 style="display:inline;clear:right">General Notes</h4>
+        <div class="sbody"><sbody><p>Random notes and comments kep[ here until further categorization and editing.</p></sbody></div>
+        <h4 style="display:inline">1.1. </h4>
+        <h4 style="display:inline;clear:right">History</h4>
+        <div class="sbody"><sbody><p>Some historical documents on Links and Link Relations:</p>
+            <ul>
+              <li><a class="ext-link" href="http://www.csd.uwo.ca/~jamie/.Refs/link-types.html">Link Relationship Values in HTML (1993)</a></li>
+              <li><a class="ext-link" href="http://www.w3.org/Architecture/NOTE-link.html">Describing and Linking Web Resources (1996)</a></li>
+            </ul></sbody></div>
+        <h4 style="display:inline">2. </h4>
+        <h4 style="display:inline;clear:right">Registries</h4>
+        <div class="sbody"><sbody><p>
+            There are multiple sources that act as "registries" for link relation values. 
+            <ul>
+                <li><a class="ext-link" href="index.html#iana-link-rels" title="IANA Link Relations">IANA Link Relations</a></li>
+                <li><a class="ext-link" href="index.html#microformats-existing-link-rel-values" title="Microformats Existing Rel Values">Microformats Existing Rel Values</a></li>
+                <li><a class="ext-link" href="http://dublincore.org/documents/dc-html/" title="Expressing Dublin Core metadata using HTML/XHTML meta and link elements">Dublin Core metadata</a></li>
+              </ul>
+            </p>
+            <p>
+            The process of registering new link relation values at each of these locations is different. It is also a bit unclear
+            why a link-rel-value author would select one registry over another or whether the author should engage each registry
+            when attempting to standardize a link-rel-value.
+          </p>
+            <p>
+            Below are my notes on the process.
+          </p></sbody></div>
+        <h4 style="display:inline">2.1. </h4>
+        <h4 style="display:inline;clear:right">IANA Link Relations</h4>
+        <div class="sbody"><sbody><blockquote>
+              <p><a class="ext-link" href="http://tools.ietf.org/html/rfc5988">RFC5988 (Web Linking)</a> establishes the 
+                  <a class="ext-link" href="http://www.iana.org/assignments/link-relations/link-relations.xml">
+                    Link Relations Registry:
+                  </a></p>
+              <p>
+                  "This specification establishes the Link Relation Type registry, and
+                  updates Atom [RFC4287] to refer to it in place of the ''Registry of
+                  Link Relations''."
+                </p>
+            </blockquote>
+            <h4>Resources</h4>
+            <p>
+                Below are some valuable resources when working w/ the IANA Link Relation Registry to 
+                register your link relation values:
+              </p>
+            <ul>
+              <li><a href="http://tools.ietf.org/html/rfc5988" class="ext-link">RFC5988 (Web Linking)</a></li>
+              <li><a href="https://www.ietf.org/mailman/listinfo/link-relations" class="ext-link">Link Relations mailing list</a></li>
+              <li><a href="http://www.iana.org/assignments/link-relations/link-relations.xml" class="ext-link">IANA Link Relations</a> registry</li>
+              <li><a href="http://paramsr.us/link-relation-types/" class="ext-link">ParamsR.Us</a> request tracking site.</li>
+            </ul>
+            <h4>Process</h4>
+            <p style="color:red;font-weight:bold;background-color:silver">
+                The process in this section is bogus. I am currently working through an Internet Draft process
+                w/ IETF to create an informational RFC for two selected link relations. You can follow that 
+                progress <a href="registrations/index.html">here</a>. Once
+                the process if completed, I will transfer my notes to this section of the site (MCA).
+              </p>
+            <p>
+                The process for registering a link-rel-value (referred to as a link relation type in RFC5988) with the 
+                <a class="ext-link" href="http://www.iana.org/assignments/link-relations/link-relations.xml" title="IANA Link Relations">IANA Link Relations</a>
+                is outlined below.        
+              </p>
+            <dl>
+              <dt>Join the Link Relations mailing list</dt>
+              <dd>
+                  Before attempting to register your link relation type, join the 
+                  <a class="ext-link" href="https://www.ietf.org/mailman/listinfo/link-relations">mailing list</a> and 'hang out' for a while to get a feel
+                  for how things work. This is a relatively quiet list, so it might
+                  help to introduce yourself in order to get things 'going.'
+                </dd>
+              <dt>Publish your Link Relation Type</dt>
+              <dd>
+                  Be sure to publish a clear description/definition of your
+                  link relation type at a "permanent, readily available, and public"
+                  URI. This URI will be used when applying for registration.
+                </dd>
+              <dt>Obtain an account at the ParamsR.Us tracking site</dt>
+              <dd>
+                  An easy way to apply for a registration is through the 
+                  <a class="ext-link" href="http://paramsr.us/link-relation-types/">ParamsR.Us</a> tracking site.
+                  All you need to do is obtain a
+                  <a class="ext-link" href="http://paramsr.us/tracker/user?@template=register">login account</a>
+                  to get started.
+                </dd>
+              <dt>Submit your registration</dt>
+              <dd>
+                  The tracker allows you to submit your registration, but it does not walk you 
+                  through supplying each field. Instead you enter the Link Relation Type (called 
+                  a 'Registry Key' at the tracker site) and a block of text that represents the
+                  complete registration template. 
+                  <a class="ext-link" href="http://tools.ietf.org/html/rfc5988#section-6.2.1">Section 6.2.1</a>
+                  of the Web Linking RFC5988 has a sample template you can use.
+                </dd>
+              <dt>Monitor the mailing list for feedback</dt>
+              <dd>
+                  After posting your completed template, monitor the mailing list and the 
+                  tracking site for progress. You should recieve feedback in 14 days or less.
+                </dd>
+            </dl>
+            <h4>My Experience (2011-08-05)</h4>
+            <p>
+                In the summer of 2011, I set out to register two link relation types with the IANA to
+                learn the details of registration at the IANA. Below is my experience.
+              </p>
+            <ol>
+              <li>
+                  Selected two link-rel-types from my
+                  <a class="ext-link" ref="http://amundsen.com/media-types/collection/format/#link-relations">Collection+JSON</a>
+                  media type.
+                </li>
+              <li>I was already a member of the mailing list.</li>
+              <li>
+                  I completed registration templates for each of the two link relation types
+                  and <a class="ext-link" href="registrations/index.html">posted these templates</a>.
+                </li>
+              <li>
+                  I logged into the 
+                  <a class="ext-link" href="http://paramsr.us/link-relation-types/">ParamsR.Us</a> site 
+                  and created 
+                  <a class="ext-link" href="http://paramsr.us/tracker/issue26" title="collection">two</a><a class="ext-link" href="http://paramsr.us/tracker/issue27" title="item">entries</a> 
+                  using the templates I previously created.
+                </li>
+              <li>
+                  I posted a note to the mailing list annoucing the two new entries and inviting comment/feedback.
+                </li>
+              <li>(more to come...)</li>
+            </ol></sbody></div>
+        <h4 style="display:inline">2.2. </h4>
+        <h4 style="display:inline;clear:right">Microformats Existing Rel Values</h4>
+        <div class="sbody"><sbody><blockquote>
+              <p>The W3C document on HTML5 
+                  <a class="ext-link" href="http://www.w3.org/TR/html5/links.html#linkTypes">mentions</a> 
+                  the Microformats site as the place to register link-rel values:</p>
+              <p>
+                  "Extensions to the predefined set of link types may be registered in the Microformats 
+                  wiki existing-rel-values page."
+                </p>
+            </blockquote>
+            <h4>Resources</h4>
+            <p>
+                Below are some valuable resources when working w/ the Microformats group to register your link relation values:
+              </p>
+            <ul>
+              <li><a class="ext-link" href="http://microformats.org/wiki/Main_Page" title="Welcome to the microformats wiki">
+                    The Microformats Wiki
+                  </a>
+                  contains the most recent definitions and also ongoing work to define new microformats.
+                </li>
+              <li>
+                  The 
+                  <a class="ext-link" href="http://microformats.org/wiki/existing-rel-values" title="existing rel values">existing rel values</a>
+                  page contains all the rel-values currently tracked by Microformats.org. Some of the lists here show real-values
+                  that are "non-HTML", "obsolete", or in various forms of "in-progress."
+                </li>
+              <li><a class="ext-link" href="http://microformats.org/discuss" title="Discuss Microformats">Discuss Microformats</a> 
+                  points to email lists, IRC channel, and blogs where Microformats are covered.
+                </li>
+            </ul>
+            <h4>Registration Process</h4>
+            <p>
+                The process for registering a link-rel-value with the 
+                <a class="ext-link" href="http://microformats.org/wiki/existing-rel-values" title="Microformats Existing Rel Values">Microformats Existing Rel Values</a>
+                is outlined below.            
+              </p>
+            <blockquote>
+                  All edits to the Microformats wiki are automatically announced to the IRC channel 
+                  (#microformats on freenode) by a 'bot.' 
+                  It's a good idea to join that channel (on freenode) and monitor any feedback that appears there.
+                  </blockquote>
+            <dl>
+              <dt>
+                  Obtain an account at the Microformats Wiki site
+                </dt>
+              <dd><a class="ext-link" href="http://microformats.org/wiki/index.php?title=Special:UserLogin&amp;type=signup">Login/Create Account</a>. I recall this to be a very simple process (no screening, IIRC)
+                </dd>
+              <dt>
+                  Review the page that holds link rel values and determine which section you plan to edit to add your 
+                  link-rel-values
+                </dt>
+              <dd>
+                  Make sure you understand the layout of the 
+                  <a class="ext-link" href="http://microformats.org/wiki/existing-rel-values" title="Microformats Existing Rel Values">Microformats Existing Rel Values</a>
+                  page. While most all sections are editable, only a few of them are meant to be actively edited. 
+                </dd>
+              <dt>
+                  Edit the page to add your link-rel-values. 
+                </dt>
+              <dd>
+                  Once you find the section that applies to you
+                  (<a class="ext-link" href="http://microformats.org/wiki/existing-rel-values#POSH_usage" title="POSH usage">POSH usage</a>, 
+                  <a class="ext-link" href="http://microformats.org/wiki/existing-rel-values#non_HTML_rel_values" title="non HTML rel values">non HTML rel values</a>, 
+                  <a class="ext-link" href="http://microformats.org/wiki/existing-rel-values#brainstorming" title="brainstorming">brainstorming</a>, 
+                  etc.), edit that section. Be sure to add a helpful comment, too. 
+                </dd>
+              <dt>
+                  Monitor the page for discussion and feedback.
+                </dt>
+              <dd>
+                  You can "watch" the existing-rel-values page so that you get any feedback relating to your edits.
+                </dd>
+            </dl>
+            <h4>My experience (2011-07-22)</h4>
+            <p>
+                In the summer of 2011, I set out to add some new rel values to the Microformats wiki to learn the details of
+                contributing link-rel-values. Below is my experience.
+              </p>
+            <ol>
+              <li>
+                  Selected link-rel-values from my 
+                  <a class="ext-link" href="../maze/format/index.html#link-relations" title="Maze+XML">Maze+XML</a>
+                  media type. 
+                </li>
+              <li>
+                  Joined the IRC channel to monitor activity there.
+                </li>
+              <li>
+                  Modified the
+                  <a class="ext-link" href="http://microformats.org/wiki/existing-rel-values#non_HTML_rel_values" title="non HTML rel values">
+                    non HTML rel values
+                  </a>
+                  list to include several new values (<kbd>collection, east, exit, maze, north, south, west</kbd>).  
+                  I also added a helpful comment to the edit.
+                </li>
+              <li>
+                  I posted a note in the IRC channel to let others know who I was and to feel free to provide feedback
+                </li>
+              <li>
+                  Within minutes <a class="ext-link" href="http://twitter.com/t" title="Tantek Çelik">Tantek Çelik</a> (founder of the site)
+                  posted feedback on the IRC channel. He acknowledged that some entries were "interesting" 
+                  (<kbd>north, south, east, west</kbd>);
+                  one was not defined properly (he suggested updating the <kbd>collection</kbd> description to better express
+                  a "relation" between the context resource and the target resource- which I did); and he rated one value 
+                  (<kbd>maze</kbd>) an "abuse of rel" and asked me to remove it from the list (which I did).
+                </li>
+              <li>
+                  It's been about a week now, and no other feedback has been provided. I suspect the "process" is complete
+                  for now.
+                </li>
+            </ol></sbody></div>
+        <h4 style="display:inline">2.3. </h4>
+        <h4 style="display:inline;clear:right">Dublin Core metadata</h4>
+        <div class="sbody"><sbody><p>
+                The process for registering a link-rel-value with the 
+                <a class="ext-link" href="http://dublincore.org/documents/dc-html/" title="Expressing Dublin Core metadata using HTML/XHTML meta and link elements">Dublin Core metadata</a>
+                is not at all clear to me at this time. If anyone has details, pointers to documentation, etc. please feel free to 
+                send me an email: <kbd>mca -AT- mamund -DOT- com</kbd>.            
+              </p></sbody></div>
+      </div>
+    </div>
+    <div id="footer">
+      <address>updated: 2011-07-08</address>
+    </div><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+        _uacct = "UA-2399548-1";
+        urchinTracker();
+        </script></body>
+</html>

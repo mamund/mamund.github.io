@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[how to spot a hypermedia client app]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">how to spot a hypermedia client app</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2014-01-06 @ 11:06</span><span class="permalink"><a href="1148.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+    <a href="http://www.flickr.com/photos/retrocactus/5261318350/" 
+        title="Inside your iPhone 4 by John Biehler, on Flickr">
+        <img src="http://farm6.staticflickr.com/5084/5261318350_3fd95d45d9_q.jpg" 
+            width="150" height="150" alt="Inside your iPhone 4" 
+            class="inline" align="right"/>
+    </a>
+    it's not always easy to spot hypermedia clients 'in the wild.' there are a handful of 
+    reasons for this. however, if you know what you're looking for, it is actually
+    pretty straight-forward to ferret out the real hypermedia clients from the posers.
+    </p>
+    <h4>appearances can be deceiving</h4>
+    <p>
+        you can't usually spot a hypermedia client from the 'outside.' it's not
+        the way the app looks or feels that indicates true hypermedia. for example,
+        some folks think implementing an HTML-based app is the same as implementing
+        a hypermedia app. but, sorry, no. an HTML app can be a couple <code>DIV</code>
+        containers and thousands of lines of javascript; that's not hypermedia.
+    </p>
+    <p>
+        some think that Web apps which exhibit adaptability are hypermedia clients.
+        not necessarily. you can achieve a great deal of flexibility and adaptability
+        through the use of configuration (including remote configuration) and 
+        support for plug-ins or dynamically loaded modules based on configuration
+        or user context (e.g. which user is logged in, what they are allowed to
+        access, etc.). 
+    </p>
+    <p>
+        this is all good stuff, but it's not a sure sign of hypermedia use.
+    </p>
+    
+    <h4>server API is not enough</h4>
+    <p>
+        it might seem that any server that emits a hypermedia-style API would 
+        result in hypermedia clients. but, no, that's not right either. in fact,
+        one of the features of hypermedia implementation is that servers don't 
+        dictate how clients use their interfaces. servers merely respond with
+        machine-readable descriptions of links (e.g. <a href="http://www.w3.org/TR/html401/struct/links.html#h-12.2" title="The A element"><code>HTML.A</code></a>, 
+        <a href="http://tools.ietf.org/search/rfc4287#section-4.2.7" title='The "atom:link" Element'><code>atom.link</code></a>, etc.) and 
+        forms (e.g. <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.3" title="The FORM element"><code>HTML.FORM</code></a>, 
+        <a href="../../media-types/collection/format/index.html#objects-template" title="The collection+json template object"><code>collection.template</code></a>, etc.) 
+        and let client apps decide what to do with them (if anything).
+    </p>
+    <p>
+        it's very easy to build successful client applications that 'talk' to 
+        hypermedia interfaces on servers yet still ignore the inline affordances and
+        just deal the content in which the client app is interested. they can 
+        even ignore all the hypermedia and 'memorize' URLs, workflow paths, etc.
+        and continue to work fine with the server. 
+    </p>
+    <p>
+        until, of course, the server changes the rules. then client apps that
+        ignore the hypermedia run the risk of misbehaving or even breaking.
+    </p>
+    
+    <h4>it's what's inside that counts</h4>
+    <p>
+        it turns out there is a rather simple way to spot hypermedia clients - look 
+        'inside.' this is especially easy for browser-based hypermedia apps. a
+        quick "View Source" will almost always reveal the level to which the application
+        is tuned to hypermedia instead of a pre-determined set of data and actions.
+    </p>
+    <p>
+        imagine a simple service (<code>TASKS</code>) that tracks "to-do" tasks. it might, for example,
+        support a small set of data and actions:
+    </p>
+    <ol>
+        <li><code>id</code> - unique identifier data element</li>
+        <li><code>text</code> - a string that describes the task to complete</li>
+        <li><code>LIST</code> - an action that returns the list of tasks</li>
+        <li><code>FILTER</code> - an action that returns a subset of items, filtered by title fragment</li>
+        <li><code>ADD</code> - an action that creates a new task in the list</li>
+        <li><code>MARK-COMPLETE</code> - an action that marks an existing tasks complete</li>
+    </ol>
+    <p>
+        now, without getting tied up in the server interface (we'll <i>assume</i>
+        the server responds w/ inline hypermedia), we can check out client-side 
+        source code and spot which client app is actually relying on inline hypermedia.
+    </p>
+    <p>
+        below is a listing of the functions and shared variables from one client
+        app using this <code>TASKS</code> service. do you think this is a hypermedia
+        client app?
+    </p>
+    <script src="https://gist.github.com/mamund/8141196.js"></script>    
+    <p>
+        not sure? how about this next one?
+    </p>
+    <script src="https://gist.github.com/mamund/8141221.js"></script>
+    <p>
+        one of these clients has 'memorized' quite a bit about the <code>TASKS</code>
+        service and the other has very little <i>foreknowledge</i> of how things work
+        with the <code>TASKS</code> service. that means one of these clients has a better 
+        chance of handling changes to the service workflow and data elements and the other
+        one has a high dependency on the service specifics and will run into trouble when
+        those specifics change over time.
+    </p>
+    
+    <h4>focus on inner beauty</h4>
+    <p>
+        both these client apps really exist. you can find the full source
+        code for a 
+        <a href="https://github.com/apiacademy/tasks-crud" 
+        title="simple CRUD-style server and client for a TASK service">CRUD implementation</a> 
+        and a 
+        <a href="https://github.com/apiacademy/tasks-hypermedia" 
+        title="simple hypermedia-style server and client for a TASK service">Hypermedia implementation</a> 
+        of the <code>TASKS</code> service in the 
+        <a href="https://github.com/apiacademy" title="Layer 7 API Academy">API Academy repo</a> 
+        at github. both clients are fully functional and at runtime, from the outside, you can't
+        tell the 
+        <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete" title="Create, read, update, delete">CRUD</a>
+        client from the 
+        <a href="1109.html" title="hypermedia affordances">Hypermedia</a> client.
+    </p>
+    <p>
+        however, spotting hypermedia clients is straight-forward when you know what to look for. and 
+        knowing what to look for can help you when it comes time to create <i>your
+        own hypermedia client apps</i>. in the end, you need to focus on keeping  
+        details out of the client code including the specifics of current data elements 
+        and workflow rules. instead, you can let the server interface fill those in for 
+        you at runtime. when you do that, the <i>structure</i> of your client will 
+        become simpler and easier to maintain.
+    </p>
+    <p>
+        and that's when you may begin to see an 'inner beauty' to 
+        hypermedia client apps that you might not have recognized in the past.
+    </p></div>
+          <p class="category"><a href="index.html%3Fcategory=20.html" title="more from Hypermedia...">Hypermedia</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

@@ -1,0 +1,35 @@
+/* for http headers 2008-02-21 (mca) */
+
+body
+{
+	color:black;
+	background-color:#e6e6e6;
+}
+
+div
+{
+	margin:1em 0;
+}
+h1,h2,h3,h4,dl,ol,ul,p
+{
+	margin:0;
+}
+dl
+{
+	margin-top:1em 0;
+}
+dt
+{
+	margin-top:.5em;
+	font-weight:bold;
+}
+pre
+{
+	color:green;
+	background-color:white;
+	width:600px;
+	overflow:auto;
+	padding: .6em;
+	border: medium outset;
+	font-weight:bold;
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[Media-Types and Protocol Bindings]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">Media-Types and Protocol Bindings</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2010-05-25 @ 12:54</span><span class="permalink"><a href="1057.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><blockquote>
+  i keep writing posts on 
+  <a href="1040.html" title="not all Web APIs are the same">web apis</a>,
+  <a href="1039.html" title="The H Factor for Media Types">media-types</a>,
+  <a href="1041.html" title="A RESTful Hypermedia API in Three Easy Steps">RESTful APIs</a>, 
+  <a href="1042.html" title="Modified RPC over HTTP: old wine in a new bottle">not-so-RESTful APIs</a>,
+  <a href="1043.html" title="RESTful Profiling : XHTML-based Web APIs">XHTML-based APIs</a>,
+  <a href="1054.html" title="designing a hypermedia API w/ JSON">JSON-based APIs</a>,
+  <a href="1046.html" title="RESTful Hint #403">Web SDKs</a>,
+  <a href="1050.html" title="the cure for URI construction in your Web API is URI-Templates">URI Conventions</a>,
+  and now this one on protocol binding.
+</blockquote>
+<h4>application code bindings</h4>
+<p>
+<a href="http://www.flickr.com/photos/lenbo/2857687514/" title="Rope Coil">
+<img src="http://farm4.static.flickr.com/3262/2857687514_dfdcffffa3_t.jpg" align="right" class="inline" />
+</a>
+  when dealing with application code, it's common to distribute "language bindings" for others to use. 
+  it's a way of sharing the API w/ a wide range of programming communities. for example, the very handy
+  <a href="http://curl.haxx.se/libcurl/" title="libcurl - the multiprotocol file transfer library ">libcURL</a> 
+  utility publishes it's own
+  <a href="http://curl.haxx.se/libcurl/bindings.html" title="libcurl Bindings ">bindings</a> for about forty 
+  different programming environments. 
+</p>
+<p>
+  in the case of application code bindings, it's important for the publishers to keep the bindings fresh and
+  for consumers (developers) to continually check for updates, integrate any new bindings into their own code 
+  and re-distribute the updated application that includes the result of the new bindings.
+</p>
+<h4>media-type protocol bindings</h4>
+<p>
+  in the world of distributed computing a media-type is a rough analogy to the code libraries. authors want their
+  APIs to be used by lots of folks and the media-type is the expression of that API. typically, media-types are 
+  designed with a particular protocol in mind; you could say they are <i>bound</i> to that protocol. 
+  usually that protocol is 
+  <a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html" title="Hypertext Transfer Protocol -- HTTP/1.1 ">HTTP</a> 
+  since it's the one API designers think of when working on the Web.
+</p>
+<p>
+  but there are lots of <a href="http://en.wikipedia.org/wiki/Application_Layer" title="Application Layer : Protocol examples">application-level protocols</a>
+  that work on the Web. and some of them are fine candidates for use w/ Web media-types; esp. ones that exhibit one or
+  more of the <a href="../../hypermedia/hfactor.html" title="Hypermedia Types : H Factor">H-Factors</a> 
+  that make up hypermedia types. and the way you can leverage these other application-level protocols 
+  (<a href="http://www.faqs.org/rfcs/rfc959.html" title="RFC959 - File Transfer Protocol">FTP</a>, 
+  <a href="http://www.ietf.org/rfc/rfc5023.txt" title="The Atom Publishing Protocol">Atom</a>, 
+  <a href="http://www.ietf.org/rfc/rfc2518.txt" title="TTP Extensions for Distributed Authoring -- WEBDAV">WebDAV</a>,
+  <a href="http://www.faqs.org/rfcs/rfc821.html" title="RFC821 - Simple Mail Transfer Protocol">SMTP</a>, etc.)
+  is to publish <b><i>protocol bindings</i></b> for your media-type API.
+</p>
+<h4>sample protocol bindings</h4>
+<p>
+  if your web API design
+  <a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" title="REST APIs must be hypertext-driven">follows RESTful principles</a>, 
+  you've been careful not to include URI convention instructions, but instead use 
+  <a href="http://www.w3.org/TR/html401/struct/links.html#adef-rel" title="HTML 4.01 Links">link</a> 
+  <a href="http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1" title="Link Relation Types">relation</a> 
+  values and 
+  <a href="http://www.w3.org/TR/SMIL/smil-state.html#adef-method" title="SMIL 3.0 State">other</a> 
+  <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.3" title="HTML 4.01 - The FORM element">semantic</a> 
+  <a href="http://tools.ietf.org/html/rfc5023#section-9.3" title="The Atom Publishing Protocol : Editing Resources with PUT">rules</a>
+  to tell developers how to describe and execute the available read and write semantics in your media-type.
+  you can include sample protocol bindings in your media-type documentation. 
+  <a href="http://www.amundsen.com/blog/archives/1041" title="A RESTful Hypermedia API in Three Easy Steps : Step Three - Protocol Implementation">in a recent blog post</a>, i show how this can be done for a 
+  list management sample showing both HTTP and FTP bindings for the media type API.
+</p>
+<h4>non-HTTP protocol bindings</h4>
+<p>
+  there are other ways in which you can leverage application protocols for your media-type. in fact, you may be doing that already 
+  without thinking about it.
+</p>
+<ul>
+  <li>
+  you might have an API that allows clients to request large files for download. instead of returning a representation that has a 
+  download link that looks like this: <code>&lt;a href="http://www.example.org/files/q1w23e4r.zip" rel="download" /&gt;</code>, you 
+  might use an <b>FTP</b> binding instead: <code>&lt;a href="ftp://ftp.example.org/files/q1w23e4r.zip" rel="download" /&gt;</code>. 
+  </li>
+  <li>
+  it might make sense for your application to use email to send new data to the server.  lots of 
+  microblogging services provide an <b>SMTP</b> binding for their services.
+  </li>
+  <li>
+  or you might need a very specific set of network commands - your own protocol. in many cases, you can use
+  <a href="http://en.wikipedia.org/wiki/BEEP" title="Blocks Extensible Exchange Protocol">BEEP</a> to design your protocol and then 
+  document the new bindings for your media type read/write semantics.
+  </li>
+</ul>
+<h4>bottom line</h4>
+<p>
+  the key point here is that, just as it makes sense to publish multiple <i>code bindings</i> for application APIs, there are advantages 
+  to designing your media-type in a way that allows developers to use multiple <i>protocol bindings</i> to fit their 
+  network environments and specific needs. it is also a good way to ensure your media-type API/service can grow and adapt to changing protocols over time.
+</p>
+</div>
+          <p class="category"><a href="index.html%3Fcategory=22.html" title="more from REST...">REST</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

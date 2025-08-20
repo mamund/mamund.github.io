@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[my WCF Web API immersion]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">my WCF Web API immersion</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2011-08-03 @ 09:22</span><span class="permalink"><a href="1105.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+  <a href="http://www.flickr.com/photos/israelmendoza/4816189983/" title="Immersion Suit sign">
+    <img src="http://farm5.static.flickr.com/4080/4816189983_c5a4c664ca_s.jpg" align="right" class="inline" height="100"/>
+  </a>
+  i had the good luck to be able to visit the Microsoft Redmond campus
+  this past week. even better, i got the chance to spend time w/ 
+  <a href="http://twitter.com/gblock" title="Glenn Block">@gblock</a> and the 
+  WCF Web API team. and, in the process, got a serious "immersion" in the
+  <a href="http://wcf.codeplex.com/" title="What is WCF Web Api">WCF Web API library</a>. good stuff!
+</p>
+<h4>dealing with my hypermedia bias</h4>
+<p>
+  i've been spending quite a bit of time lately researching ways to use
+  a "hypermedia approach" to designing and implementing distributed network
+  systems (aka web apps). it's been a great experience. i've learned quite a bit
+  through historical review of the literature on hypermedia and from 
+  real-life experiments and production implementations.
+</p>
+<p>
+  along the way, i've collected my findings in a 
+  <a href="../../hypermedia.html" title="Hypermedia">couple</a>
+  <a href="../../media-types/index.html" title="Media Types">places</a>.
+  i was also able to publish my theory of Hypermedia Types as a chapter in
+  <a href="http://www.springer.com/engineering/signals/book/978-1-4419-8302-2" title="REST: From Research to Practice"> 
+    REST: From Research to Practice
+  </a> (Fall 2011, Springer) and i am finishing up a book on an implementation
+  methodology based on that theory called
+  <a href="http://oreilly.com/catalog/0636920020530" title="Building Hypermedia APIs with HTML5 and Node">
+    Building Hypermedia APIs with HTML5 and Node
+  </a> (Fall 2011, O'Reilly).
+</p>
+<h4>a chance to talk about what i am working on</h4>
+<p>
+  when i get the chance, i always encourage implementors of all types
+  (frameworks, libraries, front-line apps) to consider using more hypermedia
+  as part of the design. i've been doing the same w/ 
+  <a href="http://twitter.com/gblock" title="Glenn Block">@gblock</a> and 
+  anyone else on the WCF Web API team that i could reach. i'm just that way[grin].
+</p>
+<p>
+  this past week, i had another opportunity to do the same. while on the Redmond campus,
+  i was able to meet several of the folks on the WCF Web API team and share with 
+  them my current thinking and methodology for implementing web apps. they
+  had a number very good questions and some really smart observations about
+  what i am currently working on. it was a great experience for me; we ran 
+  out of time long before i was through picking their brains for feedback
+  and ideas. 
+</p>
+<h4>diving in the deep end</h4>
+<p>
+  i had an even more enlightening experience when 
+  <a href="http://twitter.com/gblock" title="Glenn Block">@gblock</a> volunteered
+  to do some pair-programming w/ me using the 
+  <a href="http://wcf.codeplex.com/" title="What is WCF Web Api">WCF Web API library</a>
+  along w/ my hypermedia methodology. it was very interesting.
+</p>
+<p>
+  we first worked through one of Glenn's classic examples
+  (the <a href="http://codebetter.com/glennblock/2011/05/15/using-datacontracts-with-wcf-web-api/">Contacts</a> demo)
+  and designed a domain-specific, CRUD+Query-style hypermedia type that expressed the
+  "Contacts problem domain." then, Glenn started showing me how to build up that
+  same media type design using the
+  <a href="http://wcf.codeplex.com/" title="What is WCF Web Api">WCF Web API library</a>.
+  in less than an hour we had all the basics in place for a server that could handle
+  the new hypermedia design. 
+</p>
+<p>
+  i don't have the code handy as we had to move on to the next appointment before 
+  tying it all up in a bow, but i can tell you it was not too shabby
+  (more on the code at the end of this post).
+</p>
+<h4>WCF Web API and Hypermedia</h4>
+<p>
+  there is no denying that, right now, using a "media-type first" approach to implementing
+  distributed apps requires more cermony and plumbing code. i <i>think</i> much of that can
+  be abstracted away into a hypermedia-aware framework. i've not [seen|done] something on that level yet and
+  i'm not sure the WCF Web API team is aiming for that right now ("Sorry, Mike. We decided
+  not to rename the library The Amundsen Web API"). but, from what i saw, there is quite a bit
+  of flexibility in the WCF stuff and that, IMO, is a good thing.
+</p>
+<h4>WCF Web API and HTTP</h4>
+<p>
+  i like that the WCF approach is not too 'opinionated' in the architectural details; i don't have
+  to 'buy into' REST in order to use this library.  as a
+  developer, i want to ability to use familiar programming patterns. at the same time, i 
+  also appreciate the the WCF Web API team does not try to 'hide the network' in their 
+  implementation. i think it's important to make sure programmers actually <i>know</i> when
+  they are dealing with remote clients and servers. WCF seems to do a good job on that front.
+</p>
+<p>
+  for my taste there are some spots where i'd still like a bit more 'exposure' to the protocol-level
+  details. for example, the library allows devs to write media type 'formatters' that can process
+  requests and responses.  i notice that i cannot gain easy access to the current HTTP context while in 
+  the formatter itself. to me that's a bit of a bummer. i am hoping to use formatters to craft a
+  representation of the 'current state' of the app for 'this' user at 'this' point in time 
+  (using the designated media type). it will be tough to do that without access to the current 
+  context of the request.
+</p>
+<blockquote>
+  see <a href="http://geekswithblogs.net/michelotti/archive/2011/06/06/understanding-custom-wcf-web-api-media-type-processors-on-both.aspx"
+  title="Understanding Custom WCF Web API Media Type Formatters on Both Server and Client">this article</a>
+  by <a href="http://stackoverflow.com/users/352246/steve-michelotti">Steve Michelotti</a> for a nice
+  intro to formatters.
+</blockquote>
+<h4>it ain't over yet!</h4>
+<p>
+  now that i'm back in sunny KY, i've blocked out some time to spend bashing around in the 
+  latest bits in order to see just how far i can get with the WCF Web API using my hypermedia
+  approach. who knows, maybe i can put together a hypermedia contacts demo for
+  <a href="http://twitter.com/gblock" title="Glenn Block">@gblock</a> to check out[grin].
+</p>
+<p>
+  i am lucky that i was able to talk to folks at Microsoft about hypermedia and had a chance to 
+  see how their tools work with my hypermedia-centric approach. now i'm fired up to start
+  pushing the bits around and see what comes up.
+</p>
+<h4>
+  and as soon as i get some working code up and running, i'll share my experience here, too.
+</h4></div>
+          <p class="category"><a href="index.html%3Fcategory=21.html" title="more from HTTP...">HTTP</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

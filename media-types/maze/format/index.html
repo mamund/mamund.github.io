@@ -1,0 +1,491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Maze+XML - Format : 
+          Media Types
+        </title>
+    <link type="text/css" rel="stylesheet" href="../../files/media-types.css">
+  </head>
+  <body>
+    <div id="ads" style="text-align:center;"><script type="text/javascript">
+            
+            google_ad_client = "pub-2944238157647009";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            google_ad_format = "728x90_as";
+            google_ad_type = "text_image";
+            google_ad_channel = "4794860677";
+            google_color_border = "000000";
+            google_color_bg = "F0F0F0";
+            google_color_link = "000000";
+            google_color_text = "000000";
+            google_color_url = "000000";
+            
+        </script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+    <h1>Media Types</h1>
+    <div id="page">
+      <div id="content">
+        <ul class="trail">
+          <li><a href="../../index.html" title="Media Types">Home</a></li>
+          <li>» <a href="../index.html" title="Maze+XML">Maze+XML</a></li>
+          <li>» <a href="index.html" title="Maze+XML - Format">Format</a></li>
+        </ul>
+        <h2>Maze+XML - Format</h2>
+        <h3>Description</h3><description><ol>
+            <li><a href="index.html#elements">Elements</a></li>
+            <li><a href="index.html#attributes">Attributes</a></li>
+            <li><a href="index.html#link-relations">Link Relations</a></li>
+            <li><a href="index.html#data-types">Data Types</a></li>
+            <li><a href="index.html#extensibility">Extensibility</a></li>
+          </ol>
+          <blockquote><b>NOTE:</b><br>
+      The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+      NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
+      "OPTIONAL" in this document are to be interpreted as described in
+      <a href="http://tools.ietf.org/html/rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC 2119</a>.
+      </blockquote></description><h4 style="display:inline">1. </h4><a id="elements"></a><h3 style="display:inline;clear:right">Elements</h3>
+        <div class="sbody"><sbody><p>
+          Below is a "map" of the Maze+XML media type. This map shows all the possible elements, attributes, link relations, and data types.
+          </p>
+            <p>
+          It should be noted that the media-type map below does not neccesarily represent a valid instance of a Maze+XML document. It is only
+          useful as a map to explore the various features of the media type. You can find a list of valid instances of Maze+XML documents in
+          the <a href="../examples/index.html" title="Maze+XML Examples" class="ext-link">Examples</a> section of this documentation.  
+          </p>
+            <p class="edits">
+            Consider using RELAX NG Compact instead of the document map. [ngarthl]
+          </p>
+            <pre>
+&lt;<a href="index.html#maze-element">maze</a> <a href="index.html#version-attribute">version</a>="1.0"&gt;
+  &lt;<a href="index.html#collection-element">collection</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>"&gt;
+    &lt;<a href="index.html#link-element">link</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>" <a href="index.html#rel-attribute">rel</a>="<a href="index.html#maze-rel">maze</a>" /&gt;
+    &lt;<a href="index.html#link-element">link</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>" <a href="index.html#rel-attribute">rel</a>="<a href="index.html#maze-rel">maze</a>" /&gt;
+    ...
+  &lt;/collection&gt;
+  &lt;<a href="index.html#item-element">item</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>" &gt;
+    &lt;<a href="index.html#link-element">link</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>" <a href="index.html#rel-attribute">rel</a>="<a href="index.html#start-attribute">start</a>" /&gt;
+    &lt;<a href="index.html#debug-element">debug</a>&gt;<a href="index.html#cdata-type">CDATA</a>&lt;/debug&gt;
+  &lt;/item&gt;  
+  &lt;<a href="index.html#cell-element">cell</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>"  <a href="index.html#debug-attribute">debug</a>="<a href="index.html#text-type">TEXT</a>" <a href="index.html#total-attribute">total</a>="<a href="index.html#number-type">NUMBER</a>" <a href="index.html#side-attribute">side</a>="<a href="index.html#number-type">NUMBER</a>"&gt;
+    &lt;<a href="index.html#link-element">link</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>" <a href="index.html#rel-attribute">rel</a>="<a href="index.html#current-attribute">current</a>" <a href="index.html#debug-attribute">debug</a>="<a href="index.html#text-type">TEXT</a>" <a href="index.html#total-attribute">total</a>="<a href="index.html#number-type">NUMBER</a>" <a href="index.html#side-attribute">side</a>="<a href="index.html#number-type">NUMBER</a>" /&gt; &lt;!-- alternate 'current' link --&gt;
+    &lt;<a href="index.html#link-element">link</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>" <a href="index.html#rel-attribute">rel</a>="<a href="index.html#north-rel">north</a>" /&gt;
+    &lt;<a href="index.html#link-element">link</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>" <a href="index.html#rel-attribute">rel</a>="<a href="index.html#south-rel">south</a>" /&gt;
+    &lt;<a href="index.html#link-element">link</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>" <a href="index.html#rel-attribute">rel</a>="<a href="index.html#east-rel">east</a>" /&gt;
+    &lt;<a href="index.html#link-element">link</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>" <a href="index.html#rel-attribute">rel</a>="<a href="index.html#west-rel">west</a>" /&gt;
+    &lt;<a href="index.html#link-element">link</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>" <a href="index.html#rel-attribute">rel</a>="<a href="index.html#exit-rel">exit</a>" /&gt;
+  &lt;/cell&gt;
+  &lt;<a href="index.html#error-element">error</a> <a href="index.html#href-attribute">href</a>="<a href="index.html#uri-type">URI</a>"&gt;
+    &lt;<a href="index.html#title-element">title</a>&gt;<a href="index.html#text-type">TEXT</a>&lt;/title&gt;
+    &lt;<a href="index.html#code-element">code</a>&gt;<a href="index.html#text-type">TEXT</a>&lt;/code&gt;
+    &lt;<a href="index.html#message-element">message</a>&gt;<a href="index.html#cdata-type">CDATA</a>&lt;/message&gt;
+  &lt;/error&gt;
+&lt;/maze&gt;         
+          </pre></sbody></div>
+        <h4 style="display:inline">1.1. </h4><a id="cell-element"></a><h4 style="display:inline;clear:right">&lt;cell&gt;</h4>
+        <div class="sbody"><sbody><p>
+                The <a href="index.html#cell-element">&lt;cell&gt;</a> element
+                represents a single "cell" or "block" in the maze.
+              </p>
+            <p>
+                The <a href="index.html#cell-element">&lt;cell&gt;</a> element 
+                SHOULD have two attributes: 
+                <a href="index.html#href-attribute">href</a> and
+                <a href="index.html#rel-attribute">rel</a>.
+                The <a href="index.html#href-attribute">href</a> attribute MUST contain a valid
+                <a href="index.html#uri-type">URI</a>. The <a href="index.html#rel-attribute">rel</a>
+                attribute SHOULD be set to 
+                "<a href="http://amundsen.com/media-types/maze/format/current-rel">current</a>".
+              </p>
+            <p>
+                The <a href="index.html#cell-element">&lt;cell&gt;</a> element 
+                MAY have one or more of the following attributes:
+                <a href="index.html#debug-attribute">debug</a>,
+                <a href="index.html#total-attribute">total</a>, and
+                <a href="index.html#size-attribute">size</a>.
+              </p>
+            <p>
+                The <a href="index.html#cell-element">&lt;cell&gt;</a> element 
+                MAY have one or more <a href="index.html#link-element">&lt;link&gt;</a> child elements.
+              </p></sbody></div>
+        <h4 style="display:inline">1.2. </h4><a id="code-element"></a><h4 style="display:inline;clear:right">&lt;code&gt;</h4>
+        <div class="sbody"><sbody><p>
+                The <a href="index.html#code-element">&lt;code&gt;</a> element is a child 
+                element of the <a href="index.html#error-element">&lt;error&gt;</a> element.
+                It can be used to provide a human-friendly error code for the error being reported.
+              </p>
+            <p>
+                It SHOULD contain valid <a href="index.html#text-type">TEXT</a> data.
+              </p>
+            <p>
+                It is an OPTIONAL element.
+              </p></sbody></div>
+        <h4 style="display:inline">1.3. </h4><a id="collection-element"></a><h4 style="display:inline;clear:right">&lt;collection&gt;</h4>
+        <div class="sbody"><sbody><p>
+                The <a href="index.html#collection-element">&lt;collection&gt;</a> element
+                represents the list of available "mazes" in this collection.
+              </p>
+            <p>
+                The <a href="index.html#collection-element">&lt;collection&gt;</a> element
+                SHOULD have an 
+                <a href="index.html#href-attribute">href</a> attribute with a 
+                <a href="index.html#uri-type">URI</a> value which points to this resource.
+                If present, this <a href="index.html#uri-type">URI</a> MAY be used with the 
+                HTTP POST method to create a new "maze" or "game" as a child resource of 
+                the collection <a href="index.html#uri-type">URI</a>.
+              </p>
+            <p>
+                The <a href="index.html#collection-element">&lt;collection&gt;</a> element
+                MAY have one or more 
+                <a href="index.html#link-element">&lt;link&gt;</a> child elements.
+                Each of these child elements SHOULD have a
+                <a href="index.html#rel-attribute">rel</a> 
+                attribute with a value of 
+                "<a href="index.html#maze-rel">maze</a>".
+                This indicates the associated 
+                <a href="index.html#href-attribute">href</a> of the 
+                <a href="index.html#link-element">link</a> element has a
+                <a href="index.html#uri-type">URI</a> which points to the the starting point
+                of a maze or game.
+              </p></sbody></div>
+        <h4 style="display:inline">1.4. </h4><a id="debug-element"></a><h4 style="display:inline;clear:right">&lt;debug&gt;</h4>
+        <div class="sbody"><sbody><p>
+                This element is a child of the 
+                <a href="index.html#item-element">&lt;item&gt;</a>. It contains additional
+                information that can be used to help debug or inspect the state of the
+                maze or game. This data is defined by and supplied by the server.
+              </p>
+            <p>This element SHOULD contain only valid <a href="index.html#cdata-type">CDATA</a>.</p>
+            <p>This is an OPTIONAL element.</p>
+            <p class="edits">Consider moving this to an extension. [ngarthl]</p></sbody></div>
+        <h4 style="display:inline">1.5. </h4><a id="error-element"></a><h4 style="display:inline;clear:right">&lt;error&gt;</h4>
+        <div class="sbody"><sbody><p>
+                The <a href="index.html#error-element">&lt;error&gt;</a> element is an OPTIONAL 
+                element. It MAY contain one or more child elements. 
+                The list of valid child elements is:
+                <a href="index.html#error-title-element">&lt;title&gt;</a>, 
+                <a href="index.html#error-code-element">&lt;code&gt;</a>, 
+                <a href="index.html#error-message-element">&lt;message&gt;</a>, and
+                <a href="index.html#error-link-element">&lt;link&gt;</a>.
+              </p>
+            <p>
+                Each of the above child elements MUST appear no more than once within 
+                the <a href="index.html#error-element">&lt;error&gt;</a> element.
+              </p>
+            <p>
+                If the <a href="index.html#error-element">&lt;error&gt;</a> element appears 
+                in the document, it SHOULD be the only child element of the 
+                <a href="index.html#maze-element">&lt;maze&gt;</a> element.
+              </p></sbody></div>
+        <h4 style="display:inline">1.6. </h4><a id="item-element"></a><h4 style="display:inline;clear:right">&lt;item&gt;</h4>
+        <div class="sbody"><sbody><p>
+                The <a href="index.html#item-element">&lt;item&gt;</a> element
+                represents a complete "maze" or "game."
+              </p>
+            <p>
+                The <a href="index.html#item-element">&lt;item&gt;</a> element 
+                SHOULD have an <a href="index.html#href-attribute">href</a> attribute.
+                The <a href="index.html#href-attribute">href</a> attribute MUST contain a valid
+                <a href="index.html#uri-type">URI</a>. 
+                The <a href="index.html#item-element">&lt;item&gt;</a> element 
+                SHOULD have a <a href="index.html#link-element">&lt;link&gt;</a>
+                child element whose attributes SHOULD point to the start of a maze or game.
+                The <a href="index.html#item-element">&lt;item&gt;</a> element 
+                MAY have a <a href="index.html#debug-element">&lt;debug&gt;</a> child element.
+              </p></sbody></div>
+        <h4 style="display:inline">1.7. </h4><a id="link-element"></a><h4 style="display:inline;clear:right">&lt;link&gt;</h4>
+        <div class="sbody"><sbody><p>
+                The <a href="index.html#link-element">&lt;link&gt;</a> element MUST have
+                two attributes: 
+                <a href="index.html#href-attribute">href</a>, and
+                <a href="index.html#rel-attribute">rel</a>.
+                The <a href="index.html#href-attribute">href</a> attribute MUST contain a valid
+                <a href="index.html#uri-type">URI</a>. The <a href="index.html#rel-attribute">rel</a>
+                attribute SHOULD contain one of the valid 
+                <a href="http://amundsen.com/media-types/maze/format/link-relations">Link Relation</a> values.
+              </p>
+            <p>
+                The <a href="index.html#link-element">&lt;link&gt;</a> MAY appear as the 
+                child element of the
+                <a href="index.html#collection-element">&lt;collection&gt;</a>,
+                <a href="index.html#item-element">&lt;item&gt;</a>, and
+                <a href="index.html#error-element">&lt;error&gt;</a> elements.
+              </p>
+            <p><b>NOTE:</b>
+                If the <a href="index.html#link-element">&lt;link&gt;</a> element
+                has a <a href="index.html#rel-attribute">rel</a> attribute set to 
+                <a href="index.html#current-rel">current</a> it MAY also have the following
+                addition attributes:
+                <a href="index.html#debug-attribute">debug</a>,
+                <a href="index.html#size-attribute">size</a>, and
+                <a href="index.html#total-attribute">total</a>.
+              </p>
+            <p class="edits">
+                Consider adding @name or @id to links to help w/ identification in a collection [ngarthl].
+              </p></sbody></div>
+        <h4 style="display:inline">1.8. </h4><a id="maze-element"></a><h4 style="display:inline;clear:right">&lt;maze&gt;</h4>
+        <div class="sbody"><sbody><p>
+                A valid Maze+XML document MUST have a root element of 
+                <a href="index.html#maze-element">&lt;maze&gt;</a>. It MAY have 
+                one or more of the following child elements:
+                <a href="index.html#collection-element">&lt;collection&gt;</a>,
+                <a href="index.html#item-element">&lt;item&gt;</a>, 
+                <a href="index.html#cell-element">&lt;cell&gt;</a>, and
+                <a href="index.html#error-element">&lt;error&gt;</a>.
+              </p>
+            <p>
+                Each of these child elements MUST NOT appear more than once within the document.
+                If the 
+                <a href="index.html#error-element">&lt;error&gt;</a>element appears, 
+                it SHOULD be the only child element of the document.
+              </p></sbody></div>
+        <h4 style="display:inline">1.9. </h4><a id="message-element"></a><h4 style="display:inline;clear:right">&lt;message&gt;</h4>
+        <div class="sbody"><sbody><p>
+                The <a href="index.html#message-element">&lt;message&gt;</a> element is a child
+                element of the <a href="index.html#error-element">&lt;error&gt;</a> element.
+                It holds additional information about the error that is represented by the
+                <a href="index.html#error-element">&lt;error&gt;</a> element. 
+              </p>
+            <p>
+                It SHOULD contain only valid <a href="index.html#cdata-type">CDATA</a> chacters.
+              </p>
+            <p>It is an OPTIONAL element.</p></sbody></div>
+        <h4 style="display:inline">1.10. </h4><a id="title-element"></a><h4 style="display:inline;clear:right">&lt;title&gt;</h4>
+        <div class="sbody"><sbody><p>
+                The <a href="index.html#title-element">&lt;title&gt;</a> element is a child 
+                element of the <a href="index.html#error-element">&lt;error&gt;</a> element.
+                It can be used to provide a human-friendly title for the error being reported.
+              </p>
+            <p>
+                It SHOULD contain valid <a href="index.html#text-type">TEXT</a> data.
+              </p>
+            <p>
+                It is an OPTIONAL element.
+              </p></sbody></div>
+        <h4 style="display:inline">2. </h4><a id="attributes"></a><h3 style="display:inline;clear:right">Attributes</h3>
+        <div class="sbody"><sbody><p>
+            Below is a list of all the attributes used in the Maze+XML media type:
+          </p></sbody></div>
+        <h4 style="display:inline">2.1. </h4><a id="debug-attribute"></a><h4 style="display:inline;clear:right">debug</h4>
+        <div class="sbody"><sbody><p>
+                  This attribute contains text data that represents debugging information supplied by
+                  the server.
+                  It's value MUST be <a href="index.html#text-type">TEXT</a></p>
+            <p>
+                  This is an OPTIONAL attribute. If present, it MUST only appear on the 
+                  <a href="index.html#cell-element">&lt;cell&gt;</a> element.
+                </p></sbody></div>
+        <h4 style="display:inline">2.2. </h4><a id="href-attribute"></a><h4 style="display:inline;clear:right">href</h4>
+        <div class="sbody"><sbody><p>
+                  This attribute specifies the location of a Maze+XML resource, thus defining a link between the 
+                  current resource and the destination resource defined by this attribute.
+                </p>
+            <p>
+                  The value of the attribute MUST always be a valid <a href="index.html#uri-type">URI</a>.
+                </p>
+            <p>
+                  This is an OPTIONAL attribute for the following elements:
+                  <a href="index.html#collection-element">&lt;collection&gt;</a>,
+                  <a href="index.html#item-element">&lt;item&gt;</a>, 
+                  <a href="index.html#cell-element">&lt;cell&gt;</a>, and
+                  <a href="index.html#error-element">&lt;error&gt;</a>.
+                  This is a REQUIRED attribute for the <a href="index.html#link-element">&lt;link&gt;</a> element.
+                </p></sbody></div>
+        <h4 style="display:inline">2.3. </h4><a id="rel-attribute"></a><h4 style="display:inline;clear:right">rel</h4>
+        <div class="sbody"><sbody><p>
+                This attribute describes the relationship from the current representation to the URI 
+                specified by the <a href="index.html#href-attribute">href</a> attribute. 
+                The value of this attribute SHOULD be one of the values listed in the 
+                <a href="index.html#attributes">Attributes</a> section of this document.
+                </p>
+            <p>
+                  This is a REQUIRED attribute for the <a href="index.html#link-element">&lt;link&gt;</a> element.
+                </p></sbody></div>
+        <h4 style="display:inline">2.4. </h4><a id="side-attribute"></a><h4 style="display:inline;clear:right">side</h4>
+        <div class="sbody"><sbody><p>
+                  This attribute indicates the number of cells on a single side of the maze represented by 
+                  this document.
+                  The value of this attribute MUST be a valid <a href="index.html#number-type">NUMBER</a>.
+                </p>
+            <p>
+                  This is an OPTIONAL attribute. If it is present, it MUST only appear on the
+                  <a href="index.html#cell-element">&lt;cell&gt;</a> element.
+                </p></sbody></div>
+        <h4 style="display:inline">2.5. </h4><a id="total-attribute"></a><h4 style="display:inline;clear:right">total</h4>
+        <div class="sbody"><sbody><p>
+                  This attribute indicates the total number of cells in the maze represented by this document.
+                  The value of this attribute MUST be a valid <a href="index.html#number-type">NUMBER</a>.
+                </p>
+            <p>
+                  This is an OPTIONAL attribute. If it is present,it MUST only appear on the
+                  <a href="index.html#cell-element">&lt;cell&gt;</a> element.
+                </p></sbody></div>
+        <h4 style="display:inline">2.6. </h4><a id="version-attribute"></a><h4 style="display:inline;clear:right">version</h4>
+        <div class="sbody"><sbody><p>
+                  Indicates the version of this Maze+XML media-type document.
+                  The value of this attribute MUST be set to "1.0" for this
+                  version of the documentation. 
+                </p>
+            <p>  
+                  This is an OPTIONAL attribute.
+                  If it is present, it MUST only appear on the 
+                  <a href="index.html#maze-element">&lt;maze&gt;</a> element.
+                </p></sbody></div>
+        <h4 style="display:inline">3. </h4><a id="link-relations"></a><h3 style="display:inline;clear:right">Link Relations</h3>
+        <div class="sbody"><sbody><p>
+            Below is a list of all the valid link relation values for the 
+            <a href="index.html#rel-attribute">rel</a> attribute of the Maze+XML document.
+          </p>
+            <p class="edits">
+            Consider using full URI|IRI or possibly URNs for link relation values. [ngarthl] 
+          </p></sbody></div>
+        <h4 style="display:inline">3.1. </h4><a id="collection-rel"></a><h4 style="display:inline;clear:right">collection</h4>
+        <div class="sbody"><sbody><p>
+                Refers to a resource that returns a list of the target 
+                document/entities, etc.
+                Logged with the <a href="http://microformats.org/wiki/existing-rel-values#non_HTML_rel_values" class="ext-link">Microformats Existing Rel Values</a>.
+                <p></p>
+                When used in the Maze+XML media type, the associated URI returns the 
+                available collection of mazes.  
+                </p></sbody></div>
+        <h4 style="display:inline">3.2. </h4><a id="current-rel"></a><h4 style="display:inline;clear:right">current</h4>
+        <div class="sbody"><sbody><p>
+                Refers to a resource containing the most recent item(s) in a collection of resources.
+                Registered through <a href="http://www.iana.org/assignments/link-relations/link-relations.xml" class="ext-link">IANA Link Relations</a>.
+                </p>
+            <p>
+                When used in the Maze+XML media type, the associated URI returns the
+                client's current position in the active maze.
+                </p></sbody></div>
+        <h4 style="display:inline">3.3. </h4><a id="east-rel"></a><h4 style="display:inline;clear:right">east</h4>
+        <div class="sbody"><sbody><p>
+                Refers to a resource to the "east" of the current resource.  
+                Logged with the <a href="http://microformats.org/wiki/existing-rel-values#non_HTML_rel_values" class="ext-link">Microformats Existing Rel Values</a>.
+                </p>
+            <p>
+                When used in the Maze+XML media type, the associatd URI points to
+                a neighboring cell resource to the east in the active maze.
+                </p></sbody></div>
+        <h4 style="display:inline">3.4. </h4><a id="exit-rel"></a><h4 style="display:inline;clear:right">exit</h4>
+        <div class="sbody"><sbody><p>
+                Refers to a resource that represents the exit or end of the current client actvity or process. 
+                Logged with the <a href="http://microformats.org/wiki/existing-rel-values#non_HTML_rel_values" class="ext-link">Microformats Existing Rel Values</a>.
+                </p>
+            <p>
+                When used in the Maze+XML media type, the associated URI points to
+                the final exit resource of the active maze.
+                </p></sbody></div>
+        <h4 style="display:inline">3.5. </h4><a id="maze-rel"></a><h4 style="display:inline;clear:right">maze</h4>
+        <div class="sbody"><sbody><p>
+                Refers to a single maze/game document. 
+                </p>
+            <p>
+                When used in the Maze+XML media type, the associated URI points to
+                an existing resource that represents a maze.
+                </p></sbody></div>
+        <h4 style="display:inline">3.6. </h4><a id="north-rel"></a><h4 style="display:inline;clear:right">north</h4>
+        <div class="sbody"><sbody><p>
+                Refers to a resource that is "north" of the current resource.  
+                Logged with the <a href="http://microformats.org/wiki/existing-rel-values#non_HTML_rel_values" class="ext-link">Microformats Existing Rel Values</a>.
+                </p>
+            <p>
+                When used in the Maze+XML media type, the associatd URI points to
+                a neighboring cell resource to the north in the active maze.
+                </p></sbody></div>
+        <h4 style="display:inline">3.7. </h4><a id="south-rel"></a><h4 style="display:inline;clear:right">south</h4>
+        <div class="sbody"><sbody><p>
+                Refers to a resource that is "south" of the current resource.  
+                Logged with the <a href="http://microformats.org/wiki/existing-rel-values#non_HTML_rel_values" class="ext-link">Microformats Existing Rel Values</a>.
+                </p>
+            <p>
+                When used in the Maze+XML media type, the associatd URI points to
+                a neighboring cell resource to the south in the active maze.
+                </p></sbody></div>
+        <h4 style="display:inline">3.8. </h4><a id="start-rel"></a><h4 style="display:inline;clear:right">start</h4>
+        <div class="sbody"><sbody><p>
+                Refers to the first resource in a collection of resources.
+                Registered through 
+                <a href="http://www.iana.org/assignments/link-relations/link-relations.xml" class="ext-link">IANA Link Relations</a>.
+                </p>
+            <p>
+                When used in the Maze+XML media type, the associated URI refers to the 
+                starting cell resource within a maze.  
+                </p></sbody></div>
+        <h4 style="display:inline">3.9. </h4><a id="west-rel"></a><h4 style="display:inline;clear:right">west</h4>
+        <div class="sbody"><sbody><p>
+                Refers to a resource that is "west" of the current resource.  
+                Logged with the <a href="http://microformats.org/wiki/existing-rel-values#non_HTML_rel_values" class="ext-link">Microformats Existing Rel Values</a>.
+                </p>
+            <p>
+                When used in the Maze+XML media type, the associatd URI points to
+                a neighboring cell resource to the west in the active maze.
+                </p></sbody></div>
+        <h4 style="display:inline">4. </h4><a id="data-types"></a><h3 style="display:inline;clear:right">Data Types</h3>
+        <div class="sbody"><sbody><p>
+            Below are the data types used in Maze+XML documents. The reference for most of the data type definitions below is
+            the <a href="http://www.w3.org/TR/REC-html40/types.html#h-6.2" title="SGML basic types" class="ext-link">SGML basic types</a> 
+            section of the <a href="http://www.w3.org/TR/html401/" title="HTML 4.01 Specification" class="ext-link">HTML 4.01 Specification</a>.
+          </p></sbody></div>
+        <h4 style="display:inline">4.1. </h4><a id="cdata-type"></a><h4 style="display:inline;clear:right">CDATA</h4>
+        <div class="sbody"><sbody><p>
+                CDATA is a sequence of characters from the document character set and may include character entities.
+              </p></sbody></div>
+        <h4 style="display:inline">4.2. </h4><a id="number-type"></a><h4 style="display:inline;clear:right">NUMBER</h4>
+        <div class="sbody"><sbody><p>
+                Numbers MUST contain at least one digit ([0-9]). The characters ".", "-", and "+" MAY also appear.
+              </p></sbody></div>
+        <h4 style="display:inline">4.3. </h4><a id="text-type"></a><h4 style="display:inline;clear:right">TEXT</h4>
+        <div class="sbody"><sbody><p>
+                Text is meant to be "human readable".
+              </p></sbody></div>
+        <h4 style="display:inline">4.4. </h4><a id="uri-type"></a><h4 style="display:inline;clear:right">URI</h4>
+        <div class="sbody"><sbody><p>
+              URI is defined by 
+              <a href="http://tools.ietf.org/html/rfc3986" title="Uniform Resource Identifier (URI): Generic Syntax" class="ext-link">RFC 3986</a></p></sbody></div>
+        <h4 style="display:inline">5. </h4><a id="extensibility"></a><h3 style="display:inline;clear:right">Extensibility</h3>
+        <div class="sbody"><sbody><p class="edits">
+            added 2010-12-08 per [ngarthl] suggestion.
+          </p>
+            <p>
+            This document describes the 
+            <a href="../index.html" class="ext-link">Maze+XML</a> markup vocabulary.  
+            Markup from other vocabularies ("foreign markup") can be used in a 
+            <a href="../index.html">Maze+XML</a>
+            document. Any extensions to the <a href="../index.html">Maze+XML</a>
+            vocabulary MUST not redefine any 
+            <a href="index.html#elements">elements</a>, 
+            <a href="index.html#attributes">attributes</a>,
+            <a href="index.html#link-relations">link relations</a>, or
+            <a href="index.html#data-types">data types</a> defined in this document.
+            Clients that do not recognize extensions to the
+            <a href="../index.html" class="ext-link">Maze+XML</a> vocabulary
+            SHOULD ignore them.
+          </p>
+            <p>
+            The details of designing and implementing 
+            <a href="../index.html" class="ext-link">Maze+XML</a>
+            is beyond the scope of this document.
+          </p>
+            <p><b>NOTE:</b> It is possible that future forward-compatible modifications to this specification
+            will include new elements, attributes, link-relations, and data types. Extension
+            designers should take care to prevent future modifications from breaking or
+            redefining those extensions. The safest way to do this is to use a unique
+            <a href="http://www.w3.org/TR/REC-xml-names/" title="XML Namespaces" class="ext-link">XML Namespace</a>
+            for each extension.
+          </p></sbody></div>
+        <h3 id="history">Update History</h3>
+        <dl class="update-history">
+          <dt>2010-12-06</dt>
+          <dd><notes>Updated Maze+XML</notes></dd>
+          <dt>2010-11-27</dt>
+          <dd><notes>Initial post</notes></dd>
+        </dl>
+      </div>
+    </div>
+    <div id="footer">
+      <address>updated: 2010-12-08</address>
+    </div><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+        _uacct = "UA-2399548-1";
+        urchinTracker();
+        </script></body>
+</html>

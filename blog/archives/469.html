@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[is content-negotiation doomed?]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">is content-negotiation doomed?</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2007-11-21 @ 21:46</span><span class="permalink"><a href="469.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>been reading lots on the topic of <a href="http://256.com/gray/docs/rfc2616/12.html" title="Content Negotiation">content negotiation</a> recently. this is all because i am trying to finish up my study of REST and want to fulfill the notion of multiple representations for a single URL. my reading has not been all that encouraging.</p>
+<p>first, i see lots of stuff on how conneg is <a href="http://www.25hoursaday.com/weblog/CommentView.aspx?guid=9082b09e-3765-495e-837e-9247b1319f6b" title="Is HTTP Content Negotiation Broken as Designed?">broken</a>. how <a href="http://norman.walsh.name/2003/07/02/conneg" title="Content Negotiation">browsers don't support it properly</a>, how <a href="http://fgiasson.com/blog/index.php/2007/07/06/content-negotiation-bad-use-cases-i-recently-observed/" title="Content negotiation: bad use cases I recently observed">servers</a> usually get it wrong, and how <a href="http://www.hpl.hp.com/personal/ange/archives/archives-95/http-wg-archive/2157.html" title="Rethinking content negotiation (Was: rethinking caching)">caching is complicated</a> by the whole thing. not at all encouraging.</p>
+<p>but i'd like to press on. i'd like to be able to server up multiple representations (HTML, XML, RDF, PDF, SVG) of the same data without being *forced* to use file extensions to do it. it should not be impossible. it should not even be difficult. in fact, i'm thinking that it is *not* all that hard to get right (not considering the proxy caching issue for now).</p>
+<p>it seems that the pattern should work like this:</p>
+<ol>
+<li>define the URL for the resource</li>
+<li>define the default media type for the resource</li>
+<li>define the alternate media types for the resource</li>
+<li>when a request comes in, determine the best match media type using the <code>Accept</code> header</li>
+<li>if one fits, return the resource using the 'best-match' media type</li>
+<li>if no clear preference is found (<code>*/*</code>), use the default media type</li>
+<li>if there is no match *at all* betweeen the <code>Accept</code> header and the supported media types for the resource, return <code>406 - Not Acceptable</code></li>
+</ol>
+<p>this seems pretty basic. the only magic here is "determine the best match media type" step. i've seen a couple examples of handling this. i like <a href="http://code.google.com/p/mimeparse/">mimeparse</a> (per this <a href="http://www.xml.com/pub/a/2005/06/08/restful.html" title="Just Use Media Types?">article</a>) from <a href="http://www.xml.com/pub/au/225">joe gregorio</a>. i plan on adapting his code for my C#-based engine. this should handle 'magic' part. that leaves the details of supporting multiple representations (meaning generating the various outputs for that resource) and that's just a matter of brute force work, right?</p>
+<p>the last step is to sort out the caching of all this. and it seems to me that - at the orign server - it amounts to the following work:</p>
+<ol>
+<li>get the resource request</li>
+<li>compete the conneg work for this resource/URL)</li>
+<li>check the local cache (using URL+mediatype as the key)</li>
+<li>if found and fresh, return that item</li>
+<li>if not found, generate the representation</li>
+<li>place the results in the local cache (using URL+mediatype as the key)</li>
+<li>return the representation to the caller</li>
+</ol>
+<p>not too bad. an adjustment of the caching keys is all that's needed here. but then there's the details of refreshing the cache on edits, etc. now, a single URL is no longer sufficient to know how to clear the cache of stale items. now you need to plan for clearing the cache of all the supported mediatypes for that URL. but that is not complex, either.</p>
+<ol>
+<li>get the URL to clear</li>
+<li>get ths list of mediatypes supported for the resource at that URL</li>
+<li>execute <code>HEAD</code> requests for the URL -for each media type-</li>
+</ol>
+<p>and that's not all that tough, either, right?</p>
+<p>i guess the last item is whether this pattern is going to work with public proxy cache servers. i suspect it will. as long as each representation is sent with the <code>Vary: Accept</code> header. i'm not sure how this will go down with caching servers. also, i've heard some rumblings that IE might not locally cache anything that has a <code>Vary:</code> header returned. kinda of a bummer, but not a show-stoppper, i think.</p>
+<p>so that's it. a relatively clear process. it all hinges on some 'roll-up-the-sleeves' coding and knuckle-down testing. i hope to get it down in a weekend!</p>
+ </div>
+          <p class="category"><a href="index.html%3Fcategory=5.html" title="more from code...">code</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

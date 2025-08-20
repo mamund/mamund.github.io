@@ -1,0 +1,206 @@
+/* Public Domain 2008 amundsen.com, inc.
+ * @author mike amundsen (http://amundsen.com/blog/)
+ * 2008-07-29 (mca) : initial release
+ */
+
+body
+{
+  padding:0;
+}
+
+#loading
+{
+  width:200px;
+  margin: 5em auto;
+  padding: 2em;
+  border: 3px outset #111;
+  color:black;
+  background-color:#e6e6e6;
+  text-align:center;
+}
+h1,h2,h3,h4,h5
+{
+  margin-bottom:0;
+  margin-top:0;
+}
+h3,h4,h5
+{
+  margin-top:0;
+}
+h5
+{
+  font-style:italic;
+}
+#details,
+#details p
+{
+  margin:0 auto;
+}
+#details p.version
+{
+  font-style:italic;
+  font-size:smaller;
+}
+
+.view
+{
+  width:760px;
+}
+.space
+{
+  margin-top:.5em;
+}
+fieldset legend
+{
+  color:black;
+  font-weight:bold;
+}
+fieldset p
+{
+  margin:.2em 0;
+  float:none;
+  clear:both;
+}
+fieldset p label
+{
+  display:block;
+  width:8em;
+  float:left;
+}
+fieldset.buttons
+{
+  padding:.3em;
+}
+p.buttons
+{
+  border:solid 1px #000;
+  background-color:#e6e6e6;
+  padding:.2em;
+}
+p.buttons input,
+p.buttons select,
+.inline-button
+{
+  font-size:x-small;
+}
+input[type='submit']
+{
+  font-weight:bold;
+}
+
+.hidden
+{
+  display:none;
+}
+
+#command-block
+{
+  margin: .6em 0;
+  padding: .3em 0;
+  border: 1px solid silver;
+  background-color: #e9e9e9;
+}
+#command-block h4,
+#command-block h5
+{
+  margin-bottom:.3em;
+  margin-left:.3em;
+}
+#login
+{
+  margin-left:.3em;
+}
+.add-click
+{
+  font-weight:bold;
+  font-size:larger;
+}
+.date
+{
+  margin: auto .2em;
+  font-style:italic;
+  font-size:smaller;
+  color:#555;
+}
+a:link,
+a:visited,
+a:hover
+{
+  color:blue;
+}
+a.guest
+{
+  font-weight:normal;
+}
+
+#recent-messages dl
+{
+}
+#recent-messages dt
+{
+  margin-bottom: .2em;
+  margin-left:0em;
+}
+#recent-messages dd
+{
+  margin-bottom: 1em;
+  margin-left: .5em;
+}
+.reply
+{
+  margin-left:.2em;
+  font-size:smaller;
+}
+.reply a
+{
+  color:#555;
+}
+.reply a:hover
+{
+  color:blue;
+}
+
+a.reply-link
+{
+  color:black;
+}
+a.reply-link:hover
+{
+  color:blue;
+}
+
+.button-row
+{
+  float:left;
+}
+.icon-row
+{
+  float:right;
+  margin:auto .6em;
+}
+.empty
+{
+  float:none;
+  clear:both;
+  height:0;
+  width:0;
+  visibility:hidden;
+  margin:0;
+  padding:0;
+}
+.feed
+{
+  padding: .3em;
+}
+#alert
+{
+  margin:.5em 0;
+  border:1px solid red;
+  padding: .2em;
+  background-color:#ffc;
+  width:754px;
+}
+#alert h3,h4,p
+{
+  margin:0;
+}

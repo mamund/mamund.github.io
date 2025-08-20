@@ -1,0 +1,686 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Scraps : 
+          Hypermedia Types
+        </title>
+    <link type="text/css" rel="stylesheet" href="../files/hypermedia-types.css">
+  </head>
+  <body>
+    <div id="ads" style="text-align:center;"><script type="text/javascript">
+            
+            google_ad_client = "pub-2944238157647009";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            google_ad_format = "728x90_as";
+            google_ad_type = "text_image";
+            google_ad_channel = "4794860677";
+            google_color_border = "000000";
+            google_color_bg = "F0F0F0";
+            google_color_link = "000000";
+            google_color_text = "000000";
+            google_color_url = "000000";
+            
+        </script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+    <h1>Hypermedia Types</h1>
+    <div id="page">
+      <div id="content">
+        <ul class="trail">
+          <li><a href="../../hypermedia.html" title="Hypermedia">Home</a></li>
+          <li>» <a href="index.html" title="Scraps">Scraps</a></li>
+        </ul>
+        <h2>Scraps</h2>
+        <body>
+          <blockquote class="ed-notes">
+            <p>
+        This space holds ramblings, mental notes, clips, links, and other random scraps
+        of information. It's in no special order or condition and is subject to constant
+        revision and re-arrangement. Don't count on me keeping this area tidy [grin].
+        </p>
+            <p>
+          It's possible some of this material will be incorporated into the more formal
+          content here. (If|When) that happens, I'll mark the items here with links to
+          the related material elsewhere. 
+        </p>
+            <p class="sig">mamund</p>
+          </blockquote>
+        </body>
+        <div id="scraps"><a id="four-descisions"></a><h3>Four Decisions When Designing A Hypermedia Type</h3><a href="index.html#four-descisions">perma-link</a><p class="date">2011-02-17</p>
+          <div class="scrap-entry"><entry><p>
+						When setting out to design a hypermedia type to solve a problem the designer needs
+						to go through four primary decisions. These decisions set the tone for the 
+						hypermedia features available to clients and servers using the hypermedia type.
+					</p>
+              <dl>
+                <dt>Base Format</dt>
+                <dd>
+                  <p>
+								What is the base format (base media type) of your hypermedia type. Most designers start with
+								XML or JSON; usually not a good idea. It would be better to start w/ (X)HTML
+								since that media type has hypermedia controls 
+								<a href="../html/index.html">built in</a>. XML and JSON have no
+								built-in hypermedia controls and designers will need to create their own AND make sure
+								all servers and clients understand these added features of the media type.
+							</p>
+                </dd>
+                <dt>Application Domain</dt>
+                <dd>
+                  <p>
+								How will application-specific information be conveyed within the hypermedia type? How
+								will clients and servers recognize domain objects ("customer-name"), links ("add-customers"),
+								and other important details? Existing media types handle this differently.
+							</p>
+                  <ol>
+                    <li>
+									NONE: HTML has no domain specificity built-in. None of the element names or attributes carry
+									built-in application domain meaning (except possibly for "documents").
+								</li>
+                    <li>
+									GENERAL: Atom has "general" domain specificty built-in. There are clear elements w/ meaningful names
+									and selected elements have well-defined hypermedia meaning (rel="sef" and rel="edit", etc.). This
+									general specificity works well for "generic" solutions. But sometimes Atom's limited domain semantics
+									makes customizing the responses difficult.
+								</li>
+                    <li>
+									SPECIFIC: VoiceXML has rather specific application-level elements. It is relatively easy to read
+									a VoiceXML document and understand what the application does just from the element/attribute choices. Your
+									solution may call for a very specific set of attributes and elements in order to express your
+									app domain directly within the document.
+								</li>
+                  </ol>
+                </dd>
+                <dt>State Transfer</dt>
+                <dd>
+                  <p>
+								How will clients send data back to servers? How will that transfer their own "state" values to the server
+								for processing? Again, there are three basic ways to solve this problem:
+							</p>
+                  <ol>
+                    <li>
+									NONE: SVG is a media type that supports no state transfer from client to server. It is a "read-only" 
+									hypermedia type.
+								</li>
+                    <li>
+									PRE-DEFINED: Atom uses a "pre-defined" model for clients to transfer state to servers. The Atom documentation
+									describes the format and elements that can be sent to the server. It is up to the client to "understand"
+									these rules and have them "coded-in."
+								</li>
+                    <li>
+									AD-HOC: HTML uses an "ad-hoc" model for establishing client-to-server state transfers. The HTML documentation
+									defines a generic mechanism for sending arbitrary data to servers using the FORM, INPUT, and other related-elements.
+									Clients must "understand" the rules for handling FORMs and the related controls as they appear within the 
+									response representations.
+								</li>
+                  </ol>
+                </dd>
+                <dt>Process Flow</dt>
+                <dd>
+                  <p>
+								How do servers communicate valid process flow to clients? How do clients know what is possible as a "next step"? 
+								Once more, I'll suggest three possibilites:
+							</p>
+                  <ol>
+                    <li>NONE: HTML has no built-in process flow. It supports transfer protocol actions (GET and POST) and nothing else.</li>
+                    <li>
+									EMBEDDED: Atom uses an "embedded" model for process flow. The Atom Publishing spec details basic CRUD operations
+									that are to be applied to existing elements in response representations (rel="self", rel="edit", etc.).
+								</li>
+                    <li>
+									APPLIED: It is possible to define a set of process-flow definitions and "apply" them to an existing media type.
+									For example, the <a href="../profiles/index.html">ALPS</a> model defines all the process-flow
+									information for the XHTML media type using @rel and FORM descriptions that properly-coded clients can "recognize" in response representations.
+								</li>
+                  </ol>
+                </dd>
+              </dl>
+              <p>
+						Not every hypermedia solution needs every possible hypermedia option. These four basic decisions also influence each other.
+						Selecting JSON as your base type means you start out with no state transfer, but likely have very domain-specific element and attribute 
+						design. Selecting XHTML means you get ad-hoc state transfer, but no domain specificity to start. Starting with XML gives you
+						the power to design a very specific domain, transfer model, and process flow but you will have a very limited reach in terms
+						of existing clients and servers that understand your hypermedia type.
+					</p></entry></div><a id="hypermedia-levels"></a><h3>Hypermedia Levels</h3><a href="index.html#hypermedia-levels">perma-link</a><p class="date">2010-09-30</p>
+          <div class="scrap-entry"><entry><p><span class="updated">Updated: 2010-10-07 @ 11:00</span></p>
+              <p>
+    			  As an instructional/analytical aid, 
+    			  <a href="http://amundsen.com/hypermedia/scraps/H-Levels&#32;focus&#32;on&#32;support&#32;for&#32;a&#32;set&#32;of&#32;desired&#32;
+&#32;&#32;&#32;&#32;			&#32;&#32;properties&#32;of&#32;the&#32;interaction&#32;between&#32;client&#32;and&#32;server." title="MIME Media Types">media types</a>
+    			  can be located on a continuum to identify their support for hypermedia behaviors. Unlike 
+    			  <a href="http://amundsen.com/hypermedia/hfactors/" title="H-Factors">H-Factors</a> which identify
+    			  a set of elements that can appear within a media type, "H-Levels" focus on support for a set of 
+    			  desired interaction properties between client and server; properties that allow servers and clients 
+    			  to evolve independently without "breaking" or becoming unusable together. In reality, support for
+    			  these properties means that servers can change responses to client requests in ways that allow
+    			  for future modifiability without requiring clients to be updated, re-compiled, or re-deployed.
+    			</p>
+              <p>
+    			  H-Levels are expressed from the viewpoint of the client application. IOW, "What happens to existing
+    			  client applications when one or more of these H-Level items is changed?"
+    			  The properties of a media-type that can foster support for this type of evolvability in client-to-server
+    			  interactions are:
+    			</p>
+              <dl>
+                <dt><span class="hl-item">Content</span></dt>
+                <dd>The ability to add/remove elements in a message.</dd>
+                <dt><span class="hl-item">Address</span></dt>
+                <dd>The ability to change the URIs used by the client to make requests.</dd>
+                <dt><span class="hl-item">R/W Semantics</span></dt>
+                <dd>
+  			      The ability to indicate the available read/write semantics including which elements are 
+  			      write-able, the protocol details to be used when requesting, filtering, and writing
+  			      data, etc.
+  			    </dd>
+                <dt><span class="hl-item">Appflow</span></dt>
+                <dd>
+  			      The ability to modify the application flow (e.g. state-transition steps) 
+  			      using in-message control information including adding or removing
+  			      state transition steps as needed based on the context of the current
+  			      response.
+  			    </dd>
+              </dl>
+              <blockquote>
+  			    It should be noted that not all the listed desireable evolvable properties 
+  			    (<span class="hl-item">Content</span>, <span class="hl-item">Address</span>, 
+  			    <span class="hl-item">R/W Semantics</span>, <span class="hl-item">Appflow</span>)
+  			    are requried to build successful client-server interactions. Also, the resulting 
+  			    ranking is not designed to indicate quality (the higher ranking, the better), but 
+  			    simply help identify target media types along a concrete continuum.
+  			  </blockquote>
+              <h4>H-Levels : A Table Summary (<i>Read from bottom to top</i>)</h4>
+              <table class="hl-table">
+                <thead>
+                  <tr>
+                    <th>Level</th>
+                    <th>Name</th>
+                    <th>Variable</th>
+                    <th>Static</th>
+                    <th>Example</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background-color:#b8b8b8;">
+                    <th><a href="index.html#l3">L3</a></th>
+                    <td>SDF + Links + App Controls</td>
+                    <td>
+                      <ul>
+                        <li><span class="hl-item">Content</span></li>
+                        <li><span class="hl-item">Address</span></li>
+                        <li><span class="hl-item">R/W Semantics</span></li>
+                        <li><span class="hl-item">Appflow</span></li>
+                      </ul>
+                    </td>
+                    <td> </td>
+                    <td>X/HTML, VoiceXML</td>
+                  </tr>
+                  <tr style="background-color:#d0d0d0;">
+                    <th><a href="index.html#l2">L2</a></th>
+                    <td>SDF + Links</td>
+                    <td>
+                      <ul>
+                        <li><span class="hl-item">Content</span></li>
+                        <li><span class="hl-item">Address</span></li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li> </li>
+                        <li> </li>
+                        <li><span class="hl-item">R/W Semantics</span></li>
+                        <li><span class="hl-item">Appflow</span></li>
+                      </ul>
+                    </td>
+                    <td>Atom + AtomPub, OData</td>
+                  </tr>
+                  <tr style="background-color:#e8e8e8;">
+                    <th><a href="index.html#l1">L1</a></th>
+                    <td>Standardized Data Format (SDF)</td>
+                    <td>
+                      <ul>
+                        <li><span class="hl-item">Content</span></li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li> </li>
+                        <li><span class="hl-item">Address</span></li>
+                        <li><span class="hl-item">R/W Semantics</span></li>
+                        <li><span class="hl-item">Appflow</span></li>
+                      </ul>
+                    </td>
+                    <td>CSV, XML, JSON</td>
+                  </tr>
+                  <tr style="background-color:#ffffff;">
+                    <th><a href="index.html#l0">L0</a></th>
+                    <td>Serialized Objects</td>
+                    <td> </td>
+                    <td>
+                      <ul>
+                        <li><span class="hl-item">Content</span></li>
+                        <li><span class="hl-item">Address</span></li>
+                        <li><span class="hl-item">R/W Semantics</span></li>
+                        <li><span class="hl-item">Appflow</span></li>
+                      </ul>
+                    </td>
+                    <td>SOAP, RPC-XML</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h4>H-Levels : L0 - L3</h4>
+              <p>
+    				Below is a list of four levels along with common characteristcs and
+    				thier affect on the way clients must be coded and how these client must
+    				interact with servers. 
+    			</p>
+              <h4><a id="l0">L0 : Serialized Objects</a></h4>
+              <p>
+    				Example media-types: 
+    				<a href="http://www.xmlrpc.com/" title="XML-RPC Home Page">XML-RPC</a>,
+    				<a href="http://www.w3.org/TR/soap/" title="SOAP Version 1.2">SOAP</a></p>
+              <p>
+    			  Each interaction between client and server results in a unqiue message body. The details of
+    			  which message body is to be sent for each URI request and which message body is returned in 
+    			  response to that request must be outlined in the documentation and then encoded into the
+    			  client. Some media types (SOAP) support a consistent "wrapper" around the varying responses. 
+    			  The URIs, request and response bodies, the read/write semantics, and the application flow
+    			  are all documented before hand and then expressed in the source code of the client.   
+    			</p>
+              <h5>Changes to the following items usually require changes in client code:</h5>
+              <ul>
+                <li><span class="hl-item">Content</span></li>
+                <li><span class="hl-item">Address</span></li>
+                <li><span class="hl-item">R/W Semantics</span></li>
+                <li><span class="hl-item">Appflow</span></li>
+              </ul>
+              <h4><a id="l1">L1 : Standardized Data Format (SDF)</a></h4>
+              <p>
+    				Example media-type: 
+              <a href="http://tools.ietf.org/html/rfc4180" title="Common Format and MIME Type for Comma-Separated Values (CSV) Files">CSV</a>,
+              <a href="http://www.w3.org/XML/" title="Extensible Markup Language (XML)">XML</a>,
+              <a href="http://tools.ietf.org/html/rfc4627" title="The application/json Media Type for JavaScript Object Notation (JSON)">JSON</a></p>
+              <p>
+    			  Clients and servers share a common message format for all requests and responses. This means
+    			  each request and response body can be validated for correctness against a documented format.
+    			  The format is designed to allow for adding/removing elements safely without breaking existing
+    			  clients or servers. While the data format is consistent, the URIs used, the read/write semantics,
+    			  and the application flow are all documented before hand and then expressed in the source code of the client.
+    			</p>
+              <h5>Changes to the following items usually DO NOT require changes in client code:</h5>
+              <ul>
+                <li><span class="hl-item">Content</span></li>
+              </ul>
+              <h5>Changes to the following items usually require changes in client code:</h5>
+              <ul>
+                <li><span class="hl-item">Address</span></li>
+                <li><span class="hl-item">R/W Semantics</span></li>
+                <li><span class="hl-item">Appflow</span></li>
+              </ul>
+              <h4><a id="l2">L2 : SDF + Links</a></h4>
+              <p>
+    			  Example media-type:
+    				<a href="http://tools.ietf.org/html/rfc4287" title="The Atom Syndication Format">Atom</a> + 
+    				<a href="http://tools.ietf.org/html/rfc5023" title="The Atom Publishing Protocol">AtomPub</a>,
+    				<a href="http://www.odata.org" title="Open Data Protocol">OData</a></p>
+              <p>
+    			  Along with the shared data format for requests and responses, servers include URIs within the message
+    			  bodies themselves. Clients use the URIs supplied by the server to accomplish state-transitions. In this
+    			  way, servers can safely change the URIs without requiring re-coding the client applications. In this
+    			  approach, the read/write semantics and application flow are all documented before hand and then expressed in the
+    			  source code of the client.
+    			</p>
+              <h5>Changes to the following items usually DO NOT require changes in client code:</h5>
+              <ul>
+                <li><span class="hl-item">Content</span></li>
+                <li><span class="hl-item">Address</span></li>
+              </ul>
+              <h5>Changes to the following items usually require changes in client code:</h5>
+              <ul>
+                <li><span class="hl-item">R/W Semantics</span></li>
+                <li><span class="hl-item">Appflow</span></li>
+              </ul>
+              <h4><a id="l3">L3 : SDF + Links + Application Controls</a></h4>
+              <p>
+    			  Example media-types:
+    				<a href="http://www.w3.org/TR/html4/ " title="HTML 4.01 Specification">HTML</a>, 
+    				<a href="http://www.w3.org/TR/voicexml20/" title="Voice Extensible Markup Language (VoiceXML) Version 2.0">VoiceXML</a></p>
+              <p>
+    			  In this model, each response message sent by the server includes application control elements 
+    			  (including URIs) that instruct clients on the details of read/write semantics and possible 
+    			  application state transitions available at the present moment. Clients can locate and use these application 
+    			  controls in order to (when appropriate) display options to users or automatically select the 
+    			  proper transition based on a pore-determined goal for that client application (e.g. bots, etc.).
+    			</p>
+              <p>
+    			  The documentation for this model outlines the agreed data format and details the possible application
+    			  control elements that can appear within a response and the possible read/write semantics associated 
+    			  with each application control. Clients are coded to locate and understand the application controls
+    			  and act accordingly.
+    			</p>
+              <h5>Changes to the following items usually DO NOT require changes in client code:</h5>
+              <ul>
+                <li><span class="hl-item">Content</span></li>
+                <li><span class="hl-item">Address</span></li>
+                <li><span class="hl-item">R/W Semantics</span></li>
+                <li><span class="hl-item">Appflow</span></li>
+              </ul></entry></div><a id="simple-type"></a><h3>A Custom Media Type can be very simple</h3><a href="index.html#simple-type">perma-link</a><p class="date">2010-09-09</p>
+          <div class="scrap-entry"><entry><p style="border:2px red solid;"><b>WARNING</b>: There be dragons ahead. Don't go here unless you are sure 
+            you'd rather 'roll your own' [hyper]media type instead of using an existing,
+            <a href="http://www.iana.org/assignments/media-types/">properly registered</a> one such as 
+            <a href="../html/index.html">[X]HTML</a> or 
+            <a href="../atom/index.html">Atom</a>.
+          </p>
+              <p>
+            Creating a custom media-type for internal use does not need to be very complicated. If you 
+            are working on a localized application and want to get everyone using the same
+            state-transfer contract, you can use a simple media type that has just a few 'hooks' and allows
+            for future expansion as your needs grow.
+          </p>
+              <h4>Object Container</h4>
+              <p>
+            An easy start is to adopt a simple data format that takes on properties of both 
+            <a href="../html/index.html">[X]HTML</a> and 
+            <a href="../atom/index.html">Atom</a>.
+            The &lt;body /&gt; portion can hold a serialization of a custom object (ala Atom-style) at the beginning.
+            This makes it easy for developers to use existing frameworks when crafting messages. Here's a
+            an example 'skeleton':
+          </p>
+              <pre>
+&lt;root&gt;
+  &lt;meta&gt;
+    &lt;!-- meta-data, system info, etc. can go here --&gt;
+  &lt;/meta&gt;
+  &lt;body&gt;
+    &lt;{custom-object-goes-here} /&gt;
+  &lt;/body&gt;
+  &lt;error&gt;
+    &lt;!-- place any error details (text, stack trace, etc.) here --&gt;
+  &lt;/error&gt;
+&lt;/root&gt;
+          </pre>
+              <h4>Standard Data Representation</h4>
+              <p>
+            The next step is to standardize the representation of data in the &lt;body /&gt; section of the message.
+            IOW, eliminate the use of the object serialization pattern and use an agreed data format that is not 
+            bound to server-side storage|object-types. One simple format is to adopt a generic flat name-value pair 
+            (NVP) pattern:
+          </p>
+              <pre>
+&lt;root&gt;
+  &lt;meta&gt;
+    &lt;!-- meta-data, system info, etc. can go here --&gt;
+  &lt;/meta&gt;
+  &lt;body&gt;
+    &lt;data name="email"&gt;&lt;/data&gt;
+    &lt;data name="username"&gt;&lt;/data&gt;
+    &lt;data name="date-created"&gt;&lt;/data&gt;
+  &lt;/body&gt;
+  &lt;error&gt;
+    &lt;!-- place any error details (text, stack trace, etc.) here --&gt;
+  &lt;/error&gt;
+&lt;/root&gt;
+          </pre>
+              <p>
+            Using a dedicated data format like this will add some work for developers; they will need to drop the habit
+            of blindly serializing internal objects as public messages. However, once a simple conversion utility is built, it
+            is relatively easy to read/write a data format like this. Even better, if you need to add new elements, they can
+            appear as one more in the collection. This makes evolving the messages trivial.
+          </p>
+              <h4>Hypermedia Controls</h4>
+              <p>
+            In the previous examples, all hypermedia information must be encoded in the client and server themselves.
+            For example, knowing what data to write, which URI to use when writing, which HTTP method to use when 
+            writing, etc. However, you can greatly increase the value of your data format by adding this semantic information
+            into the messages themselves. This takes more planning and requires additional coding (mostly for clients),
+            but can pay off in the long run. Here's a simple example:
+          </p>
+              <pre>
+&lt;root&gt;
+  &lt;meta&gt;
+    &lt;!-- meta data, system info, etc. can go here --&gt;
+  &lt;/meta&gt;
+  &lt;body&gt;
+    &lt;!-- allow searching for one or more users using HTTP GET --&gt;
+    &lt;query href="..." rel="search"&gt;
+      &lt;data name="username" /&gt;
+    &lt;/query&gt;
+    &lt;!-- allow sending data to the server, if rel contains "update", use HTTP PUT --&gt;
+    &lt;write href="..." rel="user update"&gt;
+      &lt;data name="email"&gt;&lt;/data&gt;
+      &lt;data name="username"&gt;&lt;/data&gt;
+      &lt;data name="date-created"&gt;&lt;/data&gt;
+    &lt;/write&gt;
+    &lt;!-- if rel contains "add" use HTTP POST --&gt;
+    &lt;write href="..." rel="user add"&gt;
+      &lt;data name="email"&gt;&lt;/data&gt;
+      &lt;data name="username"&gt;&lt;/data&gt;
+      &lt;data name="date-created"&gt;&lt;/data&gt;
+    &lt;/write&gt;
+  &lt;/body&gt;
+  &lt;error&gt;
+    &lt;!-- place any error details (text, stack trace, etc.) here --&gt;
+  &lt;/error&gt;
+&lt;/root&gt;
+          </pre>
+              <p>
+            Using Hypermedia controls in the message means clients need to be coded to search for and understand
+            the various pre-defined controls (in this example they are "query" and "write"). Although this takes
+            additional work at first, it means future messages can be crafted w/ new or changed semantics w/o
+            requiring a rewrite of the client code.
+          </p>
+              <h4>Going Beyond Simple</h4>
+              <p>
+            This is example Hypermedia format, while useful, is very simple. There are lots of features that could
+            be added, may be <i>needed</i> to make this a useful media type. The point is that, starting this way
+            means you can create a focus on using media-types as a fundamental aspect of your overall architecture.
+            By doing so, you get a whole bunch of 'win' without that much initial cost.
+          </p></entry></div>
+          <h3>A media-type does not map to an object</h3>
+          <p class="date">2010-07-20</p>
+          <div class="scrap-entry"><entry><p>
+            I have seen several examples where folks give media type examples that look like this:
+            <code>application/customers+xml</code>, etc. 
+            At first, this seems like a good idea, but in the long run, it is not. media-types should
+            not be based on "objects" that might exist in the server-side model.
+          </p>
+              <p>
+            Instead, media-types should be designed at the application level; possibly the "task" level.
+            IOW, <code>application/accounting+xml</code> or <code>application/shopping+xml</code>, etc.
+          </p></entry></div>
+          <h3>Hypermedia Design Tips</h3>
+          <p class="date">2010-07-08</p>
+          <div class="scrap-entry"><entry><p>
+            Here are some tips to keep in mind when designing a hypermedia type.
+          </p>
+              <dl>
+                <dt><b>Don't use actual URIs</b></dt>
+                <dd>
+              When modeling your hypermedia type, esp. when creating examples, <b>DO NOT</b>
+              include actual URIs in the samples. Instead, use a placeholder token (e.g. 
+              <code>{uri}</code>).
+            </dd>
+                <dt><b>Favor Generic Elements</b></dt>
+                <dd>
+              Generic element names w/ specific attributes are easier to process for most apps and
+              they offer more extensibility to application designers. Instead of specific element
+              names (<code>&lt;name /&gt;  &lt;email /&gt;</code>, etc.) use a generic element
+              along with a name attribute (e.g. <code>&lt;data name="name" /&gt; &lt;data name="email" /&gt;</code>, etc.)
+            </dd>
+                <dt><b>Plan for Extendability</b></dt>
+                <dd>
+              Design your media type to allow developers some freedom to extend it in ways
+              that you might not think of. For example, don't create such a tight set of
+              schema rules that application developers are unable to add new elements or inputs
+              as needed.
+            </dd>
+                <dt><b>Avoid Single-Protocol Designs</b></dt>
+                <dd>
+              Using a keyword or element (e. g. <code>POST</code>) that is tied too closely 
+              to a single protocol (e.g. <code>HTTP</code>) may limit the application of your
+              media type in the future. Instead, use generic keywords (<code>WRITE</code>, etc.) 
+              or elements that can be "mapped" or "bound" to an application protocol in the 
+              implementation phase. 
+            </dd>
+              </dl></entry></div>
+          <h3>Four Aspects of Information Value</h3>
+          <p class="date">2010-06-18</p>
+          <div class="scrap-entry"><entry><p>
+    				Information should have these four aspects. The more aspects, the higher the
+    				value of the information message itself.
+    			</p>
+              <ol>
+                <li><b>Structured</b><br>
+    					Messages need structure to provide context. With context, agents
+    					(humans, machines, etc.) can derive meaning, establish provenance, 
+    					and assess trust. Structure can be expressed as control data 
+    					(e.g. HTTP headers) and/or meta-information within the message itself
+    					(e.g. markup). 
+    				</li>
+                <li><b>Linked</b><br>
+    					Messages should contian links to other information. Links are another
+    					way to add context to the message. Links should be more than arcs from
+    					one piece of data to another (e.g. HTNL A tags). Links should also express
+    					other relationships such as "fetch and display here" (e.g. HTML IMG tags),
+    					"make a request with the following additional inputs" (e.g. HTML FORM w/ GET),
+    					and "write the following data to the server" (e.g. HTML FORM w/ POST/PUT/DELETE).
+    					Links inform agents of what they can <i>do</i>, not just what they can see.
+    				</li>
+                <li><b>Portable</b><br>
+    					Messages should be portable. They should move freely between locations.
+    					Each message should contain all the information needed for agents to use to 
+    					render and process as needed. Messages should be able to adapt to the device
+    					and context at hand (e.g. content negotiation). Messages should be "re-playable"
+    					meaning that they can be stored and accessed at a later date and still successfully
+    					render as expected. 
+    				</li>
+                <li><b>Autonomous</b><br>
+    					Messages should be autonomous. They should not be overly dependent on additional
+    					messages or their origin server, etc. Messages should not be dependent on separate
+    					application programming in order to be useful. IOW, <i>the message is the application</i>.
+    					Network-compatible agents should be able to find, consume, and <i>operate on</i> the
+    					message - no matter where it comes from. Messages should not be dependent on custom
+    					code that must <i>first be installed</i> on the agent.
+    				</li>
+              </ol></entry></div>
+          <h3>Advantages of Hypermedia Types</h3>
+          <p class="date">2010-06-08</p>
+          <div class="scrap-entry"><entry><p>
+    				Employing hypermedia types on the WWW has a number of advantages:
+    			</p>
+              <dl>
+                <dt>Address Abstraction</dt>
+                <dd>
+    					Hypermedia types use designated elements (A, FORM, IMG, etc.) and link relations (@rel)
+    					as 'tokens' for clients to watch for. The actual contents of the associated URI is not 
+    					important to the client. This means the URIs can safely change over time. 
+    				</dd>
+                <dt>Protocol Abstraction</dt>
+                <dd>
+    					Hypermedia types can be designed as protocol agnostic. Links can use any protocol supported
+    					by the client and can safely change over time as needed.
+    				</dd>
+                <dt>Object Model Abstraction</dt>
+                <dd>
+    					Hypermedia types can expose state representation transfers that need not match to any object
+    					model or server-side storage model. Passing representations means the server can safely change it's
+    					internal object/storage details without breaking the client.
+    				</dd>
+                <dt>Workflow Abstraction</dt>
+                <dd>
+    					Hypermedia programming allows sharing representations and links. That means servers can, over time, safely change
+    					the flow of an application by introducing links to new state transfers or changing the order of the
+    					state transfers.
+    				</dd>
+                <dt>Function Call Abstraction</dt>
+                <dd>
+    					Using state transfers means data passed between clients and servers can be in different formats, based
+    					on the use case requirements. That includes typical name/value pairs (name=mike&amp;size=large...),
+    					binary objects (e.g. image transfers), or even direct transmission of data blocks (e.g. XML, JSON, etc.)
+    				</dd>
+                <dt>Asynchronous Evolvability</dt>
+                <dd>
+    					Using Hypermedia types means authors can add new features to the messages without breaking existing clients.
+    					The media-type itself can be safely "versioned" in ways that will not break deployed clients, too. This means
+    					that new clients can take advantage of the new features while co-existing with the old clients. 
+    				</dd>
+                <dt>Client-Driven Composability</dt>
+                <dd>
+    					Clients that understand a wide range of media types can "compose" their own work by leveraging multiple'
+    					servers, negotiating media types and, in effect, creating an individualized "program" for the client to 
+    					follow. Hypermedia types encourage this "composability" since servers can offer up data via well-designed
+    					hypermedia types and allow clients to determine what tasks are done at which locations using the hypermedia
+    					control information provided in server responses.
+    				</dd>
+              </dl></entry></div>
+          <p class="see-also">See Also:</p>
+          <ul class="see-also-list"><links><li><a href="../../blog/archives/1069.html" title="the advantages of hypermedia types">the advantages of hypermedia types</a></li></links></ul>
+          <h3>URIs, by themselves, are Just Data</h3>
+          <p class="date">2010-06-06</p>
+          <div class="scrap-entry"><entry><div class="code-block">
+                <p>A URI, by itself is a meaningless piece of data:</p>
+                <pre>http://www.example.org/q1w2e3r4t5</pre>
+              </div>
+              <div class="code-block">
+                <p>
+              You can add hypermedia <i>meaning</i> to the URI by giving it <i>structure</i>.
+              Here's one example:
+            </p>
+                <pre>&lt;img src="http://www.example.org/q12w3e4r4t5" /&gt;</pre>
+              </div>
+              <div class="code-block">
+                <p>Here's another example of structure that provides the same URI with a different meaning:</p>
+                <pre>&lt;a href="http://www.example.org/q12w3e4r4t5"&gt;Home&lt;/a&gt;</pre>
+              </div>
+              <div class="code-block">
+                <p>Here's an example of the same URI w/ a more complex structure and another meaning:</p>
+                <pre>
+&lt;form action="http:/www.example.org/q1w2e3r4t5"&gt;
+  &lt;input name="search" /&gt;
+  &lt;input type="submit" /&gt;
+&lt;/form&gt;</pre>
+              </div>
+              <p>
+            Each [hyper]media-type allows the author to add meaning to URIs in appropriate ways.
+            The more rich the expression of URIs, the more powerful the [hyper]media-type.
+            [Hyper]media-types that have only a few ways to provide meaning to URIs have limited
+            value on the Web. Those that provide no structure (meaning) to URIs are not [hyper]media-types
+            at all. 
+          </p></entry></div>
+          <p class="see-also">See Also:</p>
+          <ul class="see-also-list"><links><li><a href="../../blog/archives/1059.html" title="URIs without structure are meaningless">URIs without structure are meaningless</a></li></links></ul>
+          <h3>Inverse Relationship between Native Functionality vs. Code-On-Demand</h3>
+          <p class="date">2010-06-05</p>
+          <div class="scrap-entry"><entry><p>
+            As a [hyper]media-type's <b>native functionality</b> (it's built-in semantics for
+            <i>data</i>, <i>read-write</i>, and <i>presentation</i>) is percieved to fall short of 
+            user|developer expectations, 
+            <b><a href="http://en.wikipedia.org/wiki/Code_on_demand" title="Code on demand">code-on-demand</a></b> 
+            (COD) will be employed in greater
+            frequency and size . IOW, if the native semantics fall short, devs will use 
+            custom coding to compensate.
+          </p>
+              <p>
+            It's important to note that it is the <i>perceived</i> shortcomings of the media-type
+            that drive this increased reliance on COD. Poorly-trained|informed
+            developers may needlessly drive up the COD value of a response.
+            However, legitimate increases of COD usually indicate the media-type employed is 
+            inappropriate for the needs of the user|developer. In this case, either a different,
+            existing media-type that has the proper semantic values (re: data, read-write, presentation)
+            should be used.
+          </p>
+              <p>
+            If|When the community is in general agreement that there is no other suitable media-type
+            for the task, it is then time to consider evolving the media-type to fit the needs. The\
+            W3C has drafted guidance on 
+            <a href="http://www.w3.org/2001/tag/doc/versioning" title="[Editorial Draft] Extending and Versioning Languages: Terminology">
+            how</a> to accomplish this goal.
+          </p></entry></div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <address>updated: 2010-06-05 (mca)</address>
+    </div><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+        _uacct = "UA-2399548-1";
+        urchinTracker();
+        </script></body>
+</html>

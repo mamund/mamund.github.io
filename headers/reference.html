@@ -1,0 +1,598 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>HTTP Headers - Quick Reference</title>
+<style type="text/css">
+				.hbh,
+				.xhrr,
+				.source,
+				.group,
+				.csr-bl,
+				.csr-wl,
+				.csr-send,
+				.csr-recv,
+				.csr-edit
+				{
+					padding: 0 .2em;
+					margin-right:.2em;
+					font-family:monospace;
+					font-size:90%;
+				}
+				.xhrr
+				{
+					background-color:silver;
+				}
+				.hbh
+				{
+					background-color:pink;
+				}
+				.csr-bl
+				{
+					background-color:black;
+					color:white;
+				}
+				.csr-wl
+				{
+					background-color:white;
+					color:black;
+					border:1px solid black;
+				}
+				.csr-send
+				{
+					background-color:lightgreen;
+				}
+				.csr-recv
+				{
+					background-color:lightblue;
+				}
+				.csr-edit
+				{
+					background-color:salmon;
+				}
+				.description,
+				.details
+				{
+					margin-top:0;
+				}
+				.ref-item
+				{
+					font-weight:bold;
+					display:block;
+					margin:0;
+					padding:0;
+				}
+				.code
+				{
+					background-color:#e6e6e6;
+					border:1px solid black;
+					padding: .3em;
+					width:650px;
+					max-height:400px;
+					overflow:auto;
+				}
+				dt
+				{
+					font-weight:bold;
+				}
+			</style>
+</head>
+<body>
+<div class="heading">
+<h1>HTTP Headers</h1>
+<h4>Quick Reference</h4>
+<p class="version">Updated: 2008-02-25 (mca)</p>
+</div>
+<div class="considerations">
+<h2>Considerations</h2>
+<p>
+					When dealing with Cross-Site Requests (CSRs), the following needs to be considered for handling HTTP Headers:
+				</p>
+<ol>
+<li>Can the header be sent by the client? <span class="csr-send">Send</span></li>
+<li>Can the header be accepted by the client? <span class="csr-recv">Recv</span></li>
+<li>Can the header be edited by the client? <span class="csr-edit">Edit</span></li>
+</ol>
+<p>
+					For example, consider the case of handling the <code>cookie</code> and <code>set-cookie</code> headers.
+					In the least restrictive case, clients can recieve the <code>set-cookie</code> header from servers. They
+					can also send the <code>cookie</code> header back to the server. Clients also allow script authors to
+					edit the contents of the <code>cookie</code> header directly:
+				</p>
+<pre class="code">
+// via header
+XMLHttpRequest.setRequestHeader('cookie','mysecret=12345;');
+// via the cookie object
+document.cookie = 'mysecret=12345; expires=Thu, 2 Aug 2009 15:30:00 UTC; path=/'</pre>
+<p>
+					In a more restrictive case, the <code>set-cookie</code> and <code>cookie</code> headers would be allowed, but
+					script authors could not change the content of the <code>cookie</code> header. The client could only read cookie
+					values from the header, but not write them. In the most restrictive case, clients could not even receive the
+					<code>cookie</code> or <code>set-cookie</code> headers from the server or send the <code>cookie</code> header
+					to the server.
+				</p>
+<p>
+					Finally, there is the matter of how to handle attempts to 'break the rules.' One possibility is to ignore the attempt.
+					For example, in the case where cookies can be read but not written, the client could just silently ignore attempts to write
+					a cookie value. Or the client could throw an error and stop the processing of the request. For example, if the server sends
+					a <code>set-cookie</code> command to the client, a SECURITY_ERR would be thrown.
+				</p>
+<p>Examples of HTTP Headers that the XMLHttpRequest client can recieve, but not edit are <code>Content-Length</code> and 
+				<code>Date</code>.
+			</p>
+</div>
+<div class="headers">
+<h2>Common HTTP Headers</h2>
+<dl>
+<dt>Accept</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			Used to tell the server what media type(s) are preferred by the client.
+		</p>
+</dd>
+<dt>Accept-Charset</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Used to tell the server what character sets are preferred by the client.
+		</p>
+</dd>
+<dt>Accept-Encoding</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Used to tell the server the encodings preferred by the client.
+		</p>
+</dd>
+<dt>Accept-Language</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			Used to tell the server which natural languages are preferred by the client.
+		</p>
+</dd>
+<dt>Accept-Ranges</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Used by the server to indicate it is capable of supporting the
+			Accept-Range header form the client. can be set to bytes
+			or none.
+		</p>
+</dd>
+<dt>Age</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Indicates the server estimatation of the age (in seconds) of the requested resource.
+		</p>
+</dd>
+<dt>Allow</dt>
+<dd>
+<p class="details"><span class="group">Entity</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Used by the server to indicate which HTTP Methods are supported for this URI.
+			Usually in response to a GET to the target URI using the OPTIONS method.
+		</p>
+</dd>
+<dt>Authentication-Info</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Sent by the server as the final step in the Digest
+			authentication conversation with the client.
+		</p>
+</dd>
+<dt>Authorization</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			The security token that represents the authenticated client.
+		</p>
+</dd>
+<dt>Cache-Control</dt>
+<dd>
+<p class="details"><span class="group">General</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+
+			Used to control caching behavior. The value of this header
+			depends on whether it is sent in a request (by the client)
+			or in a response (by the server).
+			
+			<ul>
+				<li>
+					Request Directives
+					<ol>
+						<li>no-cache</li>
+						<li>no-store</li>
+						<li>max-age</li>
+						<li>max-stale</li>
+						<li>min-fresh</li>
+						<li>no-transform</li>
+						<li>only-if-cached</li>
+						<li>cache-extension</li>
+					</ol>
+				</li>
+				<li>
+					Response Directives
+					<ol>
+						<li>public</li>
+						<li>private</li>
+						<li>no-cache</li>
+						<li>no-store</li>
+						<li>no-transform</li>
+						<li>must-revalidate</li>
+						<li>proxy-revalidate</li>
+						<li>max-age</li>
+						<li>s-maxage</li>
+						<li>cache-extension</li>
+					</ol>
+				</li>
+			</ul>
+			 </p>
+</dd>
+<dt>Connection</dt>
+<dd>
+<p class="details"><span class="group">General</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="hbh">HbH</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Used to manage the connection type. Can be Keep-Alive
+			or Close. Also possible: Upgrade.
+		</p>
+</dd>
+<dt>Content-Disposition</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Used by the server to suggest the filename the client should
+			use when the client wants to store the resource locally.
+		</p>
+</dd>
+<dt>Content-Encoding</dt>
+<dd>
+<p class="details"><span class="group">Entity</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Used to indicate any special encoding of the body of the request. Common values are:
+			1) compress; 2) deflate; and 3) gzip. Clients
+			indicate the encoding preferences using the Accept-Encoding header.
+		</p>
+</dd>
+<dt>Content-Language</dt>
+<dd>
+<p class="details"><span class="group">Entity</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Indicates the language used in the body of the request. Clients indicate the language
+			preferences using the Accept-Language header.
+		</p>
+</dd>
+<dt>Content-Length</dt>
+<dd>
+<p class="details"><span class="group">Entity</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			The length of the entity body in bytes.
+		</p>
+</dd>
+<dt>Content-Location</dt>
+<dd>
+<p class="details"><span class="group">Entity</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Used to indicate the URL of the returned resource when it does not match the requested resource.
+		</p>
+</dd>
+<dt>Content-MD5</dt>
+<dd>
+<p class="details"><span class="group">Entity</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			Used to ensure the contents of the message arrived safely. For example, the Server would calculate the
+			MD5 (Message Digest 5) hash of the message body and convert it into Base-64 encoding to create a single
+			string that represents the message body. Upon receipt, the client would do the same and compare the
+			two strings. If they match, the message body arrived without alterations.
+		</p>
+</dd>
+<dt>Content-Range</dt>
+<dd>
+<p class="details"><span class="group">Entity</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Used by a server to indicate it is only returning a portion of the requested resource. Usually in response to
+			the Range request header.
+		</p>
+</dd>
+<dt>Content-Type</dt>
+<dd>
+<p class="details"><span class="group">Entity</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			Used to indicate the type of resource being transmitted. Usually one of the types maintained by the IANA.
+		</p>
+</dd>
+<dt>Cookie</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2109">RFC2109</a></span><span class="csr-send">Send</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			A collection of state data passed between server and client. Created by
+			the client in response to the Set-Cookie header (see Response headers).
+		</p>
+</dd>
+<dt>Date</dt>
+<dd>
+<p class="details"><span class="group">General</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			The date of the request or response.
+		</p>
+</dd>
+<dt>ETag</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			The server's 'version' value of the resource. Usually a hash
+			of the body of the resource. Used for caching and as a way
+			to validate updates (PUT/POST).
+		</p>
+</dd>
+<dt>Expect</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-edit">Edit</span><span class="hbh">HbH</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			One or more restrictions that the server MUST meet in order to complete
+			the request. This is a Hop-by-Hop header (any proxy MUST return 417 if
+			that proxy cannot meet the request).
+		</p>
+</dd>
+<dt>Expires</dt>
+<dd>
+<p class="details"><span class="group">Entity</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Used to indicate the date and time this resource will be considered invalid. Sent by the Server to tell
+			the client the last date/time the resource can be cached locally.
+		</p>
+</dd>
+<dt>From</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			The email address of the client user.
+		</p>
+</dd>
+<dt>Host</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Specifies the Internet host and port number of the resource being requested.
+		</p>
+</dd>
+<dt>If-Match</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			Client's copy of the server's ETag. Used in caching and
+			to validate the version/copy of the resource. Usually a hash of the
+			resource body. If the value matches the one on the server, the request
+			will be executed by the server.
+		</p>
+</dd>
+<dt>If-Modified-Since</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			Client's copy of the Date header sent by the server. Used
+			in caching and to validate the version/copy of the resource.
+		</p>
+</dd>
+<dt>If-None-Match</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			Client's copy of the server's ETag. Used in caching and
+			to validate the version/copy of the resource. Usually a hash of the
+			resource body. If the value *does not* match the one on the server,
+			the request will be executed by the server.
+		</p>
+</dd>
+<dt>If-Range</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			Used along with the Range Header. Can be a copy of the
+			server's ETag or Date. If this value matches
+			the one on the server, the server *will* send the requested Range
+			of the resource.
+		</p>
+</dd>
+<dt>If-Unmodified-Since</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			A copy of the server's Date header. If this value matches
+			the one on the server, the server will execute the request. Usually used
+			to make sure the resource on the server has not changed before the
+			client's POST or PUT action is executed.
+		</p>
+</dd>
+<dt>Keep-Alive</dt>
+<dd>
+<p class="details"><span class="group">General</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><span class="hbh">HbH</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Can be used to indicate to both client and server how long
+			the connection can be kept open. Obsoleted in RFC2616.
+		</p>
+</dd>
+<dt>Last-Modified</dt>
+<dd>
+<p class="details"><span class="group">Entity</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Used to indicate the date/time the resource was last modified.
+		</p>
+</dd>
+<dt>Location</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			The URI to use to get the most recent copy of the requested
+			resource. Usually used during a 'redirect' action.
+		</p>
+</dd>
+<dt>Max-Forwards</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			Used by clients to limit the number of intermediaries (proxies) through
+			which the reqest may be passed. Rarely used, exception for diagnosing
+			proxie issues.
+		</p>
+</dd>
+<dt>Pragma</dt>
+<dd>
+<p class="details"><span class="group">General</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			Used to control caching behavior for HTTP 1.0 servers.
+			Can only be set to no-cache.
+		</p>
+</dd>
+<dt>Proxy-Authentication</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="hbh">HbH</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Same as the WWW-Authenticate header, except
+			sent by proxy/intermediate machines to authenticate against
+			the server.
+		</p>
+</dd>
+<dt>Proxy-Authorization</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="hbh">HbH</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Same as the Authorization header, but in response to a
+			proxy's Proxy-Authenticate header.
+		</p>
+</dd>
+<dt>Range</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-edit">Edit</span></p>
+<p class="description">
+			Used by the client to tell the server to send just a byte range of the
+			resource on the server.
+		</p>
+</dd>
+<dt>Referer</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Used by the client to indicate the current location from which the
+			request is coming.
+		</p>
+</dd>
+<dt>Refresh</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Can be used by the server to tell the client to periodically
+			send a GET request back to the server. The same as the htp-equiv="refresh"
+			HTML meta tag.
+		</p>
+</dd>
+<dt>Retry-After</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Used by the server, during a 503 (Service Unavailable) error, to
+			tell the client how long to wait before trying the request again.
+		</p>
+</dd>
+<dt>Server</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Identity string for this server.
+		</p>
+</dd>
+<dt>Set-Cookie</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2109">RFC2109</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Used by the server to tell the client to store some state
+			information to return to the server with subsequent requests.
+		</p>
+</dd>
+<dt>TE</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-edit">Edit</span><span class="hbh">HbH</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Transfer encoding indicator. Usually used to indicate the client can
+			support chunked transfers.
+		</p>
+</dd>
+<dt>Trailer</dt>
+<dd>
+<p class="details"><span class="group">General</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><span class="csr-edit">Edit</span><span class="hbh">HbH</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Allows sending headers mixed in with the resource body.
+			Used with chunked transfers.
+		</p>
+</dd>
+<dt>Transfer-Encoding</dt>
+<dd>
+<p class="details"><span class="group">General</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span><span class="csr-recv">Recv</span><span class="csr-edit">Edit</span><span class="hbh">HbH</span></p>
+<p class="description">
+			Used to indicate details on the transfer of the body. Only
+			one valid value right now: chunked.
+		</p>
+</dd>
+<dt>Upgrade</dt>
+<dd>
+<p class="details"><span class="group">General</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span><span class="hbh">HbH</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Used to try to negotiate a protocol change between client
+			and server.
+		</p>
+</dd>
+<dt>User-Agent</dt>
+<dd>
+<p class="details"><span class="group">Request</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-send">Send</span></p>
+<p class="description">
+			The identity string for this client.
+		</p>
+</dd>
+<dt>Vary</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Instructions to any intermediates/proxies which header(s) to
+			use when determining how to fulfil the request from caches.
+		</p>
+</dd>
+<dt>Via</dt>
+<dd>
+<p class="details"><span class="group">General</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span><a href="reference.html#XMLHttpRequest"><span class="xhrr">XHRr</span></a></p>
+<p class="description">
+			Used by proxy/intermediaries to identify themselves in the
+			communication stream. Similar to the Server and
+			User-Agent headers.
+		</p>
+</dd>
+<dt>Warning</dt>
+<dd>
+<p class="details"><span class="group">General</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Relays adescriptionitional information, usually sent by the
+			server to the client to indicate problems with the
+			caching.
+		</p>
+</dd>
+<dt>WWW-Authenticate</dt>
+<dd>
+<p class="details"><span class="group">Response</span><span class="source"><a href="reference.html#RFC2616">RFC2616</a></span><span class="csr-recv">Recv</span></p>
+<p class="description">
+			Used by the server to indicate the client must first send
+			authentication credentials in order to complete the request.
+		</p>
+</dd>
+</dl>
+</div>
+<div class="references">
+<h2>References</h2>
+<ol>
+<li><a name="RFC2109"><span class="ref-item">[RFC2109]</span><a href="http://www.ietf.org/rfc/rfc2109.txt" title="HTTP State Management Mechanism">HTTP State Management Mechanism (Feb-1997)</a></a></li>
+<li><a name="RFC2616"><span class="ref-item">[RFC2616]</span><a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html" title="Hypertext Transfer Protocol -- HTTP/1.1">Hypertext Transfer Protocol -- HTTP/1.1 (Jun-1999)</a></a></li>
+<li><a name="XMLHttpRequest"><span class="ref-item">[XMLHttpRequest]</span><a href="http://www.w3.org/TR/XMLHttpRequest/" title="The XMLHttpRequest Object">The XMLHttpRequest Object (Draft Oct-2007)</a></a></li>
+</ol>
+</div>
+</body>
+</html>

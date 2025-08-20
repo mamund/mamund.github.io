@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[agent-driven conneg in HTTP]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">agent-driven conneg in HTTP</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2010-12-14 @ 09:28</span><span class="permalink"><a href="1085.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+  <a href="http://www.flickr.com/photos/photochiel/83361761/" title="Drive by Shooting">
+    <img src="http://farm1.static.flickr.com/41/83361761_33a62821fa_t.jpg" align="right" class="inline" />
+  </a>
+  one of the cool aspects of the HTTP application protocol is that it is "representation-based." the protocol has
+  the built-in ability to provide multiple representation formats for the same requested resource (e.g. HTML, JSON, CSV, etc.)
+  and allow clients and servers to "negotiate" the selection of the representation.
+  recently, i've run into a couple questions regarding one form of that negotiation called
+  <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#sec12.2" title="HTTP 1.1 - Agent-driven Negotiation">
+    Agent-Driven Negotiation
+  </a>. 
+  in agent-driven conneg, the server sends the client a list of available representations of the requested resource 
+  and the client application selects the one to view. this is very different from the more common 
+  <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#sec12.1" title="HTTP 1.1 - Server-driven Negotiation">Server-Driven Negotiation</a> where the client sends the server a list of preferred
+  content-types (via the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1" title="Accept">Accept header</a>) and the <i>server</i> decides which representation
+  to send to the client.
+</p>
+<h4>why use agent-driven conneg?</h4>
+<p>
+  usually we want representation selection to happen behind the scenes; magically. IOW, we want the server to find a
+  "best match" representation format for the client's needs and send it along. This method works well when the client has 
+  a clear preference (e.g. Web browsers prefer HTML representations, spreadsheet applications prefer CSV, etc.). 
+  however, some content negotation scenarios make it difficult for the server to make the "right" choice. for example, 
+  a server might have several ways to represent statistical data (a graph image, a multi-column table, or plain text data list). 
+  Typically, this is not a choice easily handled using server-driven negotation. more often, this is the kind of choice we
+  expect clients (agents) to make once they know what is available.
+</p>
+<h4>to the spec!</h4>
+<p>
+  the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html" title="Hypertext Transfer Protocol -- HTTP/1.1 ">HTTP spec</a> 
+  is clear on how to handle agent-driven conneg:
+</p>
+<blockquote>
+  <p>
+  With agent-driven negotiation, selection of the best representation for a response is performed by the user agent after 
+  receiving an initial response from the origin server. Selection is based on a list of the available representations of the 
+  response included within the header fields or entity-body of the initial response, with each representation identified by its 
+  own URI. Selection from among the representations may be performed automatically (if the user agent is capable of doing so) 
+  or manually by the user selecting from a generated (possibly hypertext) menu.
+  </p>
+  <p align="right">
+    <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#sec12.2" title="HTTP 1.1 - Agent-driven Negotiation">
+    Agent-Driven Negotiation
+  </a>
+  </p>
+</blockquote>
+<h4>agent-driven conneg for humans</h4>
+<p>
+  essentially, for agent-driven conneg, servers provide an "interim response" to client requests. this response
+  includes a list of the available representations of the requested resource and allows the client to make the selection.
+  the spec indicates that servers should return a 
+  "<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.1" title="300 Multiple Choices">300 Multiple Choices</a>" 
+  status code; it's not appropriate to use a 
+  "<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1" title="200 OK">200 OK</a>" 
+  status code for this list of available representations since the list is, in effect, 
+  part of a redirection sequence.
+   
+</p>
+<p>
+  for example, let's assume there is a resource (<code>/data</code>) that contains a link another resource 
+  (<code>/results</code>) that represents results from some statistical calculations. here's the first request/response
+  pair to pull the <code>/data</code> resource:
+</p>
+<pre>
+  *** REQUEST
+  GET /data HTTP/1.1
+  Host: www.example.org
+  Accept: text/html
+  
+  *** RESPONSE
+  HTTP/1.1 200 OK
+  Host: www.example.org
+  Content-type: text/html
+  Content-Length: xxx
+ 
+  ...
+  <span style="color:red;font-weight:bold;">&lt;a href="/results"&gt;Results&lt;/a&gt;</span>
+  ...
+</pre>
+<p>
+  next, let's assume there are multiple representations available for the results resource. using agent-driven conneg, 
+  here is one possible solution where HTML is the representation format. this will allow the person driving the 
+  client application to see a list of possible representations and pick the one that is preferred. 
+</p>
+<pre>
+  *** REQUEST
+  GET /results HTTP/1.1
+  Host: www.example.org
+  Accept: */*
+  
+  *** RESPONSE
+  HTTP/1.1 <span style="color:red;font-weight:bold;">300 Multiple Choices</span>
+  Host: www.example.org
+  Content-Length: XXX
+  
+  &lt;p&gt;
+    Select one:
+  &lt;/p&gt;
+  &lt;a href="/results/chart"&gt;Pie chart&lt;/a&gt;  
+  &lt;a href="/results/table"&gt;Data Table&lt;/a&gt;
+  &lt;a href="/results/list"&gt;Text List&lt;/a&gt;
+</pre>
+<h4>automated agent-driven conneg</h4>
+<p>
+  there may be times when you want to allow the client application (not the human driving it) to make the selection based on the 
+  "300 Multiple Choices" response. that means you'll need to provide additional information in the response that the client application
+  can understand. 
+  for example, a client may have a preference setting for exporting data to disk formats. this setting could be used to select
+  from a list of possible representations.
+</p>
+<p>
+  one way to support this "client-automated export option" is to use the 
+  <a href="http://www.w3.org/TR/html4/struct/links.html#adef-type-A" title="type = content-type [CI]">type</a> attribute of the 
+  <a href="http://www.w3.org/TR/html4/struct/links.html#h-12.2" title="The A element">HTML A</a> 
+  tag to provide the registered content-type for each link. 
+</p>
+<pre>
+  *** REQUEST
+  GET /results HTTP/1.1
+  Host: www.example.org
+  Accept: */*
+  
+  *** RESPONSE
+  HTTP/1.1 300 Multiple Choices
+  Host: www.example.org
+  Content-Length: XXX
+  
+  &lt;p&gt;
+    Select one:
+  &lt;/p&gt;
+  &lt;a href="/results/pdf" <span style="color:red;font-weight:bold;">type="application/pdf"</span>&gt;PDF Export&lt;/a&gt;  
+  &lt;a href="/results/html" <span style="color:red;font-weight:bold;">type="text/html"</span>&gt;HTML Document&lt;/a&gt;
+  &lt;a href="/results/csv" <span style="color:red;font-weight:bold;">type="text/csv"</span>&gt;Spreadsheet Export&lt;/a&gt;
+</pre>
+<p>
+  now the client application can do the same work servers would do when implementing 
+  <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#sec12.1" title="HTTP 1.1 - Server-driven Negotiation">
+    Server-Driven Negotiation
+  </a>. the client can compare the available representations against the client's list of preferred export formats and perform
+  the "best match" selection itself. 
+</p>
+<h4>understanding the language</h4>
+<p>
+  the process of negotitating for a representation relies on more than just a data format selection; it might require a language
+  selection, too. Below is an example using the HTML anchor tag's
+  <a href="http://www.w3.org/TR/html4/struct/links.html#adef-hreflang" title="hreflang = langcode [CI]">hreflang</a> attribute:
+</p>
+<pre>
+  *** REQUEST
+  GET /results HTTP/1.1
+  Host: www.example.org
+  Accept: */*
+  
+  *** RESPONSE
+  HTTP/1.1 300 Multiple Choices
+  Host: www.example.org
+  Content-Length: XXX
+  
+  &lt;p&gt;
+    Select one:
+  &lt;/p&gt;
+  &lt;a href="/results/fr" <span style="color:red;font-weight:bold;">hreflang="fr"</span>&gt;French&lt;/a&gt;  
+  &lt;a href="/results/en-US" <span style="color:red;font-weight:bold;">hreflang="en-US"</span>&gt;US English&lt;/a&gt;
+  &lt;a href="/results/de" <span style="color:red;font-weight:bold;">hreflang="de"</span>&gt;German&lt;/a&gt;
+</pre>
+<h4>letting it all go to your head</h4>
+<p>
+  there may be a case where returning an HTML representation body for a "300 Multiple Choices" response is not appropriate. for example,
+  a server might have several different image formats for the same resource. in that case the response might use the new 
+  Web Linking spec (<a href="http://tools.ietf.org/html/rfc5988#section-5.5" title="Web Linking">RFC5988</a>) 
+  to provide the selection information as link headers: 
+</p>
+<p>
+  for example, if the initial request were rendered in HTML not as an A tag, but as an 
+  <a href="http://www.w3.org/TR/html401/struct/objects.html#edef-IMG" title=" Including an image: the IMG element">IMG</a> tag, the interaction might
+  look like this:
+</p>
+<pre>
+  *** REQUEST
+  GET /data HTTP/1.1
+  Host: www.example.org
+  Accept: text/html
+  
+  *** RESPONSE
+  HTTP/1.1 200 OK
+  Host: www.example.org
+  Content-type: text/html
+  Content-Length: xxx
+ 
+  ...
+  <span style="color:red;font-weight:bold;">&lt;img src="/results" /&gt;</span>
+  ...
+  
+  *** REQUEST
+  GET /results HTTP/1.1
+  Host: www.example.org
+  Accept: image/*
+  
+  *** RESPONSE
+  HTTP/1.1 300 Multiple Choices
+  Host: www.example.org
+  Content-Length: 0
+  <span style="color:red;font-weight:bold;">Link: &lt;http://www.example.org/results/png&gt;; type="image/png",
+        &lt;http://www.example.org/results/jpeg&gt;;type="image/jpeg",
+        &lt;http://www.example.org/results/gif&gt;;type="image/gif"</span>
+</pre>
+<p>
+  it should be pointed out that, in these last two examples of "automated client selection", client applications can be 
+  coded to treat "300 Multiple Choices" similar to other HTTP redirect status codes 
+  (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.2" title="Moved Permanently">301</a>, 
+  <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.3.3" title="Found">302</a>, etc.). the client can make the 
+  selection and fire off the redirected request w/o the need for human intervention. like the other redirect status codes,
+  human users may never know they have experienced this client-side negotation and redirection.
+</p>
+<h4>alternates vs. conneg</h4>
+<p>
+  some folks might look at the contents of these interim responses and conclude that they could just as easily be provided within the initial 
+  response. that would be true. for example, there might be a resource that lists all the possible alternate views of the data.
+  this resource might contain a set of links to each available representation:
+</p>
+<pre>
+  *** REQUEST
+  GET /results HTTP/1.1
+  Host: www.example.org
+  Accept: text/html
+  
+  *** RESPONSE
+  HTTP/1.1 <span style="color:red;font-weight:bold;">200 OK</span>
+  Host: www.example.org
+  Content-Length: XXX
+  
+  &lt;p&gt;
+    Select one:
+  &lt;/p&gt;
+  &lt;a href="/results/chart" <span style="color:red;font-weight:bold;">rel="alternate"</span>&gt;Pie chart&lt;/a&gt;  
+  &lt;a href="/results/table" <span style="color:red;font-weight:bold;">rel="alternate"</span>&gt;Data Table&lt;/a&gt;
+  &lt;a href="/results/list" <span style="color:red;font-weight:bold;">rel="alternate"</span>&gt;Text List&lt;/a&gt;
+</pre>
+<p>
+  note that, since this an actual resource, the response status code is set 
+  to "200 OK" instead of "300 Multiple Choices." effectively, this redefines the resource at the URI <code>/results</code> 
+  from one that represents the statistical results to one that represents <i>a list of available representations</i> 
+  of the statistical results (did you follow that one[grin]?).
+</p>
+<h4>but don't get confused</h4>
+<p>
+  as a <a href="http://lists.w3.org/Archives/Public/public-html/2009Oct/0527.html" title="Hyperlinks and content negotiation">thread</a> 
+  from 2009 on the <a href="http://lists.w3.org/Archives/Public/public-html/" title="public-html@w3.org Mail Archives">Public HTML list</a> 
+  shows, more than one person has thought about combining the power of listing alternates in the initial response w/ the flexibility
+  of allowing clients to automatically negotiate for their preferred representation based on content-types. 
+  for example, you might think this is a possible solution:
+</p>
+<pre>
+  *** REQUEST
+  GET /results HTTP/1.1
+  Host: www.example.org
+  Accept: text/html
+  
+  *** RESPONSE
+  HTTP/1.1 200 OK
+  Host: www.example.org
+  Content-Length: XXX
+  
+  &lt;p&gt;
+    Select one:
+  &lt;/p&gt;
+  &lt;a href="/results" <span style="color:red;font-weight:bold;">rel="alternate" type="image/png"</span>&gt;Pie chart&lt;/a&gt;  
+  &lt;a href="/results" <span style="color:red;font-weight:bold;">rel="alternate" type="text/html"</span>&gt;Data Table&lt;/a&gt;
+  &lt;a href="/results" <span style="color:red;font-weight:bold;">rel="alternate" type="text/plain"</span>&gt;Text List&lt;/a&gt;
+</pre>
+<p>
+  this approach results in clients receiving a list of alternate representations all w/ the same URI 
+  (<code>/results</code>) and expects the client to inspect the <code>type</code> attribute to select the preferred representation. 
+  however, this solution confuses the two response types covered in this post (<code>300 Multiple Choices</code> and <code>200 OK</code>). 
+  there is no need to ask clients to scan the bodies of <code>200 OK</code> responses in order to determine which alternate 
+  representation format should be requested. 
+</p>
+<p>
+  also, rendering a fixed list of representations (tied to specific content-types) in the primary resource may not be a 
+  good decision over time. <a href="http://twitter.com/fielding" title="@fielding">Roy Fielding</a>'s response on the above-referenced 
+  discussion thread puts it this way (partial quote):
+</p>
+<blockquote>
+  <p>
+  The purpose of conneg is to remove such explicit type indications
+from the distributed content (HTML) so that such coupling of
+standards would not be embedded in the web for eternity.  
+</p>
+<p align="right">
+  <a href="http://lists.w3.org/Archives/Public/public-html/2009Oct/0658.html">
+    ....Roy
+  </a>
+</p>
+</blockquote>
+<h4>it's all about commitment</h4>
+<p>
+  so what's the difference between using <i>type="..." w/ 300 Multiple Choices</i> and using <i>rel="alternate" w/ 200 OK</i>?
+  is there an advantage of one or the other? the only difference|advantage is in the commitment the server wants to make about
+  the possible alternate representations of a resource. 
+</p>
+<p>
+  <b>The "300" approach</b> is designed to allow servers to treat the list of possible representations as transient and off-load the
+  work of selecting the appropriate representation to the client. in addition, the spec provides an option for the client 
+  to do the selection automatically. this approach keeps any changes in the available representations out of the primary 
+  resource so that, as formats and availability change over time, the primary resource never needs to change. even cached 
+  copies will never be "hard-coded" to a fixed set of possible representation options. 
+</p>
+<p>
+  <b>the "200" approach</b> is designed to allow primary resources to provide a fixed set of possible representation. this means
+  clients will always know what representation formats are available. cached copies of this resource will always show the
+  same set of (in the case of my initial example, three) alternate representations even if one or more of those options have changed over time 
+  or is no longer available. 
+</p>
+<p>
+  these implementation options offer resource designers the ability to choose between flexibility ("300") and specificity ("200"). 
+  and choice is what it's all about.
+</p>
+<h4>extra credit work</h4>
+<p>
+  this post covered Agent-Driven Negotitation and referenced Server-Driven Negotation.
+  if you <i>really</i> want to get a handle on how HTTP representation negotation options, check out
+  <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#sec12.3" title="Transparent Negotiation">Transparent Negotitation</a> 
+  and work up a scenario where this is a viable option.
+</p></div>
+          <p class="category"><a href="index.html%3Fcategory=21.html" title="more from HTTP...">HTTP</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

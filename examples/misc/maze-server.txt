@@ -1,0 +1,639 @@
+<%@ WebHandler Language="C#" Class="Maze2D" %>
+
+using System;
+using System.Web;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
+
+using Amundsen.Utilities;
+using DFSAlgorithmMaze;
+
+public class Maze2D : IHttpHandler
+{
+
+  HttpContext ctx = null;
+  WebUtility wu = new WebUtility();
+  
+  string[] ctypes = new string[] { "application/x-www-form-urlencoded" };
+  string[] accepted = new string[] { "text/html","application/xml","text/plain","text/xml","application/vnd.amundsen.maze+xml"};
+  bool debug = true;
+  string mazeFolder = "2d";
+  string mazeFormat = "http://amundsen.com/examples/mazes/2d/{0}/";
+  string roomFormat = "http://amundsen.com/examples/mazes/2d/{0}/{1}:{2}";
+
+  // xml representation
+  string collStartXml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<maze  version=\"1.0\">\n<collection>";
+  string collLineXml = "<link href=\"{0}\" rel=\"maze\" />\n";
+  string collStopXml = "</collection>\n</maze>";
+  string itemLineXml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<maze version=\"1.0\">\n<item>\n<link href=\"{0}\" rel=\"start\" />\n<debug>\n{1}\n</debug>\n</item>\n</maze>";
+  string roomStartXml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<maze version=\"1.0\">\n<cell>\n<link href=\"{0}\" rel=\"current\" debug=\"{1}\" total=\"{2}\" side=\"{3}\" />\n";
+  string roomLineXml = "<link href=\"{0}\" rel=\"{1}\" />\n";
+  string roomStopXml = "</cell>\n</maze>";
+ 	string exitLineXml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<maze version=\"1.0\">\n<completed>\n<link href=\"{0}\" rel=\"start\" />\n</completed>\n</maze>"; 
+
+  // xhtml representation
+  string collStartHtml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\n<head profile=\"http://amundsen.com/profiles/maze2d\">\n<title>maze 2d</title>\n<link type=\"text/css\" rel=\"stylesheet\" href=\"css/mazes-2d.css\" />\n</head>\n<body>\n<div class=\"collection\">\n<ul>\n";
+  string collLineHtml = "<li><a href=\"{0}\" rel=\"maze\" />{0}</a></li>\n";
+  string collStopHtml = "</ul>\n</div>\n</body>\n</html>";
+  string itemLineHtml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\n<head profile=\"http://amundsen.com/profiles/maze2d\">\n<title>maze 2d</title>\n<link type=\"text/css\" rel=\"stylesheet\" href=\"css/mazes-2d.css\" />\n</head>\n<body>\n<div class=\"item\">\n<div class=\"start\">\n<a href=\"{0}\" rel=\"start\">start</a>\n</div>\n<div class\"debug\">\n<pre>{1}</pre>\n</div>\n</div>\n</body>\n</html>";
+  string roomStartHtml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\n<head profile=\"http://amundsen.com/profiles/maze2d\">\n<title>maze 2d</title>\n<link type=\"text/css\" rel=\"stylesheet\" href=\"css/mazes-2d.css\" />\n</head>\n<body>\n<div class=\"cell\">\n<ul>\n<li><a href=\"{0}\" rel=\"start\">start</a></li>\n<li><a href=\"{0}\" rel=\"current\" debug=\"{1}\" total=\"{2}\" side=\"{3}\">current</a></li>\n";
+  string roomLineHtml = "<li><a href=\"{0}\" rel=\"{1}\">{1}</a></li>\n";
+  string roomImagesHtml = "</ul>\n</div>\n<div class=\"images\">\n<h4>You are facing:</h4><h1>{4}</h1>\n<img src=\"{0}\" title=\"0\" alt=\"0\"/><img src=\"{1}\" title=\"1\" alt=\"1\"/><img src=\"{2}\" title=\"2\" alt=\"2\"/>\n</div>\n";
+  string roomStopHtml = "</body>\n</html>";
+ 	string exitLineHtml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\n<head profile=\"http://amundsen.com/profiles/maze2d\">\n<title>maze 2d</title>\n<link type=\"text/css\" rel=\"stylesheet\" href=\"css/mazes-2d.css\" />\n</head>\n<body>\n<div class=\"completed\">\n<a href=\"{0}\" rel=\"start\" />start</a>\n</div>\n</body>\n</html>"; 
+  
+  public void ProcessRequest(HttpContext context)
+  {
+    ctx = context;
+    string method = ctx.Request.HttpMethod.ToLower();
+
+    try
+    {
+      switch (method)
+      {
+        case "get":
+          Get();
+          break;
+        case "head":
+          Get(true);
+          break;
+        case "post":
+          Post();
+          break;
+        case "options":
+          Options();
+          break;
+        default:
+          Options(405);
+          break;
+      }
+    }
+    catch (HttpException hex)
+    {
+      ctx.Response.ContentType = "text/plain";
+      ctx.Response.StatusCode = hex.GetHttpCode();
+      ctx.Response.StatusDescription = hex.Message;
+      ctx.Response.Write(string.Format("{0} - {1}", hex.GetHttpCode(), hex.Message));
+    }
+    catch (Exception ex)
+    {
+      ctx.Response.ContentType = "text/plain";
+      ctx.Response.StatusCode = 500;
+      ctx.Response.StatusDescription = ex.Message;
+      ctx.Response.Write(string.Format("{0} - {1}", 500, (debug==true?ex.StackTrace:ex.Message)));
+    }
+  }
+
+  public bool IsReusable
+  {
+    get
+    {
+      return false;
+    }
+  }
+
+  private void Options()
+  {
+    Options(200);
+  }
+  private void Options(int response)
+  {
+    string content = string.Empty;
+    string accept = string.Empty;
+    string msg = string.Empty;
+    string methods = string.Empty;
+    
+    for(int i = 0; i<ctypes.Length; i++)
+    {
+      if(i!=0)
+      {
+        content +=", ";
+      }
+      content += ctypes[i];
+    }
+    
+    for(int i = 0; i<accepted.Length; i++)
+    {
+      if(i!=0)
+      {
+        accept +=", ";
+      }
+      accept += accepted[i];
+    }
+    
+    switch(response)
+    {
+      case 200:
+        msg = "OK";
+        break;
+      case 405:
+        msg = "Method Not Allowed";
+        break;
+      case 406:
+        msg = "Not Acceptable";
+        break;
+      case 415:
+        msg = "Unsupported Media Type";
+        break;
+      default:
+        msg = response.ToString();
+        break;
+    }
+    ctx.Response.AddHeader("Allow", "GET,HEAD,OPTIONS");
+    ctx.Response.AddHeader("Accept-Types", accept);
+    ctx.Response.AddHeader("Content-Types",content);
+    
+    ctx.Response.StatusCode = response;
+    ctx.Response.ContentType = "text/plain";
+    ctx.Response.StatusDescription = msg;
+    ctx.Response.Write("Allow: GET,HEAD,POST,OPTIONS\nAccept-Types: "+accept+"\nContent-Types: "+content+"\n");
+  }
+  
+  private void Get()
+  {
+    Get(false);
+  }
+  private void Get(bool suppressContent)
+  {
+    string id = string.Empty;
+    string mv = string.Empty;
+    string rtn = string.Empty;
+    string accept = string.Empty;
+    string agent = (ctx.Request.Headers["user-agent"]!=null?ctx.Request.Headers["user-agent"]:"");
+    string types = (ctx.Request.Headers["accept"]!=null?ctx.Request.Headers["accept"]:"*/*");
+    
+    // some browsers are crappy at HTML conneg.
+    if(types.IndexOf("*/*")!=-1 && (agent.IndexOf("IE")!=-1 || agent.IndexOf("WebKit")!=-1 || agent.IndexOf("K-Melon")!=1))
+    {
+      accept="text/html";
+    }
+    else
+    {
+      accept = MimeParse.BestMatch(accepted,types);
+    }
+    if(accept==string.Empty)
+    {
+      Options(406);
+      return;
+    }    
+    
+    id = (ctx.Request["id"]!=null?ctx.Request["id"]:string.Empty);
+    mv = (ctx.Request["mv"] != null ? ctx.Request["mv"] : string.Empty);
+    if (id == string.Empty)
+    {
+      rtn = GetMazeList(accept);
+    }
+    else
+    {
+      if (mv != string.Empty)
+      {
+        rtn = GetMove(id, mv, accept);
+      }
+      else
+      {
+        rtn = GetMaze(id,accept);
+      }
+    }
+    
+    ctx.Response.StatusCode = 200;
+    ctx.Response.StatusDescription = "OK";
+    ctx.Response.ContentType = accept; //accepted[0];
+    ctx.Response.SuppressContent = suppressContent;
+    ctx.Response.Write(rtn);    
+  }
+
+  private string GetMazeList(string accept)
+  {
+    // get list of files on disk
+    string data = string.Empty;
+    string linkHdr = string.Empty;
+    string collStart,collLine,collStop;
+    
+    string path = ctx.Server.MapPath(mazeFolder);
+    DirectoryInfo d = new DirectoryInfo(path);
+    FileInfo[] coll = d.GetFiles("*.maze");
+
+		collLine = (accept=="text/html"?collLineHtml:collLineXml);
+		collStart = (accept=="text/html"?collStartHtml:collStartXml);
+		collStop = (accept=="text/html"?collStopHtml:collStopXml);
+
+    data = collStart;
+    for (int i = 0; i < coll.Length; i++)
+    {
+      data += 
+        string.Format(
+          collLine, 
+          string.Format(mazeFormat,coll[i].Name.Replace(".maze", "")), 
+          coll[i].Name
+        );
+      
+      if(i!=0)
+      {
+        linkHdr +=", ";
+      }  
+      linkHdr += 
+        string.Format(
+          "<{0}>; rel=\"maze\"", 
+          string.Format(mazeFormat,coll[i].Name.Replace(".maze", "")), 
+          coll[i].Name
+        );
+    }
+    data += collStop;
+    
+    // transform into proper media type
+    ctx.Response.AddHeader("Link",linkHdr);
+    
+    // send results to caller
+    return data;
+  }
+
+  private string GetMaze(string id, string accept)
+  {
+    string data = string.Empty;
+    string rtn = string.Empty;
+    string linkHdr = string.Empty;
+    string itemLine = (accept=="text/html"?itemLineHtml:itemLineXml);
+    
+    // get item from disk
+    data = ReadFile(id);
+    
+    // transform into proper media type
+    rtn = string.Format(itemLine,string.Format(roomFormat,id,"0","north"),data);
+    
+    linkHdr = string.Format("<{0}>; rel=\"start\"",string.Format(roomFormat,id,"0","north"));
+    ctx.Response.AddHeader("Link",linkHdr);
+    
+    // send results to caller
+    return rtn;
+  }
+
+  private string GetMove(string id, string mv, string accept)
+  {
+    string data, rtn;
+    string[] cells;
+    string[] rm;
+    int m = 0;
+    string[] mx = new string[2];
+    
+    if(mv.IndexOf(":")!=-1)
+    {
+    	mx[0]=mv.Split(':')[0];
+    	mx[1]=mv.Split(':')[1];
+    }
+    else
+		{
+    	mx[0]=mv;
+    	mx[1]=string.Empty;
+		}
+  	
+    
+    if (mx[0] == "999")
+    {
+      rtn = ShowExit(id,accept,mx[1]);
+    }
+    else
+    {
+      data = ReadFile(id);
+      cells = data.Split('\n');
+      m = Int32.Parse(mx[0]);
+      rtn = cells[m];
+      rm = cells[m].Split(',');
+
+      switch (accept)
+      {
+        default:
+          rtn = TransformRoom(id, cells[m], cells.Length - 1, accept,mx[1]);
+          break;
+      }
+    }
+    return rtn;
+  }
+
+  private string ShowExit(string mz,string accept, string dx)
+  {
+  	string rtn = string.Empty;
+  	string exitLine = (accept=="text/html"?exitLineHtml:exitLineXml);
+    
+    ctx.Response.AddHeader("Link",string.Format("<{0}>; rel=\"start\"", string.Format(roomFormat,mz, 0,"north")));
+    
+    rtn = string.Format(exitLine, string.Format(roomFormat,mz, 0,"north"));
+    
+    return rtn;
+  }
+  
+  private string TransformRoom(string mz, string rm,int total, string accept, string dx)
+  {
+    string linkHdr = string.Empty;
+    string rtn = string.Empty;
+    string[] images = new string[]{"images/middle-nodoor.png","images/left-nodoor.png","images/middle-nodoor.png","images/right-nodoor.png"};
+    string id = string.Empty;
+    string[] s;
+    int x;
+    
+    string roomStart = (accept=="text/html"?roomStartHtml:roomStartXml);
+    string roomLine = (accept=="text/html"?roomLineHtml:roomLineXml);
+    string roomStop = (accept=="text/html"?roomStopHtml:roomStopXml);
+    string roomImages = (accept=="text/html"?roomImagesHtml:string.Empty);
+    
+    rtn = string.Empty;
+    id = rm.Split(':')[0];
+    s = rm.Split(':')[1].Split(',');
+    x = Convert.ToInt32(Math.Sqrt((double)total));
+
+    linkHdr += string.Format("<{0}>; rel=\"current\"", string.Format(roomFormat,mz, id,dx));
+    rtn = string.Format(roomStart, string.Format(roomFormat, mz, id, dx), rm, total, x);
+    
+    if (Int32.Parse(id) == total-1)
+    {
+    	SetDoor(ref images,"exit",0,"door");
+      linkHdr += string.Format(",<{0}>; rel=\"{1}\"", string.Format(roomFormat,mz,"999",dx), "exit");
+      rtn += string.Format(roomLine, string.Format(roomFormat,mz,"999",dx), "exit");
+    }
+    else
+    {
+      for (int i = 0; i < s.Length; i++)
+      {
+        if (i == 0)
+        {
+        	if(s[i] == "0")
+        	{
+        		SetDoor(ref images,dx,0,"door");
+          	linkHdr += string.Format(",<{0}>; rel=\"{1}\"", string.Format(roomFormat,mz,Int32.Parse(id) - 1,"north"), "north");
+          	rtn += string.Format(roomLine, string.Format(roomFormat,mz,Int32.Parse(id) - 1,"north"), "north");
+        	}
+        	else
+        	{
+	       		SetDoor(ref images,dx,0,"nodoor");
+					}
+        }
+        if (i == 1)
+        {
+        	if(s[i] == "0")
+        	{
+        		SetDoor(ref images,dx,1,"door");
+          	linkHdr += string.Format(",<{0}>; rel=\"{1}\"", string.Format(roomFormat,mz,Int32.Parse(id) + (x * -1),"west"), "west");
+          	rtn += string.Format(roomLine, string.Format(roomFormat,mz,Int32.Parse(id) + (x * -1),"west"), "west");
+        	}
+        	else
+        	{
+        		SetDoor(ref images,dx,1,"nodoor");
+        	}
+       	}
+        if (i == 2)
+        {
+        	if(s[i] == "0")
+        	{
+        		SetDoor(ref images,dx,2,"door");
+          	linkHdr += string.Format(",<{0}>; rel=\"{1}\"", string.Format(roomFormat,mz,Int32.Parse(id) + 1,"south"), "south");
+          	rtn += string.Format(roomLine, string.Format(roomFormat,mz,Int32.Parse(id) + 1,"south"), "south");
+        	}
+        	else
+        	{
+        		SetDoor(ref images,dx,2,"nodoor");
+        	}
+        }
+        if (i == 3)
+        {
+        	if(s[i] == "0")
+        	{
+        		SetDoor(ref images,dx,3,"door");
+          	linkHdr += string.Format(",<{0}>; rel=\"{1}\"", string.Format(roomFormat,mz,Int32.Parse(id) + x,"east"), "east");
+          	rtn += string.Format(roomLine, string.Format(roomFormat,mz,Int32.Parse(id) + x,"east"), "east");
+        	}
+        	else
+        	{
+        		SetDoor(ref images,dx,3,"nodoor");
+        	}
+        }
+      }
+    }
+    
+    rtn += string.Format(roomImages, images[0],images[1],images[2],images[3],dx);
+    rtn += roomStop;
+    ctx.Response.AddHeader("Link",linkHdr);
+
+    return rtn;
+  }
+
+  private void SetDoor(ref string[] images,string facing, int i, string door)
+  {
+  	if(facing=="exit")
+  	{
+  		images[0] = "images/left-nodoor.png";
+  		images[1] = "images/middle-door.png";
+  		images[2] = "images/right-nodoor.png";
+  	}
+  	if(facing=="north" && i==0)
+  	{
+  		images[1] = "images/middle-"+door+".png";
+  	}
+  	if(facing=="north" && i==1)
+  	{
+  		images[0] = "images/left-"+door+".png";
+  	}
+  	if(facing=="north" && i==2)
+  	{
+  		images[3] = "";
+  	}
+  	if(facing=="north" && i==3)
+  	{
+  		images[2] = "images/right-"+door+".png";
+  	}
+
+  	if(facing=="west" && i==0)
+  	{
+  		images[2] = "images/right-"+door+".png";
+  	}
+  	if(facing=="west" && i==1)
+  	{
+  		images[1] = "images/middle-"+door+".png";
+  	}
+  	if(facing=="west" && i==2)
+  	{
+  		images[0] = "images/left-"+door+".png";
+  	}
+  	if(facing=="north" && i==3)
+  	{
+  		images[3] = "";
+  	}
+
+  	if(facing=="south" && i==0)
+  	{
+  		images[3] = "";
+  	}
+  	if(facing=="south" && i==1)
+  	{
+  		images[2] = "images/right-"+door+".png";
+  	}
+  	if(facing=="south" && i==2)
+  	{
+  		images[1] = "images/middle-"+door+".png";
+  	}
+  	if(facing=="south" && i==3)
+  	{
+  		images[0] = "images/left-"+door+".png";
+  	}
+
+  	if(facing=="east" && i==0)
+  	{
+  		images[0] = "images/left-"+door+".png";
+  	}
+  	if(facing=="east" && i==1)
+  	{
+  		images[3] = "";
+  	}
+  	if(facing=="east" && i==2)
+  	{
+  		images[2] = "images/right-"+door+".png";
+  	}
+  	if(facing=="east" && i==3)
+  	{
+  		images[1] = "images/middle-"+door+".png";
+  	}
+  	//return rtn;
+  }
+  private void Post()
+  {
+    string ctype = string.Empty;
+    string defaultSize = "10";
+    string size = string.Empty;
+    string slug = string.Empty;
+    int sz = 0;
+
+    // confirm media type
+    ctype = ctx.Request.Headers["content-type"];
+    ctype = MimeParse.BestMatch(ctypes, ctype);
+    if (ctype == string.Empty)
+    {
+      Options(415);
+      return;
+    }
+    
+    // get slug, if it exists
+    slug = (ctx.Request.Headers["slug"]!=null?ctx.Request.Headers["slug"]:System.Guid.NewGuid().ToString());
+    if(IsValidName(slug)==false)
+    {
+      throw new HttpException(400,"Invalid Slug Name. Only letters, numbers, and the dash allowed.");
+    }
+    
+    // get size, if it exists 
+    size = (ctx.Request["size"]!=null?ctx.Request["size"]:defaultSize);
+    if (size == string.Empty)
+    {
+      throw new HttpException(400, "Missing size argument");
+    }
+    try
+    {
+      sz = Int32.Parse(size);
+      if (sz < 5 || sz > 50)
+      {
+        throw new HttpException(400, "Invalid size argument. Must be an integer between 5 and 50");
+      }
+    }
+    catch (Exception ex)
+    {
+      throw new HttpException(400, "Invalid size argument. Must be an integer between 5 and 50");
+    }
+    
+    // generate  & store maze
+    Maze m = GenMaze(sz);
+    string id = SaveMaze(m,slug);
+    
+    // return 201 + location
+    ctx.Response.ContentType = "text/plain";
+    ctx.Response.StatusCode = 201;
+    ctx.Response.StatusDescription = "Created";
+    ctx.Response.RedirectLocation = string.Format(mazeFormat, id);
+    ctx.Response.Write(string.Format(mazeFormat, id));
+  }
+
+  private Maze GenMaze(int sz)
+  {
+    Maze.kDimension = sz;
+    Maze m = new Maze();
+    m.Initialize();
+    m.Generate();
+ 
+    return m;
+  }
+
+  private string SaveMaze(Maze m, string slug)
+  {
+    string id = slug;
+    string path = string.Empty;
+    Cell[,] coll = m.Cells;
+    int ix = coll.GetLength(0);
+    int jx = coll.GetLength(1);
+    System.Text.StringBuilder sb = new StringBuilder();
+    
+    int z = 0;
+    for (int i = 0; i < ix; i++)
+    {
+      for (int j = 0; j < jx; j++)
+      {
+        sb.AppendFormat("{0}:", z++, i, j);
+        for (int k = 0; k < coll[i, j].Walls.Length; k++)
+        {
+          sb.Append(coll[i, j].Walls[k]);
+          if (k < 3)
+          {
+            sb.Append(",");
+          }
+          else
+          {
+            sb.Append("\n");
+          }
+        }
+      }
+    }
+
+    // validate path
+    path = ctx.Server.MapPath(string.Format("{0}/{1}.maze", mazeFolder, id));
+    if(File.Exists(path)==true)
+    {
+      id = System.Guid.NewGuid().ToString();
+      path = ctx.Server.MapPath(string.Format("{0}/{1}.maze", mazeFolder, id));
+    }
+    
+    // save to disk
+    using (StreamWriter sw = new StreamWriter(path.ToLower()))
+    {
+      sw.Write(sb.ToString());
+      sw.Close();
+    }
+
+    return id;
+  }
+
+  private bool IsValidName(string slug)
+  {
+    bool match = false;
+    try 
+    {
+      Regex regexObj = new Regex(@"\A([a-z0-9\-]*)\Z");
+      match = regexObj.IsMatch(slug);
+    } 
+    catch (ArgumentException ex) 
+    {
+      throw new HttpException(500,"|"+slug+"|"+ex.Message);
+    }
+    
+    return match;
+  }
+  
+  private string ReadFile(string id)
+  {
+    string path = string.Empty;
+    string data = string.Empty;
+    
+    path = ctx.Server.MapPath(string.Format("{0}/{1}.maze",mazeFolder,id));
+    using(StreamReader sr = new StreamReader(path))
+    {
+      data = sr.ReadToEnd();
+      sr.Close();
+    }
+    
+    return data;
+  }  
+}

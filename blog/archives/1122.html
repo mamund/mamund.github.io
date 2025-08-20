@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[POST-PUT-PATCH illustrated]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">POST-PUT-PATCH illustrated</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2012-03-01 @ 17:04</span><span class="permalink"><a href="1122.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+<a href="http://www.flickr.com/photos/limowreck666/124628254/" title="thats torn it">
+<img src="http://farm1.staticflickr.com/44/124628254_a3b3494858_t.jpg" align="right" class="inline" />
+</a>
+the announcement that 
+<a href="http://weblog.rubyonrails.org/2012/2/26/edge-rails-patch-is-the-new-primary-http-method-for-updates">
+Rails is adding support for PATCH</a> has caused some 
+<a href="http://wekeroad.com/2012/02/28/someone-save-us-from-rest/">gum-flapping</a>
+on the Inter-Tubes and this all came up in a recent convo w/ some of my colleagues 
+today. it turned out most of them don't have much experience in "talking HTTP" 
+but know T-SQL really well. so i decided to illustrate the
+differences between HTTP's POST, PUT, and PATCH methods using simple T-SQL 
+examples.
+</p>
+<p>
+it seemed to resonate w/ the folks in the room so i decided to share it here.
+now, my T-SQL is a bit stilted, but it get ths point across.
+</p>
+<p>
+hopefully, this illustration will spark some convos where you are and result
+in some deeper discussion and understanding of the HTTP protocol.
+</p>
+<h4>POST</h4>
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5">
+HTTP.POST</a> can be used when the client is sending data to the server and the
+server will decide the URI for the newly created resource.  
+<blockquote>
+"The POST method is used to request that the origin server accept the 
+entity enclosed in the request as <b>a new subordinate</b> of the resource 
+identified by the Request-URI in the Request-Line."
+</blockquote>
+<p>
+this is what most of us think of when we talk about "creating data" on a 
+web server. translating this into T-SQL is really easy; just use an 
+auto-incrementing primary key for INSERTS.
+</p>
+<pre class="code">
+-- T-SQL version of POST
+CREATE TABLE [dbo].[PostToDo](
+  [ID] [int] IDENTITY(1,1) NOT NULL,
+  [Task] [nvarchar](1024) NOT NULL,
+  [Completed] [nvarchar](10) NULL
+) ON [PRIMARY]
+ 
+-- Write ala POST
+CREATE PROCEDURE WritePostToDo 
+  @Task nvarchar(1024),
+  @Completed nvarchar(10)
+AS
+BEGIN
+  SET NOCOUNT ON;
+  INSERT INTO PostToDo VALUES (@Task, @Completed)
+END
+
+-- Send some data
+WritePostToDo 'Write code', 'no'
+WritePostToDo 'Fix bugs', 'no'
+WritePostToDo 'Deploy to production', 'no'
+WritePostToDo 'Enjoy a beer', 'no'
+
+-- Check out the results
+SELECT * FROM PostToDo
+1,'Write code', 'no'
+2,'Fix bugs', 'no'
+3,'Deploy to production', 'no'
+4,'Enjoy a beer', 'no'
+</pre>
+<h4>PUT</h4>
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.6">HTTP.PUT</a> 
+can be used when the client is sending data to the the server and
+the client is determining the URI for the newly created resource.
+<blockquote>
+The PUT method requests that the enclosed entity be stored under the 
+<b>supplied Request-URI</b>. If the Request-URI refers to an already existing resource, 
+the enclosed entity SHOULD be considered as a modified version of the one 
+residing on the origin server. If the Request-URI does not point to an 
+existing resource, and that URI is capable of being defined as a new resource 
+by the requesting user agent, the origin server can create the resource 
+with that URI.
+</blockquote>
+<p>
+yeah, so that's kinda dense but the basics are pretty clear:
+</p>
+<ul>
+<li>client must supply the ID</li>
+<li>if the resource exists, *replace* it with the inbound data</li>
+<li>if it doesn't exist, create a new one (assuming you can <em>do</em> that)</li>
+</ul>
+<p>
+so in T-SQL it just takes a bit more fiddling to determine if the record
+already exsits. if yes, do an UPDATE. if no, do an INSERT.
+</p>
+<pre class="code">
+-- T-SQL vesrion of PUT
+CREATE TABLE [dbo].[PutToDo](
+    [ID] [int] NOT NULL,
+    [Task] [nvarchar](1024) NOT NULL,
+    [Completed] [nvarchar](10) NOT NULL
+) ON [PRIMARY]
+
+-- Write ala PUT
+CREATE PROCEDURE WritePutToDo 
+    @ID int,
+  @Task nvarchar(1024),
+  @Completed nvarchar(10)
+AS
+BEGIN
+  SET NOCOUNT ON;
+
+  IF(SELECT COUNT(*) FROM PutToDo WHERE ID=@ID)=0
+    BEGIN
+      INSERT INTO PutToDo VALUES (@ID, @Task, @Completed)
+    END
+  ELSE
+    BEGIN
+      UPDATE PutToDo
+      SET Task=@Task, Completed=@Completed
+      WHERE ID=@ID
+    END
+  --END IF
+  
+  SELECT * FROM PutToDo
+END
+
+-- Send some data
+WritePutToDo 1, 'write code', 'no'
+WritePutToDo 2, 'Fix bugs', 'no'
+WritePutToDo 3, 'Deploy to production', 'no'
+WritePutToDo 4, 'Enjoy a beer', 'no'
+
+-- Check out the results
+SELECT * FROM ToDo
+1,'Write code', 'no'
+2,'Fix bugs', 'no'
+3,'Deploy to production', 'no'
+4,'Enjoy a beer', 'no'
+
+-- Send some more data
+WritePutToDo 1,'write code','yes'
+
+-- Check out the results
+SELECT * FROM ToDo
+1,'Write code', 'yes'
+2,'Fix bugs', 'no'
+3,'Deploy to production', 'no'
+4,'Enjoy a beer', 'no'
+</pre>
+<h4>PATCH</h4>
+<a href="http://tools.ietf.org/html/rfc5789#section-2">HTTP.PATCH</a> 
+can be used when the client is sending one or more changes to be applied
+by the the server.
+<blockquote>
+The PATCH method requests that <b>a set of changes</b> described in the
+request entity be applied to the resource identified by the Request-URI.
+The set of changes is represented in a format called a "patch document"...
+</blockquote>
+<p>
+now we get to have some fun!
+</p>
+<p>
+the spec clearly states this should involve a "patch document", not a typical
+resource write like in POST and PUT (interpret how you will...). anyway, the point
+is that PATCH is used to doing some kind of 'partial' update.
+</p>
+<p>
+translating this into T-SQL is not too tough. i decided to use a 'patch document'
+that consists of four things: 
+</p>
+<ul>
+<li>ID of the record</li>
+<li>the FIELD to patch</li>
+<li>the OLDVALUE of the FIELD</li>
+<li>the NEWVALUE of the FIELD</li>
+</ul>
+<p>
+this allows the sproc to confirm that the field i want to modify has not already
+been modified by someone else since i last read in the data. that will cut down
+on problematic patches that might render the row invalid (again, interpret how
+you will...).
+</p>
+<pre class="code">
+-- use the PutToDo Table definition
+
+-- Write ala PATCH
+CREATE PROCEDURE WritePatchToDo 
+  @ID int,
+  @Field nvarchar(50),
+  @OldValue nvarchar(1024),
+  @NewValue nvarchar(1024)
+AS
+BEGIN
+  SET NOCOUNT ON;
+
+  IF(SELECT COUNT(*) FROM PutToDo WHERE ID=@ID)!=0
+    BEGIN
+      IF(@Field='Task')
+        BEGIN
+          IF(SELECT Task from PutToDo WHERE ID=@ID)=@OldValue
+            Update PutToDo
+            SET Task=@NewValue
+            WHERE ID=@ID
+          --ENDIF
+        END
+      --ENDIF
+      IF(@Field='Completed')
+        BEGIN
+          IF(SELECT Completed from PutToDo WHERE ID=@ID)=@OldValue
+            Update PutToDo
+            SET Completed=@NewValue
+            WHERE ID=@ID
+          --ENDIF
+        END
+      --ENDIF
+    END
+  --ENDIF
+END
+
+-- send some data 
+WritePatchToDo 1, @Field='Task',
+    @OldValue='write code',@NewValue='write buggy code'
+
+-- Check out results
+SELECT * FROM ToDo
+1,'Write buggy code','yes'
+2,'Fix bugs', 'no'
+3,'Deploy to production', 'no'
+4,'Enjoy a beer', 'no'
+</pre>
+<h4>does that help?</h4>
+<p>
+hopefully, seeing HTTP concepts translated to another form helps folks get a
+handle on the differences between these HTTP methods. T-SQL made sense to the 
+group i was talking to at the time. i wonder if there are other "translations"
+that would be helpful, too.
+</p>
+<p>
+maybe you can show me?
+</p></div>
+          <p class="category"><a href="index.html%3Fcategory=21.html" title="more from HTTP...">HTTP</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

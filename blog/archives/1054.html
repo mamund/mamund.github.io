@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[designing a hypermedia API w/ JSON]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">designing a hypermedia API w/ JSON</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2010-05-18 @ 08:44</span><span class="permalink"><a href="1054.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><blockquote>
+this post is another installment in a series of
+<a href="1041.html" title="A RESTful Hypermedia API in Three Easy Steps">posts</a> on
+<a href="1043.html" title="RESTful Profiling : XHTML-based Web APIs">designing</a> and 
+<a href="1042.html" title="Modified RPC over HTTP: old wine in a new bottle">implementing</a>
+<a href="1039.html" title="The H Factor for Media Types">hypermedia</a>
+<a href="1040.html" title="not all Web APIs are the same">API</a>s. 
+</blockquote>
+<p>
+<a href="http://www.flickr.com/photos/ericbegin/3982125284/" title="Blue jay / Geai bleu">
+  <img src="http://farm3.static.flickr.com/2552/3982125284_b29677572b_t.jpg" align="right" class="inline" />
+</a>
+in previous posts i've talked about the importance of designing hypermedia APIs through the use of a media-type
+that contains not just the required data elements, but also the necessary link semantics to allow clients to understand
+how to execute queries (possibly using filter parameters) and how to <i>write</i> data including adding, updating, 
+and deleting content on the server. i've also singled out some commonly-used 
+<a href="http://www.iana.org/assignments/media-types/" title="MIME Media Types">registered media-types</a> as hypermedia types 
+(<a href="http://www.w3.org/TR/html4/" title="HTML 4.01 Specification">HTML</a>, 
+<a href="http://www.w3.org/TR/SMIL3/" title="Synchronized Multimedia Integration Language (SMIL 3.0)">SMIL</a>, etc.)
+and others as devoid of hypermedia semantics 
+(<a href="http://www.w3.org/TR/xml/" title="Extensible Markup Language (XML) 1.0 (Fifth Edition)">XML</a>, 
+<a href="http://www.json.org/fatfree.html" title="JSON: The Fat-Free Alternative to XML">JSON</a>, etc.). 
+</p>
+<p>
+  before continuing, i'm going to take a short pause to make sure i highlight an important aspect of this whole series:
+  the advantage of the hypermedia design pattern.
+</p>
+<p>
+  <i>warning: off-topic digression up ahead!</i>
+</p>
+<h4>why are we doing this anyway?</h4>
+<p>
+one of the key points in this series has been to emphasize to clients more than <i>what data</i> clients can read and 
+  write, but also how to tell clients <i>what it takes</i> to perform those tasks. typically, applications written
+  to run "stand-alone" or meant to run in a closed environment get this information from the source code itself.
+  this makes sense when programs need not interact with other components (servers, etc.) or when 
+  external components are controlled by the same development team that writes the client code. in those cases, keeping 
+  the semantics of reading and writing between parties in sync is a well-defined task and the only variables in the process 
+  are those set out by the very team in charge of the code.
+</p>
+<p>
+  however, in widely distributed networks (e.g. the Internet) where autonomous teams are building various parts of the system, 
+  the task of keeping everyone in sync with regards to read/write semantics is much harder. this is especially true when the 
+  execution environment must remain up and running 24x7, even during upgrades or modifications. these same challenges can
+  occur in large organizations where teams operate independently and/or are physically separated. in those cases, one way to 
+  reduce the need for lock-step co-ordination is to encode the read/write rules in the mesage payloads themselves. and that's 
+  where hypermedia APIs come in. each response to a request can contain all the instructions needed to allow the client to 
+  make additional requests (including requests to write data). even when the semantics change, clients receive the new information 
+  via message payloads rather than code updates. also, in well-implemented systems clients that have not yet received the latest payloads 
+  can continue to run within the network since it's the client that drives the interactions, not the server.
+</p>
+<p>
+  the best-known example of this working in the wild is the HTML media type and the common Web browser. but these are not the 
+  only possible examples. by adopting the same principles of hypermedia API design, desktop applications can be programmed to 
+  understand the read/write semantics encoded in proprietary message payloads. for most developers, it's handy to simply use the 
+  work of browser vendors who have spent years building a robust state-machine client that knows how to handle a wide range 
+  of media types (including images, plug-ins, code-on-demand, etc). but, when the common browser has limiations 
+  (security, flexibility, inability to render important proprietary formats, etc.), building a custom state-machine client is 
+  always a viable option.
+</p>
+<p>
+  in fact, savvy web develoeprs can even build custom state-machines that "live" in the browser itself. clients that understand a 
+  media type, know the read/write semantics, and can render the data as required. they are sometimes referred to as 
+  <a href="http://en.wikipedia.org/wiki/Ajax_%28programming%29" title="Ajax (programming)">Ajax</a> applications (although the "X" 
+  usually stands for XML and that is not always the format used).
+</p>
+<p>
+  <i>and that was my transition paragraph...</i>
+</p>
+<h4>List Management via JSON-H</h4>
+<p>
+  if you've been reading along in this series, you know that early on i identified a simple set of list management operations to 
+  be implemented through a Web API. in this installment, i'll show how to implement the same functionality by designing a hypermedia 
+  JSON payload. 
+</p>
+<p>
+  in keeping w/ previous examples, i'll design a single message format for all operations. one that can encapsulate all the details needed 
+  for describing the full list, individual items in the list, and standard operations on the list including adding entries, updating them,
+  and removing them. it can also be used to handle requests and responses for some pre-defined queries including remaining open items, 
+  items due today, and items within a date range. 
+</p>
+<p>
+  all these read/write semantics are encoded in a single message using the JSON data format. it's what i'm calling 
+  today: <b>JSON-H</b>. not
+  <a href="http://blog.vark.com/?p=242" title="How we use AJAX in the all-new www.vark.com">JSONH</a> or
+  <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/" title="Remote JSON - JSONP">JSONP</a> or
+  <a href="http://jsonml.org/" title="JSON Markup Language (JsonML)">JsonML</a>. just <b>JSON-H</b>.
+</p>
+<h4>it's all about the links</h4>
+<p>
+  in order to design hypermedia using the JSON format, i need a standard way to express hypermedia links in the responses. to accomplish this 
+  i've adopted the same approach outlined in 
+  <a href="http://www.restful-webservices-cookbook.org/" title="RESTful Web Services Cookbook">RESTful Web Services Cookbook</a> by
+  <a href="http://twitter.com/sallamar" title="Subbu Allamaraju (sallamar) on Twitter">Subbu Allamaraju</a> in
+  <a href="http://my.safaribooksonline.com/9780596809140/recipe-how-to-design-json-representations" title="3.6. How to Design JSON Representations">3.6. How to Design JSON Representations</a>
+  (caveat emptor: i am listed as a contributor to <a href="http://twitter.com/#search?q=%23RWSC" title="#RWSC on Tiwtter">the book</a>).
+  the format i use for representing links in JSON is the following:
+</p>
+<pre class="code">
+  {"link" :
+    {"href": "http://www.example.org/path/item", "rel": "semantic-keyword"}
+  }
+</pre>
+<p>
+  i use a similar pattern to represent links that also support named parameters (e.g. query filters):
+</p>
+<pre class="code">
+  {"link" : 
+    {"href": "{query-link}", "rel": "today" },
+    "start-date": "",
+    "stop-date": "" 
+  }
+  
+</pre>
+<p>ok, with those details out of the way, it's time to design a hypermedia type for the list management service using JSON</p>
+<h4>the JSON list management hypermedia API</h4>
+<p>
+  first, here's a minimal response. all valid responses will have at least this reply:
+</p>
+<pre class="code">
+  // the minimum response
+  { "list" :
+    { "link" : "href" : "{collection-uri}", "rel" : "list"}
+  }
+</pre>
+<p>
+  note that there will be a list element that contains as least one link that contains the URI for the list itself. in keeping with other
+  implementations, i am not including the actual URI for the list; that depends upon the server implementing the media-type. also, keep in
+  mind it might not even be an 
+  <a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html" title="Hypertext Transfer Protocol -- HTTP/1.1 ">HTTP</a> URI. 
+  <a href="http://www.faqs.org/rfcs/rfc959.html" title="RFC959 - File Transfer Protocol">FTP</a>, 
+  <a href="http://www.faqs.org/rfcs/rfc3920.html" title="RFC3920 - Extensible Messaging and Presence Protocol (XMPP)">XMPP</a>, 
+  or some other application protocol might work just fine for retrieving the list.
+</p>
+<p>writing data (e.g. adding a new entry or editing and existing entry) would accept a message payload that looks like this:</p>
+<pre class="code">
+  // typical write request
+  { "item" :
+    {"title" : "...", "description" : "...", "date-due" : "...", "completed" : false}
+  }
+</pre>
+<p>
+  as per previous blog posts, the URI for the add operation is the <code>{collection-uri}</code> and the URI for the update operation 
+  is the <code>{item-uri}</code>. the delete operation also uses the <code>{item-uri}</code>. as you might guess, these operations 
+  need to be bound to protocol method names. for example, in 
+  <a href="1041.html" title="A RESTful Hypermedia API in Three Easy Steps">the initial blog post</a>
+   outlining the service, HTTP methods <code>POST</code>, <code>PUT</code>, and <code>DELETE</code>, are bound to the Add, Update, 
+   and Delete operations. other protocols will need their own bindings.
+</p>
+<p>
+  as already alluded to here, queries are handled using links and links w/ named arguments. the details of the URI are not important
+  here, either; just the link relation keywords that clients can look for and use to determine how to assemble requests to be sent to 
+  the server.
+</p>
+<pre class="code">
+(
+  "queries" : 
+  [
+    {
+      "link" : {
+        "href": "{query-link}",
+        "rel": "today" 
+      } 
+    },
+    {
+      "link" : {
+        "href": "{query-link}",
+        "rel": "open" 
+      } 
+    },
+    {
+      "link" : {
+        "href": "{query-link}",
+        "rel": "date-range" 
+      },
+      "start-date": "",
+      "stop-date": "" 
+    } 
+  ]
+}
+</pre>
+<p>
+  notice that i designed my hypermedia JSON to place all the queries in a collection. this will help the client locate them in the 
+  response messages. i also group all the individual items in a collection for the same reason. i'll show those shortly.
+</p>
+<h4>but what about errors?</h4>
+<p>
+  i've gotten a few questions recently on how to best design responses when an error occurs. again, Subbu's book covers this well 
+  in <a href="http://my.safaribooksonline.com/9780596809140/recipe-how-to-return-errors" title="3.13. How to Return Errors">3.13. How to Return Errors</a>
+  and i use the same basic pattern:
+</p>
+<pre class="code">
+{
+  "error" : {
+    "link" : {
+      "href": "{error-details-link}",
+      "rel": "error-details" 
+    },
+    "message" : "...",
+    "description": "...",
+    "code" : "..."
+  }
+}
+</pre>
+<h4>the full monty</h4>
+<p>
+  ok, that's all for each of the elements of my <b>JSON-H</b> implementation of the list management API. now here's a complete rendering of a 
+  media type response encoded in the JSON format. this media-type needs a name (don't they all) and i call this one <b><code>application/list.man.json</code></b>.
+  of course, i should take the time to properly
+  <a href="http://www.iana.org/cgi-bin/mediatypes.pl" title="Application for Media Type">register this custom media-type</a> so that others will be able to use it, too.
+</p>
+<pre class="code">
+// complete JSON-H implementation of list manager
+{
+  "list" : {
+    "link" : {
+      "href": "{collection-uri}",
+      "rel": "list" 
+    },
+    "items" : [
+      {
+        "link" : {
+          "href": "{item-uri}",
+          "rel": "item" 
+        },
+        "title" : "First task",
+        "description" : "start JSON implementation of the list",
+        "date-due" : "2010-05-01",
+        "completed" : false 
+      },
+      {
+        "link" : {
+          "href": "{item-uri}",
+          "rel": "item" 
+        },
+        "title" : "Second task",
+        "description" : "Implement JSON hypermedia task list over FTP",
+        "date-due" : "2010-05-02",
+        "completed" : false 
+      },
+      {
+        "link" : {
+          "href": "{item-uri}",
+          "rel": "item" 
+        },
+        "title" : "Third task",
+        "description" : "Go jogging.",
+        "date-due" : "2010-05-03",
+        "completed" : false 
+      } 
+    ],
+    "queries" : [
+      {
+        "link" : {
+          "href": "{query-link}",
+          "rel": "today" 
+        } 
+      },
+      {
+        "link" : {
+          "href": "{query-link}",
+          "rel": "open" 
+        } 
+      },
+      {
+        "link" : {
+          "href": "{query-link}",
+          "rel": "date-range" 
+        },
+        "start-date": "",
+        "stop-date": "" 
+      } 
+    ],
+    "error" : {
+      "link" : {
+        "href": "{error-details-link}",
+        "rel": "error-details" 
+      },
+      "message" : "",
+      "description": "",
+      "code" : ""
+    } 
+  }
+}  
+</pre>
+<h4>bottom line</h4>
+<p>
+  no matter the platform or client, <b>using a hypermedia design</b> for your APIs makes it easier to deploy and maintain your application
+  in a widely distributed network where you do not control all the clients and all the servers using your service.
+</p>
+<p>
+  like other media types that contain no native read/write semantics, implementing hypermedia APIs using the JSON format means 
+  you need to <b>define and document a standard way to express read/write semantics</b> including link elements and possible parameters for 
+  filtered queries and write operations.
+</p>
+<p>
+  finally, it's a good practice to <b>use a standard way to represent error responses</b> for all your media types.
+</p>
+<p>
+  <i>and, above all, keep writing hypermedia APIs.</i>
+</p></div>
+          <p class="category"><a href="index.html%3Fcategory=22.html" title="more from REST...">REST</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

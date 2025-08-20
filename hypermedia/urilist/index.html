@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>text/uri-list : 
+          Hypermedia Types
+        </title>
+    <link type="text/css" rel="stylesheet" href="../files/hypermedia-types.css">
+  </head>
+  <body>
+    <div id="ads" style="text-align:center;"><script type="text/javascript">
+            
+            google_ad_client = "pub-2944238157647009";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            google_ad_format = "728x90_as";
+            google_ad_type = "text_image";
+            google_ad_channel = "4794860677";
+            google_color_border = "000000";
+            google_color_bg = "F0F0F0";
+            google_color_link = "000000";
+            google_color_text = "000000";
+            google_color_url = "000000";
+            
+        </script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+    <h1>Hypermedia Types</h1>
+    <div id="page">
+      <div id="factors" style="width:150px;float:right;clear:both;">
+        <table class="hfactors">
+          <thead>
+            <tr>
+              <th colspan="5"><a href="../hfactor.html" title="Hypermedia Factors" class="hfactor-link">Hypermedia Factors</a></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td class="border">CL</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="border">CR</td>
+              <td class="border">CU</td>
+              <td class="border">CM</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="border">LE</td>
+              <td class="border ld"><a href="../hfactor.html#lo" title="Outbound Links">LO</a></td>
+              <td class="border">LT</td>
+              <td class="border">LN</td>
+              <td class="border">LI</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="5">text/uri-list</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div id="content">
+        <ul class="trail">
+          <li><a href="../../hypermedia.html" title="Hypermedia">Home</a></li>
+          <li>» <a href="http://amundsen.com/hypermedia/urilist" title="text/uri-list">text/uri-list</a></li>
+        </ul>
+        <h2>text/uri-list</h2>
+        <h3>Description</h3><description><p><span class="quoted">
+          Several of the resolution service requests, such as I2Ls, I2Ns,
+          result in a list of URIs being returned to the client. The text/uri-
+          list Internet Media Type is defined to provide a simple format for
+          the automatic processing of such lists of URIs.
+        </span><a href="index.html#ref-urilist" class="ref" title="URI Resolution Services (RFC2483) - The text/uri-list Internet Media Type"><sup>[1]</sup></a></p></description><body></body>
+        <h3>MIME Types</h3><mime-types><ul>
+            <li>text/uri-list<a href="index.html#ref-mt1" class="ref" title="URI Resolution Services (RFC2483) - The text/uri-list Internet Media Type"><sup>[2]</sup></a></li>
+          </ul></mime-types><h3>Hypermedia Elements</h3>
+        <dl class="element-list">
+          <dt><code class="element">NONE</code><a href="index.html#ref-urilist-none" class="ref" title="NONE"><sup>[3]</sup></a><a href="../hfactor.html#LO" title="LO"><span class="factor">[LO]</span></a></dt>
+          <dd>
+            <h4>Notes</h4><notes><p>
+            The format of text/uri-list resources is:
+            <ol>
+                  <li> 
+                Any lines beginning with the '#' character are comment lines
+                and are ignored during processing. (Note that URIs may contain
+                the '#' character, so it is only a comment character when it is
+                the first character on a line.)
+              </li>
+                  <li>
+                The remaining non-comment lines shall be URIs (URNs or URLs),
+                encoded according to the URL or URN specifications (RFC2141,
+                RFC1738 and RFC2396). Each URI shall appear on one and only one
+                line. Very long URIs are not broken in the text/uri-list format.
+                Content-transfer-encodings may be used to enforce line length
+                limitations.
+              </li>
+                  <li>
+                As for all text/* formats, lines are terminated with a CRLF pair.
+              </li>
+                </ol>
+              </p></notes><h4>Example</h4><example><code><pre>
+  # urn:isbn:0-201-08372-8
+  http://www.huh.org/books/foo.html
+  http://www.huh.org/books/foo.pdf
+  ftp://ftp.foo.org/books/foo.txt</pre></code></example></dd>
+        </dl>
+        <h3>Reference Links</h3>
+        <ol>
+          <li><a name="ref-urilist" href="http://tools.ietf.org/html/rfc2483#section-5" title="URI Resolution Services (RFC2483) - The text/uri-list Internet Media Type">URI Resolution Services (RFC2483)</a></li>
+          <li><a name="ref-mt1" href="http://tools.ietf.org/html/rfc2483#section-5" title="URI Resolution Services (RFC2483) - The text/uri-list Internet Media Type">The text/uri-list Internet Media Type (RFC2483)</a></li>
+          <li><a name="ref-none" href="http://tools.ietf.org/html/rfc2483#section-5" title="URI Resolution Services (RFC2483) - The text/uri-list Internet Media Type">URI Resolution Services (RFC2483) (pg 12)</a></li>
+        </ol>
+        <h3>Update History</h3>
+        <dl class="update-history">
+          <dt>2010-07-30</dt>
+          <dd><notes>Initial post</notes></dd>
+        </dl>
+      </div>
+    </div>
+    <div id="footer">
+      <address>updated: 2010-07-30 (mca)</address>
+    </div><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+        _uacct = "UA-2399548-1";
+        urchinTracker();
+        </script></body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[representation vs. description]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">representation vs. description</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2013-03-01 @ 08:01</span><span class="permalink"><a href="1140.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+    <a href="http://www.flickr.com/photos/psychopyko/4464075805/" title="Mirror Confusion">
+        <img src="http://farm3.staticflickr.com/2775/4464075805_74d13debaf_q.jpg" align="right" class="inline" />
+    </a>
+    over the last few months i've been working w/ 
+    <a href="http://twitter.com/leonardr" title="@leonardr">Leonard Richardson</a>
+    on a <a href="http://shop.oreilly.com/product/0636920028468.do" 
+    title="RESTful Web APIs">book</a>. along the way we've been collecting lots
+    of ideas, assessing how things have worked out over the years, etc.
+</p>
+<p>
+    one of the things that has come up several times -- so much that it will likely
+    be covered in the book -- is the idea that some Web patterns are
+    focused, not on <i>representing</i> the state of things on a server but
+    actually designed to <i>describe</i> the things on a server. this may seem like
+    a subtle, possibly meaningless difference. but as i go through various 
+    technologies, guidance, and implementation examples, i think this way of
+    viewing efforts on the Web today (representing vs. describing) is important.
+    and mixing them up can cause you unnecessary pain.
+</p>
+<h4>what is happening?</h4>
+<p>
+    representing the state of things on a server is what most of us assume the 
+    Web is all about. "I'll just go to that Web page and see if my order has
+    been shipped." or "Gee, I wonder where that movie I want to see is playing
+    this weekend?" and so forth. we use the Web to see what is happening, what 
+    has happened, even with will happen at some future point. 
+</p>
+<p>
+    most of the <i>applications</i> built for the Web fall into this 
+    same category. we want to "go to a place on the Web" and "get something done"
+    or "start working on something" or "see if that work is completed" and so forth.
+    those of us who work to design and implement applications on the Web spend
+    a good deal of our time translating stuff that happens over time into something
+    that can be expressed in 'resources' that 'client applications' can manipulate
+    in order to achieve the desired results. 
+</p>
+<p>
+    the technologies and techniques for this kind of work are very familiar to
+    most of us. HTTP, HTML, and Javascript are at the "front lines" of this 
+    tech stack. IIS, Apache Server, ngnix and others are the server-side engines
+    of this work and they, in turn rely on complied components and services that
+    store, manipulate, and calculate data that passes up and down this stack.
+    that is programming for the Web.
+</p>
+<h4>what is it about?</h4>
+<p>
+    there is another view of the Web, too. one that focuses on what the Web 
+    "is about" -- what those 'resources' <i>mean</i> and what they can be used
+    for. this is a kind of 'meta Web' that works to describe the very Web we
+    all use when we want to get things done.
+</p>
+<p>
+    this meta Web allows people to ask questions such as "Hey, that movie that's
+    playing at the local theater is about the Crimean War. Are there other sources
+    on that subject I can access on the Web?" or "I just saw that my online order
+    for canned herring is being shipped this week. Where can I go to find out more 
+    about the company that processed those pickled herring?" and so forth. the
+    meta Web allows us to link things together in new ways - ways the original 
+    authors of some Web content didn't intend when they created their content.
+    the meta Web makes that possible even without requiring co-ordination from
+    these various content authors.
+</p>
+<p>
+    the technologies for creating and maintaining this meta data has been around
+    almost as long as the tech stack for creating the data in the first place. the
+    <a href="http://www.w3.org/RDF/" title="Resource Description Framework (RDF)">RDF</a> 
+    family of formats (
+    <a href="http://www.w3.org/TR/REC-rdf-syntax/" title="RDF/XML Syntax Specification (Revised)">RDF-XML</a>, 
+    <a href="http://www.w3.org/TR/xhtml-rdfa-primer/" title="Rich Structured Data Markup for Web Documents">RDFa</a>, 
+    <a href="http://www.w3.org/TeamSubmission/turtle/" title="Turtle - Terse RDF Triple Language">turtle</a>, 
+    etc.) are on the front lines
+    of the meta Web. these are formats that are designed to make it easy to make
+    'assertions' about other resources on the Web; assertions that can even support
+    a level of reasoning across the Web. there is a long history of formats and
+    services built around this ability to describe what all the Web data "is about"
+</p>
+<h4>chocolate and peanut butter?</h4>
+<p>
+    what has been interesting to me is that i'm seeing a blending of these
+    two worlds (representing vs describing) in new (and sometimes confusing)
+    ways. The <a href="http://json-ld.org/" title="JSON for Linked Data">JSON-LD</a> 
+    and the 
+    <a href="http://linkeddata.org/" 
+    title="Linked Data - Connect Distributed Data across the Web">Linked Data</a> 
+    community have their roots firmly planted in the "describing"
+    world. recently, however, i'm seeing evidence of using this "describing" tech to 
+    build solutions for the "representing" world. a recent example of this is
+    the <a href="http://www.markus-lanthaler.com/hydra/" 
+    title="Hydra: Hypermedia-Driven Web APIs">Hydra</a> project. here is an
+    attempt to combine the RDF-style data description with the state-driven
+    feature of hypermedia. this is a very interesting project.
+</p>
+<h4>oil and water?</h4>
+<p>
+    but this mixing of the two worlds is not without problems. one case that
+    comes to mind is Drupal's foray into the hypermedia space. last year, they
+    decided to <a href="http://groups.drupal.org/node/258778" 
+    title="The push towards JSON-LD support in Drupal">add support for JSON-LD</a>.
+    however, after several months of sprints, the group decided to 
+    <a href="http://groups.drupal.org/node/283413" 
+    title="Proposing an alternative to application/vnd.drupal.ld+json">switch to 
+    supporting HAL</a> - a message design rooted in the 'representing' world.
+</p>
+<p>
+    of course, one case does not make a trend. but i suspect more of these cases
+    will crop up over the near term as people work to make their applications
+    and services more fully 
+    "<a href="https://twitter.com/jeffisraely/status/54104628987576320">Of the Web</a>." 
+    stepping into 
+    this space w/o full understanding of these two different worlds is likely to
+    cause some pain, frustrate implementations, and bust schedules.
+</p>
+<h4>this stuff matters</h4>
+<p>
+    so, what's that point in all this? 
+</p>
+<p>
+    <i>the differences between models designed
+    to represent vs. models designed to describe matter</i>.
+</p>
+<p>
+    as Leonard and i work through the new crop of media type designs and implementation
+    patterns for the Web we're seeing both of these approaches on display. sometimes
+    the model and the use case are in close alignment and sometimes
+    there are notable mismatches between the technology and the
+    intent of the implementors - and that's gonna hurt.
+</p>
+</div>
+          <p class="category"><a href="index.html%3Fcategory=22.html" title="more from REST...">REST</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

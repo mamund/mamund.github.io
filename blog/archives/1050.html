@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[the cure for URI construction in your Web API is URI-Templates]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">the cure for URI construction in your Web API is URI-Templates</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2010-05-04 @ 19:30</span><span class="permalink"><a href="1050.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+<a href="http://www.flickr.com/photos/bekahstargazing/3040999849/" title="Old Blocks">
+<img src="http://farm4.static.flickr.com/3038/3040999849_50ea14738b_m.jpg" align="right" class="inline" />
+</a>
+regular readers know that i've been 
+<a href="1043.html" title="RESTful Profiling : XHTML-based Web APIs">ranting</a> a 
+<a href="1042.html" title="Modified RPC over HTTP: old wine in a new bottle">bit</a> 
+<a href="1041.html" title="A RESTful Hypermedia API in Three Easy Steps">lately</a> about 
+<a href="1040.html" title="not all Web APIs are the same">Web APIs</a>. i thought i'd 
+take a moment to single out one of the more frustrating habits of Web API designers: <i><b>too much dependence on 
+<a href="http://bitworking.org/news/141/REST-Tips-Prefer-following-links-over-URI-construction" title="REST Tips: Prefer following links over URI construction">URI construction</a></b></i>.
+</p>
+<p>
+  as much as i squawk about the importance of using opaque identifiers in your media-type APIs, i know there are times
+  when it seems "just natural" to include one or more URI construction rules to help clients access data using your
+  Web API. it seems that
+  <a href="http://www.flickr.com/services/api/misc.urls.html" title="Flickr Photo Source URLs">almost</a>
+  <a href="http://www.odata.org/developers/protocols/uri-conventions#UriComponents" title="OData: URI Conventions">everyone</a>
+  <a href="http://code.google.com/apis/contacts/docs/poco/1.0/developers_guide.html#RetrievingContacts" title="GData Portable Contacts API">does</a>
+  <a href="http://developer.yahoo.com/social/rest_api_guide/status-resource.html#status-uri" title="Yahoo! Social API Reference">it</a>.
+  there are several problems w/ URI construction rules. and the only benefits to them accrue to server programmers, not the folks
+  who need to write clients against them.
+</p>
+<p>
+  finally, they're rarely needed at all and there is a simple replacement that 
+  has positive value for both server and client programmers: 
+  <i><b><a href="http://tools.ietf.org/html/draft-gregorio-uritemplate-04" title="URI Template">URI templates</a></b></i>.
+</p>
+<p>
+  and this time i promise to be a bit more constructive and curb my "you-kids-get-off-my-porch-and-go-home" attitude.
+  <i>(i'm really a nice guy, ya know.)</i>
+</p>
+<h4>you probably don't need them</h4>
+<p>
+  as i've mentioned before, most all links should be supplied by the server with a media-type response and these links
+  should be decorated with a link relation value that is well-documented and understood by the client:
+</p>
+<pre class="code">
+  &lt;link href="{...}" rel="user-list" /&gt;
+</pre>
+<p>
+  any time the client sees a link with this relation value, then that client knows the URI can be used to retrieve a list of users.
+  if, in the future, the application needs to change the way servers generate URIs for user lists or even has to migrate to 
+  a new server domain, any clients that understand the above rule will be just fine. nothing breaks, the Web is wonderful.
+</p>
+<p>
+  unfortunately, too often i see documentation that looks like this:
+</p>
+<pre class="code">
+  // use the following URI convention to get a list of users 
+  http://www.example.org/users/
+</pre>
+<p>
+  client programmers code this URI into thier app (either directly or via config settings) and all goes fine until someone 
+  somehwere sometime in the future changes some part of the URI value on the server side and breaks all the pre-configured clients.
+  (<i>"See? That's why I hate writing clients for Web APIs!"</i>)
+</p>
+<p>
+  but sometimes you really want to give clients a hint on how to build their own URIs. maybe there are too many possibilties to 
+  cover with link relation values. maybe you need some kind of convention, right? (<i>"Oh, my! This is blasphemy!"</i>)
+</p>
+<h4>you're probably halfway there already</h4>
+<p>
+  the simple example i gave above was really a cheat. more commonly, i see Web API documentation that looks like this:
+</p>
+<pre class="code">
+  // to get user-related content, use the following URIs:
+  http://www.example.org/{user-id}/updates
+  http://www.example.org/{user-id}/votes
+  http://www.example.org/{user-id}/tags
+  http://www.example.org/{user-id}/donations
+</pre>
+<p>
+  this is essentially documenting a single URI template; one that has two variables: the <code>{user-id}</code> and a content keyword. 
+  this could be written as a template that clients can look for and populate based on pre-defined rules:
+</p>
+<pre class="code">
+  &lt;link-template href="http://www.example.org/{user-id}/{keyword}" rel="user-content" /&gt;
+</pre>
+<p>
+  the important difference here is that clients can be coded to identify and resolve the link templates at runtime using
+  existing data. even better, the server can change the details of each template and, as long as the rules for <i>resolving</i>
+  link templates are not changed, future client applications will work just fine (<i>"Oh, I get it now, you teach the client up front
+  and 'future-proof' it against changes for even complex URI patterns!"</i>).
+</p>
+<h4>but that doesn't cover all the options, right?</h4>
+<p>
+  while URI templating is a great way to add abstraction and resilience to your API design, it can't solve all your URI problems.
+  there may be times when you want to allow some client applications to perform more generalized queries against your data service.
+  in that case link templates and relation names can get to be pretty tricky:
+</p>
+<pre class="code">
+  http://www.example.org/messages?d2={date-start}&amp;d2={date-start}&amp;
+     c={category}&amp;o={owner-user-id}&amp;t={title-text}....." rel="query" />
+</pre>
+<p>
+  you get the idea. it turns into a mess. and, in cases where you really <i>do</i> want to allow administrators or other high-access
+  users to be able to do ad-hoc queries, it might be impossible to work out the details of a URI template that covers all the bases.
+</p>
+<p>
+  thankfully, there is a better way.
+</p>
+<h4>you can always use a query language</h4>
+<p>
+  if you really want to open up your server to involved queries, it's best to document support for one or more standard query languages
+  such as those supported by 
+  <a href="http://code.google.com/apis/base/docs/2.0/query-lang-spec.html#composition" title="Google Base Query Language">Google Base</a>,
+  <a href="http://developer.yahoo.com/yql/guide/filters.html" title="Yahoo! YQL">YQL</a>,
+  <a href="http://www.odata.org/developers/protocols/uri-conventions#SystemQueryOptions" title="OData Queries">OData</a>, or even generic query languages such as 
+  <a href="http://www.w3.org/TR/rdf-sparql-query/#basicpatterns" title="SPARQL Query Language for RDF">SPARQL</a> or
+  <a href="http://manuals.sybase.com/onlinebooks/group-as/asg1250e/sqlug/@Generic__BookTextView/6070;pt=5870#X" title="Transact SQL">T-SQL</a>.
+</p>
+<p>
+  the best approach is to send the query as an encoded parameter within the URI:
+</p>
+<pre class="code">
+  // refer to YQL documentation for details on how to construct user queries
+  &lt;link-template http://www.example.org/users?q={encoded-yql-statement}" rel="user-yql" /&gt;
+</pre>
+<p>
+  instead, i see too many Web APIs trying to invent their own query language using URI construction rules that are a mix of URI segments,
+  query parameters and other values that are difficult to document and a real pain to maintain over time:
+</p>
+<pre class="code">
+  http://www.example.org/{containter-name}/{entity-name}?sort={direction}&amp;
+     filter={where-clause}&amp;max={max-rows-returned}&amp;page={page-number}...
+</pre>
+<blockquote>
+  <b>OK, i kept this comment until last, just to annoy some readers:</b><br />
+  in general, it's a dicey proposition to offer ad-hoc query options for your data service. you risk opening yourself up to incredibly
+  inventive hackers looking to bash your data and you likely blast any cache-ability of your service if everyone is building their own
+  requests on the fly each time. but sometimes, it's needed. and when it is, you need to make sure your server is resilient and
+  your data is protected. if not, you'll rue the day you opened your data up for queries like this.
+</blockquote>
+<h4>in summary</h4>
+<p>
+  there is no need to use URI construction rules in your Web APIs. usually you just need to use well-documented link relation values in 
+  your media-type responses. in cases where URIs can have serveral options, use URI templates with appropriate link relation values 
+  for commonly-used requests. in cases where you want to support more complex and/or ad-hoc queries, support one of the many existing 
+  query languages instead of trying to invent your own URI-style ad-hoc queries.
+</p>
+<p>
+  <i><b>see, that wasn't so bad, right?</b></i> 
+</p>
+</div>
+          <p class="category"><a href="index.html%3Fcategory=22.html" title="more from REST...">REST</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

@@ -1,0 +1,5 @@
+/talks/2025-08-bigsky-devcon/ https://mamund.site44.com/talks/2025-08-bigsky-devcon/
+/talks/index.html https://mamund.site44.com/talks/
+/talks/ https://mamund.site44.com/talks/
+
+

@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[why did you turn off caching?]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">why did you turn off caching?</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2008-03-29 @ 22:24</span><span class="permalink"><a href="717.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+<a href="http://farm1.static.flickr.com/61/202790109_dd7b32b3ce_o.jpg" title="question mark">
+<img src="http://farm1.static.flickr.com/61/202790109_dd7b32b3ce_t.jpg" align="right" class="inline" />
+</a>
+ran into a little lesson today as i was putting together a demo app for my <a href="http://exyus.com" title="exyus">exyus</a> engine. it's about caching and URI design.</p>
+<p>i was putting together an app that creates a unique URI for each person that visits the site. it's kind of 'personal URI' without forcing users to create accounts. nice idea. in my first pass at designing the URLs and testing the pages, i found that the 'launch page' (the one everyone visits) had a link on it that pointed to the user's unique URL (<code>/codebreaker/{user-id-here}/games/</code>). that URL was generated on the server based on a cookie setting (i know, not great, but when you don't have a login....). it worked fine.</p>
+<p>except for the caching...</p>
+<p>see, another thing i bundled into the web engine was automatic caching of GET/HEAD requests. that improves perf and also forces developers to do a better job of making pages cache-able in the first place. but this example was flawed. see the cached page had the unique URL in it (dang-it!). ok, so i turned off caching for that page. now users always got the proper page content - their own unique URL based on their cookie. ok, right?</p>
+<p>not really.</p>
+<p>see, what's *on* the page is content that is easily cached. some text. some site-wide stats and a single link (the one to the unique URL). so it *should* be cached. but then there's the link again. what i needed was a cache-able start page that *also* had a link that resulted in the unique URL for each visitor. then it hit me - 3xx!</p>
+<p>yeah, i could use a 302 response.</p>
+<p>so here's how it works now. first, requesting the start page makes sure the visitor has a cookie (just like before). it also has a link to point to the user's games. but this time the link *does not* have the user-id. instead it looks like this: <code>/games/</code>. now it's a fully cache-able page. and the magic happens when the user clicks on that link.</p>
+<p>now, clicking on the link sends a request to the server (at <code>/games/</code>) and the server looks at the user's cookie to build the *proper* URL and then sends that with a <code>302  Found</code> redirect with the new URL (<code>/{user-id-goes-here}/games/</code>). and it all works just fine. check out thew trace at the end of this post for details.</p>
+<p>lesson here? whenever you are tempted to turn off caching of a GET request, ask yourself why. what is it one that page that requires this? quite often, you can get around no-cache issues with a little creative thinking.</p>
+<pre class="code">
+http://localhost/xcs/codebreaker/
+----------------------------------------------------------
+GET /xcs/codebreaker/ HTTP/1.1
+Host: localhost
+Pragma: no-cache
+Cache-Control: no-cache
+
+HTTP/1.x 200 OK
+Server: Microsoft-IIS/5.1
+Date: Sun, 30 Mar 2008 03:27:39 GMT
+Content-Encoding: gzip
+X-Exyus: 0.6.3010.35984 2008-01
+Set-Cookie: codebreaker-id=x8ca5cfca5a62d82; expires=Tue, 29-Apr-2008 03:27:39 GMT; path=/
+Last-Modified: Sun, 30 Mar 2008 03:27:39 GMT
+Etag: "eXDZrm9GlENsZpfYcoqOtg"
+Cache-Control: public,must-revalidate,post-check=1,pre-check=2
+Content-Type: text/html; charset=utf-8
+Content-Length: 411
+
+http://localhost/xcs/codebreaker/games/
+----------------------------------------------------------
+GET /xcs/codebreaker/games/ HTTP/1.1
+Host: localhost
+Referer: http://localhost/xcs/codebreaker/
+Cookie: codebreaker-id=x8ca5cfca5a62d82
+
+HTTP/1.x 302 Found
+Server: Microsoft-IIS/5.1
+Date: Sun, 30 Mar 2008 03:27:45 GMT
+X-Powered-By: ASP.NET
+X-AspNet-Version: 2.0.50727
+Content-Encoding: gzip
+X-Exyus: 0.6.3010.35984 2008-01
+Location: /xcs/codebreaker/x8ca5cfca5a62d82/games/
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+Content-Length: 237
+
+http://localhost/xcs/codebreaker/x8ca5cfca5a62d82/games/
+----------------------------------------------------------
+GET /xcs/codebreaker/x8ca5cfca5a62d82/games/ HTTP/1.1
+Host: localhost
+Referer: http://localhost/xcs/codebreaker/
+Cookie: codebreaker-id=x8ca5cfca5a62d82
+If-Modified-Since: Sun, 30 Mar 2008 02:13:58 GMT
+If-None-Match: "5goxsgXfIUNyvVmY/1hgPA"
+
+HTTP/1.x 200 OK
+Server: Microsoft-IIS/5.1
+Date: Sun, 30 Mar 2008 03:27:45 GMT
+X-Powered-By: ASP.NET
+X-AspNet-Version: 2.0.50727
+Content-Encoding: gzip
+X-Exyus: 0.6.3010.35984 2008-01
+Last-Modified: Sun, 30 Mar 2008 03:27:45 GMT
+Etag: "5goxsgXfIUNyvVmY/1hgPA"
+Cache-Control: public,must-revalidate,post-check=1,pre-check=2
+Content-Type: text/html; charset=utf-8
+Content-Length: 1625
+</pre></div>
+          <p class="category"><a href="index.html%3Fcategory=5.html" title="more from code...">code</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

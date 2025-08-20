@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>SMIL : 
+          Hypermedia Types
+        </title>
+    <link type="text/css" rel="stylesheet" href="../files/hypermedia-types.css">
+  </head>
+  <body>
+    <div id="ads" style="text-align:center;"><script type="text/javascript">
+            
+            google_ad_client = "pub-2944238157647009";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            google_ad_format = "728x90_as";
+            google_ad_type = "text_image";
+            google_ad_channel = "4794860677";
+            google_color_border = "000000";
+            google_color_bg = "F0F0F0";
+            google_color_link = "000000";
+            google_color_text = "000000";
+            google_color_url = "000000";
+            
+        </script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+    <h1>Hypermedia Types</h1>
+    <div id="page">
+      <div id="factors" style="width:150px;float:right;clear:both;">
+        <table class="hfactors">
+          <thead>
+            <tr>
+              <th colspan="5"><a href="../hfactor.html" title="Hypermedia Factors" class="hfactor-link">Hypermedia Factors</a></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td class="border">CL</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="border">CR</td>
+              <td class="border">CU</td>
+              <td class="border">CM</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="border ld"><a href="../hfactor.html#le" title="Embedded Links">LE</a></td>
+              <td class="border ld"><a href="../hfactor.html#lo" title="Outbound Links">LO</a></td>
+              <td class="border">LT</td>
+              <td class="border">LN</td>
+              <td class="border">LI</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="5">SMIL</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div id="content">
+        <ul class="trail">
+          <li><a href="../../hypermedia.html" title="Hypermedia">Home</a></li>
+          <li>» <a href="index.html" title="Synchronized Multimedia Integration Language (SMIL 3.0)">SMIL</a></li>
+        </ul>
+        <h2>SMIL</h2>
+        <h3>Description</h3><description><p>
+        SMIL is <span class="quoted">"an XML-based language that allows authors to write 
+        interactive multimedia presentations. Using SMIL, an author may describe the temporal 
+        behaviour of a multimedia presentation, associate hyperlinks with media objects and 
+        describe the layout of the presentation on a screen."</span><a href="index.html#ref-smil" class="ref" title="Synchronized Multimedia Integration Language (SMIL 3.0)"><sup>[1]</sup></a></p></description><body></body>
+        <h3>MIME Types</h3><mime-types><ul>
+            <li>application/smil, application/smil+xml<a href="index.html#ref-mt" class="ref" title="The application/smil and application/smil+xml Media Types [RFC4536]"><sup>[2]</sup></a></li>
+          </ul></mime-types><h3>Hypermedia Elements</h3><elements><dl class="element-list">
+            <dt><code class="element">a</code><a href="ref-aelement.html" class="ref" title="SMIL 3.0 BasicLinking Module : The a Element"><sup>[3]</sup></a></dt>
+            <dd>
+              <h4>Notes</h4>
+              <ul>
+                <li>Methods supported: GET</li>
+                <li>Based on HTML 4.01<a href="index.html#ref-html4" class="ref" title="HTML 4.01 Specification"><sup>[4]</sup></a></li>
+              </ul>
+              <h4>+Example</h4>
+              <pre>
+            &lt;smil xmlns="http://www.w3.org/ns/SMIL" version="3.0" baseProfile="Language"&gt;
+              &lt;head&gt;
+                &lt;layout&gt;
+                  &lt;region xml:id="source"      height="50%"/&gt;
+                  &lt;region xml:id="destination" top   ="50%"/&gt;
+                &lt;/layout&gt;
+             &lt;/head&gt;
+             &lt;body&gt;
+               <span class="highlight">&lt;a href="embeddedSMIL.smil" target="destination" accesskey="a"&gt;</span>
+                 &lt;img region="source" src="source.jpg" dur="indefinite"/&gt;
+               <span class="highlight">&lt;/a&gt;</span>
+             &lt;/body&gt;
+            &lt;/smil&gt;
+          </pre>
+            </dd>
+            <dt><code class="element">area</code><a href="ref-area.html" class="ref" title="SMIL 3.0 BasicLinking Module : The area Element"><sup>[5]</sup></a></dt>
+            <dd>
+              <h4>Notes</h4>
+              <ul>
+                <li>Methods supported: GET</li>
+                <li>Based on HTML 4.01<a href="index.html#ref-html4" class="ref" title="HTML 4.01 Specification"><sup>[3]</sup></a></li>
+              </ul>
+              <h4>Example</h4>
+              <pre>
+            &lt;smil xmlns="http://www.w3.org/ns/SMIL" version="3.0" baseProfile="Language"&gt;
+              &lt;body&gt;
+                &lt;video src="video" title="Interview" &gt;
+                  <span class="highlight">&lt;area shape="rect" coords="5,5,50,50" 
+                        title="Journalist" alt="rectangle cropping of video for journalist" href="http://www.example.org/journalist"/&gt;           
+                  &lt;area shape="rect" coords="60,5,100,50" 
+                      title="Subject" alt="rectangle cropping of video for subject" href="http://www.example.org/subject"/&gt;</span>
+               &lt;/video&gt;
+              &lt;/body&gt;
+            &lt;/smil&gt;
+          </pre>
+            </dd>
+          </dl></elements><h3>Reference Links</h3>
+        <ol>
+          <li><a name="ref-smil" href="http://www.w3.org/TR/SMIL/" title="Synchronized Multimedia Integration Language (SMIL 3.0)">Synchronized Multimedia Integration Language (SMIL 3.0)</a></li>
+          <li><a name="ref-mt" href="http://www.ietf.org/rfc/rfc4536.txt" title="The application/smil and application/smil+xml Media Types">The application/smil and application/smil+xml Media Types [RFC4536]</a></li>
+          <li><a name="ref-aelement" href="http://www.w3.org/TR/SMIL/smil-extended-linking.html#SMILLinking-A" title="SMIL 3.0 BasicLinking Module : The a Element">SMIL 3.0 BasicLinking Module : The a Element</a></li>
+          <li><a name="ref-html4" href="http://www.w3.org/TR/html401/" title="HTML 4.01 Specification">HTML 4.01 Specification</a></li>
+          <li><a name="ref-area" href="http://www.w3.org/TR/SMIL/smil-extended-linking.html#SMILLinking-Area" title="SMIL 3.0 BasicLinking Module : The area Element">SMIL 3.0 BasicLinking Module : The area Element</a></li>
+        </ol>
+        <h3>Update History</h3>
+        <dl class="update-history">
+          <dt>2010-05-31</dt>
+          <dd><notes>Updates storage and layout</notes></dd>
+          <dt>2010-03-09</dt>
+          <dd><notes>Initial post</notes></dd>
+        </dl>
+      </div>
+    </div>
+    <div id="footer">
+      <address>updated: 2010-05-31 (mca)</address>
+    </div><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+        _uacct = "UA-2399548-1";
+        urchinTracker();
+        </script></body>
+</html>

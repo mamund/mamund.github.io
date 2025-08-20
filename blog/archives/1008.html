@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[app state in HTTP]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">app state in HTTP</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2009-09-18 @ 20:37</span><span class="permalink"><a href="1008.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+<a href="http://www.flickr.com/photos/question_everything/3521560086/" title="Keep Out">
+<img src="http://farm4.static.flickr.com/3543/3521560086_2e6c9177f4_t.jpg" align="right" class="inline" />
+</a>
+i've been contemplating application state recently. for a number of reasons. mostly due to my work in (re)building a simple text-base adventure game
+using HTTP/REST. anyway, my thinking on application state has e/de-volved recently.
+</p>
+<h4>app state for a client</h4>
+<p>
+in my latest work, app state is managed per client. in other words, each client that begins an interaction with the web service has its
+own application state. othe clients that come along have different app state. each client has app state the reflects the sum of their interactions
+with the web service.
+</p>
+<h4>shared app state</h4>
+<p>
+it turns out there is some app state that is shared by all clients. most of this is configuration information that only the server is interested in.
+while it _is_ app state, it's server-side only; only the server cares. client's don't need to know anything about this.
+</p>
+<h4>storing app state</h4>
+<p>
+the app state that is shared by all clients is stored in a durable storage medium. config files, database rows, even in the resource/representation
+template themselves.
+</p>
+<p>
+the client-centric app state is also stored on the server; in a durable medium, too. this state is available for each client interaction via the URL.
+i most often use URI patterns to indicate client state. might be part of the path (<code>/app-name/state-pointer/resource-name</code>) or part of the
+query string (<code>/app-name/resource-name?state-pointer=a1s2d3f4g5h6j7k8l9</code>). sometimes the pointer to the server-side instance of the
+client's app state is stored in a cookie:
+</p>
+<pre class="code">
+GET /app-name/resource-name HTTP/1.1
+Cookies: state-pointer=a1s2d3f4g5h6j7k8l9
+...
+</pre>
+<h4>so i store client app state on the server</h4>
+<p>
+is this a bad thing? no. is this stateless? well...
+</p>
+<p>if the app state pointer is part of the URI, then it's easy to see this is a stateless pattern. any link that contains the state pointer can be 
+stored and (theoretically) presented at some future date and work just fine. there are some practicalities along the way (do i want to try to remember
+all the app state from all the clients forever?), but the pattern is sound.
+</p>
+<p>maybe it's better if the client-centric app state is stored on the client directly. that means the server doesn't need to worry about keeping
+the state collection around forever - the client does. but is that the way to go? no, IMO. the client can be reasonably expected to store a pointer
+(most likely via a URI), but not the state itself. esp. if the state si constantly updated (i.e. each interaction modifies the app state for this
+particular client).
+</p>
+<h4>client-centric app state == private vars</h4>
+<p>
+i now think of client app state as the HTTP equivalent of private variables in a local program. each client generates their own collection of values.
+used throughout the life of the application. that collection is the app state. whether it is kept on the server or the client is not the exciting part.
+the exciting part is that i now have a familiar model for thinking about app state. it's all just the client's private variable values.
+</p>
+<p>now my application design has a simple, recognizable pattern: managing client app-state. there's a collection of stuff for each client. this stuff
+is stored in a durable medium. this stuff can be accessed in a safe/shared manner. if it's a small pile, i might store it in the URI itself. if it's a bit
+large for the URI, i might store it in the <code>Cookie</code> header. if it can get rather large, i'll store it on the server w/ a pointer stored w/ the 
+client (URI or <code>Cookie</code>). it might even be available as a resource (<code>/app-name/user-id/state-pointer</code>).
+</p>
+<p>but i always know where it is. i always know how to get it; how to update it; how to delete it. i can manage client-centric app state without
+mucking up server app state or some other client's state.
+</p>
+<h4>the next big thing</h4>
+<p>app state is just the variable pile, not the state engine instance. just what a client can do at each stage of the interaction is dependent on both 
+client-centric and server-side state. at the end of each interaction (request/response), the server can evaluate the client's app state and determine
+what interactions are valid next. that means the server can supply the client with the "next steps" that are valid. and that's done using links.</p>
+<p>but that's another post, right?</p>
+</div>
+          <p class="category"><a href="index.html%3Fcategory=5.html" title="more from code...">code</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

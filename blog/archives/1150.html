@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[measuring up hypermedia types]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">measuring up hypermedia types</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2014-01-31 @ 20:58</span><span class="permalink"><a href="1150.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+    <a href="http://www.flickr.com/photos/anttree/5011897105/" 
+        title="Photo365-Day061-HalfInch-FLICKR by AntTree, on Flickr">
+        <img src="http://farm5.staticflickr.com/4086/5011897105_24b17c4392_q.jpg" 
+        width="150" height="150" align="right" class="inline"
+        alt="Photo365-Day061-HalfInch-FLICKR" />
+    </a>
+    in a 
+    <a href="https://groups.google.com/forum/#!topic/api-craft/NgjzQYVOE4s"
+        title="HAL vs Siren vs JSON API">recent thread</a> on the API-Craft 
+    news group a question came up about how one could go about selecting one of the 
+    <a href="http://stateless.co/hal_specification.html" 
+        title="HAL - Hypertext Application Language">more</a> 
+    <a href="../../media-types/collection/index.html" 
+        title="Collection+JSON - Hypermedia Type">than</a> 
+    <a href="https://github.com/kevinswiber/siren" 
+        title="Siren: a hypermedia specification for representing entities">one-half</a>
+    <a href="http://jsonapi.org/" title="JSON API">dozen</a> 
+    <a href="https://github.com/JornWildt/Mason" 
+    title="Mason: a hypermedia enabled JSON format">new</a>
+    <a href="http://lapis2012.linkedservices.org/papers/1.pdf"
+    title="The necessity of hypermedia RDF and an approach to achieve it">
+    hypermedia types</a> when it came time to implement your 
+    <a href="http://en.wikipedia.org/wiki/Hypermedia_API" title="Hypermedia API">Hypermedia API</a>.
+    it's a pretty good thread since many of the designers of these new media types
+    were in on the conversation.
+</p>
+<p>
+    i posted a couple ways to think about assessment of a media type's applicability
+    to the target API and thought i'd elaborate on that a bit here. the first 
+    method i recommend is to inspect the hypermedia features of the media type
+    itself. the second measure i recommend is to try to get some information about
+    how the media type is used in the wild. 
+</p>
+<h4>H-Factors</h4>
+<p>
+    one way to inspect a media type design and see if it will work for your 
+    use case is to use the <a href="../../hypermedia/hfactor.html" 
+        title="Hypermedia Factors">H-Factor</a> list. this is a list nine properties
+    of hypermedia that may (or may not) be supported in the media type design.
+    i won't go into the details of H-Factors here (you can follow the link above
+    for details).  However, the list of factors 
+    offers a way to see which hypermedia actions such as navigation 
+    links, embedding links, query forms, write bodies, the ability to select 
+    post formats, etc. (all things that Web APIs - at the <i>network level</i> 
+    must deal with) are described and supported within the media type in question.
+</p>
+<p align="center">
+    <img src="../../images/hypermedia/hfactors-svg.png" />
+    <img src="../../images/hypermedia/hfactors-atom.png" />
+    <img src="../../images/hypermedia/hfactors-html.png" />
+</p>
+<p>
+    for example 
+    <a href="http://www.w3.org/TR/html5/" 
+        title="HTML5 : A vocabulary and associated APIs for HTML and XHTML">HTML</a>
+    doesn't support idempotent updates (PUT and DELETE) but
+    <a href="http://tools.ietf.org/search/rfc5023" 
+        title="The Atom Publishing Protocol">Atom</a> does. And while Atom
+    doesn't support describing adhoc queries (ala <code>HTML.FORM@method="get"</code>), 
+    <a href="../../media-types/collection/index.html" 
+        title="Collection+JSON - Hypermedia Type">Collection+JSON</a> does.
+    And while Collection+JSON doesn't support describing adhoc network methods
+    (e.g. specifying POST, PUT, PATCH, etc.), 
+    <a href="https://github.com/kevinswiber/siren" 
+        title="Siren: a hypermedia specification for representing entities">Siren</a>
+    does. And so forth.
+</p>
+<p>
+    so one way you can decide which media types you want to support is to 
+    figure out which hypermedia features you need to support in your API and
+    select from the list of media type designs that match those needs.
+</p>
+<h4>Implementations</h4>
+<p>
+    another way to think about selecting a media type design is to focus on 
+    the existing implementations "in the wild." this can give you a sense of the
+    stability, usability, and flexibility of the design. here are three things
+    to consider when assessing implementations:
+</p>
+<dl>
+    <dt>independent implementations</dt>
+    <dd>
+    a design that has a high number of <i>independent</i> implementations can be a sign 
+    that the design is easy to work with and that it has a broad reach/appeal. 
+    it may also be a sign that the design itself is well understood and stable. 
+    this measure is based on 
+    <a href="http://en.wikipedia.org/wiki/David_D._Clark" 
+    title="David D. Clark">David Clark</a>'s notion of "rough concensus and 
+    running code" as a guide for standards review.
+    <blockquote>
+        <p>
+            We reject: kings, presidents and voting.<br />
+We believe in: rough consensus and running code.
+        </p>
+        <p align="right">
+            <a href="http://www.ietf.org/old/2009/proceedings/prior29/IETF24.pdf" 
+            title="Proceedings of the Twenty-Fourth Internet Engineering Task Force">
+                David D. Clark (1992)
+            </a>
+        </p>
+    </blockquote>
+    </dd>
+    <dt>inter-operable implementations</dt>
+    <dd>
+    the number of inter-operable implementations is a worthwhile measure, too. 
+    IOW, can two people who never met before each implement the same design and 
+    have their applications work together? This can be an indication of what 
+    <a href="https://twitter.com/svrc" title="@svc">Stu Charlton</a> calls 
+    "<a href="http://www.stucharlton.com/blog/archives/000165.html" 
+        title="Planned vs. Seredipitous Reuse">serendipitous reuse</a>." 
+    some designs don't have this as a goal; instead they are aiming for optimizing
+    a custom interface between two "well-known" parties. one example of a design 
+    that has "serendipitous reuse" as a goal is the 
+    <a href="../../media-types/maze/index.html" 
+        title="Maze+XML - Maze Document">Maze+XML</a> media type. there are 
+    quite a number of successful implementations that all work together nicely.
+    <blockquote>
+        <p>
+            The Web architecture is all about serendipity, and letting a 
+            thousand information flowers bloom, regardless of whether it 
+            serves some greater, over arching, aligned need.
+        </p>
+        <p align="right">
+            <a href="http://www.stucharlton.com/blog/archives/000165.html" 
+                title="Planned vs. Seredipitous Reuse">
+                Stu Charlton (2007)
+            </a>
+        </p>
+    </blockquote>
+    </dd>
+    <dt>unexpected implementations</dt>
+    <dd>
+    it's also good to consider whether the design results in any "unexpected uses" 
+    - something that was not part of the original designers' goals. you'e probably 
+    experienced something like this yourself. you're working with an app, a 
+    coding framework, programming language, etc. and suddenly you notice something 
+    totally novel and say "Wow! I didn't think was even possible with this!" 
+    <a href="https://twitter.com/jnd1er" title="@jnd1er">Donald Norman</a>, 
+    one of the early advocates for studying
+    <a href="http://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction" 
+        title="Human-computer interaction">HCI</a>, 
+    
+    refers to this feaure in the last line of his excellent 2min video on 
+    "<a href="https://www.youtube.com/watch?v=NK1Zb_5VxuM"
+        title="">Affordances</a>."
+    <blockquote>
+        <p>
+            The value of a well-designed object is when it has such a rich 
+            set of affordances that the people who use it can do things with it 
+            that the designer never imagined.
+        </p>
+        <p align="right">
+            <a href="http://www.w3.org/2011/10/integration-workshop/p/hypermedia-oriented-design.pdf" 
+                title="Hypermedia-Oriented Design">
+                Donald Norman (1994)
+            </a>
+        </p>
+    </blockquote>
+    </dd>
+</dl>
+<h4>Other Considerations</h4>
+<p>
+   there are other ways to make judgments about the applicability of a media-type
+   design for your use case. here are some that come to mind:
+</p>
+<dl>
+    <dt>user activity</dt>
+    <dd>
+        this was mentioned in the thread that sparked this blog post.
+        it is a good idea to check out how much online activity there is regarding
+        the media type. for example, the "Issues" list in github, any associated
+        news groups or help forums, and - in the case of established open standards
+        groups - lists hosted by the governing standards body 
+        (<a href="http://lists.w3.org/Archives/Public/" 
+            title="W3C Public Mailing List Archives">W3C</a>, 
+        <a href="http://datatracker.ietf.org/list/wg/" 
+            title="Web-based Working Group E-mail Archives">IETF</a>, 
+        <a href="https://lists.oasis-open.org/archives/"
+            title="OASIS Mailing List Directory">OASIS</a>, etc.). a healthy 
+        online community is can be a sign of a robust design.
+    </dd>
+    <dt>influential authors</dt>
+    <dd>
+        sometimes the authors of a media type hold an important position in the online
+        community. this alone can give the design an 'instant' broad reach that
+        some other designs won't match. for example, the primary authors of the
+        <a href="http://jsonapi.org/" title="JSON API">JSON API</a> 
+        (<a href="https://twitter.com/steveklabnik" title="@steveklabnik">Steve Klabnik</a> and 
+        <a href="https://twitter.com/wycats" title="@wycats">Yehuda Katz</a>) are
+        also the key contributors to a couple very popular programming tools
+        (<a href="http://rubyonrails.org/" title="Ruby on Rails">Ruby on Rails</a> and
+        <a href="http://emberjs.com/" title="Ember.js - A framework for creating 
+            ambitious web applications">Ember.js</a> respectively). when they get
+        invovled in a design, it is likely that many will see it and get a chance
+        to work with it.
+    </dd>
+    <dt>influential users</dt>
+    <dd>
+        in some cases, a design will be picked up by big names in the industry and
+        this can increase the reach of a design. for 
+        example the  <a href="http://stateless.co/hal_specification.html" 
+        title="HAL - Hypertext Application Language">HAL</a> media type was
+        recently chosen by Amazon.com for their 
+        <a href="http://docs.aws.amazon.com/appstream/latest/developerguide/rest-api.html"
+            title="Amazon AppStream REST API">appStream</a> API. Microsoft's 
+        <a href="http://www.odata.org/documentation/odata-version-4-0/" 
+            title="OData Version 4.0 Comittee Specification">OData</a> 
+        specification is another example of a media type
+        design that has the opportunity to touch quite a number of developers 
+        and projects. finally, adoption by "heavy hitters" in the industry may 
+        help in cases where you need to convince your team or management to 
+        adopt the design for your own use.
+    </dd>
+</dl>
+<h4>
+    the choice is yours
+</h4>
+<p>
+    there you have it: H-Factors, implementation in the wild, and community standing
+    are just some of the ways in which you can begin to critically assess whether
+    a particular media type design is right for your API implementation.
+    the most important thing to keep in mind in all this is not which
+    methods you use to decide on your media type choices. the most important
+    thing to remember is that <i>you actively assess and make a choice</i>.
+</p>
+<p>
+    to that end, i'll add one more quote (from 
+    <a href="https://twitter.com/fielding" title="@fielding">Roy Fielding</a>) 
+    to close out this post:
+</p>
+<blockquote>
+    <p>
+        [C]onsider how often we see software projects begin with adoption of 
+        the latest fad in architectural design, and only later discover whether 
+        or not the system requirements call for such an architecture. 
+        Design-by-buzzword is a common occurrence.
+    </p>
+    <p align="right">
+        <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/introduction.htm"
+            title="Architectural Styles and the Design of Network-based 
+            Software Architectures">Roy T. Fielding (2000)</a>
+    </p>
+</blockquote>
+<h4>don't fall victim to "Design-by-buzzword" when implementing your API!</h4>
+</div>
+          <p class="category"><a href="index.html%3Fcategory=20.html" title="more from Hypermedia...">Hypermedia</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

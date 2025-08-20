@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Maze+XML Examples : 
+          Media Types
+        </title>
+    <link type="text/css" rel="stylesheet" href="../../files/media-types.css">
+  </head>
+  <body>
+    <div id="ads" style="text-align:center;"><script type="text/javascript">
+            
+            google_ad_client = "pub-2944238157647009";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            google_ad_format = "728x90_as";
+            google_ad_type = "text_image";
+            google_ad_channel = "4794860677";
+            google_color_border = "000000";
+            google_color_bg = "F0F0F0";
+            google_color_link = "000000";
+            google_color_text = "000000";
+            google_color_url = "000000";
+            
+        </script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+    <h1>Media Types</h1>
+    <div id="page">
+      <div id="content">
+        <ul class="trail">
+          <li><a href="../../index.html" title="Media Types">Home</a></li>
+          <li>» <a href="../index.html" title="Maze+XML">Maze+XML</a></li>
+          <li>» <a href="index.html" title="Maze+XML - Examples">Examples</a></li>
+        </ul>
+        <h2>Maze+XML Examples</h2>
+        <h3>Description</h3><description><p>
+      This page has examples of valid <a href="../index.html" title="Maze+XML">Maze+XML</a> documents.
+      </p>
+          <ol>
+            <li><a href="index.html#ex-minimal" title="Minimal">Minimal Document</a></li>
+            <li><a href="index.html#ex-collection" title="Collection">Collection Document</a></li>
+            <li><a href="index.html#ex-item" title="Item">Item Document</a></li>
+            <li><a href="index.html#ex-cell" title="Item">Cell Document</a></li>
+            <li><a href="index.html#ex-error" title="Error">Error Document</a></li>
+          </ol></description><h4 style="display:inline">1. </h4><a id="ex-minimal"></a><h4 style="display:inline;clear:right">Minimal Document</h4>
+        <div class="sbody"><sbody><p>
+            Below is an example of a minimal valid <a href="../index.html" title="Maze+XML">Maze+XML</a> document.
+          </p>
+            <pre>
+&lt;?xml version="1.0"&gt;
+&lt;maze /&gt;          
+          </pre></sbody></div>
+        <h4 style="display:inline">2. </h4><a id="ex-collection"></a><h4 style="display:inline;clear:right">Collection Document</h4>
+        <div class="sbody"><sbody><p>
+            Below is an example of a valid "collection" <a href="../index.html" title="Maze+XML" class="ext-link">Maze+XML</a> document.
+            Collection documents SHOULD have a single <a href="../format/index.html#collection-element">&lt;collection&gt;</a>
+            child element. This, in turn, MAY have one or more <a href="../format/index.html#link-element">&lt;link&gt;</a> 
+            child elements. 
+          </p>
+            <p>
+            Each <a href="../format/index.html#link-element">&lt;link&gt;</a> element SHOULD
+            have <a href="../format/index.html#href-attribute">href</a> and 
+            <a href="../format/index.html#rel-attribute">rel</a> attributes. 
+            When the <a href="../format/index.html#rel-attribute">rel</a> 
+            attribute is set to
+            <a href="../format/index.html#rel-maze">maze</a>, 
+            the associated <a href="../format/index.html#uri-type">URI</a> 
+            points to a valid
+            <a href="../format/index.html#item-element">&lt;item&gt;</a> document. 
+          </p>
+            <pre>
+&lt;?xml version="1.0" ?&gt;
+&lt;maze&gt;
+  &lt;collection href="..."&gt;
+    &lt;link href="..." rel="maze" /&gt;
+    &lt;link href="..." rel="maze" /&gt;
+    ...
+  &lt;/collection&gt;
+&lt;/maze&gt;          
+          </pre></sbody></div>
+        <h4 style="display:inline">3. </h4><a id="ex-item"></a><h4 style="display:inline;clear:right">Item Document</h4>
+        <div class="sbody"><sbody><p></p>
+            <pre>
+&lt;?xml version="1.0" ?&gt;
+&lt;maze&gt;
+  &lt;item href="..."&gt;
+    &lt;link href="..." rel="start" /&gt;
+    &lt;debug&gt;...&lt;/debug&gt;
+  &lt;/item&gt;
+&lt;/maze&gt;          
+          </pre></sbody></div>
+        <h4 style="display:inline">4. </h4><a id="ex-cell"></a><h4 style="display:inline;clear:right">Cell Document</h4>
+        <div class="sbody"><sbody><p></p>
+            <ol>
+              <li>Current Cell</li>
+              <li>Exit Cell</li>
+              <li>Cell w/ Current Link</li>
+            </ol>
+            <pre>
+&lt;?xml version="1.0" ?&gt;
+&lt;maze&gt;
+
+
+  &lt;cell href="..." debug="..." size="..." total="..."&gt;
+    &lt;link href="..." rel="north" /&gt;
+    &lt;link href="..." rel="east" /&gt;
+  &lt;/item&gt;
+&lt;/maze&gt;          
+          </pre></sbody></div>
+        <h4 style="display:inline">5. </h4><a id="ex-error"></a><h4 style="display:inline;clear:right">Error Document</h4>
+        <div class="sbody"><sbody><p></p>
+            <pre>
+&lt;?xml version="1.0" ?&gt;
+&lt;maze&gt;
+  &lt;error href="..."&gt;
+    &lt;title&gt;...&lt;/title&gt;
+    &lt;code&gt;...&lt;/code&gt;
+    &lt;message&gt;...&lt;/message&gt;
+  &lt;/error&gt;
+&lt;/maze&gt;          
+          </pre></sbody></div>
+        <h3 id="history">Update History</h3>
+        <dl class="update-history">
+          <dt>2010-12-06</dt>
+          <dd><notes>Updated Maze+XML</notes></dd>
+          <dt>2010-11-27</dt>
+          <dd><notes>Initial post</notes></dd>
+        </dl>
+      </div>
+    </div>
+    <div id="footer">
+      <address>updated: 2010-12-08</address>
+    </div><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+        _uacct = "UA-2399548-1";
+        urchinTracker();
+        </script></body>
+</html>

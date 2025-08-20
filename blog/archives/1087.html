@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[experimenting w/ RESTful clients]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">experimenting w/ RESTful clients</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2011-01-13 @ 01:59</span><span class="permalink"><a href="1087.html" title="perma-link">#</a></span></div>
+          <div class="dc-description">
+<p>
+  <a href="http://www.flickr.com/photos/aelfwine/3734936447/" title="Test tubes">
+  <img src="http://farm3.static.flickr.com/2550/3734936447_2c10909fc7_t.jpg" align="right" class="inline" />
+  </a>
+  i'll be doing qutie a bit of experimenting this year. well, exploring maybe. testing my ideas. 
+</p>
+<p>
+  i'll still be working quite a bit w/ 
+  <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" title="Representational State Transfer (REST)">REST</a> and 
+  <a href="../../hypermedia.html" title="Hypermedia Types">hypermedia</a>. but i'll also be working on the details of describing,
+  modeling, and implementing RESTful|hypermedia client applications. i'm particularly excited about this work. 
+</p>
+<h4>navigating the Maze+XML</h4>
+<p>
+  about six months ago i wrote a very simple 
+  <a href="../../examples/misc/maze-client.html" title="maze client">M2M hypermedia client</a>
+  that can navigate a two-dimensional maze. i also created a
+  <a href="../../media-types/maze/index.html" title="Maze+XML">custom media type</a> 
+  dedicated to representing mazes. it's still a work in progress, but the basics are there. i've posted some updates on this project and 
+  i have more to do with this particular example and media type; more on that later this year. 
+</p>
+<h4>beyond Web 2.0</h4>
+<p>
+  i also started delivering a 
+  <a href="../../talks/index.html#beyond-web20" title="Beyond Web 2.0 APIs : Implementing RESTful Hypermedia for .NET Applications">new talk</a> 
+  a few months ago that covers my first examples of creating RESTful
+  client applications. these examples are in C# (.NET on Windows), but the same principles apply to other programming
+  environments. the main point there was to dispell the notion that "Web APIs" can't rely on hypermedia. it's my 
+  "shot" at POX-like implementations that are, IMO, polluting the Web space and frustrating the lives of Web programmers. 
+</p>
+<p>
+  it's a cheery talk, really![grin]
+</p>
+<h4>a more ambitious endeavor</h4>
+<p>
+  but the real work i am excited about is a bit more ambitious.
+</p>
+<p>
+  i am working on various abstract models for implementing RESTful hypermedia clients. IOW, i think there are some key
+  abstractions that all RESTful client applications share. i am also testing some ideas on M2M (machine-to-machine)
+  clients along the way. if this work pans out, i expect to have some clear ways to talking about designing and implementing
+  client appliations that are hypermedia-aware, follow RESTful principles, and can support some level of M2M operations. 
+</p>
+<h4>the basic parts</h4>
+<p>
+  there is quite a bit i have to say on this idea, but a simple summary of the basic parts of what i currently see as
+  "a RESTful hypermedia client model" looks like this: 
+</p>
+<dl>
+  <dt>Hypermedia Type</dt>
+  <dd>
+    the heart of any RESTful client is a reliance on a hypermedia type that has built-in application controls to
+    handle details of the transfer protocol. for example the HTML media type has applications controls for 
+    navivagating links (A), for emdebbing content (IMG), and for sending data to servers (FORM + INPUT).
+    i've done some research into this area and am fairly confident my current 
+    <a href="http://www.amundsen.com/hypermedia/hfactor/" title="H Factors">abstraction of hypermedia controls</a>
+    is sufficient to provide a clear outline of what a hypermedia client must "know" about the representations
+    in order to use them to drive interactions w/ servers.
+  </dd>
+  <dt>Application Level Profile Semantics</dt>
+  <dd>
+    while the media type can handle the protocol-level interactions, there are additional application semantics that
+    need to be expressed within representations. typically this is done using @rel values (e.g. rel="edit", rel="report", etc.).
+    but my experiments indicate that more information is tied to the app-level semantics including data values of interest
+    (usually express using as FORM INPUT elements in HTML). i am looking to "document" these app-level semantics as a 
+    "profile" that is downloadable and parse-able. much of this thinking is influenced by the 
+    <a href="http://gmpg.org/xmdp/" title="XML Meta Data Profile">XMDP</a> project. 
+  </dd>
+  <dt>Client-Side Application State</dt>
+  <dd>
+    something else that is needed to make true M2M hypermedia work is a way to express and manage client-side state.
+    just as my work w/ custom media types has been viewed by some as contrary to RESTful principles, i suspect my
+    efforts this year to abstract client-side state into a usable form will rub some folks the wrong way. i've not
+    yet found much on this topic, but currently i am experimenting w/ establishing a "standard" way to store and recall
+    client state and use it to populate "forms", URI templates, and other request elements in the HTTP protocol.
+  </dd>
+  <dt>M2M DSL</dt>
+  <dd>
+    more than a year ago, 
+    <a href="http://twitter.com/#!/guilhermecaelum/" title="@guilhermecaelum">Guilherme Silveira</a> showed me the
+    power of a hypermedia DSL in his 
+    <a href="http://restfulie.caelum.com.br/" title="RESTfuliee">RESTfulie</a> project.
+    since then, i have been thinking about the possibilities of using a general DSL for "driving" hypermedia clients
+    directly (i.e. machine-to-machine). to my way of thinking, if the media type has well-defined hypermedia application controls,
+    and the application-level semantics are properly expressed through a "profile", and the client-state management
+    is sufficently abstracted to allow interaction between the representations &amp; client-state, AND there is a
+    dedicated hypermedia-ware DSL available to drive that interaction, much can be accomplished. i have in mind
+    a very simple <a href="http://en.wikipedia.org/wiki/Turing_completeness" title="Turing completeness">Turing complete</a> 
+    DSL that handles basic branching and memory manipulation.
+  </dd>
+</dl>
+<h4>prototyping|enjoying it all</h4>
+<p>
+  currently i am working on prototyping these ideas using a common Web browser driven via javascript. these first examples
+  rely on a single HTML page to "host" the javascript "client." (borrowing from the 
+  <a href="http://itsnat.sourceforge.net/php/spim/spi_manifesto_en.php" title="The Single Page Interface Manifesto ">Single Page Interface</a> idea) 
+  this client has modules for parsing the hypermedia representations,
+  consuming and parsing the application profile, and managing the client-side state. my M2M DSL is just a kernel of an idea, but
+  hopefully will be coming along soon, too. 
+</p>
+<p>
+  while i know how i'd <i>like</i> all this work to turn out, i must admit i am not exactly sure where it's going. 
+  and that's part of the fun of it for me. see, i'm truely experimenting here; testing my ideas and seeing where they lead.
+</p>
+<h4>and i promise: whatever i find, i'll share.</h4></div>
+          <p class="category"><a href="index.html%3Fcategory=20.html" title="more from Hypermedia...">Hypermedia</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

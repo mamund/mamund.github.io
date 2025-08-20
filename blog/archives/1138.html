@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[Three Levels of Hypermedia Messages]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">Three Levels of Hypermedia Messages</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2012-12-15 @ 14:46</span><span class="permalink"><a href="1138.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+<a href="http://www.flickr.com/photos/tattoodjay/4438699749/" title="Three Levels">
+<img src="http://farm3.staticflickr.com/2688/4438699749_70d9092b63_m.jpg" class="inline" align="right" />
+</a>
+As interest in hypermedia-oriented implementations for the Web increases, I am getting more questions about a "proper" way to design and execute hypermedia designs. Along the way, I've developed a rather simple way to describe the contents of hypermedia messages and how to "think about message design" when creating an implementation for the Web.
+</p>
+<p>It all boils down to three levels of information that all exist within the shared messages on the Web: Structure Semantics, Protocol Semantics, and Application Semantics. The good new is, all three of these are needed for any successful communication between client and server - no matter the implementation style. The bad news is, most of the time these levels are obscured or muddled at implementation time. For that reason many of us do not get the chance to think about them clearly. Hopefully this blog post will help in that department and spark some comment and additional thinking on the subject.
+</p>
+<h4>Structure Semantics</h4>
+<p>The first level is the Structure Semantics. This is the set of rules regarding how to create a well-formed message. XML has rather simple <a  href="http://en.wikipedia.org/wiki/XML#Well-formedness_and_error-handling">structure semantics</a>. JSON's rules for well-formedness are <a  href="http://www.json.org/fatfree.html">a bit more vague</a>&#160;but reachable since <code>JSON.parse(...)</code>&#160;turns out to be the ultimate arbiter of such things. Determining well-formedness of other, more complex media types (<a  href="http://www.w3.org/TR/2011/WD-html5-20110525/">HTML</a>, <a  href="http://tools.ietf.org/html/rfc4287">Atom</a>, <a  href="http://stateless.co/hal_specification.html">HAL</a>, <a  href="../../media-types/collection/index.html">Collection+JSON</a>) is tougher, but do-able even if external validators are not always available. 
+</p>
+<p>
+It turns out to be very difficult to build a successful Web implementation that does not contain structure semantics - and that's a good thing.</p>
+
+<h4>Protocol Semantics</h4>
+<p>
+The second level is the Protocol Semantics. This is the set of rules regarding how to fashion valid requests and responses using one or more message protocols. <a  href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP</a>, <a  href="http://tools.ietf.org/html/rfc959">FTP</a>, <a  href="http://tools.ietf.org/html/rfc6455">WebSockets</a>, etc. are all message protocols. Most implementations for the Web use human-readable documentation to describe these semantics. For example, typical RPC-style implementations document URIs, associated request rules (HTTP methods and headers), and any possible body content. Hypermedia-style implementations express the protocol semantics directly in the message (usually in the body, but sometimes in HTTP headers). The most common way this is done is to include rules for links and 'forms' that may appear in server responses (think HTML). 
+</p>
+<p>
+Registered media types don't often include hypermedia controls. For example, <a  href="http://tools.ietf.org/html/rfc4180">CSV</a>, <a  href="http://www.w3.org/TR/xml/">XML</a>, and <a  href="http://tools.ietf.org/html/rfc4627">JSON</a>&#160;have no definitions for hypermedia expression within the message. However some media types such as HTML, Atom, HAL, Collection+JSON (and others), do include the predefined ability to express protocol-level information within the message sent from the server.
+</p>
+
+<h4>Application Semantics</h4>
+<p>
+The third level is the Application Semantics. This is the set of rules that govern the way in which application-specific information is shared between client and server. This includes names of domain data elements (users, customers, products, etc.) and specific actions within the domain (adding a user, calculating tax on purchases, etc.). Well-formed requests and responses are ones that contain valid expressions of these domain-specific concepts. There are very few registered media-type designs that contain this level of specificity and the ones that do contain it are usually are aimed at an industry-wide domain (e.g. <a  href="http://www.w3.org/TR/voicexml20/">VoiceXML</a>&#160;and <a  href="../../media-types/maze/index.html">Maze+XML</a>).
+</p>
+<p>There are some machine-readable examples of application semantics that can be used in conjunction with existing structurally semantic forms (XML, JSON, etc.). <a  href="http://www.w3.org/TR/xmlschema-0/">XSD</a>, <a  href="http://tools.ietf.org/html/draft-zyp-json-schema-03">JSON-Schema</a>&#160;and other schema-based document types do a good job of expressing application-specific information. There are other example such as <a  href="http://www.w3.org/TR/wsdl">WSDL</a>&#160;for SOAP and it's cousin <a  href="http://www.w3.org/Submission/wadl/">WADL</a>.
+</p>
+<p>
+Most of the application-level semantics exist as stand-alone content with no standardized way to apply that information to a message. Some media type designs are better than others at supporting application-level semantics. HTML, for example, as several attributes (id, name, class, rel) with which you can apply application-level semantic information to a message.
+</p>
+
+<h4>Design Hallmarks</h4>
+<p>
+When designing a message format, you will always need to solve for all three levels (structure, protocol, and application). The simplest approach is to select an existing structural format (XML, JSON, etc.) and then use human-readable documentation to apply the other two (protocol and application). Doing this puts an added implementation coordination between client and server, but is quite common. 
+</p>
+<p>
+Selecting (or designing) media types that include protocol semantics and/or support applying application semantics directly within the message puts added responsibility on the message designer(s) and standardizes much more of the way client and servers interact. This can increase the likelihood that compatible implementations can be done at a distance (both in space and time) and that implementors (client and server developers) have an opportunity to safely evolve communications over time including adding new interactions to the domain-space without the need for prior coordination with the initial message designer.. It is these two aspects of the Web (support for distance and evolvability) that are a hallmark of hypermedia-style designs.
+</p></div>
+          <p class="category"><a href="index.html%3Fcategory=20.html" title="more from Hypermedia...">Hypermedia</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>

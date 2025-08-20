@@ -1,0 +1,220 @@
+<html>
+	<head>
+		<title>HTTP Examples</title>
+    <link rel="search" 
+      type="application/opensearchdescription+xml" 
+      title="MikeAmundsen and friends" 
+      href="http://wego-wego.appspot.com/friendfeed/mamund/osd/" />
+    <style type="text/css">
+        div#page-body
+        {
+            width:1100px;
+            margin: auto;
+        }
+        h1,h2,h3,h4,p
+        {
+            margin-bottom:0;
+        }
+        div.entry p
+        {
+            margin-bottom:.5em;
+        }
+        h4
+        {
+            margin-top:0;
+        }
+        code
+        {
+            font-weight:bold;
+        }
+        .email
+        {
+            font-weight:bold;
+            font-style:italic;
+        }
+        blockquote
+        {
+            border:1px solid silver;
+            background-color:#e9e9e9;
+            padding:.3em;
+        }
+        .hidden
+        {
+            display:none;
+        }
+        .alert
+        {
+            margin: auto 3em;
+            border:1px solid red;
+            padding: .2em;
+            background-color:#ffc;
+        }
+        .alert h3,h4,p
+        {
+            margin:0;
+        }
+        .notice
+        {
+            margin: .3em;
+            background-color:#e9e9e9;
+            padding:.2em;
+            border:1px solid black;
+        }
+        .code
+        {
+            padding:1em;
+            margin: auto 3em;
+            border: 1px solid black;
+            background-color:silver;
+            font-weight:bold;
+        }
+        .documentation
+        {
+            margin: auto 3em;
+            padding: 1em;
+            border: 1px solid black;
+            background-color: #ccc;
+            font-size: 12px;
+            color:black;
+        }
+    </style>
+	</head>
+	<body>
+		<div id="page-body">
+			<div id="ads" style="text-align:center;">
+					<script type="text/javascript">
+						<!--
+						google_ad_client = "pub-2944238157647009";
+						google_ad_width = 728;
+						google_ad_height = 90;
+						google_ad_format = "728x90_as";
+						google_ad_type = "text_image";
+						//2007-08-10: hikeweb
+						google_ad_channel = "4794860677";
+						google_color_border = "000000";
+						google_color_bg = "F0F0F0";
+						google_color_link = "000000";
+						google_color_text = "000000";
+						google_color_url = "000000";
+						//-->
+					</script>
+					<script type="text/javascript"
+						src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>
+			</div>
+		<h1>HTTP Examples</h1>
+		<h4>Exploring HTTP on the Windows Platform.</h4>
+	    <div id="links">
+		    <ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="http://amundsen.com/examples/to-do/">TO-DO Sample</a></li>
+					<li><a href="feedback/index.html">Feedback</a></li>
+					<li><a href="http://github.com/mamund/http-samples/tree/master" title="HTTP Samples">github (TO-DO)</a></li>
+					<li><a href="http://github.com/mamund/mimeparse-csharp/tree/master" title="MIMEParse">github (MIMEParse)</a></li>
+		    </ul>
+		</div>
+		<div class="alert hidden">
+		    <h4>NOTE</h4>
+		    <p>
+		        On 2008-12-16, this server will undergo extensive maintenance including relocation. The site may be down
+		        for 24 hrs or more. Sorry for the nconvenience. I'll have the server back up as quickly as possible. 
+		    </p>
+		</div>
+		<div class="entry">
+			<h2>MIMEParse Port to C# Posted</h2>
+			<h4>2009-02-18</h4>
+			<p>
+				I posted a full port of <a href="http://bitworking.org/news/bio/" title="Joe Gregorio">Joe Gregorio's</a>
+				<a href="http://code.google.com/p/mimeparse/" title="MIMEParse">MIMEParse</a> utilty.
+				The primary method of this utility accepts two inputs:
+			</p>
+			<dl>
+				<dt>A string array of MIME types</dt>
+				<dd>Such as those supported by a web server for a selected resource</dd>
+				<dt>A single string of acceptable MIME types</dt>
+				<dd>Sush as those sent by common browsers in the Accept Header when requesting a resource from a web server</dd>
+			</dl>
+			<p>
+				The utility evaluates the options based on rules in the <a href="http://tools.ietf.org/html/rfc2616#section-14.1" title="">RFC2616 section 14.1</a> and returns the
+				"best match" as a result (or no result if no match can be found). Below are some test examples:
+			</p>
+			<pre class="code">
+mimeTypesSupported = new string[] { "application/xbel+xml", "text/xml" };
+// match using a type versus a lower weighted subtype
+Debug.Assert(MimeParse.BestMatch(mimeTypesSupported, "text/*;q=0.5,*/*; q=0.1") == "text/xml");
+// fail to match anything
+Debug.Assert(MimeParse.BestMatch(mimeTypesSupported, "text/html,application/atom+xml; q=0.9") == string.Empty);
+			</pre>
+			<p>Some other links:</p>
+			<ul>
+				<li><a href="http://www.xml.com/pub/a/2005/06/08/restful.html" title="Just Use Media Types?">Just Use Media Types?</a></li>
+				<li><a href="http://groups.google.com/group/mimeparse-dev" title="Mimeparse-dev">Discussions</a></li>
+				<li><a href="http://github.com/mamund/mimeparse-csharp/tree/master" title="MIMEParse">C# Source @ GitHub</a></li>
+				<li><a href="mimeparseconsole.zip" title="MIMEParse Console">Download C# Version (ZIP)</a></li>
+			</ul>
+			
+		</div>
+		<div class="entry">
+			<h2>TO-DO Sample Posted</h2>
+			<h4>2009-02-01</h4>
+			<p>
+					I posted a simple TO-DO app to show how easy it is to support the HTTP <code>DELETE</code> method using modern
+					browsers. I did this as a follow up to <a href="../../blog/archives/959.html" title="ASP.NET MVC: so POST == DELETE, eh?">my rant</a> after find (yet another) example of mis-using
+					<code>POST</code> in an ASP.NET/MVC code snippet.
+			</p>
+			<p>
+					This first step is to render the TO-DO item as HTML. Below is my example using XSLT to convert raw data 
+					(from <a href="http://msdn.microsoft.com/en-us/sqlserver/dataservices/default.aspx" title="SQL Data Services (SDS)">SDS</a> into the proper HTML:
+			</p>
+			<pre class="code">
+&lt;xsl:template match="todo"&gt;
+  &lt;dt&gt;
+    &lt;xsl:value-of select="message"/&gt;
+  &lt;/dt&gt;
+  &lt;dd&gt;
+    &lt;form name="delete-form" class="delete-form" action="{s:Id}" method="get" 
+      rel="delete" refresh="/{$root}/" style="display:none;"&gt;
+      &lt;input type="submit" value="Delete" /&gt;
+    &lt;/form&gt;
+  &lt;/dd&gt;
+&lt;/xsl:template&gt;
+			</pre>
+			<p>
+					The important code in my example is the following client-side Javascript (in response to a <code>FORM POST</code>:
+			</p>
+			<pre class="code">
+  function deleteItem()
+  {
+    var formName,refreshUrl;
+    
+    formName = this.getAttribute('name');
+    refreshUrl = this.getAttribute('refresh');
+    
+    ajax.showStatus=false;
+    ajax.httpDeleteForm(null, null, deleteCallback, false, refreshUrl,formName);
+    
+    return false;        
+  }
+  
+  function deleteCallback(response,headers,context,status,msg)
+  {
+    location.href=context
+    return false;
+  }  
+			</pre>
+			<p>
+					The point here is that you can use standard <code>FORM POST</code> HTML markup to render the UI and use javascript
+					to link an Ajax <code>DELETE</code> to the <code>FORM</code>. There is no need to 'overload' <code>POST</code> with other meanings (like
+					'delete this thing' or 'update this thing' or 'wash my socks', etc.)
+			</p>
+			<p>
+					Feel free to download the code example from GitHub (see link above) and play around with it. Feedback is welcome, too.
+			</p>
+		</div>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		_uacct = "UA-2399548-1";
+		urchinTracker();
+		</script>
+	</body>
+</html>

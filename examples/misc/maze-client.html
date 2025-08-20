@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>maze-client</title>
+    <style type="text/css">
+      h1,h2,h3,h4,h5
+      {
+        margin-bottom:0;
+      }
+      p.page-date
+      {
+        margin-top:0;
+        font-style:italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>maze-client</h1>
+    <p class="page-date">
+      Created: 2010-12-07<br />
+      Updated: 2011-04-13
+    <//p>
+    <div id="notes">
+      <p>
+        This is a simple autonomous maze client. Click the button to traverse maze on the server. 
+        While the client code is very basic, it will (evetuntually) solve any "simply-connected" 2D maze that is 
+        represented using the <a href="../../media-types/maze/index.html">Maze+XML</a> MIME media-type.
+      </p>
+      <p>
+        This client makes the following assumptions about the responses:
+      </p>
+      <ol>
+        <li>Any important hrefs appear in &lt;link&gt; elements</li>
+        <li>All hrefs on &lt;link&gt; elements support the HTTP GET method</li>
+        <li>The following Link Relation values are "understood": <code>start, north, south, east, west, exit</code></li>
+        <li>The initial URI will always return a document that contains a &lt;link rel="start"&gt; element.</li>
+      </ol>
+      <p>
+        Some related material:
+      </p>
+      <ul>
+        <li>The maze was generated using the <a href="http://en.wikipedia.org/wiki/Maze_generation_algorithm#Depth-first_search">Depth-first search</a> algorithm.</li>
+        <li>The client uses the <a href="http://en.wikipedia.org/wiki/Maze_solving_algorithm#Wall_follower">Wall Follower</a> algorithm to traverse the maze.</li>
+        <li>Play an <a href="../mazes/2d/five-by-five/index.html">interactive version</a>.</li>
+        <li>Check out the <a href="../../media-types/maze/index.html">Maze+XML</a> custom media type.</li>
+        <li>Use "view-source" to view the javascript client code.</li>
+        <li>View the <a href="maze-server.txt">C# server code</a> (messy, but functional[grin]).</li>
+      </ul>
+      <p>
+        Contact <b>mamund -AT- yahoo -DOT- com</b> with questions, comments, etc.
+      </p>
+      <p>
+        If you have created a client that understands the <a href="../../media-types/maze/index.html">Maze+XML</a> media type, send
+        me a link and I'll post it here.
+      </p>
+      <ul>
+        <li>
+          <a href="http://yloiseau.dnsalias.net/hacks/maze/" title="Solutions to mamund's maze problem">
+            Solution to mamund's maze problem
+          </a> by <a href="http://twitter.com/#!/yannick_loiseau" title="@yannick_loiseau">Yannick Loiseau</a> (python, bash)
+        </li>       
+        <li>
+          <a href="https://github.com/RESTFest/code/tree/master/mogsie/maze" title="node.js solution to mamund's maze problem">
+            node.js solution
+          </a> by <a href="http://twitter.com/mogsie" title="@mogsie">Erik Mogensen</a> (node.js)
+        </li>
+        <li>
+          <a href="https://github.com/caelum/restfulie-java/blob/master/client/src/test/java/br/com/caelum/restfulie/maze/MazeTest.java">
+            MazeTest.java
+          </a> by <a href="http://twitter.com/#!/josedonizetti" title="@josedonizetti">Jose Donizetti</a> (Java w/ Restfulie)
+        </li> 
+        <li>
+          <a href="https://github.com/caelum/restfulie/tree/master/full-examples/mikemaze">
+            maze_basic.rb
+          </a>
+          by <a href="http://twitter.com/guilhermecaelum" title="@guilhermecaelum">Guilherme Silveira</a> (Ruby w/ Restfulie)
+        </li>
+        <li>
+          <a href="http://httpcontrib.codeplex.com/SourceControl/changeset/view/0536dbbe1aad#Samples%2fMazeExplorer%2fProgram.cs">
+            MazeExplorer 
+          </a>
+          by <a href="http://twitter.com/darrel_miller" title="@darrel_miller">Darrel Miller</a> (C#)
+        </li>
+        <li>
+          <a href="maze-client.html">
+            maze-client
+          </a>
+          by <a href="http://twitter.com/mamund" title="@mamund">Mike Amundsen</a> (JS)
+        </li>
+      </ul>
+    </div>
+    <p>
+      <button id="next-move">Go!</button>
+    </p>
+    <div id="game-play"></div>
+  </body>
+  <script type="text/javascript" src="../../xcs/scripts/ajax.js">//na</script>
+  <script type="text/javascript" src="../../xcs/scripts/mozxpath.js">//na</script>
+  <script type="text/javascript">
+    
+    /******************************************************************
+    Autonomous Maze Client using the Wall-Follower algorithm.
+    updated: 2010-12-07 by mamund-AT-yahoo-DOT-com
+    
+    Uses the Maze+XML media type (application/vnd.amundsen.maze+xml)
+    http://amundsen.com/media-types/maze/
+    
+    The client assumes the following:
+    - Any important hrefs appear in <link> elements
+    - All hrefs on link elements support the HTTP GET method
+    - The following are Link Relation values are "understood":
+        current, start, north, south, east, west, exit
+    - The initial URI must always return a document w/ a "start" link.  
+    ********************************************************************/
+    
+    var pg = null;
+    
+    window.onload = function()
+    {
+      pg = thisPage();
+      pg.init();
+    }
+    
+    var thisPage = function()
+    {
+      var g = {};
+      g.mazeLink = "http://amundsen.com/examples/mazes/2d/five-by-five/";
+      g.mediaType = "application/vnd.amundsen.maze+xml";
+      g.linkCollection = [];
+      g.start = false;
+      g.done = false;
+      g.robot = true;
+      g.facing = '';
+      g.href = '';
+      g.idx = 0;
+      
+      // simple right-hand wall-following rules:
+      // if door-right, face right
+      // else-if door-forward, face forward
+      // else-if door-left, face left
+      // else face back
+      g.rules = 
+      {
+        'east'  : ['south','east','north','west'],
+        'south' : ['west','south','east','north'],
+        'west'  : ['north','west','south','east'],
+        'north' : ['east','north','west','south']
+      };
+      
+      function init()
+      {
+        var elm;
+
+        // register single event
+        elm = document.getElementById('next-move');
+        if(elm)
+        {
+          elm.onclick = nextMove;
+        }
+
+        firstMove();        
+      }
+
+      function firstMove()
+      {
+        if(g.mazeLink!='')
+        {
+          g.href = g.mazeLink;
+          g.idx = 0;
+          
+          if(g.robot!=true)
+          {
+            getDocument(g.href);
+          }
+        }
+        else
+        {
+          alert('No maze selected!')
+        }
+      }
+            
+      function nextMove()
+      {
+        if(g.done==true)
+        { 
+          if(confirm('All done. Start again?')==true)
+          {
+            location.reload();
+          }
+          else
+          {
+            return;
+          }
+        }
+        else
+        {
+          getDocument(g.href);        
+        }
+      }
+
+      function printLine(msg)
+      {
+        var elm,txt;
+        
+        elm = document.getElementById('game-play');
+        if(elm)
+        {
+          txt = elm.innerHTML;
+          txt = g.idx++ +': '+msg +'<br>' + txt;
+          elm.innerHTML = txt;
+        }
+      }
+      
+      function getDocument(url)
+      {
+        ajax.httpGet(url,null,ajaxComplete,true,'processLinks',{'accept':g.mediaType});
+      }
+      
+      function processLinks(response,headers)
+      {
+        var xml,linkItem,i,rel,url,href,flg,links,rules;
+        
+        flg = false;
+        links = [];
+        rules = [];
+        
+        // get all the links in this document
+        g.linkCollection = [];
+        xml = response.selectNodes('//link');
+        for(i=0;i<xml.length;i++)
+        {
+          rel = xml[i].getAttribute('rel');
+          url = xml[i].getAttribute('href');
+          linkItem = {'rel':rel,'href':url};
+          g.linkCollection[g.linkCollection.length] = linkItem;
+        }
+        
+        // is there an exit?
+        href = getLinkElement('exit');
+        if(href!='')
+        {
+          printLine('*** Done! '+href);
+          g.done = true;
+          if(g.robot==true)
+          {
+            alert('Done in only '+g.idx+' moves!');
+          }
+          return;
+        }
+
+        // is there an entrance?
+        if(flg==false && g.start==false)
+        {
+          href = getLinkElement('start');
+          if(href!='')
+          {
+            flg=true;
+            g.start=true;
+            g.href = href;
+            g.facing = 'north';
+            printLine(href);
+          }
+        }
+        
+        // ok, let's "wall-follow"
+        rules = g.rules[g.facing];
+        for(i=0;i<rules.length;i++)
+        {
+          if(flg==false)
+          {
+            href=getLinkElement(rules[i]);
+            if(href!='')
+            {
+              flg=true;
+              g.facing=rules[i];
+              printLine(href);
+              continue;
+            }
+          }
+        }
+        
+        // update pointer, handle next move
+        if(href!='')
+        {
+          g.href = href;
+          if(g.robot==true)
+          {
+            nextMove();
+          }
+        }
+      }
+            
+      function getLinkElement(key)
+      {
+        var i,rtn;
+        
+        rtn='';
+        
+        for(i=0;i<g.linkCollection.length;i++)
+        {
+          if(g.linkCollection[i].rel==key)
+          {
+            rtn=g.linkCollection[i].href;
+            continue;
+          } 
+        }
+        return rtn;
+      }
+      
+      // generic dispatch for ajax call-backs
+      function ajaxComplete(response,headers,context,status,msg)
+      {
+        // handle status msg
+        switch(status)
+        {
+          case 200:
+          case 201:
+          case 202:
+          case 204:
+            break;
+          default: //3xx will redirect, 4xx and 5xx will report msg
+            if(headers["Location"])
+            {
+              location.href=headers["Location"];
+            }
+            else
+            {
+              alert(status+'\n'+msg);
+            }
+            break;
+        }
+        
+        // check for error from server
+        if(response)
+        {
+          var e = response.selectSingleNode('//error/text()');
+          if(e)
+          {
+            alert('ERROR:\n\n'+e.nodeValue);
+          }
+        }
+
+        // dispatch to process response
+        if(response)
+        {
+          switch(context)
+          {
+            case 'processLinks':
+              processLinks(response,headers);
+              break;
+            default:
+              alert('unknown context:\n'+context);
+              break;
+          }
+        }
+      }
+      
+      // publish method for this "class"
+      var that = {};
+      that.init = init;
+      
+      return that;
+    }
+  </script>
+</html>

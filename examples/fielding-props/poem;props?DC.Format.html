@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Property : Fielding Property Maps</title>
+    <link rel="schema.DC" href="http://purl.org/DC/elements/1.0/">
+    <meta name="DC.Title" content="A Dirge">
+    <meta name="DC.Creator" content="Jimmy">
+    <meta name="DC.Type" content="Poem">
+    <meta name="DC.Date" content="2014-09-13">
+    <meta name="DC.Format" content="text/html">
+    <meta name="DC.Language" content="en">
+    <link type="text/css" rel="stylesheet" href="scripts/fielding-props.css">
+  </head>
+  <body>
+    <div id="header">
+      <h1>Fielding Property Maps</h1>
+      <address>Mike Amundsen (mamund@yahoo.com) <a href="http://www.twitter.com/mamund" title="Twitter account">@mamund</a></address><small>
+        Updated: 2010-03-03</small></div>
+    <ul class="links">
+      <li><a href="docs.html" title="documentation">Docs</a></li>
+      <li><a href="poem.html" title="The Poem">The Poem</a></li>
+      <li><a href="poem%3Bprops.html" title="Edit Properties">Edit Properties</a></li>
+      <li><a href="source-props" title="source code">Property Source</a></li>
+    </ul>
+    <h2>Property</h2>
+    <form id="put-form-props" method="put" action="poem%3Bprops%3FDC.Format.html"><input type="hidden" name="etag" value="74badd562544b4c1dcfb7d7cbbe205bb"><input type="text" name="value" value="text/html"><input type="submit" value="PUT"></form>
+    <form id="delete-form-props" method="delete" action="poem%3Bprops%3FDC.Format.html"><input type="hidden" name="etag" value="74badd562544b4c1dcfb7d7cbbe205bb"><input type="submit" value="DELETE"></form>
+    <div class="notes">
+      <h4>Notes</h4>
+      <ul>
+        <li>
+              Due to limiations on common browsers and the Ajax script used to support 
+              <code>PUT</code> and <code>DELETE</code>, the browser client will always redirect 
+              to the <code>/poem;props</code> URI after updates even though the server returns 
+              	<code>204 - No Content</code>. 
+            </li>
+        <li>
+            	Some versions of MSIE report <b>1223 Unknown</b> when receiving <code>204 - No Content</code> 
+            	in response to a <code>PUT</code>. This is 
+            	<a href="http://trac.dojotoolkit.org/ticket/2418" title="io.bind: XMLHttpTransport Error: 1223 Unknown (Internet Explorer bug)">well-documented</a>
+ 							but I've not found a clear solution to this annoying bug.
+            </li>
+      </ul>
+    </div><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">// na</script><script type="text/javascript">
+				_uacct = "UA-2399548-1";
+				urchinTracker();
+				</script></body><script type="text/javascript" src="scripts/ajax.js">// na</script><script type="text/javascript" src="scripts/fielding-props.js">// na</script></html>

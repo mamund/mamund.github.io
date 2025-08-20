@@ -1,0 +1,520 @@
+<html>
+	<head>
+		<title>SDS Examples</title>
+    <link rel="search" 
+      type="application/opensearchdescription+xml" 
+      title="MikeAmundsen and friends" 
+      href="http://wego-wego.appspot.com/friendfeed/mamund/osd/" />
+    <style type="text/css">
+        div#page-body
+        {
+            width:1100px;
+            margin: auto;
+        }
+        h1,h2,h3,h4,p
+        {
+            margin-bottom:0;
+        }
+        div.entry p
+        {
+            margin-bottom:.5em;
+        }
+        h4
+        {
+            margin-top:0;
+        }
+        code
+        {
+            font-weight:bold;
+        }
+        .email
+        {
+            font-weight:bold;
+            font-style:italic;
+        }
+        blockquote
+        {
+            border:1px solid silver;
+            background-color:#e9e9e9;
+            padding:.3em;
+        }
+        .hidden
+        {
+            display:none;
+        }
+        .alert
+        {
+            border:1px solid red;
+            padding: .2em;
+            background-color:#ffc;
+        }
+        .alert h3,h4,p
+        {
+            margin:0;
+        }
+        .notice
+        {
+            margin: .3em;
+            background-color:#e9e9e9;
+            padding:.2em;
+            border:1px solid black;
+        }
+    </style>
+	</head>
+	<body>
+	    <div id="page-body">
+        <div id="ads" style="text-align:center;">
+            <script type="text/javascript">
+                <!--
+                google_ad_client = "pub-2944238157647009";
+                google_ad_width = 728;
+                google_ad_height = 90;
+                google_ad_format = "728x90_as";
+                google_ad_type = "text_image";
+                //2007-08-10: hikeweb
+                google_ad_channel = "4794860677";
+                google_color_border = "000000";
+                google_color_bg = "F0F0F0";
+                google_color_link = "000000";
+                google_color_text = "000000";
+                google_color_url = "000000";
+                //-->
+            </script>
+            <script type="text/javascript"
+              src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+        </div>
+		<h1>SDS Examples</h1>
+		<h4>Exploring SDS cloud services.</h4>
+	    <div id="links">
+		    <ul>
+			    <li><a href="index.html">SDS Examples Home</a></li>
+			    <li><a href="../examples/ssds/wishlist/index.html">SDS Feature Wish List</a>&nbsp;<span class="color:green;">[new]</span></li>
+			    <li><a href="http://amundsen.com/examples/sds-photos/">SDS Photo Demo</a></li>
+			    <li><a href="../examples/ssds/sds-client/index.html">SDS Provisioning Client</a></li>
+			    <li><a href="../examples/ssds/guestbook-client/index.html">SDS Guestbook Client</a></li>
+			    <!--<li><a href="/examples/sds/data-client/">SDS Provisioning Client</a>&nbsp;[deprecated]</li>-->
+			    <li><a href="../examples/ssds/feedback/index.html">Feedback for SDS Examples</a></li>
+			    <li><a href="../examples/sds/task-web-client/index.html">Tasklist Web Client</a></li>
+			    <li><a href="http://amundsen.com/sds/tasks/">Tasklist XML (SDS proxy)</a></li>
+			    <li><a href="http://code.google.com/p/mikeamundsen/downloads/list" title="Download the Code">Download the code</a></li>
+		    </ul>
+		</div>
+		<div class="alert hidden">
+		    <h4>NOTE</h4>
+		    <p>
+		        On 2008-12-16, this server will undergo extensive maintenance including relocation. The site may be down
+		        for 24 hrs or more. Sorry for the nconvenience. I'll have the server back up as quickly as possible. 
+		    </p>
+		</div>
+		<div class="entry">
+		<h2>Updated SDS Wish List</h2>
+		<h4>2008-12-06</h4>
+		<p>
+				I updated the <a href="../examples/ssds/wishlist/index.html" title="SDS Feature Wish List">Wish List</a> document to record that partial support for HTTP HEAD
+		    was added to SDS in November 2008. Also marked the "do not return entitiy bodies on PUT/POST" item as closed out. SDS
+		    never returned these bodies and that item should not have appeared on the list.
+				Finally, added two more items to the list: 
+				<a href="../examples/ssds/wishlist/index.html#digest-auth" title="Provide Support for HTTP Digest Authentication">Provide Support for HTTP Digest Authentication</a> 
+				and 
+				<a href="../examples/ssds/wishlist/index.html#permission-access" title="Support Permission-style Access Security based on HTTP Method + URI">Support Permission-style Access Security based on HTTP Method + URI</a>
+		</p>
+		<p>
+			  Of course, all feedback is welcome on the 
+		    <a href="../examples/ssds/feedback/index.html" title="SDS Feedback">SDS Feedback</a> page.
+		</p>
+		</div>
+		<div class="entry">
+		<h2>SDS Feature Wish List</h2>
+		<h4>2008-11-30</h4>
+		<p>
+            This <a href="../examples/ssds/wishlist/index.html">SDS Feature Wish List</a> page contains features and other 'wish list' items I've collected while working with Microsoft's
+            <a href="http://www.microsoft.com/azure/data.mspx" title="SQL Data Services.">SDS</a>. You might notice that most of the requests
+            I list here relate to 'application protocol' level items - HTTP. That's because I cam currently most
+            interested in these issues and I have not found too many others covering the same space.
+            I know there are lots of important database-related features that SDS can include, too. I leave
+            the work of documenting those feature requests to others.
+		    Of course, all feedback is welcome on the 
+		    <a href="../examples/ssds/feedback/index.html" title="SDS Feedback">SDS Feedback</a> page.
+		</p>
+		</div>
+		<div class="entry">
+		<h2>SDS Photo Demo Web App</h2>
+		<h4>2008-11-15</h4>
+		<p>
+            <a href="http://amundsen.com/examples/sds-photos/" title="SDS Photo Demo">This demo</a> stores @200 original images (plus another 400 thumbnail and preview versions) along with JS and CSS files directly 
+            in SDS storage (about 80MB in all). A small C# ASP.NET handler accepts anonymous requests, processes them and, when needed 
+            initiates authenticated requests to an SDS-Proxy that then talks directly to SDS servers to get the images, scripts, and stylesheets. 
+            
+        </p>
+        <p>
+            The home page is HTML generated using XSLT against the Entity list returned from SDS. The only files on the web server are the
+            C# DLL, a single XSLT file, and the web.config file. No HTML, no CSS, no JS, no images. All those are stored in SDS.
+        </p>
+        <p>
+            NOTE: For this demo, minimal caching is used on the client in order to show the speed of SDS even when using intermediaries such as 
+            the SDS-Proxy. Images (some over 1MB) are currently cached for ten minutes to show relative speed during a single session. 
+            In a production application, additional caching would be used to reduce avg. page load to less than 1 sec.
+        </p>
+		<p>
+		    As usual, I released this demo app on the CodePlex website under <a href="http://www.codeplex.com/ssdsexamples" title="SSDS Examples">SSDS Examples</a>.
+		    The same code can be found at my <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">GoogleCode space</a>, too.
+		    Of course, all feedback is welcome on the 
+		    <a href="../examples/ssds/feedback/index.html" title="SSDS Feedback">SSDS Feedback</a> page.
+		</p>
+		</div>
+		<div class="entry">
+		<h2>Updated SDS Provisioning Client Supports JOIN, ORDERBY, and TAKE</h2>
+		<h4>2008-11-05</h4>
+		<p>
+		    This update of the existing Provisioning Client now points to the 'new' SDS data cluster that supports JOIN, ORDERBY, and TAKE queries.
+		</p>
+		<p>
+		    During the last week of October 2008, the SDS team released an update for SSDS (now called <a href="http://www.microsoft.com/azure/data.mspx" title="SQL Data Services">SDS</a>.
+		    This update supports new query features such as JOIN, ORDERBY, and TAKE (top). Whe the SDS team released the new update,
+		    they posted it to a new set of servers. For that reason, data accessed with this client will not be the same physical data
+		    as that accessed with the previious release.
+		</p>
+		<p>
+		    There's nothing fancy or new in this release, except for point it to the new servers. All the query magic happens on the SDS servers
+		    themselves. There are some additional documentation items that I'll add over the coming days to bring the query hints into line
+		    with the new features. I also still have binary upload support to add to this client sometime soon. If you have a feature in mind,
+		    let me know (see the comment links on this page) and I'll consider it for the next update.
+		</p>
+		<p>
+		    As usual, I released this demo app on the CodePlex website under <a href="http://www.codeplex.com/ssdsexamples" title="SSDS Examples">SSDS Examples</a>.
+		    The same code can be found at my <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">GoogleCode space</a>, too.
+		    Of course, all feedback is welcome on the 
+		    <a href="../examples/ssds/feedback/index.html" title="SSDS Feedback">SSDS Feedback</a> page.
+		</p>
+		</div>
+
+		<div class="entry">
+		<h2>Updated SDS PROXY Supports JOIN, ORDERBY, and TAKE</h2>
+		<h4>2008-11-01</h4>
+		<p>
+		    This update of the existing SSDS-Proxy server now points to the 'new' SDS data cluster that supports JOIN, ORDERBY, and TAKE queries.
+		</p>
+		<p>
+		    The SDS-Proxy is meant to be a 'front' to the actual SDS data servers. I use it in my programs instead of the actual SDS data servers.
+		    SDS-Proxy offers some additional caching as well as a 'normalized' URI pattern most HTTP/REST folks will recognize: 
+		    <code>http://amundsen.com/sds-proxy/[authority]/[container]/[entity]</code>. SDS-Proxy supports GET, HEAD, POST(create), PUT(update), and DELETE methods.
+		    SDS-Proxy recognizes the standard SDS MIME-Type: <code>application/x-ssds+xml</code> as well as any MIME-type used when you stored your 'binary'
+		    objects to SDS (<code>image/*, text/plain, etc.</code>).
+		</p>
+		<p>
+		    SDS-Proxy can be reached using your existing SDS credentials
+		    (via HTTP Basic Auth) at the following URL: <a href="http://amundsen.com/sds-proxy/" title="http://amundsen.com/sds-proxy/">http://amundsen.com/sds-proxy/</a>.
+		    You'll need an HTTP client kit (or utility) that allows you to manipulate HTTP headers, URI, and bodies. I use the very helpful
+		    <a href="index.html" title="WFETCH">WFETCH.EXE</a>, but other tools such as <b>wget</b> or <b>cUrl</b> will work fine, too.
+		</p>
+		<p>
+		    During the last week of October 2008, the SDS team released an update for SSDS (now called <a href="http://www.microsoft.com/azure/data.mspx" title="SQL Data Services">SDS</a>.
+		    This update supports new query features such as JOIN, ORDERBY, and TAKE (top). Whe the SDS team released the new update,
+		    they posted it to a new set of servers. For that reason, data accessed using this proxy will not be the same physical data
+		    as that accessed with the previious release.
+		</p>
+		<p>
+		    As usual, I released this demo app on the CodePlex website under <a href="http://www.codeplex.com/ssdsexamples" title="SSDS Examples">SSDS Examples</a>.
+		    The same code can be found at my <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">GoogleCode space</a>, too.
+		    Of course, all feedback is welcome on the 
+		    <a href="../examples/ssds/feedback/index.html" title="SSDS Feedback">SSDS Feedback</a> page.
+		</p>
+		</div>
+
+		<div class="entry">
+		<h2>Entity-Binding Strongly-typed DataSets for SSDS</h2>
+		<h4>2008-10-13</h4>
+		<p>
+		    This update contains a new demo app: <b>Entity-Binding</b>.
+		</p>
+		<p>
+		    The <b>Entity-Binding</b> demo shows how to generate and use standard strongly-typed DataSets to access SSDS data. I 
+		    built this app to show the DataSets get along just fine w/ SSDS. I created an XSD document to match my 
+		    <a href="http://amundsen.com/sds/tasks/" title="Task List">Task List</a> entity. I then used <code>XSD.exe</code>
+		    to generate a CS class that defines a strongly-typed DataSet to match the Task entity. Finally, I created a small
+		    console app that gets the live Task list, loads it into the DataSet and enumerates the DataSet to the console.
+		</p>
+		<p>
+		    This is a really simple demo. Other things are possible including adding support for Views (sorting, filters); 
+		    supporting DataSet changes (add, update, delete); and full-fledged data-binding for WinForms controls like DataGrid, etc.
+		    It would also b e possible to add more automation the process of generating the classes from live SSDS data. If there is
+		    more interest in this project, I'd consider spending more time. Let me know!
+		</p>
+		<p>
+		    As usual, I released this demo app on the CodePlex website under <a href="http://www.codeplex.com/ssdsexamples" title="SSDS Examples">SSDS Examples</a>.
+		    The same code can be found at my <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">GoogleCode space</a>, too.
+		    Of course, all feedback is welcome on the 
+		    <a href="../examples/ssds/feedback/index.html" title="SSDS Feedback">SSDS Feedback</a> page.
+		</p>
+		</div>
+		<div class="entry">
+		<h2>General Update Posted</h2>
+		<h4>2008-09-08</h4>
+		<p>
+		    This update contains changes to three samples: The <b>SSDS-Proxy</b>, <b>SSDS Provision Client</b>, and <b>SSDS Deploy</b>.
+		</p>
+		<p>
+		    <b>SSDS-Proxy (1.5)</b> now returns authority lists for the logged in user and has basic support for BLOB files. This also required
+		    updates to the internal <code>HttpClient</code> class and the <code>Caching</code> class to support <code>BinaryWrite</code>.
+		    More work is needed soon (for example, this version does not support <em>uploading</em> BLOB files), but this is a bit step
+		    forward for making both the Proxy and the underlying <code>HttpClient</code> much more versatile.
+		</p>
+		<p>
+		    <b>SSDS Provision Client (1.7)</b> now supports reading and deleting BLOB files (no upload yet). It also returns the list of 
+		    authorities for the logged-in user. This means it's now possible to update the general login UI to let users login right away
+		    and get direct feedback if the login fails. 
+		</p>
+		<p>
+		    <b>SSDSDeploy.exe (1.1)</b> has a bug fix for large files. Actually, the existing code had a nasty bug in the routine that
+		    declared the async callback method for the upload. This prevented files larger than twice the buffer size from uploading properly.
+		    I also added feedback during the upload process in the for of 'progress dots.' Until I update the SSDS-Procy and Provision Client
+		    to support BLOB uploads, this is the easiest way to upload BLOB files to your SSDS account.
+		</p>
+		<p>
+		    As usual, I released this demo app on the CodePlex website under <a href="http://www.codeplex.com/ssdsexamples" title="SSDS Examples">SSDS Examples</a>.
+		    The same code can be found at my <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">GoogleCode space</a>, too.
+		    Of course, all feedback is welcome on the 
+		    <a href="../examples/ssds/feedback/index.html" title="SSDS Feedback">SSDS Feedback</a> page.
+		</p>
+		</div>
+				<div class="entry">
+		<h2>Version 1.0 of SSDSDeploy Demo Posted</h2>
+		<h4>2008-08-18</h4>
+		<p>
+		    This application allows users to upload one or more files (using wildcards) from their workstation
+		    to the SSDS servers (see syntax examples below).  Currently SSDS does not properly handle entityIds 
+		    with "/" or "\" in their name. For that reason, a valid upload entity name is "filename.ext", but 
+		    *not* "/images/filename.ext" I have a possible work-around using some other URL-safe character as
+		    the 'folder seperator' (":"?), but I'm not sure how soon I'll update the codebase to support this.
+		</p>
+		<p>
+		    One of the interesting bits of code in this demo is the <code>GetMimeType(string filename)</code> method.
+		    This uses the extension of the disk file to lookup the MIME type in the Windows Registry. 
+		</p>
+		<p>Here's the sample syntax for <code></code>SSDSDeploy.exe</code></p>
+		<pre>
+SSDS Deploy Console (1.0 - 2008-08-18)
+
+POST single binary file:
+/{a}/{c}/{e} "[c:][\folder\path\]file.ext" ["mime-type"] [y]
+where:
+	{a} = authority
+	{c} = container
+	{e} = entity
+	 y  = overwrite existing entities
+
+ex:	/my-auth/files/my-profile "c:\temp\profile.jpg" "image\jpeg" y
+
+POST multiple files using wildcard:
+/{a}/{c}/* "[c:][\folder\path\]*.*" [y]
+
+ex:	/my-authority/my-container/* "c:\uploads\*.*" y
+	or
+ex:	/my-authority/my-container/* "c:\images\*.png" y</pre>
+		<p>
+		    As usual, I released this demo app on the CodePlex website under <a href="http://www.codeplex.com/ssdsexamples" title="SSDS Examples">SSDS Examples</a>.
+		    The same code can be found at my <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">GoogleCode space</a>, too.
+		</p>
+		</div>
+
+		<div class="entry">
+		<h2>Version 1.3 of Guestbook Client Demo Posted</h2>
+		<h4>2008-08-08</h4>
+		<p>
+		    This update contains support for replies to posts and publishes RSS feeds for the public list
+		    and for each guest account. Several other small twekas have been done to improve the UI a bit, too.
+		</p>
+		<p>
+		    Please visit the app, craete an account and post some messages. The more guests that sign up, the more
+		    I can test my coding and the SSDS datastore. Of course, all feedback is welcome on the 
+		    <a href="../examples/ssds/feedback/index.html" title="SSDS Feedback">SSDS Feedback</a> page.
+		</p>
+		<p>
+		    As usual, I released this demo app on the CodePlex website under <a href="http://www.codeplex.com/ssdsexamples" title="SSDS Examples">SSDS Examples</a>.
+		    The same code can be found at my <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">GoogleCode space</a>, too.
+		</p>
+		</div>
+		<div class="entry">
+		<h2>Version 1.0 of Guestbook Client Demo Posted</h2>
+		<h4>2008-07-31</h4>
+		<p>
+		    This application is a simple 'guestbook' web app that allows users to leave messages for everyone to see.
+		    As an added feature, users must create an account in order to post messages. This allowed me to test out
+		    a cookie-based authentication pattern that mimics the <code>HTTP Basic Auth</code> pattern. That means that
+		    you can authenticate against this application using a browser-based cookie or by passing the same credentials
+		    via the HTTP Basic spec.
+		</p>
+		<p>
+		    Another focus of this demo was using a single SSDS Container (<code>guestbook</code>that holds multiple 
+		    'kinds' of Entity documents (<code>guest</code> and <code>message</code>). This means queries against the 
+		    datastore need to make sure they get the correct entity type back. I am also interested in how performance
+		    will be affected using these more complicated queries to filter messages by guest, etc.
+		</p>
+		<p>
+		    In addition, since the application could be updated quite frequently I did some work to make sure entity lists
+		    are cached by the local server using <code>ETags</code>. ETags are currently supported by SSDS, but only 
+		    for single Entity objects, not for lists. Of course, it's not much of a challenge to *cache* the lists,
+		    it's the <em>invalidation of the cached lists</em> that offers the greatest challenge [grin].
+		</p>
+		<p>
+		    Please visit the app, craete an account and post some messages. The more guests that sign up, the more
+		    I can test my coding and the SSDS datastore. Of course, all feedback is welcome on the 
+		    <a href="../examples/ssds/feedback/index.html" title="SSDS Feedback">SSDS Feedback</a> page.
+		</p>
+		<p>
+		    As usual, I released this demo app on the CodePlex website under <a href="http://www.codeplex.com/ssdsexamples" title="SSDS Examples">SSDS Examples</a>.
+		    The same code can be found at my <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">GoogleCode space</a>, too.
+		</p>
+		</div>
+		<div class="entry">
+		<h2>Version 1.6 of Data Client Demo Posted</h2>
+		<h4>2008-07-21</h4>
+		<p>
+		    This update has just a few minor UI tweaks. Also, it does a bit bertter job of caching (again). This will
+		    be the last release before the <a href="http://msdn.microsoft.com/en-us/sqlserver/dataservices/cc748807.aspx" title="SQL Server Data Services (SSDS) Maintenance Window Notification">SSDS upgrade</a> on 2008-07-25. 
+		</p>
+		<p>
+		    I also released this version (1.6) on the CodePlex website under <a href="http://www.codeplex.com/ssdsexamples" title="SSDS Examples">SSDS Examples</a>.
+		    The same code can be found at my <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">GoogleCode space</a>, too.
+		</p>
+		</div>
+		<div class="entry">
+		<h2>New SSDS.EXE Console App Posted</h2>
+		<h4>2008-07-18</h4>
+		<p>
+		    This is a simple console app that you can use the interact with your SSDS data directly from the command line. This
+		    app talks direclty to my SSDS-Proxy application. Now, you can modify your SSDS data without even firing up a Web browser.
+		    A side benefit of this command-line app is that you can now write batch scripts to talk to SSDS data. Here's an example
+		    script that I included in the download ZIP:
+		</p>
+		<pre>
+@echo off
+rem script ssds console 
+
+set authority=your-authority
+ssds get    /%authority%
+ssds post   /%authority%/fish
+ssds get    /%authority%/fish
+ssds post   /%authority%/fish/ fish-001.xml
+ssds post   /%authority%/fish/ fish-002.xml
+ssds get    /%authority%/fish/ 
+ssds get    /%authority%/fish/fish-001 
+ssds delete /%authority%/fish/fish-002
+ssds get    /%authority%/fish/
+set authority=		
+		</pre>
+		<p>
+		    I also released this demo as part of my SSDS Examples collection on the CodePlex website under <a href="http://www.codeplex.com/ssdsexamples" title="SSDS Examples">SSDS Examples</a>.
+		    The same code can be found at my <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode space">GoogleCode SVN space</a>, too.
+		</p>
+		</div>
+		<div class="entry">
+		<h2>Version 1.4 of Data Client Demo Released w/ refactored Javascript code</h2>
+		<h4>2008-07-14</h4>
+		<p>
+		    This release has only a few new bits of functionality: added "Refresh" buttons for Containers
+		    and Entities lists; links to the Feedback page; better error messages. The real work in this
+		    update was behind the scenes. The Javascript class (provision.js) has been completely rewritten.
+		    It should now be easier to maintain and easier to read, too.
+		</p>
+		<p>
+		    I also released this version (1.4) on the CodePlex website under <a href="http://www.codeplex.com/ssdsexamples" title="SSDS Examples">SSDS Examples</a>.
+		    The same code can be found at my <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">SVN code space</a>, too.
+		</p>
+		<p>
+		    For those who are watching this project, I plan on another update soon that will change the URI pattern
+		    for the calls to the SSDS proxy server. In fact, I suspect I'll publish a clean SSDS Proxy API (REST)
+		    in the next week or so. That will allow others to start writing their clients against the same
+		    proxy, if they like.
+		</p>
+		</div>
+		<div class="entry">
+		<h2>Version 1.3 of Data Client Demo Released - now with Caching!</h2>
+		<h4>2008-07-10</h4>
+		<p>
+		    In anticipation of caching support in the upcoming SSDS 'Sprint 3' release, I added caching to my SSDS
+		    Proxy (the server code behind the SSDS Client demo app). Now, GETS are cached at the server to reduce
+		    traffic between the SSDS Proxy and the remote SSDS server. This also cuts down on trasffic between the
+		    client apps and the SSDS Proxy. Currently, there'a bit more traffic betweeen SSDS Proxy and the SSDS 
+		    servers since SSDS server do not yet support caching. Once they add support for ETag and If-Match headers,
+		    traffic between the proxy and SSDS will decrease even more.
+		</p>
+		<p>
+		    A nice side-effect of implementing caching support (via ETags) is that the proxy can now implement a fix
+		    for the <a href="http://www.w3.org/1999/04/Editing/" title="Detecting the Lost Update Problem Using Unreserved Checkout">Lost Update Problem</a>.
+		    Now, when multiple users are editing the same document, no-one's edits will get 'clobbered' by another user's
+		    updates. That's because the <code>ETag</code> header value returned via <code>HTTP GET</code> needs to be sent with the updated document
+		    as the <code>If-Match</code> header value when making an <code>HTTP PUT</code> to the server. If the headers
+		    do not match, the server assumes someone else has updated the document and refuses to complete the <code>PUT</code>.
+		    It takes a bit of planning to implement on the client but once you have it, your users will be much happier!
+		</p>
+		<p>
+		    You can view the source and download the latest code from my 
+		    <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">SVN code space</a>. 
+		    Feel free to send me feedback via email: <span class="email">mamund#AT#yahoo#DOT#com.</span>
+		</p>
+		</div>
+		<div class="entry">
+		<h2>Data Client Demo Updated</h2>
+		<h4>2008-07-08</h4>
+		<p>
+		    I updated the Provisioning Demo. The <a href="../examples/sds/data-client/index.html" title="SSDS Provisioning Client">SSDS Provisioning Client</a>
+		    now supports a simple Entity query interface. Once you select your Authority and Container, you can enter any valid SSDS query and see
+		    the resulting filtered list. I also did a little UI clean-up including an alert to remind you to login before you begin executing commands.
+		</p>
+		<p>
+		    You can view the source and download the latest code from my 
+		    <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">SVN code space</a>. 
+		    Feel free to send me feedback via email: <span class="email">mamund#AT#yahoo#DOT#com.</span>
+		</p>
+		</div>
+		<div class="entry">
+		<h2>Data Client Demo</h2>
+		<h4>2008-07-04</h4>
+		<p class="notice">
+		   I updated the SSDS Data Client code today and IE should now work as expected. If you see any problems,
+		   feel free to send an email to:<span class="email">mamund#AT#yahoo#DOT#com</span>.
+		</p>
+		<p>
+		    I posted a new demo application here today. The <a href="../examples/sds/data-client/index.html" title="SSDS Provisioning Client">SSDS Provisioning Client</a>
+		    allows you to manage all your SSDS Authorities, Containers, and Entities via a simple (quirky?) Web UI.  This was build to explore the details
+		    of managing SSDS objects via the REST interface. All requests from the Ajax client go directly to an SSDS Proxy server
+		    which interprets the data and then makes calls to the remote SSDS servers on your behalf.
+		</p>
+		<blockquote>
+		    This web application requires you to login with your SSDS username and password. Since this is a public web app
+		    hosted via HTTP (not HTTPS), you may not want to use the live version of the app. Instead, download the source
+		    code and host the application on your own local server.
+		</blockquote>
+		<p>
+		    One of the interesting features of this application is that it contains code for generating unqiue (Ascending or Descending) IDs for
+		    Entity objects. Some of this was discussed on a recent <a href="http://forums.msdn.microsoft.com/en-US/ssdsgetstarted/thread/591b888b-fcf0-4026-a521-c2a8ef5a51a0" title="How are you populating your Entity ID fields?">SSDS Forum thread</a>.
+		</p>
+		<p>
+		    The current code is fairly solid, but will probably be updated as the SSDS beta progresses. I'll keep tweaking it and posting
+		    results to the <a href="http://mikeamundsen.googlecode.com/" title="Mike Amundsen's Googlecode sapce">SVN code space</a>. Feel free to send me feedback via email: <span class="email">mamund#AT#yahoo#DOT#com.</span>
+		</p>
+		</div>
+		<div class="entry">
+		<h2>TaskList Demo</h2>
+		<h4>2008-06-23</h4>
+		<p>
+		    I posted the Tasklist Demo today. You can check out a simple HTML <a href="../examples/sds/task-web-client/index.html" title="SSDS Tasklist Demo">web client</a>
+		    to see how it all works. You can also ping the rasw XML data in the SSDS repository via the <a href="http://amundsen.com/ssds-tasks/" title="SSDS Proxy">SSDS Proxy</a> server (built using C#).
+		    Finally, you can check out the source code for both projects at my <a href="http://mikeamundsen.googlecode.com" title="Mike Amundsen @ googlecode">google code</a>
+		    site.
+		</p>
+		<p>
+		    The current code is pretty 'rangy.' Not quite ready for a live demo. But it all works. I'll keep tweaking it and posting
+		    results to the SVN space. Feel free to send me feedback via email: <span class="email">mamund#AT#yahoo#DOT#com.</span>
+		</p>
+		</div>
+		</div>
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		_uacct = "UA-2399548-1";
+		urchinTracker();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,316 @@
+<%@ WebHandler Language="C#" Class="FieldingPropertyMaps" %>
+
+/* fielding property maps example */
+
+using System;
+using System.IO;
+using System.Web;
+using System.Xml;
+using System.Xml.Xsl;
+
+using Amundsen.Utilities;
+
+public class FieldingPropertyMaps : IHttpHandler
+{
+  string etag = string.Empty;
+
+  public void ProcessRequest(HttpContext context)
+  {
+    string method = context.Request.HttpMethod.ToLower();
+
+    try
+    {
+      switch (method)
+      {
+        case "get":
+          Get(context);
+          break;
+        case "head":
+          Get(context, false);
+          break;
+        case "put":
+          Put(context);
+          break;
+        case "delete":
+          Delete(context);
+          break;
+        case "options":
+          Options(context);
+          break;
+        default:
+          throw new HttpException(405, "Method Not Allowed");
+      }
+    }
+    catch (HttpException hex)
+    {
+      context.Response.StatusCode = hex.GetHttpCode();
+      context.Response.StatusDescription = hex.Message;
+      context.Response.ContentType = "text/plain";
+      context.Response.Write(hex.Message);
+    }
+    catch (Exception ex)
+    {
+      context.Response.StatusCode = 500;
+      context.Response.StatusDescription = ex.Message;
+      context.Response.ContentType = "text/plain";
+      context.Response.Write(ex.Message);
+    }
+  }
+
+  public bool IsReusable
+  {
+    get
+    {
+      return false;
+    }
+  }
+
+  private void Options(HttpContext ctx)
+  {
+    string rtn = string.Empty;
+
+    rtn += "Allowed: GET,HEAD,PUT,DELETE\n";
+    rtn += "Accept-Types: text/html\n";
+    rtn += "Content-Types: application/x-www-form-urlencoded\n";
+    rtn += "Documentation: http://amundsen.com/examples/fielding-property-maps/docs\n";
+
+    ctx.Response.AddHeader("Link", "<http://amundsen.com/examples/fielding-props/docs>,rel=documentation;");
+    ctx.Response.StatusCode = 200;
+    ctx.Response.StatusDescription = "OK";
+    ctx.Response.ContentType = "text/plain";
+    ctx.Response.Write(rtn);
+  }
+
+  private void Get(HttpContext ctx)
+  {
+    Get(ctx,false);
+  }
+  private void Get(HttpContext ctx,bool suppressOutput)
+  {
+    string id = string.Empty;
+    string rtn = string.Empty;
+    string ctype = string.Empty;
+
+    // validate accept
+    if (ctx.Request.Headers["accept"].IndexOf("text/html") == -1 && ctx.Request.Headers["accept"].IndexOf("*/*") == -1)
+    {
+      throw new HttpException(406, "Not Acceptable");
+    }
+
+    // validate id
+    id = (ctx.Request["id"] != null ? ctx.Request["id"] : string.Empty);
+    if (id==string.Empty)
+    {
+      throw new HttpException(404, "Not Found");
+    }
+
+    // build representation
+    switch (id)
+    {
+      case "docs":
+        rtn = Transform(ctx, "files/docs.xsl");
+        ctype = "text/html";
+        etag = string.Empty;
+        break;
+      case "poem":
+        rtn = Transform(ctx, "files/poem.xsl");
+        ctype = "text/html";
+        etag = string.Empty;
+        break;
+      case "props":
+        rtn = Transform(ctx, "files/props.xsl");
+        ctype = "text/html";
+        break;
+      case "source-props":
+        rtn = SendFile(ctx,"fielding-pm.ashx");
+        ctype = "text/plain";
+        etag = string.Empty;
+        break;
+      case "source-lock":
+        rtn = SendFile(ctx,"fielding-lock.ashx");
+        ctype = "text/plain";
+        etag = string.Empty;
+        break;
+      default:
+        rtn = Transform(ctx, "files/property.xsl", id);
+        ctype = "text/html";
+        etag = string.Empty;
+        break;
+    }
+
+    // response
+    ctx.Response.SuppressContent = suppressOutput;
+    ctx.Response.StatusCode = 200;
+    ctx.Response.StatusDescription = "OK";
+    ctx.Response.ContentType = ctype;
+    if(etag!=string.Empty)
+    {
+      ctx.Response.AddHeader("etag",etag);
+    }
+    ctx.Response.Write(rtn);
+  }
+
+  private void Put(HttpContext ctx)
+  {
+    Hashing h = new Hashing();
+
+    // validate id
+    string id = (ctx.Request["id"] != null ? ctx.Request["id"] : string.Empty);
+    if (id==string.Empty)
+    {
+      throw new HttpException(404, "Not Found");
+    }
+
+    // validate posted value
+    string value = (ctx.Request.Form["value"] != null ? ctx.Request.Form["value"] : string.Empty);
+    if (value == string.Empty)
+    {
+      throw new HttpException(400, "Missing value");
+    }
+
+    // validate ifmatch
+    string ifmatch = (ctx.Request.Headers["if-match"] != null ? ctx.Request.Headers["if-match"] : string.Empty);
+    if (ifmatch == string.Empty)
+    {
+      throw new HttpException(400, "Missing If-Match Header");
+    }
+
+    // read
+    XmlDocument doc = new XmlDocument();
+    using (StreamReader sr = new StreamReader(ctx.Server.MapPath("files/ietf-sample.xml")))
+    {
+      doc.Load(sr);
+      sr.Close();
+    }
+
+    // validate ifmatch
+    if(ifmatch!=h.MD5BinHex(doc.OuterXml))
+    {
+      throw new HttpException(412,"Precondition Failed");
+    }
+
+    // update
+    try
+    {
+      doc.SelectSingleNode(string.Format("//metadata/item[name='{0}']/value", id)).InnerText = value;
+    }
+    catch (XmlException xex)
+    {
+      throw new HttpException(400, xex.Message);
+    }
+
+    // write
+    using (StreamWriter sw = new StreamWriter(ctx.Server.MapPath("files/ietf-sample.xml")))
+    {
+      sw.Write(doc.OuterXml);
+      sw.Close();
+    }
+
+    // response
+    ctx.Response.StatusCode = 204;
+    ctx.Response.StatusDescription = "No Content";
+  }
+
+  private void Delete(HttpContext ctx)
+  {
+    Hashing h = new Hashing();
+
+    // validate id
+    string id = (ctx.Request["id"] != null ? ctx.Request["id"] : string.Empty);
+    if (id == string.Empty)
+    {
+      throw new HttpException(404, "Not Found");
+    }
+
+    // get ifmatch header
+    string ifmatch = (ctx.Request.Headers["if-match"] != null ? ctx.Request.Headers["if-match"] : string.Empty);
+    if (ifmatch == string.Empty)
+    {
+      throw new HttpException(400, "Missing If-Match Header");
+    }
+
+    // read
+    XmlDocument doc = new XmlDocument();
+    using (StreamReader sr = new StreamReader(ctx.Server.MapPath("files/ietf-sample.xml")))
+    {
+      doc.Load(sr);
+      sr.Close();
+    }
+
+    // validate ifmatch
+    if(ifmatch!=h.MD5BinHex(doc.OuterXml))
+    {
+      throw new HttpException(412,"Precondition Failed");
+    }
+
+    // update
+    try
+    {
+      doc.SelectSingleNode(string.Format("//metadata/item[name='{0}']/value", id)).InnerText = string.Empty;
+    }
+    catch (XmlException xex)
+    {
+      throw new HttpException(400, xex.Message);
+    }
+
+    // write
+    using (StreamWriter sw = new StreamWriter(ctx.Server.MapPath("files/ietf-sample.xml")))
+    {
+      sw.Write(doc.OuterXml);
+      sw.Close();
+    }
+
+    // response
+    ctx.Response.StatusCode = 204;
+    ctx.Response.StatusDescription = "No Content";
+  }
+
+  // handle representation transforms
+  private string Transform(HttpContext ctx, string xslfile)
+  {
+    return Transform(ctx,xslfile,string.Empty);
+  }
+  private string Transform(HttpContext ctx, string xslfile, string id)
+  {
+    Xslt xsl = new Xslt();
+    Hashing h = new Hashing();
+    XmlDocument doc = new XmlDocument();
+    XsltArgumentList args = new XsltArgumentList();
+
+    xslfile = ctx.Server.MapPath(xslfile);
+    using (StreamReader sr = new StreamReader(ctx.Server.MapPath("files/ietf-sample.xml")))
+    {
+      doc.Load(sr);
+      sr.Close();
+    }
+
+    etag = h.MD5BinHex(doc.OuterXml);
+
+    if (id != string.Empty)
+    {
+      args.AddParam("property", "", id);
+      args.AddParam("etag","",etag);
+      try
+      {
+        string temp = doc.SelectSingleNode(string.Format("//metadata/item[name='{0}']/value", id)).InnerText;
+      }
+      catch (Exception ex)
+      {
+        throw new HttpException(404, "Not Found");
+      }
+    }
+
+    return xsl.Transform(doc, xslfile, args);
+  }
+
+  private string SendFile(HttpContext ctx, string file)
+  {
+    string rtn = string.Empty;
+    using(StreamReader sr = new StreamReader(ctx.Server.MapPath(file)))
+    {
+      rtn = sr.ReadToEnd();
+      sr.Close();
+    }
+    return rtn;
+  }
+}

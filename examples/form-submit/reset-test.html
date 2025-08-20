@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>reset-test</title>
+  </head>
+  <body>
+    <h1>reset-test</h1>
+    <form method="post" action="reset-test.html#">
+      <input type="text" name="data" />
+      <input type="submit" id="submit"/>
+      <input type="reset" id="reset"/>
+    </form>
+  </body>
+  <script type="text/javascript">
+    window.onload = function()
+    {
+      document.getElementById("reset").onclick= function()
+      {
+        return confirm('erase all data?');
+      };
+      document.getElementsByTagName("form")[0].onsubmit = function()
+      {
+        return confirm('ready to post to the server?');
+      };
+    }
+  </script>
+</html>

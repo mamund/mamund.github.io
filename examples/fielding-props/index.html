@@ -1,0 +1,171 @@
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Docs : Fielding Property Maps</title>
+    <link rel="schema.DC" href="http://purl.org/DC/elements/1.0/">
+    <meta name="DC.Title" content="A Dirge">
+    <meta name="DC.Creator" content="Jimmy">
+    <meta name="DC.Type" content="Poem">
+    <meta name="DC.Date" content="2014-09-13">
+    <meta name="DC.Format" content="text/html">
+    <meta name="DC.Language" content="en">
+    <link type="text/css" rel="stylesheet" href="scripts/fielding-props.css">
+  </head>
+  <body>
+    <div id="ads" style="text-align:center;"><script type="text/javascript">
+            	
+                <!--
+                google_ad_client = "pub-2944238157647009";
+                google_ad_width = 728;
+                google_ad_height = 90;
+                google_ad_format = "728x90_as";
+                google_ad_type = "text_image";
+                //2007-08-10: hikeweb
+                google_ad_channel = "4794860677";
+                google_color_border = "000000";
+                google_color_bg = "F0F0F0";
+                google_color_link = "000000";
+                google_color_text = "000000";
+                google_color_url = "000000";
+                //-->
+                
+            </script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+    <div id="header">
+      <h1>Fielding Property Maps</h1>
+      <address>Mike Amundsen (mamund@yahoo.com) <a href="http://www.twitter.com/mamund" title="Twitter account">@mamund</a></address><small>Updated: 2010-03-03</small></div>
+    <ul class="links">
+      <li><a href="docs.html" title="documentation">Docs</a></li>
+      <li><a href="poem.html" title="The Poem">The Poem</a></li>
+      <li><a href="poem%3Bprops.html" title="Edit Properties">Edit Properties</a></li>
+      <li><a href="source-props" title="source code">Property Source</a></li>
+    </ul>
+    <h2>Documentation</h2>
+    <div>
+    <h3><a name="#top" class="header">Rationale</a></h3>
+    <p>
+      This page demonstrates an HTTP<a href="index.html#ref1" class="ref"><sup>[1]</sup></a> resource update 
+      pattern based on an idea by Roy Fielding<a href="index.html#ref2" class="ref"><sup>[2]</sup></a>.
+      At the end of a post on the topic of WebDAV semantics<a href="index.html#ref3" class="ref"><sup>[3]</sup></a>,
+      Fielding illustrates one way to expose and manipulate a set of properties for a resource using
+      a URI convention (similar to that used for HTML image maps<a href="index.html#ref4" class="ref"><sup>[4]</sup></a>)
+      where appending <code>;props</code> to a resource URI allows clients to access
+      any available properties for that resource.
+      Since I first saw this idea articluated by Fielding, I've dubbed the pattern <span class="fpm">Fielding Property Maps</span> (without
+      his knowledge or consent).
+    </p>
+    <!--
+    <h3>The Examples</h3>
+    <p>
+    	Three examples are included here. <b>The Poem</b> shows the use of published properties of a document
+    	(as <code>meta</code> tags) that can be accessed via the <span class="fpm">Fielding Property Maps</span> pattern.
+    	<b>Edit Properties</b> is an interactive example that allows users to modify the published properties
+    	of the Poem document. The <b>Edit Lock</b> example shows a simple way to grant and release locks on 
+    	an associated resource using the <span class="fpm">Fielding Property Maps</span> pattern.
+    </p>
+    -->
+    <h3>The Poem</h3>
+    <p>
+      This example uses a short poem that appears in RFC2731<a href="index.html#ref5" class="ref"><sup>[5]</sup></a>
+      to illustrate encoding Dublin Core Metadata<a href="index.html#ref6" class="ref"><sup>[6]</sup></a> into HTML documents.
+      The document can be loaded using a common browser and, in 'view source' mode, users can see
+      the <code>meta</code> tags in the <code>head</code> section of the document that contain
+      the Dublin Core Metadata values.
+    </p>
+    <h3>Edit Properties</h3>
+    <p>
+    	The "Edit Properties" resource can be used to modify the metadata for the poem document using
+    	the <span class="fpm">Fielding Property Maps</span> pattern. It supports the following: 
+    </p>
+    <pre>
+    GET     /poem;props           retrieves a list of properties for that document
+    GET     /poem;props?{<i>dcterm</i>}  retrieves a single property for that document
+    PUT     /poem;props?{<i>dcterm</i>}  supports updating the <i>value</i> the indicated property
+    DELETE  /poem;props?{<i>dcterm</i>}  deletes the <i>value</i> for the indicated {<i>dcterm</i>}, 
+                                  but does not remove the actual metadata entry.
+    </pre>
+    <!--
+    <h4>Edit Lock</h4>
+    <p>
+    	In the previously cited mailing list post, Fielding uses resource locking as a possible application
+    	of the <code>;props</code> URI convention. This is presented as an alternate to exposing a 
+    	<code>/lock</code> resource to reflect the status of an associated resource or the use of
+    	<code>LOCK</code><a href="#ref7" class="ref"><sup>[7]</sup></a> and 
+    	<code>UNLOCK</code><a href="#ref8" class="ref"><sup>[8]</sup></a> 
+    	WebDAV<a href="#ref9" class="ref"><sup>[9]</sup></a> methods.
+    </p>
+    <p>
+    	This example can be used to query, set, and release the lock status of the associated
+    	<code>/poem</code> resource using the <span class="fpm">Fielding Property Maps</span> pattern.
+    	This example supports the following:
+    </p>
+    <pre>
+    GET     /poem;props?lock             retrieves the lock status for the associated resoruce.
+    PUT     /poem;props?lock             locks the associated resource and returns the URI for releasing the lock.
+    DELETE  /poem;props?lock={<i>lock-id</i>}   releases the lock for the associated resource.
+    </pre>
+    <p>
+    	In order to simplify the public example, all actions are done using an anonymous (unauthenticated)
+    	user account. This means all users can lock/unlock the resource at any time. Also, this demonstration
+    	does not actually place a lock on the public <code>/poem</code> resource.
+    </p>
+    -->
+    <h3>Effects on caching</h3>
+    <p>
+    	When this pattern is used to modify public
+    	properties associated with the resource (e.g. Dublin Core values published as <code>meta</code>
+    	elements in the <code>head</code> section of the HTML document used in the Poem example)
+    	then the pattern is, essentially, acting as a partial update for the associated resource.
+    	As with any partial update pattern, <span class="fpm">Fielding Property Maps</span> 
+      can have negative effects on HTTP caches. 
+      In the case of each property edit (e.g. <code>/poem;props?author</code>) 
+    	shared and private caches should have no problem maintaining a fresh copy of the 
+    	property resource. 
+    	However, the cached primary resource (e.g. <code>/poem</code>) can become 'stale' since 
+    	caches are not likely to flush their copy when the associated property is modified. 
+    </p>
+    <p>	
+    	This problem
+    	can be mitigated by using 1) a <code>Cache-Control</code> header that contains 
+    	<code>Last-Modified</code> and/or <code>ETag</code> values on the primary resource; or 2)
+    	setting the primary resource <code>Cache-Control</code> header to 
+    	<code>No-Cache</code></a>.
+    	These less-than-optimal solutions may not be needed in cases where the property values
+    	are non-critical to the operation of the resource (most <code>meta</code> tags in the
+    	<code>head</code> section of HTML documents fall into this category) or  
+    	when this pattern is used to update properties
+    	of a resource that are not published within the primary resource (e.g. <code>?lock</code>
+    	or other similar values).
+    </p>
+    <h3>Acknowledgements</h3>
+    <p>
+    	Thanks to <a href="http://www.twitter.com/algermissen" title="Jan Algermissen">Jan Algermissen</a>
+    	for showing me Roy Fielding's email post on the subject.
+    </p>
+    <h3>References</h3>
+    <p>
+    	<ol>
+    		<li><a name="ref1" href="http://www.w3.org/Protocols/rfc2616/rfc2616.html" title="Hypertext Transfer Protocol -- HTTP/1.1" target="_blank">Hypertext Transfer Protocol -- HTTP/1.1</a></li>
+    		<li><a name="ref2" href="http://roy.gbiv.com/" title="Roy T. Fielding" target="_blank">Roy T. Fielding</a></li>
+        <li><a name="ref3" href="http://www.xent.com/pipermail/fork/2001-September/004712.html" title="WebDAV vs HTTP method semantics" target="_blank">WebDAV vs HTTP method semantics</a></li>
+        <li><a name="ref4" href="http://www.w3.org/TR/REC-html40/struct/objects.html#h-13.6" title="Image maps" target="_blank">Image maps</a></li>
+        <li><a name="ref5" href="http://www.ietf.org/rfc/rfc2731.txt" title="Encoding Dublin Core Metadata in HTML" target="_blank">Encoding Dublin Core Metadata in HTML (RFC2731)</a></li>
+        <li><a name="ref6" href="http://dublincore.org/" title="Dublin Core" target="_blank">Dublin Core Metadata</a></li>
+        <!--
+        <li><a name="ref7" href="http://www.webdav.org/specs/rfc2518.html#METHOD_LOCK" title="WebDAV LOCK Method" target="_blank">WebDAV LOCK Method</a></li>
+        <li><a name="ref8" href="http://www.webdav.org/specs/rfc2518.html#METHOD_UNLOCK" title="WebDAV UNLOCK Method" target="_blank">WebDAV UNLOCK Method</a></li>
+        <li><a name="ref9" href="http://www.webdav.org/specs/rfc2518.html" title="HTTP Extensions for Distributed Authoring -- WEBDAV" target="_blank">HTTP Extensions for Distributed Authoring -- WEBDAV</a></li>
+        <li><a name="ref7" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html" title="HTTP Caching" target="_blank">HTTP Caching</a></li>
+        <li><a name="ref8" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9" title="Cache-Control" target="_blank">Cache-Control</a></li>
+        <li><a name="ref9" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.29" title="Last-Modified" target="_blank">Last-Modified</a></li>
+        <li><a name="ref10" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19" title="ETag" target="_blank">ETag</a></li>
+        <li><a name="ref11" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.6" title="HTTP PUT Method" target="_blank">HTTP PUT Method</a></li>
+        <li><a name="ref12" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.7" title="HTTP DELETE Method" target="_blank">HTTP DELETE Method</a></li>
+        <li><a name="ref13" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.1" title="No-Cache" target="_blank">No-Cache</a></li>
+        -->
+      </ol>
+    </p>
+    </div><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+				_uacct = "UA-2399548-1";
+				urchinTracker();
+				</script></body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head profile="http://purl.org/NET/erdf/profile">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>
+					mca blog
+					
+									[is this REST?]
+								</title>
+    <link rel="alternate" type="application/x-wiki" title="Edit this blog" href="http://amundsen.com/blog/edit/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for mca blog" href="../feed/index.html">
+    <link rel="stylesheet" type="text/css" href="http://amundsen.com/server/conflate/?/xcs/blogging/css/blogging.css,/xcs/blogging/css/blogging-layout.css,/xcs/blogging/css/blogging-iran-election.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="MikeAmundsen and friends" href="http://wego-wego.appspot.com/friendfeed/mamund/osd/">
+    <link rel="schema.rdfs" href="http://www.w3.org/2000/01/rdf-schema#">
+    <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+    <link rel="schema.foaf" href="http://xmlns.com/foaf/0.1/">
+    <link rel="schema.bio" href="http://vocab.org/bio/0.1/">
+    <link rel="schema.contact" href="http://www.w3.org/2000/10/swap/pim/contact#">
+    <link rel="schema.air" href="http://www.daml.org/2001/10/html/airport-ont#">
+    <link rel="schema.wn" href="http://xmlns.com/wordnet/1.6/">
+    <link rel="schema.rss" href="http://purl.org/rss/1.0/">
+    <link rel="schema.terms" href="http://purl.org/dc/terms/">
+    <link rel="schema.rel" href="http://purl.org/vocab/relationship/">
+    <link rel="schema.geo" href="http://www.w3.org/2003/01/geo/wgs84_pos#">
+    <link rel="schema.aff" href="http://purl.org/vocab/affiliations/0.1/">
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+    <link rel="schema.org" href="http://purl.org/vocab/organizations/0.1/">
+    <link rel="schema.psych" href="http://purl.org/vocab/psychometric-profile/">
+    <link rel="schema.doap" href="http://usefulinc.com/ns/doap#">
+    <style type="text/css">
+					form
+					{
+					font-size:small;
+					padding:.3em;
+					text-align:center;
+					}
+					input
+					{
+					font-size:x-small;
+					}
+					#twitter_div
+					{
+					/*
+					width:95%
+					padding:.2em;
+					border:1px solid black;
+					*/
+					}
+					#twitter_div h2
+					{
+					margin:0;
+					padding:0;
+					float:right;
+					}
+					.twitter-title
+					{
+
+					}
+					#twitter_update_list
+					{
+					font-family:monospace;
+					list-style:none;
+					margin:0;
+					padding:0;
+					float:none;
+					clear:both;
+					}
+					#twitter_update_list li
+					{
+					border:1px solid silver;
+					background-color:#e6e6e6;
+					margin:.2em .2em;
+					}
+					.twitter-link
+					{
+					display:block;
+					float:right;
+					margin-right: .7em;
+					}
+					#twitter_div a
+					{
+					text-decoration:none;
+					}
+					#twitter_div a:hover
+					{
+					text-decoration:underline;
+					}
+					.empty
+					{
+					float:none;
+					clear:both;
+					visibility:hidden;
+					margin:0;
+					padding:0;
+					}
+				</style><script type="text/javascript" src="http://amundsen.com/server/conflate/?/xcs/blogging/scripts/blogging.js,/lib/jscap/jcap.js,/lib/jscap/md5.js">//</script></head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="../index.html" title="home page">mca blog</a></h1>
+        <p class="title-desc">life in lowercase</p>
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="../index.html" title="home page">Home</a></li>
+          <li><a href="../categories/index.html" title="blog categories">Categories</a></li>
+          <li><a href="../websites/index.html" title="intersting web sites">Web Sites</a></li>
+          <li><a href="index.html" title="browse the archives">Archives</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <h2 class="dc-title">is this REST?</h2>
+        <div class="weblog">
+          <div class="wb-header"><span class="foaf-maker" style="display:none;"><a href="http://www.amundsen.com/blog/author/mamund" title="Posted by mamund">mamund</a></span><span class="logdate" style="margin-left:1em;">2010-02-17 @ 19:27</span><span class="permalink"><a href="1033.html" title="perma-link">#</a></span></div>
+          <div class="dc-description"><p>
+<a href="http://www.flickr.com/photos/fotoosvanrobin/2784514642/" title="Comparing Shaoxing Ricewine">
+<img src="http://farm4.static.flickr.com/3040/2784514642_637abaf0c6_t.jpg" align="right" class="inline" />
+</a>
+recently, i've been contemplating the details of implementing application flow using REST over HTTP. along the way, i <a href="http://rest.hackyhack.net/2010-02-17.html#36/h36" title="">said in the REST IRC channel in freenode</a> that application flows may include multiple resource interactions, some of which may be considered 'interim' resource transitions. IOW, when dealing at the application level (not the HTTP or resource level) there are arcs that involve multiple state transitions.
+</p>
+<p>however, my online friend <a href="http://www.jalgermissen.com/" title="">Jan Algermissen</a> pointed out the use of interim state transitions may actually be a symptom of bad design.</p>
+<p>so i have a simple test. below are two implementations of an online survey. i claim both of them are examples of REST-ful implementations. What do you think?
+</p>
+<p>in addition, i have a number of questions at the end of the two examples to see how variations on this theme affect your answers.</p>
+<h4>a single-question survey</h4>
+<pre class="code">
+REQUEST ****
+GET /surveys/
+Host: www.example.org
+Accept: application/html
+
+RESPONSE ***
+HTTP/1.1 200 OK
+Content-Type:application/html
+
+...
+&lt;form method="post" action="http://www.example.org/surveys/"&gt;
+   &lt;label for="name"&gt;Name&lt;/label&gt;
+   &lt;input type="text" name="name" value="" /&gt;
+   &lt;input type="submit" /&gt;
+&lt;/form&gt;
+...
+
+REQUEST ***
+POST /surveys/
+Host: www.example.org
+Content-Type: application/www-form-urlencoded
+
+name=Mike
+
+RESPONSE ***
+HTTP/1.1 201 Created
+Location: http://www.example.org/surveys/1
+
+...
+&lt;a href="http://www.example.org/surveys/1"&gt;Begin&lt;/a&gt;
+...
+
+REQUEST ***
+GET /surveys/1
+Host: www.example.org
+Content-Type: applcation/html
+
+RESPONSE ***
+HTTP/1.1 200 OK
+Content-Type: application/html
+
+...
+&lt;form method="post" action="http://www.example.org/surveys/1"&gt;
+  &lt;label for"q1"&gt;Is this a REST-ful survey?&lt;/label&gt;
+  &lt;input name="q1" value="" /&gt;
+  &lt;input type="submit" /&gt;
+&lt;/form&gt;
+...
+
+REQUEST ***
+POST /surveys/1
+Host: www.example.org
+Content-Type: application/www-form-urlencoded
+
+q1=yes
+
+RESPONSE ***
+HTTP/1.1 200 OK
+Content-Type: text/plain
+
+Your survey answer has been recorded. 
+</pre>
+<h4>a two-question survey</h4>
+<pre class="code">
+REQUEST ****
+GET /surveys/
+Host: www.example.org
+Accept: application/html
+
+RESPONSE ***
+HTTP/1.1 200 OK
+Content-Type:application/html
+
+...
+&lt;form method="post" action="http://www.example.org/surveys/"&gt;
+   &lt;label for="name"&gt;Name&lt;/label&gt;
+   &lt;input type="text" name="name" value="" /&gt;
+   &lt;input type="submit" /&gt;
+&lt;/form&gt;
+...
+
+REQUEST ***
+POST /surveys/
+Host: www.example.org
+Content-Type: application/www-form-urlencoded
+
+name=Mike
+
+RESPONSE ***
+HTTP/1.1 201 Created
+Location: http://www.example.org/surveys/1
+
+...
+&lt;a href="http://www.example.org/surveys/1/q1"&gt;Begin&lt;/a&gt;
+...
+
+REQUEST ***
+GET /surveys/1/q1
+Host: www.example.org
+Content-Type: applcation/html
+
+RESPONSE ***
+HTTP/1.1 200 OK
+Content-Type: application/html
+
+...
+&lt;form method="post" action="http://www.example.org/surveys/1/q1"&gt;
+  &lt;label for"q1"&gt;Is this the first question?&lt;/label&gt;
+  &lt;input name="q1" value="" /&gt;
+  &lt;input type="submit" /&gt;
+&lt;/form&gt;
+...
+
+REQUEST ***
+POST /surveys/1/q1
+Host: www.example.org
+Content-Type: application/www-form-urlencoded
+
+q1=yes
+
+RESPONSE ***
+HTTP/1.1 200 OK
+Content-Type: application/html
+
+...
+&lt;a href="http://www.example.org/surveys/1/q2"&gt;Continue&lt;/a&gt;
+...
+
+REQUEST ***
+GET /surveys/1/q2
+Host: www.example.org
+Content-Type: applcation/html
+
+RESPONSE ***
+HTTP/1.1 200 OK
+Content-Type: application/html
+
+...
+&lt;form method="post" action="http://www.example.org/surveys/1/q2"&gt;
+  &lt;label for"q2"&gt;Is this a REST-ful survey?&lt;/label&gt;
+  &lt;input name="q2" value="" /&gt;
+  &lt;input type="submit" /&gt;
+&lt;/form&gt;
+...
+
+REQUEST ***
+POST /surveys/1/q2
+Host: www.example.org
+Content-Type: application/www-form-urlencoded
+
+q2=not sure
+
+RESPONSE ***
+HTTP/1.1 200 OK
+Content-Type: text/plain
+
+Your survey answers have been recorded. 
+</pre>
+
+<h4>for your consideration</h4>
+<p>
+now consider the following:
+<ol>
+<li>how do you create a REST-ful implementation of a survey with 75 questions?</li>
+<li>what should be the server response when a client application activates a question out of order (jumps from question #1 to question #13)?</li> 
+<li>does your answer change if the survey is adaptive? IOW, subsequent questions depend on the answers to previous questions?</li>
+<li>how do you create a REST-ful implementation of a timed survey; one in which each question must be answered within a fixed amount of time (60 seconds) and/or the entire survey must be completed within a fixed amount of time (30 minutes)?</li>
+<li>how do you create a REST-ful implementation of a survey that allows clients to save their partially-completed work and come back to finish it later?</li>
+<li>if a client returns to complete a survey, how does the server make sure the client picks up at the same place they left off?</li>
+<li>what if the user wants to complete the survey from a new location (home instead of office)?</li>
+</ol>
+</p></div>
+          <p class="category"><a href="index.html%3Fcategory=5.html" title="more from code...">code</a></p>
+          <hr><a id="comments"></a><script>
+						var idcomments_acct = 'b941b488f39712a0d6409992a0d7fc47';
+						var idcomments_post_id;
+						var idcomments_post_url;
+					</script><span id="IDCommentsPostTitle" style="display:none"></span><script type="text/javascript" src="http://www.intensedebate.com/js/genericCommentWrapperV2.js"></script></div>
+        <div> </div>
+      </div>
+      <div id="sidebar">
+        <h4>categories</h4>
+        <ul>
+          <li><a href="index.html%3Fcategory=33.html">Systems</a></li>
+          <li><a href="index.html%3Fcategory=32.html">CA</a></li>
+          <li><a href="index.html%3Fcategory=31.html">IoT</a></li>
+          <li><a href="index.html%3Fcategory=30.html">ALPS</a></li>
+          <li><a href="index.html%3Fcategory=29.html">API</a></li>
+          <li>[<a href="../categories/index.html%3Fall.html" title="view all categories">all</a>]</li>
+        </ul>
+        <h4>websites</h4>
+        <ul>
+          <li><a href="../websites/32.html">Untangled</a></li>
+          <li><a href="../websites/31.html">Anne’s Weblog</a></li>
+          <li><a href="../websites/30.html">exyus</a></li>
+          <li><a href="../websites/29.html">Random Stuff</a></li>
+          <li><a href="../websites/28.html">JScript Blog</a></li>
+          <li>[<a href="../websites/index.html%3Fall.html" title="view all websites">all</a>]</li>
+        </ul>
+        <h4>archives</h4>
+        <ul>
+          <li><a href="index.html%3Ftoday.html" title="today's posts">today</a></li>
+          <li><a href="index.html%3Fyesterday.html" title="yesterday's posts">yesterday</a></li>
+          <li><a href="index.html%3Fthisweek.html" title="this weeks's posts">this week</a></li>
+          <li><a href="index.html%3Flastweek.html" title="last week's posts">last week</a></li>
+          <li><a href="index.html%3Fthismonth.html" title="this month's posts">this month</a></li>
+          <li><a href="index.html%3Flastmonth.html" title="last month's posts">last month</a></li>
+          <li>
+								[<a href="index.html" title="browse the archives">browse</a>]
+							</li>
+        </ul>
+        <div> </div>
+        <div><xscript type="text/javascript" src="http://plancast.com/goodies/widgets/sidebar/1/15731">// plancast</xscript></div>
+        <div id="twitter_div">
+          <h4>my tweets</h4>
+          <ul id="twitter_update_list"></ul>
+          <div class="twitter-link"><a href="http://twitter.com/mamund" title="follow me on Twitter">
+									follow me
+								</a></div>
+          <hr class="empty">
+        </div>
+      </div>
+      <div id="ads" style="text-align:center;"><script type="text/javascript">
+							google_ad_client = "pub-2944238157647009";
+							google_ad_width = 728;
+							google_ad_height = 90;
+							google_ad_format = "728x90_as";
+							google_ad_type = "text";
+							//2007-08-10: amundsen.com
+							google_ad_channel = "2960096544";
+							google_color_border = "000000";
+							google_color_bg = "F0F0F0";
+							google_color_link = "000000";
+							google_color_text = "000000";
+							google_color_url = "000000";
+						</script><script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div>
+      <div id="footer">
+        <p>Copyright © 2007-2010 amundsen.com, inc. All rights reserved.</p>
+      </div>
+    </div><script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script><script type="text/javascript" src="http://twitter.com/statuses/user_timeline/mamund.json?callback=twitterCallback2&amp;count=5"></script><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+					_uacct = "UA-2399548-1";
+					urchinTracker();
+				</script></body>
+</html>
