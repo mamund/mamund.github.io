@@ -676,13 +676,13 @@ footnotes: function () {
         // Because JavaScript has no s (dotall) regex flag.
         note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
         spans[i].innerHTML =
-          "[<a id='_footnoteref_" + n + "' href='index.html#_footnote_" + n +
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
           "' title='View footnote' class='footnote'>" + n + "</a>]";
         spans[i].setAttribute("data-note", note);
       }
       noteholder.innerHTML +=
         "<div class='footnote' id='_footnote_" + n + "'>" +
-        "<a href='index.html#_footnoteref_" + n + "' title='Return to text'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
         n + "</a>. " + note + "</div>";
       var id =spans[i].getAttribute("id");
       if (id != null) refs["#"+id] = n;
@@ -698,7 +698,7 @@ footnotes: function () {
         href = href.match(/#.*/)[0];  // Because IE return full URL.
         n = refs[href];
         spans[i].innerHTML =
-          "[<a href='index.html#_footnote_" + n +
+          "[<a href='#_footnote_" + n +
           "' title='View footnote' class='footnote'>" + n + "</a>]";
       }
     }
@@ -757,18 +757,30 @@ asciidoc.install();
 <div class="sectionbody">
 <div class="dlist"><dl>
 <dt class="hdlist1">
+<strong>2025</strong>
+</dt>
+<dd>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://mamund.site44.com/talks/2025-08-bigsky-devcon/">Guiding Principles of Great Web APIs</a> _Delivered 2025-08-02 for <a href="https://bigskydevcon.com/">Big Sky DevCon 2025</a>
+</p>
+</li>
+</ul></div>
+</dd>
+<dt class="hdlist1">
 <strong>2024</strong>
 </dt>
 <dd>
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="2024-04-apidays-nyc/index.html">RESTful Web API Patterns and Practices</a> <em>Delivered 2024-04-30 for <a href="https://www.apidays.global/new-york/">API Days NYC</a></em>
+<a href="http://mamund.site44.com/talks/2024-04-apidays-nyc/">RESTful Web API Patterns and Practices</a> <em>Delivered 2024-04-30 for <a href="https://www.apidays.global/new-york/">API Days NYC</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2024-06-goto-ams/index.html">RESTful Web API Patterns and Practices (v2)</a> <em>Delivered 2024-06-11 for <a href="https://gotoams.nl/2024/sessions/3144/restful-api-patterns-and-practices">GOTO Amsterdam 2024</a></em>
+<a href="http://mamund.site44.com/talks/2024-06-goto-ams/">RESTful Web API Patterns and Practices (v2)</a> <em>Delivered 2024-06-11 for <a href="https://gotoams.nl/2024/sessions/3144/restful-api-patterns-and-practices">GOTO Amsterdam 2024</a></em>
 </p>
 </li>
 </ul></div>
@@ -786,22 +798,22 @@ asciidoc.install();
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="2021-06-apis-of-the-future/index.html">APIs of the Future : Are You Ready?</a> <em>Delivered 2021-06-30 for <a href="https://www.apidays.global/interface/">Interface by API Days : It&#8217;s APIs all the way down</a></em>
+<a href="http://mamund.site44.com/talks/2021-06-apis-of-the-future/">APIs of the Future : Are You Ready?</a> <em>Delivered 2021-06-30 for <a href="https://www.apidays.global/interface/">Interface by API Days : It&#8217;s APIs all the way down</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2021-05-orm-migration/index.html">API and Service Migration at Speed</a> <em>Delivered 2021-05-19 for <a href="https://learning.oreilly.com/attend/software-architecture-superstream-series-mastering-your-microservices-stack/0636920053229/0636920053228/">Software Architecture Superstream Series: Mastering Your Microservices Stack</a></em>
+<a href="http://mamund.site44.com/talks/2021-05-orm-migration/">API and Service Migration at Speed</a> <em>Delivered 2021-05-19 for <a href="https://learning.oreilly.com/attend/software-architecture-superstream-series-mastering-your-microservices-stack/0636920053229/0636920053228/">Software Architecture Superstream Series: Mastering Your Microservices Stack</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2021-02-postman-galaxy/index.html">Testing your APIs with Postman and Newman</a> <em>Delivered 2021-02-04 for <a href="https://www.postman.com/postman-galaxy/schedule/">Postman Galaxy 2021</a></em>
+<a href="http://mamund.site44.com/talks/2021-02-postman-galaxy/index.html">Testing your APIs with Postman and Newman</a> <em>Delivered 2021-02-04 for <a href="https://www.postman.com/postman-galaxy/schedule/">Postman Galaxy 2021</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2021-02-dagstuhl/index.html">From Steve Austin to Peter Norvig : Engineering AMEE, the Simple Autonomous Agent</a> <em>Delivered 2021-02-15 for <a href="https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=21072">Autonomous Agents on the Web</a></em>
+<a href="http://mamund.site44.com/talks/2021-02-dagstuhl/index.html">From Steve Austin to Peter Norvig : Engineering AMEE, the Simple Autonomous Agent</a> <em>Delivered 2021-02-15 for <a href="https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=21072">Autonomous Agents on the Web</a></em>
 </p>
 </li>
 </ul></div>
@@ -813,47 +825,47 @@ asciidoc.install();
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="2020-12-apidays-paris/index.html">Reconnecting with our Futures Past</a> <em>Delivered 2020-12-09 for <a href="http://https://www.apidays.co/paris/">API Days Paris</a></em>
+<a href="http://mamund.site44.com/talks/2020-12-apidays-paris/index.html">Reconnecting with our Futures Past</a> <em>Delivered 2020-12-09 for <a href="http://https://www.apidays.co/paris/">API Days Paris</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2020-11-iasa-global/index.html">Sustainable Software Systems : Meeting the Challenge of the Future</a> <em>Delivered 2020-11-19 for <a href="https://iasaglobal.org/Public/News/Articles/Sustainable-Software-Systems-Meeting-the-Challenge-of-the-Future.aspx">IASA Global : BIL-T</a></em>
+<a href="http://mamund.site44.com/talks/2020-11-iasa-global/index.html">Sustainable Software Systems : Meeting the Challenge of the Future</a> <em>Delivered 2020-11-19 for <a href="https://iasaglobal.org/Public/News/Articles/Sustainable-Software-Systems-Meeting-the-Challenge-of-the-Future.aspx">IASA Global : BIL-T</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2020-10-gids/index.html">Design and Build Great Web APIs</a> <em>Delivered 2020-10-01 for <a href="https://wurreka.com/ict/virtual-conference/web/">GIDS.WEB LIVE</a></em>
+<a href="http://mamund.site44.com/talks/2020-10-gids/index.html">Design and Build Great Web APIs</a> <em>Delivered 2020-10-01 for <a href="https://wurreka.com/ict/virtual-conference/web/">GIDS.WEB LIVE</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2020-10-apiworld/index.html">API World 2020 Talks</a> <em>Delivered 2020-10-27 and 2020-10-29 for <a href="https://apiworld.co/conference/speakers/">API World 2020</a></em>
+<a href="http://mamund.site44.com/talks/2020-10-apiworld/index.html">API World 2020 Talks</a> <em>Delivered 2020-10-27 and 2020-10-29 for <a href="https://apiworld.co/conference/speakers/">API World 2020</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2020-10-apicon/index.html">Speeding the Future of APIs</a> <em>Delivered October 3rd, 2020 for <a href="https://prensa.li/apicon/">APICon 2020</a>, Brazil</em>
+<a href="http://mamund.site44.com/talks/2020-10-apicon/index.html">Speeding the Future of APIs</a> <em>Delivered October 3rd, 2020 for <a href="https://prensa.li/apicon/">APICon 2020</a>, Brazil</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2020-07-gids/index.html">Service and API Migration at Speed</a> <em>Delivered 2020-07-02 for <a href="https://wurreka.com/ict/virtual-conference/architecture/">GIDS.Architecture 2020</a></em>
+<a href="http://mamund.site44.com/talks/2020-07-gids/index.html">Service and API Migration at Speed</a> <em>Delivered 2020-07-02 for <a href="https://wurreka.com/ict/virtual-conference/architecture/">GIDS.Architecture 2020</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2020-07-apidays/index.html">Design and Build Great Web APIs</a> <em>Delivered 2020-07-28 for <a href="https://www.apidays.co/newyork/">APIDays, NYC</a></em>
+<a href="http://mamund.site44.com/talks/2020-07-apidays/index.html">Design and Build Great Web APIs</a> <em>Delivered 2020-07-28 for <a href="https://www.apidays.co/newyork/">APIDays, NYC</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2020-06-interface/index.html">Design and Build Great Web APIs</a> <em>Delivered 2020-06-30 for <a href="https://www.apidays.co/interface/">INTERFACE by APIDays</a></em>
+<a href="http://mamund.site44.com/talks/2020-06-interface/index.html">Design and Build Great Web APIs</a> <em>Delivered 2020-06-30 for <a href="https://www.apidays.co/interface/">INTERFACE by APIDays</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2020-05-real-time/index.html">Real-time APIs and Performance</a>
+<a href="http://mamund.site44.com/talks/2020-05-real-time/index.html">Real-time APIs and Performance</a>
 </p>
 </li>
 </ul></div>
@@ -865,7 +877,7 @@ asciidoc.install();
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="2019-01-codemash/index.html">Learning the Three Types of Microservices</a> <em>Delivered 2019-01-10 at <a href="http://www.codemash.org/session-details/?id=65194">CodeMash</a>, Sandusky, OH USA</em>
+<a href="http://mamund.site44.com/talks/2019-01-codemash/index.html">Learning the Three Types of Microservices</a> <em>Delivered 2019-01-10 at <a href="http://www.codemash.org/session-details/?id=65194">CodeMash</a>, Sandusky, OH USA</em>
 </p>
 </li>
 </ul></div>
@@ -877,82 +889,82 @@ asciidoc.install();
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="2018-01-paris/index.html">Sustainable Software Systems,</a> <em>Delivered 2018-01-30 at <a href="http://www.apidays.io/events/paris-2017">API Days Paris, 2018</a>, Paris, France</em>
+<a href="http://mamund.site44.com/talks/2018-01-paris/index.html">Sustainable Software Systems,</a> <em>Delivered 2018-01-30 at <a href="http://www.apidays.io/events/paris-2017">API Days Paris, 2018</a>, Paris, France</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-02-sacon/index.html">Understanding Microservices from the Ground Up</a> <em>Delivered 2018-2-26 at <a href="https://conferences.oreilly.com/software-architecture/sa-ny/public/schedule/detail/64016">O&#8217;Reilly Software Architecture Conference</a>, New York, USA</em>
+<a href="http://mamund.site44.com/talks/2018-02-sacon/index.html">Understanding Microservices from the Ground Up</a> <em>Delivered 2018-2-26 at <a href="https://conferences.oreilly.com/software-architecture/sa-ny/public/schedule/detail/64016">O&#8217;Reilly Software Architecture Conference</a>, New York, USA</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-03-osls/index.html">The Future of Open APIs on the Web</a> <em>Delivered 2018-3-08 at <a href="https://osls18.sched.com/event/Djsm/cathedrals-in-the-cloud-the-future-of-open-apis-and-the-web-mike-amundsen-author">Open Source Leadership Summit 2018</a>, Sonoma, California, USA</em>
+<a href="http://mamund.site44.com/talks/2018-03-osls/index.html">The Future of Open APIs on the Web</a> <em>Delivered 2018-3-08 at <a href="https://osls18.sched.com/event/Djsm/cathedrals-in-the-cloud-the-future-of-open-apis-and-the-web-mike-amundsen-author">Open Source Leadership Summit 2018</a>, Sonoma, California, USA</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-03-bmw/index.html">Driving Digital Transformation at Speed</a> <em>Delivered 2018-3-15 at <a href="https://transform.ca.com/638587-BMW-APIM-Event-Mar-15-LP.html">API Management and Microservices BMW Event</a>, Greenville, SC, USA</em>
+<a href="http://mamund.site44.com/talks/2018-03-bmw/index.html">Driving Digital Transformation at Speed</a> <em>Delivered 2018-3-15 at <a href="https://transform.ca.com/638587-BMW-APIM-Event-Mar-15-LP.html">API Management and Microservices BMW Event</a>, Greenville, SC, USA</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-04-yow-perth/index.html">APIS : Good to Great</a> <em>Delivered 2018-04-18 at <a href="http://nights.yowconference.com.au/archive-2018/yow-night-2018-perth-mike-amundsen-apr-18/">YOW! Nights 2018 Perth</a>, Perth, WA, Australia</em>
+<a href="http://mamund.site44.com/talks/2018-04-yow-perth/index.html">APIS : Good to Great</a> <em>Delivered 2018-04-18 at <a href="http://nights.yowconference.com.au/archive-2018/yow-night-2018-perth-mike-amundsen-apr-18/">YOW! Nights 2018 Perth</a>, Perth, WA, Australia</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-05-qconsp/index.html">Microservices, APIs, and the Autonomous Web</a> <em>Delivered 2018-5-09 at <a href="https://qconsp.com/sp2018/speaker/mike-amundsen">QCon Sao Paulo 2018</a>, Sao Paulo, Brazil</em>
+<a href="http://mamund.site44.com/talks/2018-05-qconsp/index.html">Microservices, APIs, and the Autonomous Web</a> <em>Delivered 2018-5-09 at <a href="https://qconsp.com/sp2018/speaker/mike-amundsen">QCon Sao Paulo 2018</a>, Sao Paulo, Brazil</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-05-microcph/index.html">Discovering Microservices: A Traveler&#8217;s Guide</a> <em>Delivered 2018-5-15 at <a href="https://microcph.dk/#speakers">MicroCPH 2018</a>, Copenhagen, Denmark</em>
+<a href="http://mamund.site44.com/talks/2018-05-microcph/index.html">Discovering Microservices: A Traveler&#8217;s Guide</a> <em>Delivered 2018-5-15 at <a href="https://microcph.dk/#speakers">MicroCPH 2018</a>, Copenhagen, Denmark</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-05-sealights/index.html">APIs : From Good To Great</a> <em>Delivered 2018-05-30 online for the <a href="http://sealights.io">SeaLights.io</a> Webinar Series</em>
+<a href="http://mamund.site44.com/talks/2018-05-sealights/index.html">APIs : From Good To Great</a> <em>Delivered 2018-05-30 online for the <a href="http://sealights.io">SeaLights.io</a> Webinar Series</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-06-atlassian/index.html">Scaling the Future</a> <em>Delivered 2018-6-19 for Atlassian Corportation, PLC</em>
+<a href="http://mamund.site44.com/talks/2018-06-atlassian/index.html">Scaling the Future</a> <em>Delivered 2018-6-19 for Atlassian Corportation, PLC</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-06-music-city/index.html">Learning the Three Types of Microservices</a>  <em>Delivered 2018-6-01 at <a href="http://www.musiccitytech.com/sessions/#sz-session-35377">Music City Code 2018</a>, Nashville, TN, USA</em>
+<a href="http://mamund.site44.com/talks/2018-06-music-city/index.html">Learning the Three Types of Microservices</a>  <em>Delivered 2018-6-01 at <a href="http://www.musiccitytech.com/sessions/#sz-session-35377">Music City Code 2018</a>, Nashville, TN, USA</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-06-tech4good/index.html">Work Models Future</a> <em>Delivered 2018-6-16 at Tech For Good, Albequerque, NM, USA</em>
+<a href="http://mamund.site44.com/talks/2018-06-tech4good/index.html">Work Models Future</a> <em>Delivered 2018-6-16 at Tech For Good, Albequerque, NM, USA</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-09-webexpo/index.html">Bots on the Net: The Good, the Bad, and the Future</a> <em>Delivered 2018-9-22 at <a href="https://www.webexpo.net/prague2018/talk?id=bots-on-the-net-the-good-the-bad-and-the-future">WebExpo</a>, Prague, Czech Republic</em>
+<a href="http://mamund.site44.com/talks/2018-09-webexpo/index.html">Bots on the Net: The Good, the Bad, and the Future</a> <em>Delivered 2018-9-22 at <a href="https://www.webexpo.net/prague2018/talk?id=bots-on-the-net-the-good-the-bad-and-the-future">WebExpo</a>, Prague, Czech Republic</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-09-restfest/index.html">Using Web Sequence Diagrams with your APIs</a> <em>Delivered 2018-9-29 at <a href="https://github.com/RESTFest/2018-Greenville/wiki/Mike-Amundsen">RESTFest</a>, Greenville, SC USA</em>
+<a href="http://mamund.site44.com/talks/2018-09-restfest/index.html">Using Web Sequence Diagrams with your APIs</a> <em>Delivered 2018-9-29 at <a href="https://github.com/RESTFest/2018-Greenville/wiki/Mike-Amundsen">RESTFest</a>, Greenville, SC USA</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-10-sacon/index.html">Learning the Three Types of Microservices</a> <em>Delivered 2018-10-30 at <a href="https://conferences.oreilly.com/software-architecture/sa-eu/public/schedule/detail/70566">O&#8217;Reilly Software Architecture Conference</a>, London</em>
+<a href="http://mamund.site44.com/talks/2018-10-sacon/index.html">Learning the Three Types of Microservices</a> <em>Delivered 2018-10-30 at <a href="https://conferences.oreilly.com/software-architecture/sa-eu/public/schedule/detail/70566">O&#8217;Reilly Software Architecture Conference</a>, London</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-11-oslc/index.html">Open Services, Interoperability, and Hypermedia</a> <em>Delivered 2018-11-05 at <a href="http://oslcfest.org/program/open-services-interoperability-and-hypermedia/">OSLC Fest 2018 Stockholm, Sweden</a></em>
+<a href="http://mamund.site44.com/talks/2018-11-oslc/index.html">Open Services, Interoperability, and Hypermedia</a> <em>Delivered 2018-11-05 at <a href="http://oslcfest.org/program/open-services-interoperability-and-hypermedia/">OSLC Fest 2018 Stockholm, Sweden</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2018-12-apidays/index.html">Bots on the Net: The Good, the Bad, and the Future</a> <em>Delivered 2018-12-12 at <a href="https://https://www.apidays.co/paris">APIDays Paris</a>, Paris, France</em>
+<a href="http://mamund.site44.com/talks/2018-12-apidays/index.html">Bots on the Net: The Good, the Bad, and the Future</a> <em>Delivered 2018-12-12 at <a href="https://https://www.apidays.co/paris">APIDays Paris</a>, Paris, France</em>
 </p>
 </li>
 </ul></div>
@@ -964,47 +976,47 @@ asciidoc.install();
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="2017-03-sxsw/index.html">Twelve Patterns for Evolvable APIs</a> <em>Delivered 2017-03-12 at <a href="http://schedule.sxsw.com/2017/events/PP96500">SXSW</a>, Austin, TX</em>
+<a href="http://mamund.site44.com/talks/2017-03-sxsw/index.html">Twelve Patterns for Evolvable APIs</a> <em>Delivered 2017-03-12 at <a href="http://schedule.sxsw.com/2017/events/PP96500">SXSW</a>, Austin, TX</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2017-04-craftconf/index.html">Twelve Patterns for Hypermedia Microservices</a> <em>Delivered 2017-04-27 at <a href="http://craft-conf.com/2017/speaker/MikeAmundsen">Craft Conf 2017</a>, Budapest, Hungary</em>
+<a href="http://mamund.site44.com/talks/2017-04-craftconf/index.html">Twelve Patterns for Hypermedia Microservices</a> <em>Delivered 2017-04-27 at <a href="http://craft-conf.com/2017/speaker/MikeAmundsen">Craft Conf 2017</a>, Budapest, Hungary</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2017-07-vs-nyc/index.html">From APIs to Microservices: Design and Build</a> <em>Delivered 2017-07-11 at <a href="http://ca.6connex.com/event/APIM/en-us#!/FullAPILifecycleTheatre/n231052">CA Virtual Summit NYC, 2017</a>, New York, NY</em>
+<a href="http://mamund.site44.com/talks/2017-07-vs-nyc/index.html">From APIs to Microservices: Design and Build</a> <em>Delivered 2017-07-11 at <a href="http://ca.6connex.com/event/APIM/en-us#!/FullAPILifecycleTheatre/n231052">CA Virtual Summit NYC, 2017</a>, New York, NY</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2017-07-chattanooga/index.html">Web API Design Maturity Model</a> <em>Delivered 2017-07-28 at <a href="https://www.conferize.com/scenic-city-summit-2017">Scenic City Summit 2017</a>, Chattanooga, TN</em>
+<a href="http://mamund.site44.com/talks/2017-07-chattanooga/index.html">Web API Design Maturity Model</a> <em>Delivered 2017-07-28 at <a href="https://www.conferize.com/scenic-city-summit-2017">Scenic City Summit 2017</a>, Chattanooga, TN</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2017-08-vs-boulder/index.html">Microservices Migration Roadmap</a> <em>Delivered 2017-08-14 at <a href="http://ca.6connex.com/event/APIM/en-us#!/FullAPILifecycleTheatre/n231052">CA Virtual Summit Boulder 2017</a>, Boulder, CO</em>
+<a href="http://mamund.site44.com/talks/2017-08-vs-boulder/index.html">Microservices Migration Roadmap</a> <em>Delivered 2017-08-14 at <a href="http://ca.6connex.com/event/APIM/en-us#!/FullAPILifecycleTheatre/n231052">CA Virtual Summit Boulder 2017</a>, Boulder, CO</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2017-09-restfest/index.html">Three Types of Microservices Components</a> <em>Delivered 2017-09-16 at <a href="https://github.com/RESTFest/2017-Greenville/wiki/Mike-Amundsen">RESTFest 2017</a>, Greenville, SC, USA</em>
+<a href="http://mamund.site44.com/talks/2017-09-restfest/index.html">Three Types of Microservices Components</a> <em>Delivered 2017-09-16 at <a href="https://github.com/RESTFest/2017-Greenville/wiki/Mike-Amundsen">RESTFest 2017</a>, Greenville, SC, USA</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2017-09-webexpo/index.html">Dreams, Lies, and the Autonomous Web Revisited</a> <em>Delivered 2017-09-24 at <a href="https://www.webexpo.net/prague2017/talk/dreams-lies-and-the-autonomous-web/">WebExpo 2017</a>, Prague, CZ</em>
+<a href="http://mamund.site44.com/talks/2017-09-webexpo/index.html">Dreams, Lies, and the Autonomous Web Revisited</a> <em>Delivered 2017-09-24 at <a href="https://www.webexpo.net/prague2017/talk/dreams-lies-and-the-autonomous-web/">WebExpo 2017</a>, Prague, CZ</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2017-11-caworld/index.html">Microservices – How to Safely Speed Up Your Digital Innovation</a>, <em>Delivered 2017-11-16 at <a href="https://cloud.kapostcontent.net/pub/92ce3367-5e5a-462f-9a3b-e3d5c0fb6b39/do1t56t-tt2-thu-330-amundsenm.pdf/">CA World 2017</a>, Las Vegas, NV</em>
+<a href="http://mamund.site44.com/talks/2017-11-caworld/index.html">Microservices – How to Safely Speed Up Your Digital Innovation</a>, <em>Delivered 2017-11-16 at <a href="https://cloud.kapostcontent.net/pub/92ce3367-5e5a-462f-9a3b-e3d5c0fb6b39/do1t56t-tt2-thu-330-amundsenm.pdf/">CA World 2017</a>, Las Vegas, NV</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2017-12-yow/index.html">Twelve Patterns for Evolvable APIs Revisited</a>, <em>Delivered 2017-12-08 at <a href="http://sydney.yowconference.com.au/proposal/?id=5174">YOW! Sydney 2017</a>, Melbourne, AUS</em>
+<a href="http://mamund.site44.com/talks/2017-12-yow/index.html">Twelve Patterns for Evolvable APIs Revisited</a>, <em>Delivered 2017-12-08 at <a href="http://sydney.yowconference.com.au/proposal/?id=5174">YOW! Sydney 2017</a>, Melbourne, AUS</em>
 </p>
 </li>
 </ul></div>
@@ -1016,62 +1028,62 @@ asciidoc.install();
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="2016-03-apidays-aus/index.html">API : The <em>I</em> Stands for Innovation</a> <em>Delivered 2016-03-01 @ <a href="http://au.apidays.io/">APIDays Melbourne, 2016</a>, Melbourne, Australia</em>
+<a href="http://mamund.site44.com/talks/2016-03-apidays-aus/index.html">API : The <em>I</em> Stands for Innovation</a> <em>Delivered 2016-03-01 @ <a href="http://au.apidays.io/">APIDays Melbourne, 2016</a>, Melbourne, Australia</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2016-03-zero-to-hyper/index.html">Zero to Hypermedia in 30 Minutes</a> <em>Delivered 2016-03-02 @ <a href="http://au.apidays.io/">APIDays Melbourne, 2016</a>, Melbourne, Australia</em>
+<a href="http://mamund.site44.com/talks/2016-03-zero-to-hyper/index.html">Zero to Hypermedia in 30 Minutes</a> <em>Delivered 2016-03-02 @ <a href="http://au.apidays.io/">APIDays Melbourne, 2016</a>, Melbourne, Australia</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2016-03-qconsp-teams/index.html">Building Effective Microservice Teams</a> <em>Delivered 2016-03-28 @ <a href="http://qconsp.com/presentation/Building-Effective-Microservice-Teams">QconSP, 2016</a>, Sao Paulo, Brazil</em>
+<a href="http://mamund.site44.com/talks/2016-03-qconsp-teams/index.html">Building Effective Microservice Teams</a> <em>Delivered 2016-03-28 @ <a href="http://qconsp.com/presentation/Building-Effective-Microservice-Teams">QconSP, 2016</a>, Sao Paulo, Brazil</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2016-04-sacon-patterns/index.html">Twelve Patterns for Hypermedia Service Architecture</a> <em>Delivered 2016-04-12 at <a href="http://conferences.oreilly.com/software-architecture/engineering-business-us/public/schedule/detail/47869">Software Architecture 2016</a>, NYC</em>
+<a href="http://mamund.site44.com/talks/2016-04-sacon-patterns/index.html">Twelve Patterns for Hypermedia Service Architecture</a> <em>Delivered 2016-04-12 at <a href="http://conferences.oreilly.com/software-architecture/engineering-business-us/public/schedule/detail/47869">Software Architecture 2016</a>, NYC</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2016-06-wsrest/index.html">Web API Design Maturity Model</a> <em>Delivered 2016-06-09 at <a href="https://github.com/apiacademy/WSREST2016/wiki">WS-REST  2016</a>, Lugano, Swizterland</em>
+<a href="http://mamund.site44.com/talks/2016-06-wsrest/index.html">Web API Design Maturity Model</a> <em>Delivered 2016-06-09 at <a href="https://github.com/apiacademy/WSREST2016/wiki">WS-REST  2016</a>, Lugano, Swizterland</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2016-06-api360-conway/index.html">Sixty Years of Humanzing the Craft with Mel Conway</a> <em>Delivered 2016-06-14 at <a href="http://www.apiacademy.co/api360/">API360 Summit, NYC</a>, New York, NY</em>
+<a href="http://mamund.site44.com/talks/2016-06-api360-conway/index.html">Sixty Years of Humanzing the Craft with Mel Conway</a> <em>Delivered 2016-06-14 at <a href="http://www.apiacademy.co/api360/">API360 Summit, NYC</a>, New York, NY</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2016-07-restfest-conway/index.html">Conway&#8217;s Four Laws</a> <em>Delivered 2016-07-16 at <a href="https://github.com/RESTFest/2016-Edinburgh/wiki">RESTFest Edinburgh 2016</a>, Edinburgh, Scotland</em>
+<a href="http://mamund.site44.com/talks/2016-07-restfest-conway/index.html">Conway&#8217;s Four Laws</a> <em>Delivered 2016-07-16 at <a href="https://github.com/RESTFest/2016-Edinburgh/wiki">RESTFest Edinburgh 2016</a>, Edinburgh, Scotland</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2016-09-api-world/index.html">Establishing a Foundation for Microservices</a> <em>Delivered 2016-09-12 at <a href="https://apiworld2016.sched.org/speaker/mca3?iframe=no&amp;w=&amp;sidebar=yes&amp;bg=no">API:World 2016</a>, San Jose, California</em>
+<a href="http://mamund.site44.com/talks/2016-09-api-world/index.html">Establishing a Foundation for Microservices</a> <em>Delivered 2016-09-12 at <a href="https://apiworld2016.sched.org/speaker/mca3?iframe=no&amp;w=&amp;sidebar=yes&amp;bg=no">API:World 2016</a>, San Jose, California</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2016-10-gartner/index.html">Microserivices: How to safely speed up your digital innovation</a> <em>Delivered 2016-10-27 at <a href="http://www.gartner.com/events/apac/gold-coast-symposium#!speakerDetails-11131011">Gartner Symposium/ITxpo 2016</a>, Gold Coast, QLD, Australia</em>
+<a href="http://mamund.site44.com/talks/2016-10-gartner/index.html">Microserivices: How to safely speed up your digital innovation</a> <em>Delivered 2016-10-27 at <a href="http://www.gartner.com/events/apac/gold-coast-symposium#!speakerDetails-11131011">Gartner Symposium/ITxpo 2016</a>, Gold Coast, QLD, Australia</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2016-11-apistrat-wadm/index.html">Web API Maturity Model</a> <em>Delivered 2016-11-03 at <a href="http://boston2016.apistrat.com/schedule/">APIStrat Boston 2016</a>, Boston, MA</em>
+<a href="http://mamund.site44.com/talks/2016-11-apistrat-wadm/index.html">Web API Maturity Model</a> <em>Delivered 2016-11-03 at <a href="http://boston2016.apistrat.com/schedule/">APIStrat Boston 2016</a>, Boston, MA</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2016-11-apistrat-chaos/index.html">Unleash the Chaos</a> <em>Delivered 2016-11-03 at <a href="http://boston2016.apistrat.com/speakers/mike-amundsen">APIStrat Boston 2016</a>, Boston, MA</em>
+<a href="http://mamund.site44.com/talks/2016-11-apistrat-chaos/index.html">Unleash the Chaos</a> <em>Delivered 2016-11-03 at <a href="http://boston2016.apistrat.com/speakers/mike-amundsen">APIStrat Boston 2016</a>, Boston, MA</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2016-12-apidays-autonomic/index.html">Coming to Terms with our Autonomic Future</a> <em>Delivered 2016-12-13 at <a href="http://apidays.io/">APIDays Paris 2016</a>, Paris, France</em>
+<a href="http://mamund.site44.com/talks/2016-12-apidays-autonomic/index.html">Coming to Terms with our Autonomic Future</a> <em>Delivered 2016-12-13 at <a href="http://apidays.io/">APIDays Paris 2016</a>, Paris, France</em>
 </p>
 </li>
 </ul></div>
@@ -1083,77 +1095,77 @@ asciidoc.install();
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="2015-02-apidays-sydney/index.html">Liberating the API Economy with Scale-Free Networks</a> <em>Delivered 2015-02-10 @ 13:30 for <a href="http://syd.apidays.io">API Days Sydney</a></em>
+<a href="http://mamund.site44.com/talks/2015-02-apidays-sydney/index.html">Liberating the API Economy with Scale-Free Networks</a> <em>Delivered 2015-02-10 @ 13:30 for <a href="http://syd.apidays.io">API Days Sydney</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-03-api-connections/index.html">50+ Years of Digital Transformation</a> <em>Delivered 2015-03-18 @ 10:30 for <a href="http://www.ca.com/fr/events/seminars/emea/what-is-api-instead-in-an-omni-strategy/14-04-2015.aspx">API Connections Paris</a></em>
+<a href="http://mamund.site44.com/talks/2015-03-api-connections/index.html">50+ Years of Digital Transformation</a> <em>Delivered 2015-03-18 @ 10:30 for <a href="http://www.ca.com/fr/events/seminars/emea/what-is-api-instead-in-an-omni-strategy/14-04-2015.aspx">API Connections Paris</a></em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-03-hhcamp/index.html">Putting Big Data in its Place</a> <em>Delivered 2015-03-20 at <a href="http://hackinghealth.camp/health-data-day.html">HHCamp</a>, Strasbourg, France</em>
+<a href="http://mamund.site44.com/talks/2015-03-hhcamp/index.html">Putting Big Data in its Place</a> <em>Delivered 2015-03-20 at <a href="http://hackinghealth.camp/health-data-day.html">HHCamp</a>, Strasbourg, France</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-04-codepalousa/semantic-gap.html">REST, Hypermedia, and the Semantic Gap</a> <em>Delivered 2015-04-28 at Code PaLOUsa, Louisville, KY</em>
+<a href="http://mamund.site44.com/talks/2015-04-codepalousa/semantic-gap.html">REST, Hypermedia, and the Semantic Gap</a> <em>Delivered 2015-04-28 at Code PaLOUsa, Louisville, KY</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-04-codepalousa/api-methodology.html">API Design Methodology</a> <em>Delivered 2015-04-29 at Code PaLOUsa, Louisville, KY</em>
+<a href="http://mamund.site44.com/talks/2015-04-codepalousa/api-methodology.html">API Design Methodology</a> <em>Delivered 2015-04-29 at Code PaLOUsa, Louisville, KY</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-05-barcelona/index.html">From Stacia to Hyperion and Back Again : A Hypermedia Hero&#8217;s Tale</a> <em>Delivered 2015-05-05 at <a href="http://mediterranea.apidays.io/">API Days Mediterranean</a>, Barcelona</em>
+<a href="http://mamund.site44.com/talks/2015-05-barcelona/index.html">From Stacia to Hyperion and Back Again : A Hypermedia Hero&#8217;s Tale</a> <em>Delivered 2015-05-05 at <a href="http://mediterranea.apidays.io/">API Days Mediterranean</a>, Barcelona</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-06-ndcoslo/index.html">Learning Client Hypermedia from the Ground Up</a> <em>Delivered 2015-06-19 at <a href="http://www.ndcoslo.com/">NDC Oslo</a>, Oslo, Norway</em>
+<a href="http://mamund.site44.com/talks/2015-06-ndcoslo/index.html">Learning Client Hypermedia from the Ground Up</a> <em>Delivered 2015-06-19 at <a href="http://www.ndcoslo.com/">NDC Oslo</a>, Oslo, Norway</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-06-plex/index.html">Beyond Source Code</a> <em>Delivered 2015-06-02 at <a href="http://plex2e.com/conference/">CA 2E/Plex Conference</a> in Austin, TX</em>
+<a href="http://mamund.site44.com/talks/2015-06-plex/index.html">Beyond Source Code</a> <em>Delivered 2015-06-02 at <a href="http://plex2e.com/conference/">CA 2E/Plex Conference</a> in Austin, TX</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-08-qcon-rio/index.html">Adaptable Clients and Evolvable APIs</a> <em>Delivered 2015-08-27 at <a href="http://qconrio.com/speaker/mike-amundsen">QCon Rio 2015</a>, Rio de Janeiro, Brazil</em>
+<a href="http://mamund.site44.com/talks/2015-08-qcon-rio/index.html">Adaptable Clients and Evolvable APIs</a> <em>Delivered 2015-08-27 at <a href="http://qconrio.com/speaker/mike-amundsen">QCon Rio 2015</a>, Rio de Janeiro, Brazil</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-10-infosys-india/index.html">APIs, Banks, and Disruption/Innovation</a> <em>Delivered 2015-10-08 at Infosys Finacle Forum, Bangalore, India</em>
+<a href="http://mamund.site44.com/talks/2015-10-infosys-india/index.html">APIs, Banks, and Disruption/Innovation</a> <em>Delivered 2015-10-08 at Infosys Finacle Forum, Bangalore, India</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-10-qcon-autonomous/index.html">Dreams, Lies, and the Autonomous Web</a> <em>Delivered 2015-10-17 at <a href="http://2015.qconshanghai.com/speakers/202025">QCon 2015</a>, Shanghai, China</em>
+<a href="http://mamund.site44.com/talks/2015-10-qcon-autonomous/index.html">Dreams, Lies, and the Autonomous Web</a> <em>Delivered 2015-10-17 at <a href="http://2015.qconshanghai.com/speakers/202025">QCon 2015</a>, Shanghai, China</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-10-qcon-teams/index.html">Building Effective Microservice Teams</a> <em>Delivered 2015-10-17 @ <a href="http://2015.qconshanghai.com/speakers/202025">QCon Shangahi 2015</a>, Shanghai, China</em>
+<a href="http://mamund.site44.com/talks/2015-10-qcon-teams/index.html">Building Effective Microservice Teams</a> <em>Delivered 2015-10-17 @ <a href="http://2015.qconshanghai.com/speakers/202025">QCon Shangahi 2015</a>, Shanghai, China</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-10-velocity-teams/index.html">Conway&#8217;s Three Other Laws</a> <em>Delivered 2015-10-29 @ <a href="http://velocityconf.com/devops-web-performance-eu-2015/public/schedule/detail/44500">Velocity EU 2015</a>, Amsterdam, Netherlands</em>
+<a href="http://mamund.site44.com/talks/2015-10-velocity-teams/index.html">Conway&#8217;s Three Other Laws</a> <em>Delivered 2015-10-29 @ <a href="http://velocityconf.com/devops-web-performance-eu-2015/public/schedule/detail/44500">Velocity EU 2015</a>, Amsterdam, Netherlands</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-11-caworld-dorr/index.html">Implementing Adaptable Microservices</a> <em>Delivered 2015-11-18 @ <a href="https://www.travelhq.com/ConferenceServices/ECS/SessionCatalog/caworld15">CAWorld 2015</a>, Las Vegas, NV</em>
+<a href="http://mamund.site44.com/talks/2015-11-caworld-dorr/index.html">Implementing Adaptable Microservices</a> <em>Delivered 2015-11-18 @ <a href="https://www.travelhq.com/ConferenceServices/ECS/SessionCatalog/caworld15">CAWorld 2015</a>, Las Vegas, NV</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2015-11-apistrat-innovation/index.html">Fostering Innovation</a> <em>Delivered 2015-11-19 @ <a href="http://austin2015.apistrat.com/">APIStrat Austin 2015</a>, Austin, TX</em>
+<a href="http://mamund.site44.com/talks/2015-11-apistrat-innovation/index.html">Fostering Innovation</a> <em>Delivered 2015-11-19 @ <a href="http://austin2015.apistrat.com/">APIStrat Austin 2015</a>, Austin, TX</em>
 </p>
 </li>
 </ul></div>
@@ -1165,62 +1177,62 @@ asciidoc.install();
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="2014-03-apistrat/index.html">Self-Replication, Strandbeest, and the Game of Life</a> <em>Delivered at APIStrat Amsterdam on 2014-03-27</em>
+<a href="http://mamund.site44.com/talks/2014-03-apistrat//index.html">Self-Replication, Strandbeest, and the Game of Life</a> <em>Delivered at APIStrat Amsterdam on 2014-03-27</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2014-04-wsrest/index.html">Follow Your Nose or Hold Your Nose?</a> <em>Delivered at WSREST2014 talk in Seoul, SK on 2014-04-07</em>
+<a href="http://mamund.site44.com/talks/2014-04-wsrest/index.html">Follow Your Nose or Hold Your Nose?</a> <em>Delivered at WSREST2014 talk in Seoul, SK on 2014-04-07</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2014-05-gluecon/index.html">Mapping the API Landscape</a> <em>Delivered at <a href="http://gluecon.com/apistrat-tech-un-workshop-gluecon//">APIStrat Un-Workshop</a> on 2014-05-20</em>
+<a href="http://mamund.site44.com/talks/2014-05-gluecon/index.html">Mapping the API Landscape</a> <em>Delivered at <a href="http://gluecon.com/apistrat-tech-un-workshop-gluecon//">APIStrat Un-Workshop</a> on 2014-05-20</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2014-06-apicraft-nyc/index.pdf">API Design Methodology</a> <em>Delivered at <a href="http://www.meetup.com/API-Craft-NYC/events/166198312/">API-Craft NYC</a> on 2014-06-11</em>
+<a href="http://mamund.site44.com/talks/2014-06-apicraft-nyc/index.pdf">API Design Methodology</a> <em>Delivered at <a href="http://www.meetup.com/API-Craft-NYC/events/166198312/">API-Craft NYC</a> on 2014-06-11</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2014-06-cloudantcon/2014-06-cloudantcon-slides.pdf">Making Cloud Data Usable</a> <em>Delivered at <a href="http://www.cloudantcon.com/agenda-at-a-glance/">CloudantCON 2014</a> on 2014-06-17</em>
+<a href="http://mamund.site44.com/talks/2014-06-cloudantcon/2014-06-cloudantcon-slides.pdf">Making Cloud Data Usable</a> <em>Delivered at <a href="http://www.cloudantcon.com/agenda-at-a-glance/">CloudantCON 2014</a> on 2014-06-17</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2014-06-qconnyc/2014-06-qconnyc.pdf">Clients Matter, Services Don&#8217;t : Recovering the Future of the Web</a> <em>Delivered at <a href="https://qconnewyork.com/ny2014/presentation/clients-matter-services-dont.html">QCon New York</a> on 2014-06-13</em>
+<a href="http://mamund.site44.com/talks/2014-06-qconnyc/2014-06-qconnyc.pdf">Clients Matter, Services Don&#8217;t : Recovering the Future of the Web</a> <em>Delivered at <a href="https://qconnewyork.com/ny2014/presentation/clients-matter-services-dont.html">QCon New York</a> on 2014-06-13</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2014-07-apicraft-art/index.html">The Art of Hypermedia</a> <em>Delivered at API-Craft Detroit on 2014-07-28</em>
+<a href="http://mamund.site44.com/talks/2014-07-apicraft-art/index.html">The Art of Hypermedia</a> <em>Delivered at API-Craft Detroit on 2014-07-28</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2014-07-oscon-cathedrals/index.html">Cathedrals in the Cloud: Musings on APIs for the Web</a> <em>Delivered 2014-107-22 @ <a href="http://conferences.oreilly.com/oscon/oscon2014/public/schedule/detail/34888">OSCON 2014</a>, Portland, OR</em>
+<a href="http://mamund.site44.com/talks/2014-07-oscon-cathedrals/index.html">Cathedrals in the Cloud: Musings on APIs for the Web</a> <em>Delivered 2014-107-22 @ <a href="http://conferences.oreilly.com/oscon/oscon2014/public/schedule/detail/34888">OSCON 2014</a>, Portland, OR</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2014-07-oscon-reuse/index.html">Designing for Reuse: Creating APIs for the Future</a> <em>Delivered 2014-07-23 @ <a href="http://conferences.oreilly.com/oscon/oscon2014/public/schedule/detail/34922">OSCON 2014</a>, Portland, OR</em>
+<a href="http://mamund.site44.com/talks/2014-07-oscon-reuse/index.html">Designing for Reuse: Creating APIs for the Future</a> <em>Delivered 2014-07-23 @ <a href="http://conferences.oreilly.com/oscon/oscon2014/public/schedule/detail/34922">OSCON 2014</a>, Portland, OR</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2014-09-api360-dc/index.html">It&#8217;s not Open Data Unless it&#8217;s Usable Data</a> <em>Delivered 2014-09-12 @ API360 Summit in Washington, DC</em>
+<a href="http://mamund.site44.com/talks/2014-09-api360-dc/index.html">It&#8217;s not Open Data Unless it&#8217;s Usable Data</a> <em>Delivered 2014-09-12 @ API360 Summit in Washington, DC</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2014-apidays-paris/index.html">Revisiting Geddes' Outlook Tower</a> <em>Delivered at <a href="http://apidays.io">API Days Paris 2014</a> on 2014-11-01</em>
+<a href="http://mamund.site44.com/talks/2014-apidays-paris/index.html">Revisiting Geddes' Outlook Tower</a> <em>Delivered at <a href="http://apidays.io">API Days Paris 2014</a> on 2014-11-01</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2014-archsummit-beijing/index.html">Conway&#8217;s Law at a Distance</a> <em>Delivered 2014-12-19 @ <a href="http://bj2014.archsummit.com/user/802">ArchSummit 2014</a>, Beijing, China</em>
+<a href="http://mamund.site44.com/talks/2014-archsummit-beijing/index.html">Conway&#8217;s Law at a Distance</a> <em>Delivered 2014-12-19 @ <a href="http://bj2014.archsummit.com/user/802">ArchSummit 2014</a>, Beijing, China</em>
 </p>
 </li>
 </ul></div>
@@ -1247,12 +1259,12 @@ asciidoc.install();
 </li>
 <li>
 <p>
-<a href="2013-05-salad-agents/index.html">Autonomous Agents on the Web</a> <em>Delivered at <a href="https://dblp.org/db/conf/esws/salad2013.html">SALAD Workshop</a> May, 2013</em>
+<a href="http://mamund.site44.com/talks/2013-05-salad-agents/index.html">Autonomous Agents on the Web</a> <em>Delivered at <a href="https://dblp.org/db/conf/esws/salad2013.html">SALAD Workshop</a> May, 2013</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2013-06-apidays-scale-free/index.html">Scaling the API Ecomony with Scale-Free Networks</a> <em>Delivered at <a href="http://sf.apidays.io/2013/">API Days SF</a> on June 21, 2013</em>
+<a href="http://mamund.site44.com/talks/2013-06-apidays-scale-free/index.html">Scaling the API Ecomony with Scale-Free Networks</a> <em>Delivered at <a href="http://sf.apidays.io/2013/">API Days SF</a> on June 21, 2013</em>
 </p>
 </li>
 <li>
@@ -1262,7 +1274,7 @@ asciidoc.install();
 </li>
 <li>
 <p>
-<a href="2013-12-apidays/index.html">Telephones, Mechanical Turks, and the Future of APIs</a> <em>Delivered at API Days Paris on 2013-12-03</em>
+<a href="http://mamund.site44.com/talks/2013-12-apidays/index.html">Telephones, Mechanical Turks, and the Future of APIs</a> <em>Delivered at API Days Paris on 2013-12-03</em>
 </p>
 </li>
 </ul></div>
@@ -1274,27 +1286,27 @@ asciidoc.install();
 <div class="ulist"><ul>
 <li>
 <p>
-<a href="2012-03-codepalousa-rest/index.html">REST : And Now for Something Completely Different</a> <em>Delivered 2012-03-16 @ CodePaLOUsa in Lousiville, KY</em>
+<a href="http://mamund.site44.com/talks/2012-03-codepalousa-rest/index.html">REST : And Now for Something Completely Different</a> <em>Delivered 2012-03-16 @ CodePaLOUsa in Lousiville, KY</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2012-ws-rest/index.html">From APIs to Affordances</a> <em>Delivered at <a href="http://ws-rest.org/2012/">WS-REST 2012</a> on 2012-04-17</em>
+<a href="http://mamund.site44.com/talks/2012-ws-rest/index.html">From APIs to Affordances</a> <em>Delivered at <a href="http://ws-rest.org/2012/">WS-REST 2012</a> on 2012-04-17</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2012-06-qconnyc-hypermedia/index.html">The Costs and Benefits of Building Hypermedia APIs</a> <em>Delivered 2012-06-12 @ QCon NYC</em>
+<a href="http://mamund.site44.com/talks/2012-06-qconnyc-hypermedia/index.html">The Costs and Benefits of Building Hypermedia APIs</a> <em>Delivered 2012-06-12 @ QCon NYC</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2012-07-oscon-cloud-stack/index.html">Programming with the OSS Cloud Stack</a> <em>Delivered 2012-07-18 @ <a href="http://conferences.oreilly.com/oscon/oscon2012/public/schedule/detail/24230">OSCON 2012</a> in Portland, OR</em>
+<a href="http://mamund.site44.com/talks/2012-07-oscon-cloud-stack/index.html">Programming with the OSS Cloud Stack</a> <em>Delivered 2012-07-18 @ <a href="http://conferences.oreilly.com/oscon/oscon2012/public/schedule/detail/24230">OSCON 2012</a> in Portland, OR</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2012-09-restfest-memes/index.html">REST-like Wisdom from Celebrity Internet Memes</a> <em>Delivered at <a href="http://2012.restfest.org/">RESTFest</a> 2012 on 2012-09-15</em>
+<a href="http://mamund.site44.com/talks/2012-09-restfest-memes/index.html">REST-like Wisdom from Celebrity Internet Memes</a> <em>Delivered at <a href="http://2012.restfest.org/">RESTFest</a> 2012 on 2012-09-15</em>
 </p>
 </li>
 <li>
@@ -1314,12 +1326,12 @@ asciidoc.install();
 </li>
 <li>
 <p>
-<a href="2012-12-apidays/index.html">Future Interface: What the Last 50 years of Modern Computing History Tells Us About the Future</a> <em>Delivered at API Days Paris on 2012-12-03</em>
+<a href="http://mamund.site44.com/talks/2012-12-apidays/index.html">Future Interface: What the Last 50 years of Modern Computing History Tells Us About the Future</a> <em>Delivered at API Days Paris on 2012-12-03</em>
 </p>
 </li>
 <li>
 <p>
-<a href="2012-12-apidays-fearless/2012-11-apidays-api-and-soa-amundsen.pdf">SOA and APIs : Fearless Lessons from the Field</a> <em>Delivered at API Days Paris on 2012-12-04</em>
+<a href="http://mamund.site44.com/talks/2012-12-apidays-fearless/2012-11-apidays-api-and-soa-amundsen.pdf">SOA and APIs : Fearless Lessons from the Field</a> <em>Delivered at API Days Paris on 2012-12-04</em>
 </p>
 </li>
 </ul></div>
@@ -1349,7 +1361,7 @@ asciidoc.install();
 </div>
 <p>&nbsp;</p>
 <div align="center">
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" href="../index.html" property="cc:attributionName" rel="cc:attributionURL">amundsen.com, Inc.</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" href="http://amundsen.com" property="cc:attributionName" rel="cc:attributionURL">amundsen.com, Inc.</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 </div>
 
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
@@ -1365,7 +1377,7 @@ urchinTracker();
 <div id="footer">
 <div id="footer-text">
 Last updated
- 2024-06-14 11:28:13 EDT
+ 2025-08-20 20:04:30 EDT
 </div>
 </div>
 </body>
