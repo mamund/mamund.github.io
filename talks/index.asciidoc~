@@ -14,6 +14,7 @@ ____
 == Talks
 
 *2025*::
+ * link:2025-05-apidays-nyc/[ALPS + AI = API] _Delivered 2025-05-15 for https://www.apidays.global/events/new-york/[ApiDays nyc 2025]_
  * link:http://mamund.site44.com/talks/2025-08-bigsky-devcon/[Guiding Principles of Great Web APIs] _Delivered 2025-08-02 for https://bigskydevcon.com/[Big Sky DevCon 2025]
 
 *2024*::
@@ -73,73 +74,73 @@ ____
  * link:http://mamund.site44.com/talks/2017-09-restfest/index.html[Three Types of Microservices Components] _Delivered 2017-09-16 at https://github.com/RESTFest/2017-Greenville/wiki/Mike-Amundsen[RESTFest 2017], Greenville, SC, USA_
  * link:http://mamund.site44.com/talks/2017-09-webexpo/index.html[Dreams, Lies, and the Autonomous Web Revisited] _Delivered 2017-09-24 at https://www.webexpo.net/prague2017/talk/dreams-lies-and-the-autonomous-web/[WebExpo 2017], Prague, CZ_
  * link:http://mamund.site44.com/talks/2017-11-caworld/index.html[Microservices – How to Safely Speed Up Your Digital Innovation], _Delivered 2017-11-16 at https://cloud.kapostcontent.net/pub/92ce3367-5e5a-462f-9a3b-e3d5c0fb6b39/do1t56t-tt2-thu-330-amundsenm.pdf/[CA World 2017], Las Vegas, NV_
- * link:2017-12-yow/index.html[Twelve Patterns for Evolvable APIs Revisited], _Delivered 2017-12-08 at http://sydney.yowconference.com.au/proposal/?id=5174[YOW! Sydney 2017], Melbourne, AUS_
+ * link:http://mamund.site44.com/talks/2017-12-yow/index.html[Twelve Patterns for Evolvable APIs Revisited], _Delivered 2017-12-08 at http://sydney.yowconference.com.au/proposal/?id=5174[YOW! Sydney 2017], Melbourne, AUS_
 
 *2016*:: 
- * link:2016-03-apidays-aus/index.html[API : The 'I' Stands for Innovation] _Delivered 2016-03-01 @ http://au.apidays.io/[APIDays Melbourne, 2016], Melbourne, Australia_
- * link:2016-03-zero-to-hyper/index.html[Zero to Hypermedia in 30 Minutes] _Delivered 2016-03-02 @ http://au.apidays.io/[APIDays Melbourne, 2016], Melbourne, Australia_
- * link:2016-03-qconsp-teams/index.html[Building Effective Microservice Teams] _Delivered 2016-03-28 @ http://qconsp.com/presentation/Building-Effective-Microservice-Teams[QconSP, 2016], Sao Paulo, Brazil_
- * link:2016-04-sacon-patterns/index.html[Twelve Patterns for Hypermedia Service Architecture] _Delivered 2016-04-12 at http://conferences.oreilly.com/software-architecture/engineering-business-us/public/schedule/detail/47869[Software Architecture 2016], NYC_
- * link:2016-06-wsrest/index.html[Web API Design Maturity Model] _Delivered 2016-06-09 at https://github.com/apiacademy/WSREST2016/wiki[WS-REST  2016], Lugano, Swizterland_
- * link:2016-06-api360-conway/index.html[Sixty Years of Humanzing the Craft with Mel Conway] _Delivered 2016-06-14 at http://www.apiacademy.co/api360/[API360 Summit, NYC], New York, NY_
- * link:2016-07-restfest-conway/index.html[Conway's Four Laws] _Delivered 2016-07-16 at https://github.com/RESTFest/2016-Edinburgh/wiki[RESTFest Edinburgh 2016], Edinburgh, Scotland_
- * link:2016-09-api-world/index.html[Establishing a Foundation for Microservices] _Delivered 2016-09-12 at https://apiworld2016.sched.org/speaker/mca3?iframe=no&w=&sidebar=yes&bg=no[API:World 2016], San Jose, California_
- * link:2016-10-gartner/index.html[Microserivices: How to safely speed up your digital innovation] _Delivered 2016-10-27 at http://www.gartner.com/events/apac/gold-coast-symposium#!speakerDetails-11131011[Gartner Symposium/ITxpo 2016], Gold Coast, QLD, Australia_
- * link:2016-11-apistrat-wadm/index.html[Web API Maturity Model] _Delivered 2016-11-03 at http://boston2016.apistrat.com/schedule/[APIStrat Boston 2016], Boston, MA_
- * link:2016-11-apistrat-chaos/index.html[Unleash the Chaos] _Delivered 2016-11-03 at http://boston2016.apistrat.com/speakers/mike-amundsen[APIStrat Boston 2016], Boston, MA_
- * link:2016-12-apidays-autonomic/index.html[Coming to Terms with our Autonomic Future] _Delivered 2016-12-13 at http://apidays.io/[APIDays Paris 2016], Paris, France_
+ * link:http://mamund.site44.com/talks/2016-03-apidays-aus/index.html[API : The 'I' Stands for Innovation] _Delivered 2016-03-01 @ http://au.apidays.io/[APIDays Melbourne, 2016], Melbourne, Australia_
+ * link:http://mamund.site44.com/talks/2016-03-zero-to-hyper/index.html[Zero to Hypermedia in 30 Minutes] _Delivered 2016-03-02 @ http://au.apidays.io/[APIDays Melbourne, 2016], Melbourne, Australia_
+ * link:http://mamund.site44.com/talks/2016-03-qconsp-teams/index.html[Building Effective Microservice Teams] _Delivered 2016-03-28 @ http://qconsp.com/presentation/Building-Effective-Microservice-Teams[QconSP, 2016], Sao Paulo, Brazil_
+ * link:http://mamund.site44.com/talks/2016-04-sacon-patterns/index.html[Twelve Patterns for Hypermedia Service Architecture] _Delivered 2016-04-12 at http://conferences.oreilly.com/software-architecture/engineering-business-us/public/schedule/detail/47869[Software Architecture 2016], NYC_
+ * link:http://mamund.site44.com/talks/2016-06-wsrest/index.html[Web API Design Maturity Model] _Delivered 2016-06-09 at https://github.com/apiacademy/WSREST2016/wiki[WS-REST  2016], Lugano, Swizterland_
+ * link:http://mamund.site44.com/talks/2016-06-api360-conway/index.html[Sixty Years of Humanzing the Craft with Mel Conway] _Delivered 2016-06-14 at http://www.apiacademy.co/api360/[API360 Summit, NYC], New York, NY_
+ * link:http://mamund.site44.com/talks/2016-07-restfest-conway/index.html[Conway's Four Laws] _Delivered 2016-07-16 at https://github.com/RESTFest/2016-Edinburgh/wiki[RESTFest Edinburgh 2016], Edinburgh, Scotland_
+ * link:http://mamund.site44.com/talks/2016-09-api-world/index.html[Establishing a Foundation for Microservices] _Delivered 2016-09-12 at https://apiworld2016.sched.org/speaker/mca3?iframe=no&w=&sidebar=yes&bg=no[API:World 2016], San Jose, California_
+ * link:http://mamund.site44.com/talks/2016-10-gartner/index.html[Microserivices: How to safely speed up your digital innovation] _Delivered 2016-10-27 at http://www.gartner.com/events/apac/gold-coast-symposium#!speakerDetails-11131011[Gartner Symposium/ITxpo 2016], Gold Coast, QLD, Australia_
+ * link:http://mamund.site44.com/talks/2016-11-apistrat-wadm/index.html[Web API Maturity Model] _Delivered 2016-11-03 at http://boston2016.apistrat.com/schedule/[APIStrat Boston 2016], Boston, MA_
+ * link:http://mamund.site44.com/talks/2016-11-apistrat-chaos/index.html[Unleash the Chaos] _Delivered 2016-11-03 at http://boston2016.apistrat.com/speakers/mike-amundsen[APIStrat Boston 2016], Boston, MA_
+ * link:http://mamund.site44.com/talks/2016-12-apidays-autonomic/index.html[Coming to Terms with our Autonomic Future] _Delivered 2016-12-13 at http://apidays.io/[APIDays Paris 2016], Paris, France_
 
 *2015*::
- * link:2015-02-apidays-sydney/index.html[Liberating the API Economy with Scale-Free Networks] _Delivered 2015-02-10 @ 13:30 for http://syd.apidays.io[API Days Sydney]_
- * link:2015-03-api-connections/index.html[50+ Years of Digital Transformation] _Delivered 2015-03-18 @ 10:30 for http://www.ca.com/fr/events/seminars/emea/what-is-api-instead-in-an-omni-strategy/14-04-2015.aspx[API Connections Paris]_
- * link:2015-03-hhcamp/index.html[Putting Big Data in its Place] _Delivered 2015-03-20 at http://hackinghealth.camp/health-data-day.html[HHCamp], Strasbourg, France_
- * link:2015-04-codepalousa/semantic-gap.html[REST, Hypermedia, and the Semantic Gap] _Delivered 2015-04-28 at Code PaLOUsa, Louisville, KY_
- * link:2015-04-codepalousa/api-methodology.html[API Design Methodology] _Delivered 2015-04-29 at Code PaLOUsa, Louisville, KY_ 
- * link:2015-05-barcelona/index.html[From Stacia to Hyperion and Back Again : A Hypermedia Hero's Tale] _Delivered 2015-05-05 at http://mediterranea.apidays.io/[API Days Mediterranean], Barcelona_
- * link:2015-06-ndcoslo/index.html[Learning Client Hypermedia from the Ground Up] _Delivered 2015-06-19 at http://www.ndcoslo.com/[NDC Oslo], Oslo, Norway_
- * link:2015-06-plex/index.html[Beyond Source Code] _Delivered 2015-06-02 at http://plex2e.com/conference/[CA 2E/Plex Conference] in Austin, TX_
- * link:2015-08-qcon-rio/index.html[Adaptable Clients and Evolvable APIs] _Delivered 2015-08-27 at http://qconrio.com/speaker/mike-amundsen[QCon Rio 2015], Rio de Janeiro, Brazil_
- * link:2015-10-infosys-india/index.html[APIs, Banks, and Disruption/Innovation] _Delivered 2015-10-08 at Infosys Finacle Forum, Bangalore, India_
- * link:2015-10-qcon-autonomous/index.html[Dreams, Lies, and the Autonomous Web] _Delivered 2015-10-17 at http://2015.qconshanghai.com/speakers/202025[QCon 2015], Shanghai, China_
- * link:2015-10-qcon-teams/index.html[Building Effective Microservice Teams] _Delivered 2015-10-17 @ http://2015.qconshanghai.com/speakers/202025[QCon Shangahi 2015], Shanghai, China_
- * link:2015-10-velocity-teams/index.html[Conway's Three Other Laws] _Delivered 2015-10-29 @ http://velocityconf.com/devops-web-performance-eu-2015/public/schedule/detail/44500[Velocity EU 2015], Amsterdam, Netherlands_
- * link:2015-11-caworld-dorr/index.html[Implementing Adaptable Microservices] _Delivered 2015-11-18 @ https://www.travelhq.com/ConferenceServices/ECS/SessionCatalog/caworld15[CAWorld 2015], Las Vegas, NV_
- * link:2015-11-apistrat-innovation/index.html[Fostering Innovation] _Delivered 2015-11-19 @ http://austin2015.apistrat.com/[APIStrat Austin 2015], Austin, TX_
+ * link:http://mamund.site44.com/talks/2015-02-apidays-sydney/index.html[Liberating the API Economy with Scale-Free Networks] _Delivered 2015-02-10 @ 13:30 for http://syd.apidays.io[API Days Sydney]_
+ * link:http://mamund.site44.com/talks/2015-03-api-connections/index.html[50+ Years of Digital Transformation] _Delivered 2015-03-18 @ 10:30 for http://www.ca.com/fr/events/seminars/emea/what-is-api-instead-in-an-omni-strategy/14-04-2015.aspx[API Connections Paris]_
+ * link:http://mamund.site44.com/talks/2015-03-hhcamp/index.html[Putting Big Data in its Place] _Delivered 2015-03-20 at http://hackinghealth.camp/health-data-day.html[HHCamp], Strasbourg, France_
+ * link:http://mamund.site44.com/talks/2015-04-codepalousa/semantic-gap.html[REST, Hypermedia, and the Semantic Gap] _Delivered 2015-04-28 at Code PaLOUsa, Louisville, KY_
+ * link:http://mamund.site44.com/talks/2015-04-codepalousa/api-methodology.html[API Design Methodology] _Delivered 2015-04-29 at Code PaLOUsa, Louisville, KY_ 
+ * link:http://mamund.site44.com/talks/2015-05-barcelona/index.html[From Stacia to Hyperion and Back Again : A Hypermedia Hero's Tale] _Delivered 2015-05-05 at http://mediterranea.apidays.io/[API Days Mediterranean], Barcelona_
+ * link:http://mamund.site44.com/talks/2015-06-ndcoslo/index.html[Learning Client Hypermedia from the Ground Up] _Delivered 2015-06-19 at http://www.ndcoslo.com/[NDC Oslo], Oslo, Norway_
+ * link:http://mamund.site44.com/talks/2015-06-plex/index.html[Beyond Source Code] _Delivered 2015-06-02 at http://plex2e.com/conference/[CA 2E/Plex Conference] in Austin, TX_
+ * link:http://mamund.site44.com/talks/2015-08-qcon-rio/index.html[Adaptable Clients and Evolvable APIs] _Delivered 2015-08-27 at http://qconrio.com/speaker/mike-amundsen[QCon Rio 2015], Rio de Janeiro, Brazil_
+ * link:http://mamund.site44.com/talks/2015-10-infosys-india/index.html[APIs, Banks, and Disruption/Innovation] _Delivered 2015-10-08 at Infosys Finacle Forum, Bangalore, India_
+ * link:http://mamund.site44.com/talks/2015-10-qcon-autonomous/index.html[Dreams, Lies, and the Autonomous Web] _Delivered 2015-10-17 at http://2015.qconshanghai.com/speakers/202025[QCon 2015], Shanghai, China_
+ * link:http://mamund.site44.com/talks/2015-10-qcon-teams/index.html[Building Effective Microservice Teams] _Delivered 2015-10-17 @ http://2015.qconshanghai.com/speakers/202025[QCon Shangahi 2015], Shanghai, China_
+ * link:http://mamund.site44.com/talks/2015-10-velocity-teams/index.html[Conway's Three Other Laws] _Delivered 2015-10-29 @ http://velocityconf.com/devops-web-performance-eu-2015/public/schedule/detail/44500[Velocity EU 2015], Amsterdam, Netherlands_
+ * link:http://mamund.site44.com/talks/2015-11-caworld-dorr/index.html[Implementing Adaptable Microservices] _Delivered 2015-11-18 @ https://www.travelhq.com/ConferenceServices/ECS/SessionCatalog/caworld15[CAWorld 2015], Las Vegas, NV_
+ * link:http://mamund.site44.com/talks/2015-11-apistrat-innovation/index.html[Fostering Innovation] _Delivered 2015-11-19 @ http://austin2015.apistrat.com/[APIStrat Austin 2015], Austin, TX_
 
 *2014*::
- * link:2014-03-apistrat//index.html[Self-Replication, Strandbeest, and the Game of Life] _Delivered at APIStrat Amsterdam on 2014-03-27_
- * link:2014-04-wsrest/index.html[Follow Your Nose or Hold Your Nose?] _Delivered at WSREST2014 talk in Seoul, SK on 2014-04-07_
- * link:2014-05-gluecon/index.html[Mapping the API Landscape] _Delivered at http://gluecon.com/apistrat-tech-un-workshop-gluecon//[APIStrat Un-Workshop] on 2014-05-20_
- * link:2014-06-apicraft-nyc/index.pdf[API Design Methodology] _Delivered at http://www.meetup.com/API-Craft-NYC/events/166198312/[API-Craft NYC] on 2014-06-11_
- * link:2014-06-cloudantcon/2014-06-cloudantcon-slides.pdf[Making Cloud Data Usable] _Delivered at http://www.cloudantcon.com/agenda-at-a-glance/[CloudantCON 2014] on 2014-06-17_
- * link:2014-06-qconnyc/2014-06-qconnyc.pdf[Clients Matter, Services Don't : Recovering the Future of the Web] _Delivered at https://qconnewyork.com/ny2014/presentation/clients-matter-services-dont.html[QCon New York] on 2014-06-13_
- * link:2014-07-apicraft-art/index.html[The Art of Hypermedia] _Delivered at API-Craft Detroit on 2014-07-28_
- * link:2014-07-oscon-cathedrals/index.html[Cathedrals in the Cloud: Musings on APIs for the Web] _Delivered 2014-107-22 @ http://conferences.oreilly.com/oscon/oscon2014/public/schedule/detail/34888[OSCON 2014], Portland, OR_
- * link:2014-07-oscon-reuse/index.html[Designing for Reuse: Creating APIs for the Future] _Delivered 2014-07-23 @ http://conferences.oreilly.com/oscon/oscon2014/public/schedule/detail/34922[OSCON 2014], Portland, OR_
- * link:2014-09-api360-dc/index.html[It's not Open Data Unless it's Usable Data] _Delivered 2014-09-12 @ API360 Summit in Washington, DC_
- * link:2014-apidays-paris/index.html[Revisiting Geddes' Outlook Tower] _Delivered at http://apidays.io[API Days Paris 2014] on 2014-11-01_
- * link:2014-archsummit-beijing/index.html[Conway's Law at a Distance] _Delivered 2014-12-19 @ http://bj2014.archsummit.com/user/802[ArchSummit 2014], Beijing, China_
+ * link:http://mamund.site44.com/talks/2014-03-apistrat//index.html[Self-Replication, Strandbeest, and the Game of Life] _Delivered at APIStrat Amsterdam on 2014-03-27_
+ * link:http://mamund.site44.com/talks/2014-04-wsrest/index.html[Follow Your Nose or Hold Your Nose?] _Delivered at WSREST2014 talk in Seoul, SK on 2014-04-07_
+ * link:http://mamund.site44.com/talks/2014-05-gluecon/index.html[Mapping the API Landscape] _Delivered at http://gluecon.com/apistrat-tech-un-workshop-gluecon//[APIStrat Un-Workshop] on 2014-05-20_
+ * link:http://mamund.site44.com/talks/2014-06-apicraft-nyc/index.pdf[API Design Methodology] _Delivered at http://www.meetup.com/API-Craft-NYC/events/166198312/[API-Craft NYC] on 2014-06-11_
+ * link:http://mamund.site44.com/talks/2014-06-cloudantcon/2014-06-cloudantcon-slides.pdf[Making Cloud Data Usable] _Delivered at http://www.cloudantcon.com/agenda-at-a-glance/[CloudantCON 2014] on 2014-06-17_
+ * link:http://mamund.site44.com/talks/2014-06-qconnyc/2014-06-qconnyc.pdf[Clients Matter, Services Don't : Recovering the Future of the Web] _Delivered at https://qconnewyork.com/ny2014/presentation/clients-matter-services-dont.html[QCon New York] on 2014-06-13_
+ * link:http://mamund.site44.com/talks/2014-07-apicraft-art/index.html[The Art of Hypermedia] _Delivered at API-Craft Detroit on 2014-07-28_
+ * link:http://mamund.site44.com/talks/2014-07-oscon-cathedrals/index.html[Cathedrals in the Cloud: Musings on APIs for the Web] _Delivered 2014-107-22 @ http://conferences.oreilly.com/oscon/oscon2014/public/schedule/detail/34888[OSCON 2014], Portland, OR_
+ * link:http://mamund.site44.com/talks/2014-07-oscon-reuse/index.html[Designing for Reuse: Creating APIs for the Future] _Delivered 2014-07-23 @ http://conferences.oreilly.com/oscon/oscon2014/public/schedule/detail/34922[OSCON 2014], Portland, OR_
+ * link:http://mamund.site44.com/talks/2014-09-api360-dc/index.html[It's not Open Data Unless it's Usable Data] _Delivered 2014-09-12 @ API360 Summit in Washington, DC_
+ * link:http://mamund.site44.com/talks/2014-apidays-paris/index.html[Revisiting Geddes' Outlook Tower] _Delivered at http://apidays.io[API Days Paris 2014] on 2014-11-01_
+ * link:http://mamund.site44.com/talks/2014-archsummit-beijing/index.html[Conway's Law at a Distance] _Delivered 2014-12-19 @ http://bj2014.archsummit.com/user/802[ArchSummit 2014], Beijing, China_
 
 *2013*:: 
  * 2013-02 Layer7 Webinar "Be my API : How to Implement an API Strategy Everyone will Love"
  * 2013-03 QCon London  "RESTing in the ALPS"
  * 2013-05 FluentConf  "Not Rocket Science"
- * link:2013-05-salad-agents/index.html[Autonomous Agents on the Web] _Delivered at https://dblp.org/db/conf/esws/salad2013.html[SALAD Workshop] May, 2013_
- * link:2013-06-apidays-scale-free/index.html[Scaling the API Ecomony with Scale-Free Networks] _Delivered at http://sf.apidays.io/2013/[API Days SF] on June 21, 2013_
+ * link:http://mamund.site44.com/talks/2013-05-salad-agents/index.html[Autonomous Agents on the Web] _Delivered at https://dblp.org/db/conf/esws/salad2013.html[SALAD Workshop] May, 2013_
+ * link:http://mamund.site44.com/talks/2013-06-apidays-scale-free/index.html[Scaling the API Ecomony with Scale-Free Networks] _Delivered at http://sf.apidays.io/2013/[API Days SF] on June 21, 2013_
  * 2013-10 APIStratSF "Reusable APIs Through Hypermedia"
- * link:2013-12-apidays/index.html[Telephones, Mechanical Turks, and the Future of APIs] _Delivered at API Days Paris on 2013-12-03_
+ * link:http://mamund.site44.com/talks/2013-12-apidays/index.html[Telephones, Mechanical Turks, and the Future of APIs] _Delivered at API Days Paris on 2013-12-03_
 
 *2012*::
- * link:2012-03-codepalousa-rest/index.html[REST : And Now for Something Completely Different] _Delivered 2012-03-16 @ CodePaLOUsa in Lousiville, KY_
- * link:2012-ws-rest/index.html[From APIs to Affordances] _Delivered at http://ws-rest.org/2012/[WS-REST 2012] on 2012-04-17_
- * link:2012-06-qconnyc-hypermedia/index.html[The Costs and Benefits of Building Hypermedia APIs] _Delivered 2012-06-12 @ QCon NYC_
- * link:2012-07-oscon-cloud-stack/index.html[Programming with the OSS Cloud Stack] _Delivered 2012-07-18 @ http://conferences.oreilly.com/oscon/oscon2012/public/schedule/detail/24230[OSCON 2012] in Portland, OR_
- * link:2012-09-restfest-memes/index.html[REST-like Wisdom from Celebrity Internet Memes] _Delivered at http://2012.restfest.org/[RESTFest] 2012 on 2012-09-15_
+ * link:http://mamund.site44.com/talks/2012-03-codepalousa-rest/index.html[REST : And Now for Something Completely Different] _Delivered 2012-03-16 @ CodePaLOUsa in Lousiville, KY_
+ * link:http://mamund.site44.com/talks/2012-ws-rest/index.html[From APIs to Affordances] _Delivered at http://ws-rest.org/2012/[WS-REST 2012] on 2012-04-17_
+ * link:http://mamund.site44.com/talks/2012-06-qconnyc-hypermedia/index.html[The Costs and Benefits of Building Hypermedia APIs] _Delivered 2012-06-12 @ QCon NYC_
+ * link:http://mamund.site44.com/talks/2012-07-oscon-cloud-stack/index.html[Programming with the OSS Cloud Stack] _Delivered 2012-07-18 @ http://conferences.oreilly.com/oscon/oscon2012/public/schedule/detail/24230[OSCON 2012] in Portland, OR_
+ * link:http://mamund.site44.com/talks/2012-09-restfest-memes/index.html[REST-like Wisdom from Celebrity Internet Memes] _Delivered at http://2012.restfest.org/[RESTFest] 2012 on 2012-09-15_
  * 2012-10 That Conference "Essential Node for Web Developers"
  * 2012-11 Defrag 2014 "Such a Rich Set of Affordances: A Hypermedia Tale."
  * 2012-11 Gartner AADI "SOA and APIs : Fearless Lessons from the Field"
- * link:2012-12-apidays/index.html[Future Interface: What the Last 50 years of Modern Computing History Tells Us About the Future] _Delivered at API Days Paris on 2012-12-03_
- * link:2012-12-apidays-fearless/2012-11-apidays-api-and-soa-amundsen.pdf[SOA and APIs : Fearless Lessons from the Field] _Delivered at API Days Paris on 2012-12-04_
+ * link:http://mamund.site44.com/talks/2012-12-apidays/index.html[Future Interface: What the Last 50 years of Modern Computing History Tells Us About the Future] _Delivered at API Days Paris on 2012-12-03_
+ * link:http://mamund.site44.com/talks/2012-12-apidays-fearless/2012-11-apidays-api-and-soa-amundsen.pdf[SOA and APIs : Fearless Lessons from the Field] _Delivered at API Days Paris on 2012-12-04_
 
 ++++
 <p>&nbsp;</p>

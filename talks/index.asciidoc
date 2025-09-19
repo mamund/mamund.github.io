@@ -14,6 +14,7 @@ ____
 == Talks
 
 *2025*::
+ * link:http://mamund.site44.com/talks/2025-05-apidays-nyc/[ALPS + AI = API] _Delivered 2025-05-15 for https://www.apidays.global/events/new-york/[ApiDays nyc 2025]_
  * link:http://mamund.site44.com/talks/2025-08-bigsky-devcon/[Guiding Principles of Great Web APIs] _Delivered 2025-08-02 for https://bigskydevcon.com/[Big Sky DevCon 2025]
 
 *2024*::
