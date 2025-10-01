@@ -1,0 +1,39 @@
+= Making Your APIs AI-Ready
+:author: Mike Amundsen
+:email: mamund@gmail.com
+
+image:2025-10-apicon-nyc-ready-title.png["Title Slide", height=150, border=1, link="2025-10-apicon-nyc-ready-slides.pdf"]
+
+
+== Overview
+Status:: _Delivered 2025-10-01 for https://apiconference.net/new-york/[API Conference NYC 2025]_
+Home:: link:index.html[HTML]
+Slides:: link:2025-10-apicon-nyc-ready-slides.pdf[PDF]
+Code:: _NA_
+Video:: _NA_
+Audio:: _NA_
+Transcript:: _NA_
+Whitepaper:: link:https://treblle.com/ebooks/preparing-your-apis-for-ai-agents[Preparing Your
+APIs for AI Agents]
+
+== Abstract
+*Making Your APIs AI-Ready*
+
+This talk outlines five critical shifts organizations can make to ensure their API ecosystems are machine-ready: Intentionality, Context, Standardization, Discovery, and Adaptability. Drawing inspiration from pioneers like Donald Norman, Douglas Engelbart, Roy Fielding, Ted Nelson and Christopher Alexander, this session offers a strategic and actionable framework to help API teams prepare for the inevitable; machine-driven APIs.
+
+
+== Mike Amundsen
+Internationally known author and speaker Mike Amundsen consults with organizations around the world on network architecture, Web development, and the intersection of technology & society. He helps companies capitalize on the opportunities provided by APIs, Microservices, and Digital Transformation. 
+
+Amundsen has authored numerous books and papers.  His recent book is "RESTful Web API Patterns and Practices Cookbook" (2022). His "Design and Build Great APIs" (2020) is a popular developer-centric book. Amundsen also contributed to the book, "Continuous API Management" (2020, 2018).  His "RESTful Web Clients", was published in February 2017 and he co-authored "Microservice Architecture" (June 2016).
+
+ * Twitter/x: @mamund
+ * Voice: +1.859.757.1449 
+ * Email: mamund@gmail.com 
+ * Github: http://github.com/mamund
+ * YouTube: http://youtube.com/mamund/
+ * LinkedIn: http://linkedin.com/in/mamund
+ * Presentations: http://mamund.com/talks/
+ * Amazon Page: http://amazon.com/author/mamund
+
+

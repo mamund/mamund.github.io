@@ -16,6 +16,8 @@ ____
 *2025*::
  * link:http://mamund.site44.com/talks/2025-05-apidays-nyc/[ALPS + AI = API] _Delivered 2025-05-15 for https://www.apidays.global/events/new-york/[ApiDays nyc 2025]_
  * link:http://mamund.site44.com/talks/2025-08-bigsky-devcon/[Guiding Principles of Great Web APIs] _Delivered 2025-08-02 for https://bigskydevcon.com/[Big Sky DevCon 2025]
+ * link:http://mamund.site44.com/talks/2025-09-apicon-nyc/[Creating Your Own MCP-Style Agentic System] _Delivered 2025-09-30 for https://apiconference.net/new-york/[API Conference NYC 2025]_
+ * link:http://mamund.site44.com/talks/2025-10-apicon-nyc/[Making your APIs AI-Ready] _Delivered 2025-10-01 for https://apiconference.net/new-york/[API Conference NYC 2025]_
 
 *2024*::
  * link:http://mamund.site44.com/talks/2024-04-apidays-nyc/[RESTful Web API Patterns and Practices] _Delivered 2024-04-30 for https://www.apidays.global/new-york/[API Days NYC]_
