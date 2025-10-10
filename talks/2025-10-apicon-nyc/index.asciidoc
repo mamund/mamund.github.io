@@ -8,7 +8,7 @@ image:2025-10-apicon-nyc-ready-title.png["Title Slide", height=150, border=1, li
 == Overview
 Status:: _Delivered 2025-10-01 for https://apiconference.net/new-york/[API Conference NYC 2025]_
 Home:: link:index.html[HTML]
-Slides:: link:2025-10-apicon-nyc-ready-slides.pdf[PDF]
+Slides:: link:https://mamund.site44.com/talks/2025-10-apicon-nyc-ready-slides.pdf[PDF]
 Code:: _NA_
 Video:: _NA_
 Audio:: _NA_
