@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title>Mike Amundsen</title>
+  </head>
+  <body>
+    <h1>Mike Amundsen</h1>
+    <dl id="image-list"></dl>
+  </body>
+  <script type="text/javascript">
+    
+  var p;
+  
+  // start on load
+  window.onload = function()
+    {
+      p = thisPage();
+      p.init();
+    }
+  
+  var thisPage = function()
+  {
+    var g = {};
+    g.root = "http://amundsen.com/images/mca-photos/";
+    g.images = ["mamund_n.jpg","mca.jpg","Mike-Amundsen.jpg","MikeAvatar.jpg","my-gravatar.jpeg","Mike.gif","Mike.jpg","Mike.png"];
+    g.text = "{@title} ({@width} x {@height})";
+    g.working = [];
+     
+    function init()
+    {
+      loadImages();
+    }
+    
+    function loadImages()
+    {
+      var i,elm,item;
+      
+      elm = document.getElementById('image-list');
+      if(elm)
+      {
+        for(i=0;i<g.images.length;i++)
+        {
+          item = new Image();
+          item.src = g.root + g.images[i];
+          item.title = g.images[i];
+          g.working[i] = item;
+          setTimeout('p.displayImage('+i+')',600);
+        }
+      }
+    }
+    
+    function displayImage(i)
+    {
+      var elm,dd,dt,img,txt,item;
+      
+      elm = document.getElementById('image-list');
+      item = g.working[i];
+      
+      if(elm && item!=null)
+      {
+        txt = g.text.replace('{@title}',item.title).replace('{@width}',item.width).replace('{@height}',item.height);
+    
+        img = document.createElement('img');
+        img.src = item.src;
+        
+        dt = document.createElement('dt');
+        dt.appendChild(document.createTextNode(txt));
+    
+        dd = document.createElement('dd');
+        dd.appendChild(img);
+        
+        elm.appendChild(dt);
+        elm.appendChild(dd);
+      }
+    }
+    
+    var that = {};
+    that.init = init;
+    that.displayImage = displayImage;
+    that.g = g;
+    return that;
+  }
+  </script>
+</html>
