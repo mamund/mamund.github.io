@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Research Index</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; }
+    input { width: 100%; padding: 0.6rem; margin: 1rem 0; font-size: 1rem; }
+    li { margin: 0.5rem 0; }
+    .meta { color: #666; margin-left: 0.5rem; font-size: 0.9em; }
+    .generated { color: #666; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <h1>Research Index</h1>
+  <p class="generated">Generated: 4/30/2026, 11:27:39 AM</p>
+
+  <input id="searchBox" type="search" placeholder="Search files...">
+
+  <ul id="fileList">
+    <li>
+      <a href="2026-02-01-ai-skill-formation-2601.20245v1.pdf">2026-02-01-ai-skill-formation-2601.20245v1.pdf</a>
+      <span class="meta">(2792.9 KB, 2026-02-01)</span>
+    </li>
+<li>
+      <a href="2026-02-07-chatgpt-modes.html">2026-02-07-chatgpt-modes.html</a>
+      <span class="meta">(6.1 KB, 2026-04-30)</span>
+    </li>
+<li>
+      <a href="2026-02-07-claude_ai_usage_patterns.html">2026-02-07-claude_ai_usage_patterns.html</a>
+      <span class="meta">(13.3 KB, 2026-04-30)</span>
+    </li>
+<li>
+      <a href="EBjork_RBjork_2011.pdf">EBjork_RBjork_2011.pdf</a>
+      <span class="meta">(158.5 KB, 2026-02-04)</span>
+    </li>
+<li>
+      <a href="Productive Failure Kapur.pdf">Productive Failure Kapur.pdf</a>
+      <span class="meta">(508.6 KB, 2026-02-04)</span>
+    </li>
+<li>
+      <a href="Sparrow et al. 2011.pdf">Sparrow et al. 2011.pdf</a>
+      <span class="meta">(189.8 KB, 2026-02-23)</span>
+    </li>
+<li>
+      <a href="ai-skills-formation-summary.html">ai-skills-formation-summary.html</a>
+      <span class="meta">(3.1 KB, 2026-04-30)</span>
+    </li>
+<li>
+      <a href="build-v2.js">build-v2.js</a>
+      <span class="meta">(2.7 KB, 2026-04-30)</span>
+    </li>
+<li>
+      <a href="james-march-background.html">james-march-background.html</a>
+      <span class="meta">(8.1 KB, 2026-04-30)</span>
+    </li>
+<li>
+      <a href="learning-bjork-summary.html">learning-bjork-summary.html</a>
+      <span class="meta">(5.5 KB, 2026-04-30)</span>
+    </li>
+<li>
+      <a href="march-1991.pdf">march-1991.pdf</a>
+      <span class="meta">(400.9 KB, 2026-02-04)</span>
+    </li>
+<li>
+      <a href="march-exporation-exploitation-summary.html">march-exporation-exploitation-summary.html</a>
+      <span class="meta">(2.9 KB, 2026-04-30)</span>
+    </li>
+<li>
+      <a href="productive-failure-kapur-summary.html">productive-failure-kapur-summary.html</a>
+      <span class="meta">(4.6 KB, 2026-04-30)</span>
+    </li>
+  </ul>
+
+  <script>
+    const searchBox = document.getElementById('searchBox');
+    const fileList = document.getElementById('fileList');
+
+    searchBox.addEventListener('input', () => {
+      const query = searchBox.value.toLowerCase();
+
+      fileList.querySelectorAll('li').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.hidden = !text.includes(query);
+      });
+    });
+  </script>
+</body>
+</html>
